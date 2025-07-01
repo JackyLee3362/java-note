@@ -45,12 +45,6 @@
       <version>${spock.version}</version>
       <scope>test</scope>
     </dependency>
-    <dependency>
-      <groupId>org.projectlombok</groupId>
-      <artifactId>lombok</artifactId>
-      <version>1.18.38</version>
-      <scope>provided</scope>
-    </dependency>
 
     <!--spock-core自带groovy-all-->
     <!-- 2.Groovy 相关 -->
