@@ -13,7 +13,7 @@ class UserMapperTest extends Specification {
     def "测试映射"() {
 
         given:
-        def userPO = new UserPO(1, "Foo", 18)
+        def userPO = new UserPO(1, "Foo", 18, new Date(), new Date())
         def userDTO = mapper.toUserDTO(userPO)
 
         expect:

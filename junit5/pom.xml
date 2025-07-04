@@ -10,7 +10,7 @@
   </parent>
 
   <groupId>note.basic</groupId>
-  <artifactId>junit5-note</artifactId>
+  <artifactId>junit5</artifactId>
 
   <properties>
     <maven.compiler.source>17</maven.compiler.source>

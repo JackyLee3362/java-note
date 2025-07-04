@@ -2,8 +2,6 @@ package note.spock;
 
 import java.io.Serializable;
 import java.util.LinkedHashMap;
-import lombok.AllArgsConstructor;
-import lombok.Data;
 
 /**
  * @author jackylee

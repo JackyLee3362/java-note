@@ -6,7 +6,7 @@
 
 
   <groupId>note.spock</groupId>
-  <artifactId>spock-note</artifactId>
+  <artifactId>spock</artifactId>
   <version>1.0-SNAPSHOT</version>
 
   <properties>

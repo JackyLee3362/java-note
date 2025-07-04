@@ -1,5 +1,6 @@
 package note.mapstruct;
 
+import java.util.Date;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -18,5 +19,7 @@ public class UserPO {
     private Long id;
     private String name;
     private Integer age;
+    private Date createTime;
+    private Date updateTime;
 
 }

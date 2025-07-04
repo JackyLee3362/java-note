@@ -1,7 +1,5 @@
 package note.spock;
 
-import lombok.Data;
-
 /**
  * @author jackylee
  * @date 2025/7/1 15:36
