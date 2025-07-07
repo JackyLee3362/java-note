@@ -10,7 +10,7 @@
   </parent>
 
   <groupId>note.mapstruct</groupId>
-  <artifactId>mapstruct-note</artifactId>
+  <artifactId>mapstruct</artifactId>
 
   <properties>
     <maven.compiler.source>8</maven.compiler.source>
