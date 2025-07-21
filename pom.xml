@@ -14,7 +14,7 @@
     <module>mapstruct</module>
     <module>jackson</module>
     <module>thrift</module>
-    <module>java-util</module>
+    <module>java-note</module>
     <module>spring</module>
     <module>mybatis</module>
   </modules>
@@ -27,6 +27,12 @@
   </properties>
 
   <dependencies>
+    <dependency>
+      <groupId>org.junit.jupiter</groupId>
+      <artifactId>junit-jupiter</artifactId>
+      <version>5.12.2</version>
+      <scope>test</scope>
+    </dependency>
     <dependency>
       <groupId>org.spockframework</groupId>
       <artifactId>spock-core</artifactId>
