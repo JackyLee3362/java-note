@@ -17,6 +17,8 @@
     <module>java-note</module>
     <module>spring</module>
     <module>mybatis</module>
+    <module>juc</module>
+    <module>spring-bean</module>
   </modules>
 
   <properties>
