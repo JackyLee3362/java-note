@@ -1,4 +1,4 @@
-package note.jackson;
+package edu.note.jackson;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
