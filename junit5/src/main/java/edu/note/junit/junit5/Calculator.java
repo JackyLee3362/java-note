@@ -1,4 +1,4 @@
-package note.junit.junit5;
+package edu.note.junit.junit5;
 
 /**
  * @author jackylee

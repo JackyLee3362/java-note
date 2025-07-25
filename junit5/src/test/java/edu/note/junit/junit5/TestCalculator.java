@@ -1,7 +1,10 @@
-package note.junit.junit5;
+package edu.note.junit.junit5;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -12,6 +15,21 @@ import org.junit.jupiter.params.provider.CsvSource;
  * @date 2025/6/30 19:42
  */
 public class TestCalculator {
+    // @AfterAll
+    // @AfterEach
+    // 同理
+    // Disable 被注解后不参与测试
+    // DisplayName 测试名称
+
+    @BeforeAll
+    public static void beforeAllTest() {
+        System.out.println("所有测试前准备...");
+    }
+
+    @BeforeEach
+    public void beforeEachTest() {
+        System.out.println("单个测试前准备...");
+    }
 
     @Test
     @DisplayName("1 + 1 = 2")
@@ -31,6 +49,12 @@ public class TestCalculator {
         Calculator calculator = new Calculator();
         assertEquals(expectedResult, calculator.add(first, second),
             () -> first + " + " + second + " should equal " + expectedResult);
+    }
+
+    @Test
+    @Disabled
+    void disable(){
+
     }
 
 }
