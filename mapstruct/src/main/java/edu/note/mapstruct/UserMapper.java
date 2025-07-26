@@ -1,4 +1,4 @@
-package note.mapstruct;
+package edu.note.mapstruct;
 
 import org.mapstruct.Mapper;
 import org.mapstruct.factory.Mappers;

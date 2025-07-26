@@ -1,4 +1,4 @@
-package note.mapstruct;
+package edu.note.mapstruct;
 
 import java.util.Date;
 import lombok.AllArgsConstructor;
