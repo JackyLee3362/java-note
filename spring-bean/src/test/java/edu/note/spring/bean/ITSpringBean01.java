@@ -1,7 +1,7 @@
-package note.bean;
+package edu.note.spring.bean;
 
 import javax.annotation.Resource;
-import note.bean.MyController.User;
+import edu.note.spring.bean.MyController.User;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.context.ApplicationContext;
