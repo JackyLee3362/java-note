@@ -1,4 +1,4 @@
-package note.spock
+package edu.note.spock
 
 import org.powermock.reflect.Whitebox
 import spock.lang.Specification

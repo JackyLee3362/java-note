@@ -1,4 +1,4 @@
-package note.spock;
+package edu.note.spock;
 
 import java.io.Serializable;
 import java.util.LinkedHashMap;

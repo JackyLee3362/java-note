@@ -1,4 +1,4 @@
-package note.spock
+package edu.note.spock
 
 import spock.lang.Specification
 import spock.lang.Unroll

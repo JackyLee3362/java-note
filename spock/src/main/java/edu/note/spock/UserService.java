@@ -1,4 +1,4 @@
-package note.spock;
+package edu.note.spock;
 
 /**
  * @author jackylee
