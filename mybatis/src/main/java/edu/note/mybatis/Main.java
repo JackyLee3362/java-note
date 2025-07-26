@@ -1,4 +1,4 @@
-package note.mybatis;
+package edu.note.mybatis;
 
 /**
  * @author jackylee
