@@ -1,12 +1,11 @@
-package note.java.util;
+package edu.note.java.util;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
-import java.util.function.Function;
 import java.util.stream.Collectors;
-import note.java.model.User;
+import edu.note.java.model.User;
 import org.junit.Assert;
 import org.junit.Test;
 

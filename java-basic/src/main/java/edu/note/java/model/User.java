@@ -1,4 +1,4 @@
-package note.java.model;
+package edu.note.java.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

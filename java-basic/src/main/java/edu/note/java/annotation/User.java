@@ -1,4 +1,4 @@
-package note.java.annotation;
+package edu.note.java.annotation;
 
 import javax.annotation.PostConstruct;
 import lombok.AllArgsConstructor;

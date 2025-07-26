@@ -1,4 +1,4 @@
-package note.java.util;
+package edu.note.java.util;
 
 import java.time.Instant;
 import java.time.ZoneId;
