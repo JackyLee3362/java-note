@@ -1,0 +1,14 @@
+server:
+  port: 8081
+demo:
+  user:
+    teacher:
+      name: zhangsan
+      age: 24
+      height: 1.75
+      weight: 80
+    student:
+      name: lisi
+      age: 24
+      height: 1.75
+      weight: 80
