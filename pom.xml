@@ -4,7 +4,7 @@
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
-  <groupId>note</groupId>
+ <groupId>edu.note</groupId>
   <artifactId>java-se-note</artifactId>
   <version>1.0-SNAPSHOT</version>
   <packaging>pom</packaging>
@@ -14,11 +14,27 @@
     <module>mapstruct</module>
     <module>jackson</module>
     <module>thrift</module>
-    <module>java-note</module>
+    <module>java-basic</module>
     <module>spring</module>
     <module>mybatis</module>
     <module>juc</module>
     <module>spring-bean</module>
+    <module>spring-aop</module>
+    <module>spring-task</module>
+    <module>spring-rest-template</module>
+    <module>spring-redis</module>
+    <module>spring-jwt</module>
+    <module>spring-mq</module>
+    <module>algorithm</module>
+    <module>java-compile</module>
+    <!-- Spring Start -->
+    <module>spring-starter/demo-bmi-main</module>
+    <module>spring-starter/demo-bmi-autoconfig</module>
+    <module>spring-starter/demo-bmi-starter</module>
+    <!-- Java Service Interface -->
+    <module>java-spi/java-service-provider-interface</module>
+    <module>java-spi/java-service-provider</module>
+    <module>java-spi/java-spi-demo</module>
   </modules>
 
   <properties>
