@@ -1,4 +1,4 @@
-package note.thirft.server;
+package edu.note.thirft.server;
 
 public class Application {
 

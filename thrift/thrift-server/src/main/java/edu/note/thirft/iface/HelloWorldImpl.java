@@ -1,4 +1,4 @@
-package note.thirft.iface;
+package edu.note.thirft.iface;
 
 import java.util.ArrayList;
 import java.util.HashMap;
