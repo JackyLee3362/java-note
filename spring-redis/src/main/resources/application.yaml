@@ -1,0 +1,26 @@
+logging:
+  level:
+    io.lettuce.core: info
+  pattern:
+    dateformat: MM-dd HH:mm:ss:SSS
+spring:
+  redis:
+    host: localhost
+    port: 6379
+    password:
+    database: 0
+#    sentinel:
+#      master: mymaster # 指定master名称
+#      nodes:
+#        - 192.168.1.110:27001
+#        - 192.168.1.110:27002
+#        - 192.168.1.110:27003
+#    cluster:
+#      nodes:
+#        - 192.168.1.110:7001
+#        - 192.168.1.110:7002
+#        - 192.168.1.110:7003
+#        - 192.168.1.110:7004
+#        - 192.168.1.110:7005
+#        - 192.168.1.110:7006
+
