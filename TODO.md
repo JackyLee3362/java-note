@@ -17,6 +17,10 @@
 
 ## ChangeLog
 
+### 2025-07-26
+
+复制 java-note 内容，还剩 es 相关没有复制
+
 ### 2025-07-01
 
 - [x] MapStruct(Basic)
