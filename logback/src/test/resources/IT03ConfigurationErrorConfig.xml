@@ -1,0 +1,14 @@
+<configuration>
+  <!--<statusListener class="ch.qos.logback.core.status.OnConsoleStatusListener"/>-->
+  <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+    <encoder>
+      <pattern>%d{yyyy-MM-dd HH:mm:ss} 测试 %highlight(%-5level) [%thread] %-5level %logger{36} -
+        %msg%n
+      </pattern>
+    </encoder>
+  </appender>
+
+  <root level="INFO">
+    <appender-ref ref="CONSOLE2"/>
+  </root>
+</configuration>
