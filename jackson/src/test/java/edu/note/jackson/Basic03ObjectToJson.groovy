@@ -1,3 +1,5 @@
+package edu.note.jackson
+
 import spock.lang.Specification
 
 /**

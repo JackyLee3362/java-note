@@ -1,5 +1,6 @@
+package edu.note.jackson
+
 import com.fasterxml.jackson.databind.ObjectMapper
-import edu.note.jackson.Person
 import spock.lang.Specification
 
 /**
