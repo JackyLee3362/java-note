@@ -3,8 +3,10 @@ package edu.note.java.time;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
 
+@Slf4j
 public class TestSimpleDateFormat {
 
     @Test

@@ -1,7 +1,6 @@
-package edu.note.java.annotation;
+package edu.note.java.model;
 
 import javax.annotation.PostConstruct;
-import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
@@ -10,14 +9,21 @@ import lombok.NoArgsConstructor;
  * @date 2025/7/15 14:44
  */
 @NoArgsConstructor
-public class User {
+public class Student {
 
-    @Getter
     private String name;
 
     @PostConstruct
     public void init() {
         this.name = "default";
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getName() {
+        return this.name;
     }
 
 

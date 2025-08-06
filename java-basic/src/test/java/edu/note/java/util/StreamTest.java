@@ -18,8 +18,8 @@ public class StreamTest {
     @Test
     public void testStreamToList() {
         List<String> list = Arrays.asList("1", "2", "3", "4", "5");
-        List<Integer> collect = list.stream().map(Integer::parseInt).collect(Collectors.toList());
-        Assert.assertArrayEquals(new Integer[]{1, 2, 3, 4, 5}, collect.toArray());
+        // List<Integer> collect = list.stream().map(Integer::parseInt).collect(Collectors.toList());
+        Assert.assertArrayEquals(new Integer[]{1, 2, 3, 4, 5}, list.stream().map(Integer::parseInt).toArray());
     }
 
     @Test
