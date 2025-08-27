@@ -1,5 +1,6 @@
 package edu.note.util.concurrent.example;
 
+import edu.note.util.concurrent.util.Sleeper;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 import lombok.extern.slf4j.Slf4j;
@@ -22,11 +23,7 @@ public class SellTicketsSynchronized implements Runnable {
                     break;
                     // 4.判断
                 } else {
-                    try {
-                        Thread.sleep(10);
-                    } catch (InterruptedException e) {
-                        throw new RuntimeException(e);
-                    }
+                    Sleeper.sleep(0.01);
                     ticket++;
                     log.info("{}在卖第{}张票！！！", Thread.currentThread().getName(), ticket);
                 }

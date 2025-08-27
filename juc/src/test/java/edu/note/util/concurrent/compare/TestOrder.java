@@ -1,13 +1,13 @@
 package edu.note.util.concurrent.compare;
 
 
+import org.junit.jupiter.api.Test;
+
 public class TestOrder {
 
-    public static void main(String[] args) {
-        test3();
-    }
 
-    private static void test3() {
+    @Test
+    void test3() {
         SyncPark syncPark = new SyncPark(3);
         Thread t1 = new Thread(() -> {
             syncPark.print("a");
@@ -22,7 +22,8 @@ public class TestOrder {
         syncPark.start();
     }
 
-    private static void test2() {
+    @Test
+    void test2() {
         SyncLock syncLock = new SyncLock(1, 5);
         new Thread(() -> {
             syncLock.print(1, 2, "a");
@@ -35,7 +36,8 @@ public class TestOrder {
         }).start();
     }
 
-    private static void test1() {
+    @Test
+    void test1() {
         SyncWaitNotify syncWaitNotify = new SyncWaitNotify(1, 5);
         new Thread(() -> {
             syncWaitNotify.print(1, 2, "a");

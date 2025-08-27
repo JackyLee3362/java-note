@@ -1,7 +1,7 @@
 package edu.note.util.concurrent.lock;
 
-import static edu.note.util.concurrent.util.Sleeper.sleep;
 
+import edu.note.util.concurrent.util.Sleeper;
 import java.util.concurrent.locks.StampedLock;
 import lombok.extern.slf4j.Slf4j;
 
@@ -27,22 +27,23 @@ class DataContainerStamped {
      */
     public int read(int readTime) {
         long stamp = lock.tryOptimisticRead();
-        log.debug("optimistic read locking...{}", stamp);
-        sleep(readTime);
+        log.debug("乐观读锁获取 stamp={}", stamp);
+        Sleeper.sleep(readTime);
         if (lock.validate(stamp)) {
-            log.debug("read finish...{}, data:{}", stamp, data);
+            log.debug("乐观读锁校验成功 stamp={}, 数据={}", stamp, data);
             return data;
         }
+        // 如果 validate 失败，进行锁升级
         // 锁升级 - 读锁
-        log.debug("updating to read lock... {}", stamp);
+        log.debug("乐观读锁校验不成功 stamp = {}, 升级为读锁", stamp);
         try {
             stamp = lock.readLock();
-            log.debug("read lock {}", stamp);
-            sleep(readTime);
-            log.debug("read finish...{}, data:{}", stamp, data);
+            log.debug("读锁 Lock stamp={}", stamp);
+            Sleeper.sleep(readTime);
+            log.debug("读锁 读取完成 stamp={}, 数据={}", stamp, data);
             return data;
         } finally {
-            log.debug("read unlock {}", stamp);
+            log.debug("读锁 UnLock stamp={}", stamp);
             lock.unlockRead(stamp);
         }
     }
@@ -52,14 +53,14 @@ class DataContainerStamped {
      *
      * @param newData
      */
-    public void write(int newData) {
+    public void write(int newData, int writeTime) {
         long stamp = lock.writeLock();
-        log.debug("write lock {}", stamp);
+        log.debug("写锁 Lock stamp={}", stamp);
         try {
-            sleep(2);
+            Sleeper.sleep(writeTime);
             this.data = newData;
         } finally {
-            log.debug("write unlock {}", stamp);
+            log.debug("写锁 UnLock stamp={}", stamp);
             lock.unlockWrite(stamp);
         }
     }

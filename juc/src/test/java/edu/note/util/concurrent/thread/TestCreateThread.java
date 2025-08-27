@@ -1,5 +1,6 @@
 package edu.note.util.concurrent.thread;
 
+import edu.note.util.concurrent.util.Sleeper;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.FutureTask;
 import lombok.extern.slf4j.Slf4j;
@@ -13,38 +14,41 @@ import org.junit.jupiter.api.Test;
  * @author: Jacky Lee
  * @date: 2024/3/30 11:22
  */
-@Slf4j
+@Slf4j(topic = "c.TestCreateThread")
 public class TestCreateThread {
 
     @Test
-    @DisplayName("使用 Thread 类创建")
-    public void testCreate01() {
+    @DisplayName("Thread 类创建")
+    void testCreate01() throws InterruptedException {
         // 创建时设置线程名
         Thread t = new Thread(() -> log.debug("thread class: running..."), "t2");
         // 之后也可以修改
         t.setName("t1");
         t.start();
+        t.join();
     }
 
     @Test
-    @DisplayName("使用 Runnable 接口创建")
-    public void testCreate02() {
+    @DisplayName("Runnable 接口创建")
+    void testCreate02() throws InterruptedException {
         Runnable r = () -> log.debug("runnable interface: running");
         Thread t = new Thread(r, "t2");
         t.start();
+        t.join();
     }
 
     @Test
-    @DisplayName("使用 FutureTask 创建")
-    public void testCreate03() throws ExecutionException, InterruptedException {
+    @DisplayName("FutureTask 创建")
+    void testCreate03() throws ExecutionException, InterruptedException {
         FutureTask<Integer> task = new FutureTask<>(() -> {
             log.debug("using future task: running...");
-            Thread.sleep(1000);
+            Sleeper.sleep(1);
             return 101;
         });
         Thread t = new Thread(task, "futureTaskDemo");
         t.start();
-
+        // 获取返回值
         log.debug("{}", task.get());
+        t.join();
     }
 }

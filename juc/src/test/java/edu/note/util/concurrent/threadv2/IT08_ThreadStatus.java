@@ -1,7 +1,7 @@
 package edu.note.util.concurrent.threadv2;
 
-import static com.jackylee.juc.util.Sleeper.sleep;
 
+import edu.note.util.concurrent.util.Sleeper;
 import java.lang.Thread.State;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Assertions;
@@ -22,7 +22,7 @@ public class IT08_ThreadStatus {
         });
         t.start();
 
-        sleep(0.5);
+        Sleeper.sleep(0.5);
         Assertions.assertEquals(State.TERMINATED, t.getState());
         log.debug("状态是 {}", t.getState());
     }
@@ -40,7 +40,7 @@ public class IT08_ThreadStatus {
         });
 
         t.start();
-        sleep(0.1);
+        Sleeper.sleep(0.1);
         Assertions.assertEquals(State.TIMED_WAITING, t.getState());
         log.debug("状态是 {}", t.getState());
     }
@@ -61,7 +61,7 @@ public class IT08_ThreadStatus {
             }
         }, "t2");
         t2.start();
-        sleep(0.2);
+        Sleeper.sleep(0.2);
         Assertions.assertEquals(State.WAITING, t2.getState());
         log.debug("t5 state {}", t2.getState());
     }
@@ -82,7 +82,7 @@ public class IT08_ThreadStatus {
             }
         });
         t2.start();
-        sleep(0.1);
+        Sleeper.sleep(0.1);
         Assertions.assertEquals(State.BLOCKED, t2.getState());
         log.debug("状态是 {}", t2.getState());
     }

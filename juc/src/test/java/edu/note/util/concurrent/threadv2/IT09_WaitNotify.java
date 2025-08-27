@@ -1,7 +1,7 @@
 package edu.note.util.concurrent.threadv2;
 
 
-import com.jackylee.juc.util.Sleeper;
+import edu.note.util.concurrent.util.Sleeper;
 import java.lang.management.ManagementFactory;
 import java.lang.management.ThreadInfo;
 import java.lang.management.ThreadMXBean;

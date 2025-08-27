@@ -1,8 +1,7 @@
 package edu.note.util.concurrent.threadv2;
 
-import static com.jackylee.juc.util.Sleeper.sleep;
 
-import com.jackylee.juc.util.Sleeper;
+import edu.note.util.concurrent.util.Sleeper;
 import java.lang.Thread.State;
 import java.util.concurrent.locks.LockSupport;
 import lombok.extern.slf4j.Slf4j;
@@ -33,7 +32,7 @@ public class IT05_Interrupt {
         }, "🔴");
 
         t.start();
-        sleep(0.5);
+        Sleeper.sleep(0.5);
         t.interrupt();
         t.join();
         Assertions.assertTrue(t.isInterrupted());
@@ -48,12 +47,12 @@ public class IT05_Interrupt {
     void interruptSleepThread() throws InterruptedException {
         Thread t = new Thread(() -> {
             log.info("开始 sleep");
-            sleep(10);
+            Sleeper.sleep(10);
             log.info("结束 sleep");
         }, "🔵");
 
         t.start();
-        sleep(0.5);
+        Sleeper.sleep(0.5);
 
         t.interrupt();
         t.join();
@@ -75,7 +74,7 @@ public class IT05_Interrupt {
         }, "test");
 
         t.start();
-        sleep(0.5);
+        Sleeper.sleep(0.5);
         t.interrupt();
         t.join();
         Assertions.assertTrue(t.isInterrupted());
@@ -100,7 +99,7 @@ public class IT05_Interrupt {
         }, "test");
 
         t.start();
-        sleep(0.5);
+        Sleeper.sleep(0.5);
         t.interrupt();
         t.join();
     }
@@ -115,7 +114,6 @@ public class IT05_Interrupt {
         }, "t2");
         t1.start();
         t2.start();
-
 
         t1.join();
         t2.join();

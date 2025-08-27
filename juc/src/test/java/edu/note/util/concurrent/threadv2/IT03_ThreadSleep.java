@@ -1,6 +1,6 @@
 package edu.note.util.concurrent.threadv2;
 
-import com.jackylee.juc.util.Sleeper;
+import edu.note.util.concurrent.util.Sleeper;
 import java.util.concurrent.TimeUnit;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;

@@ -1,5 +1,6 @@
 package edu.note.util.concurrent.lock;
 
+import edu.note.util.concurrent.example.SellTicketsReentrantLock;
 import org.junit.jupiter.api.Test;
 
 public class TestReentrantLockDemo {

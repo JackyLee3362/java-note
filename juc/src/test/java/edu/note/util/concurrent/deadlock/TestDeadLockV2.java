@@ -1,12 +1,14 @@
 package edu.note.util.concurrent.deadlock;
 
 
+import org.junit.jupiter.api.Test;
+
 // FROM java-concurrent-questions-01#什么是线程死锁？如何避免死锁？
-public class DeadLockDemo {
+public class TestDeadLockV2 {
     public static final Object resource1 = new Object();
     public static final Object resource2 = new Object();
-
-    public static void main(String[] args) {
+    @Test
+    public void test(){
         new Thread(()->{
             synchronized(resource1){
                 System.out.println("已经获取到资源 1🔴");
@@ -22,6 +24,10 @@ public class DeadLockDemo {
                 }
             }
         },"线程1").start();
+
+    }
+
+    public static void main(String[] args) {
 
         new Thread(()->{
             synchronized(resource2){
