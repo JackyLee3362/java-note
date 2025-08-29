@@ -48,6 +48,7 @@
     <module>spring-mq</module>
     <module>algorithm</module>
     <module>fastjson</module>
+    <module>java-collection</module>
 
     <!-- Spring Start -->
     <!--<module>spring-starter/demo-bmi-main</module>-->
