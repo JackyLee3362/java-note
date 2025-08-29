@@ -1,6 +1,7 @@
 package edu.note.java.integer;
 
-public class A02_拆箱和装箱 {
+// 装箱和拆箱
+public class TestBox {
     public static void main(String[] args) {
         //在以前包装类如何进行计算
        /* Integer i1 = new Integer(1);

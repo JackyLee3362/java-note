@@ -1,10 +1,15 @@
 package edu.note.java.annotation;
 
+import static java.lang.annotation.ElementType.CONSTRUCTOR;
+import static java.lang.annotation.ElementType.FIELD;
+import static java.lang.annotation.ElementType.LOCAL_VARIABLE;
+import static java.lang.annotation.ElementType.METHOD;
+import static java.lang.annotation.ElementType.PARAMETER;
+import static java.lang.annotation.ElementType.TYPE;
+
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
-
-import static java.lang.annotation.ElementType.*;
 
 /**
  * public @interface 注解名称 {
@@ -24,7 +29,7 @@ import static java.lang.annotation.ElementType.*;
  *
  */
 @SuppressWarnings("all")
-@Target({TYPE, FIELD, METHOD, PARAMETER, CONSTRUCTOR, LOCAL_VARIABLE, MODULE})
+@Target({TYPE, FIELD, METHOD, PARAMETER, CONSTRUCTOR, LOCAL_VARIABLE}) // MODULE 有这个选项吗
 @Retention(RetentionPolicy.SOURCE)
 public @interface MyAnno {
     public String name() default "zhangsan";

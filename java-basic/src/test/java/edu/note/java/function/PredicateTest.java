@@ -1,4 +1,4 @@
-package edu.note.java.util.fuction;
+package edu.note.java.function;
 
 import java.util.function.Predicate;
 import org.junit.jupiter.api.Test;

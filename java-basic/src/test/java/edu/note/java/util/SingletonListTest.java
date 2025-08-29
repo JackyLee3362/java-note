@@ -1,4 +1,4 @@
-package edu.note.java.util.collections;
+package edu.note.java.util;
 
 import java.util.Collections;
 import java.util.List;

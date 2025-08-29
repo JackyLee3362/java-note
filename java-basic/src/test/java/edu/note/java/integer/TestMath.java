@@ -1,14 +1,21 @@
 package edu.note.java.integer;
 
-public class T_10进制转2进制 {
-    public static void main(String[] args) {
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
+
+public class TestMath {
+
+    @Test
+    @DisplayName("10进制 -> 2 进制")
+    void test() {
+
         // 定义一个方法自己实现toBinaryString方法的效果，将一个十进制整数转成字符串表示的二进制
     }
 
 
     public static String tobinarystring(int number) {// 6
         // 核心逻辑:
-        // 不断的去除以2，得到余数，一直到商为日就结束。
+        // 不断地去除以2，得到余数，一直到商为日就结束。
         // 还需要把余数倒着拼接起来
 
         // 定义一个StringBuilder用来拼接余数

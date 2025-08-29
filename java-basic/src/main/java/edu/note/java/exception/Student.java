@@ -1,6 +1,10 @@
 package edu.note.java.exception;
 
+import lombok.Setter;
+
 public class Student {
+
+    @Setter
     private String name;
     private int age;
 
@@ -15,6 +19,7 @@ public class Student {
 
     /**
      * 获取
+     *
      * @return name
      */
     public String getName() {
@@ -22,15 +27,8 @@ public class Student {
     }
 
     /**
-     * 设置
-     * @param name
-     */
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    /**
      * 获取
+     *
      * @return age
      */
     public int getAge() {
@@ -39,13 +37,14 @@ public class Student {
 
     /**
      * 设置
+     *
      * @param age
      */
     public void setAge(int age) {
-        if(age < 18 || age > 40){
-            //System.out.println("年龄超出范围");
+        if (age < 18 || age > 40) {
+            // System.out.println("年龄超出范围");
             throw new RuntimeException();
-        }else{
+        } else {
             this.age = age;
         }
     }
