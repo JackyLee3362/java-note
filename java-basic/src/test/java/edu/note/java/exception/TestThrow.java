@@ -1,12 +1,13 @@
 package edu.note.java.exception;
 
-public class A12_异常抛出给父类 {
+public class TestThrow {
+
     public static void main(String[] args) {
         /*
          * throws：写在方法定义处，表示声明一个异常。告诉调用者，使用本方法可能会有哪些异常。
          * throw ：写在方法内，结束方法。手动抛出异常对象，交给调用者。方法中下面的代码不再执行了。
-         * 
-         * 
+         *
+         *
          * 需求：
          * 定义一个方法求数组的最大值
          */
