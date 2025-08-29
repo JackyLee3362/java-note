@@ -1,0 +1,25 @@
+# 端口
+server:
+  port: 8099
+spring:
+  datasource: # 数据库连接信息
+    url: jdbc:mysql://localhost:3306/hotel?useSSL=false
+    username: root
+    password: ${MYSQL_ROOT_PASSWORD}
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  rabbitmq: # rabbit 地址
+    host: 127.0.0.1 # rabbitMQ的ip地址
+    port: 5672 # 端口
+    username: mymq
+    password: 123456
+    virtual-host: /
+logging:
+  level:
+    cn.itcast: debug
+  pattern:
+    dateformat: MM-dd HH:mm:ss:SSS
+# mybatis-plus 配置
+mybatis-plus:
+  configuration:
+    map-underscore-to-camel-case: true
+  
