@@ -1,4 +1,4 @@
-package edu.note.java.util;
+package edu.note.collection.collection;
 
 import java.util.Spliterator;
 import java.util.Spliterators;

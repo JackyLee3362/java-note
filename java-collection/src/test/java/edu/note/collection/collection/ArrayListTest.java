@@ -1,4 +1,4 @@
-package edu.note.java.util;
+package edu.note.collection.collection;
 
 import java.util.ArrayList;
 import org.junit.jupiter.api.Test;
