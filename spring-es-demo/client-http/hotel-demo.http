@@ -1,0 +1,37 @@
+@host=localhost:8089
+
+### 获得 全部数据
+POST /hotel/list HTTP/1.1
+Host: {{host}}
+Content-type: application/json
+
+{
+    "key": "",
+    "page": 1,
+    "size": 5,
+    "sortBy": "default",
+    "city": "上海",
+    "starName": "四星级"
+}
+
+### 获得 title
+POST /hotel/filters HTTP/1.1
+Host: {{host}}
+Content-type: application/json
+
+{
+    "key": "",
+    "page": 1,
+    "size": 5,
+    "sortBy": "default",
+    "city": "上海",
+    "starName": "四星级"
+}
+
+### 补全测试-1
+GET /hotel/suggestion?key=h HTTP/1.1
+Host: {{host}}
+
+### 补全测试-2
+GET /hotel/suggestion?key=sz HTTP/1.1
+Host: {{host}}

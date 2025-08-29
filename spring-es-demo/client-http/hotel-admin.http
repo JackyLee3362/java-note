@@ -1,0 +1,51 @@
+@host=localhost:8099
+
+### 查询所有
+GET /hotel/list HTTP/1.1
+Host: {{host}}
+
+### 分页查询
+GET /hotel/list?page=1&size=10 HTTP/1.1
+Host: {{host}}
+
+### 根据 id 查询
+GET /hotel/36934 HTTP/1.1
+Host: {{host}}
+
+### 新增酒店
+POST /hotel HTTP/1.1
+Host: {{host}}
+Content-type: application/json
+
+{
+    "id":1,
+    "name": "一家普通的酒店",
+    "address": "中山北路3663号",
+    "price": 330,
+    "score": 44,
+    "brand": "华东酒店",
+    "city":"上海",
+    "longitude": "121.47522",
+    "latitude": "31.251433"
+}
+
+### 更改酒店
+PUT /hotel HTTP/1.1
+Host: {{host}}
+Content-type: application/json
+
+{
+    "id":1,
+    "name": "一家普通的酒店",
+    "address": "中山北路3663号",
+    "price": 3306,
+    "score": 4433,
+    "brand": "华东酒店",
+    "city":"上海",
+    "longitude": "121.47522",
+    "latitude": "31.251433"
+}
+
+### 删除酒店
+DELETE /hotel/1 HTTP/1.1
+Host: {{host}}
