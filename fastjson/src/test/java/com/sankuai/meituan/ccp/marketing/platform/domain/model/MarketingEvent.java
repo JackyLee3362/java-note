@@ -58,7 +58,7 @@ public class MarketingEvent {
      * 事件类型	必填
      * 统一定义的枚举
      * 不可空
-     * @see com.sankuai.meituan.ccp.marketing.platform.enums.EventTypeEnum
+     * com.sankuai.meituan.ccp.marketing.platform.enums.EventTypeEnum
      */
     private Integer type;
 
