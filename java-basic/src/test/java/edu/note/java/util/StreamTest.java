@@ -16,14 +16,15 @@ import org.junit.Test;
 public class StreamTest {
 
     @Test
-    public void testStreamToList() {
+    void testStreamToList() {
         List<String> list = Arrays.asList("1", "2", "3", "4", "5");
-        // List<Integer> collect = list.stream().map(Integer::parseInt).collect(Collectors.toList());
-        Assert.assertArrayEquals(new Integer[]{1, 2, 3, 4, 5}, list.stream().map(Integer::parseInt).toArray());
+        // List<Integer> collect =
+        // list.stream().map(Integer::parseInt).collect(Collectors.toList());
+        Assert.assertArrayEquals(new Integer[] { 1, 2, 3, 4, 5 }, list.stream().map(Integer::parseInt).toArray());
     }
 
     @Test
-    public void testStreamToMap() {
+    void testStreamToMap() {
         List<User> users = new ArrayList<>();
         users.add(new User("Alice", 12));
         users.add(new User("Bob", 13));
@@ -31,11 +32,10 @@ public class StreamTest {
         users.add(new User("David", 15));
         users.add(new User("Alice", 16));
         Map<String, Integer> map = users.stream().collect(
-            Collectors.toMap(
-                User::getName,
-                User::getAge,
-                (oldValue, newValue) -> newValue)
-        );
+                Collectors.toMap(
+                        User::getName,
+                        User::getAge,
+                        (oldValue, newValue) -> newValue));
         System.out.println(map);
     }
 }

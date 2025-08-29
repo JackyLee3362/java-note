@@ -1,6 +1,5 @@
 package edu.note.fastjson;
 
-
 import com.alibaba.fastjson.JSONObject;
 import java.io.ByteArrayOutputStream;
 import java.io.FileNotFoundException;
@@ -16,8 +15,8 @@ import org.junit.jupiter.api.Test;
 public class TestParseJson {
 
     @Test
-    public void testParse() {
-        try(InputStream inputStream = getClass().getClassLoader().getResourceAsStream("test-002.json")) {
+    void testParse() {
+        try (InputStream inputStream = getClass().getClassLoader().getResourceAsStream("test-002.json")) {
             ByteArrayOutputStream result = new ByteArrayOutputStream();
             if (inputStream == null) {
                 throw new FileNotFoundException("Resource file 'test-001.json' not found");

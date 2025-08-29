@@ -9,7 +9,7 @@ import org.junit.jupiter.api.Test;
 public class IT03_ThreadSleep {
 
     @Test
-    public void testThreadSleep() {
+    void testThreadSleep() {
 
         Thread t = new Thread(() -> {
             Sleeper.sleep(2);
@@ -25,9 +25,8 @@ public class IT03_ThreadSleep {
         log.debug("t1 state: {}", t.getState());
     }
 
-
     @Test
-    public void testTimeUnit() throws InterruptedException {
+    void testTimeUnit() throws InterruptedException {
         log.debug("enter");
         TimeUnit.SECONDS.sleep(1);
         log.debug("end");

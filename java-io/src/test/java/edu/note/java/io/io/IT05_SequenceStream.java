@@ -22,13 +22,12 @@ public class IT05_SequenceStream extends BaseIOTest {
 
     File dir = new File(resource, "io");
 
-
     @Test
     @DisplayName("序列化对象")
-    public void test01_Serialization() throws IOException {
+    void test01_Serialization() throws IOException {
 
-        // public ObjectOutputStream(OutputStream out)         把基本流变成高级流
-        // public final void writeObject(Object obj)           把对象序列化（写出）到文件中去
+        // public ObjectOutputStream(OutputStream out) 把基本流变成高级流
+        // public final void writeObject(Object obj) 把对象序列化（写出）到文件中去
 
         // 1.创建对象
         Student stu = new Student("John", 23);
@@ -43,10 +42,10 @@ public class IT05_SequenceStream extends BaseIOTest {
 
     @Test
     @DisplayName("反序列化 对象操作输入流")
-    public void test() throws IOException, ClassNotFoundException {
+    void test() throws IOException, ClassNotFoundException {
 
-        // public ObjectInputStream(InputStream out)         把基本流变成高级流
-        // public Object readObject()                        把序列化到本地文件中的对象，读取到程序中来
+        // public ObjectInputStream(InputStream out) 把基本流变成高级流
+        // public Object readObject() 把序列化到本地文件中的对象，读取到程序中来
 
         File file = new File(dir, "john.obj");
 
@@ -62,12 +61,11 @@ public class IT05_SequenceStream extends BaseIOTest {
         // 4.释放资源
         ois.close();
 
-
     }
 
     @Test
     @DisplayName("列表 序列化")
-    public void test03() throws IOException {
+    void test03() throws IOException {
         // 将多个自定义对象序列化到文件中，但是对象的个数不确定，该如何操作呢？
         // 1.序列化多个对象
         File file = new File(dir, "list.obj");
@@ -86,7 +84,7 @@ public class IT05_SequenceStream extends BaseIOTest {
 
     @Test
     @DisplayName("列表 反序列化")
-    public void test04() throws IOException, ClassNotFoundException {
+    void test04() throws IOException, ClassNotFoundException {
         // 将多个自定义对象序列化到文件中，但是对象的个数不确定，该如何操作呢？
         // 1.序列化多个对象
         File file = new File(dir, "list.obj");

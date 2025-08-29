@@ -7,7 +7,7 @@ import org.junit.jupiter.api.Test;
 
 public class TestDateTimeFormatter {
     @Test
-    public void test01() {
+    void test01() {
         DateTimeFormatter stf = DateTimeFormatter.ofPattern("yyyy-MM-dd");
         for (int i = 0; i < 10; i++) {
             new Thread(() -> {
@@ -18,7 +18,7 @@ public class TestDateTimeFormatter {
     }
 
     @Test
-    public void test02() {
+    void test02() {
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
         for (int i = 0; i < 10; i++) {
             new Thread(() -> {

@@ -7,7 +7,7 @@ import org.junit.jupiter.api.Test;
 public class IT02_方法引用_静态方法 {
 
     @Test
-    public void test() {
+    void test() {
 
        /*
         方法引用（引用静态方法）

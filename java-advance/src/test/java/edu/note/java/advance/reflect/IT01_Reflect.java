@@ -11,7 +11,7 @@ import org.junit.jupiter.api.Test;
 public class IT01_Reflect {
 
     @Test
-    public void testBasicUsage() throws Exception {
+    void testBasicUsage() throws Exception {
         // 1. 获取Class对象
         Class<?> clazz = Class.forName("com.jackylee.reflect.Student");
         // 2. 创建对象

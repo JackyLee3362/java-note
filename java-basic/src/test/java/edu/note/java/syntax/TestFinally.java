@@ -38,7 +38,7 @@ public class TestFinally {
     }
 
     @Test
-    public void test01() {
+    void test01() {
         System.out.println(foo());
         System.out.println(foo1());
         // 结论，不管多少return，finally块都会执行

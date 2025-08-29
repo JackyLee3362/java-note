@@ -15,7 +15,7 @@ public class IT06_SaveField {
 
     @Test
     @DisplayName("保存任意类的成员变量")
-    public void test01() throws IllegalAccessException, IOException {
+    void test01() throws IllegalAccessException, IOException {
         /*
          * 对于任意一个对象，都可以把对象所有的字段名和值，保存到文件中去
          */

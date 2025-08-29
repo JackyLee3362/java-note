@@ -10,7 +10,7 @@ import java.util.concurrent.TimeoutException;
 
 public class PublisherTest {
     @Test
-    public void testSendMessage() throws IOException, TimeoutException {
+    void testSendMessage() throws IOException, TimeoutException {
         // 1.建立连接
         ConnectionFactory factory = new ConnectionFactory();
         // 1.1.设置连接参数，分别是：主机名、端口号、vhost、用户名、密码

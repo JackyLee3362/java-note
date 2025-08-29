@@ -8,7 +8,7 @@ import org.junit.jupiter.api.Test;
 public class IT01_ClassLoader {
 
     @Test
-    public void testClassLoader() {
+    void testClassLoader() {
         // 获取应用程序类加载器
         ClassLoader appClassLoader = ClassLoader.getSystemClassLoader();
         System.out.println("应用程序类加载器" + IT01_ClassLoader.class.getClassLoader());

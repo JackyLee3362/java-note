@@ -15,10 +15,9 @@ public class TestResourcesPath {
     Class<TestResourcesPath> clazz = TestResourcesPath.class;
     ClassLoader classLoader = getClass().getClassLoader();
 
-
     @Test
     @DisplayName("类加载器路径")
-    public void testClassLoaderPath() {
+    void testClassLoaderPath() {
         URL res = classLoader.getResource(".");
         // 测试 Resource 路径
         System.out.println(res);
@@ -27,10 +26,9 @@ public class TestResourcesPath {
         System.out.println(res2);
     }
 
-
     @Test
     @DisplayName("类路径")
-    public void testGetResource() {
+    void testGetResource() {
         URL res = clazz.getResource(".");
         // 测试 Resource 路径
         System.out.println(res);
@@ -41,7 +39,7 @@ public class TestResourcesPath {
 
     @Test
     @DisplayName("获取类加载器路径文件")
-    public void testGetResourceFile() {
+    void testGetResourceFile() {
         // 测试 Resource 中是否有 a.txt 文件
         InputStream inputStream = classLoader.getResourceAsStream("a.txt");
         Assertions.assertNotNull(inputStream);

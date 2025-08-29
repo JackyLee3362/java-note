@@ -20,7 +20,7 @@ public class IT03ConfigurationErrorConfig {
 
     @Test
     @DisplayName("打印上下文")
-    public void test2() {
+    void test2() {
         // 配置信息错误，会自动打印上下文
     }
 }

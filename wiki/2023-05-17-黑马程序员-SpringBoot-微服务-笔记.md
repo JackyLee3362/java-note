@@ -201,7 +201,7 @@ public class UserServicesTest {
     private UserServices userServices;
 
     @Test
-    public void testAdd(){
+    void testAdd(){
         userServices.add();
     }
 }

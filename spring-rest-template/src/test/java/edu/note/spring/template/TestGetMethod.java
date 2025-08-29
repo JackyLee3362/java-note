@@ -25,26 +25,25 @@ class TestGetMethod {
     @BeforeEach
     public void setUp() {
         baseUrl = "http://localhost:" + port;
-        System.out.println("baseURL是"+baseUrl);
+        System.out.println("baseURL是" + baseUrl);
     }
 
     @Test
-    public void testHello1() {
+    void testHello1() {
         String url = baseUrl + "/hello?id=1";
         String res = restTemplate.getForObject(url, String.class);
         System.out.println(res);
     }
 
-
     @Test
-    public void testHello2() {
+    void testHello2() {
         String url = baseUrl + "/hello?id={?}";
         String res = restTemplate.getForObject(url, String.class, 2);
         System.out.println(res);
     }
 
     @Test
-    public void testHello3() {
+    void testHello3() {
         String url = baseUrl + "/hello?id={yourId}";
         Map<String, Object> params = new HashMap<>();
         params.put("yourId", 3);
@@ -54,7 +53,7 @@ class TestGetMethod {
 
     // getForEntity 含有 http状态码 和 ResponseHeader
     @Test
-    public void testHello4() {
+    void testHello4() {
         String url = baseUrl + "/hello?id=4";
         ResponseEntity<String> res = restTemplate.getForEntity(url, String.class, 4);
         System.out.println("状态码是：" + res.getStatusCodeValue());

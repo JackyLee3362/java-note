@@ -9,7 +9,7 @@ import org.junit.jupiter.api.Test;
 public class T01_递归拷贝文件夹 {
 
     @Test
-    public void test01() throws IOException {
+    void test01() throws IOException {
         // 拷贝一个文件夹，考虑子文件夹
 
         // 1.创建对象表示数据源
@@ -26,7 +26,7 @@ public class T01_递归拷贝文件夹 {
      * 参数一：数据源
      * 参数二：目的地
      *
-     * */
+     */
     private static void copyDir(File src, File dest) throws IOException {
         dest.mkdirs(); // 如果不存在就创建
         // 递归

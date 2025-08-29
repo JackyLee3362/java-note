@@ -19,7 +19,7 @@ public class IT02Architecture {
     private final Logger log = LoggerFactory.getLogger(IT02Architecture.class);
 
     @Test
-    public void test() {
+    void test() {
         log.info("info...");
     }
 

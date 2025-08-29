@@ -19,7 +19,7 @@ public class SpringAmqpTest {
      * @date: 2024/3/22 11:46
      */
     @Test
-    public void testSendMessage2SimpleQueue() {
+    void testSendMessage2SimpleQueue() {
         // 如果队列名称不存在，则会被丢弃
         String queueName = "simple.queue";
         String message = "hello, spring amqp!";
@@ -33,7 +33,7 @@ public class SpringAmqpTest {
      * @date: 2024/3/22 11:46
      */
     @Test
-    public void testSendMessage2WorkQueue() throws InterruptedException {
+    void testSendMessage2WorkQueue() throws InterruptedException {
         String queueName = "simple.queue";
         String message = "hello, message__";
         for (int i = 1; i <= 50; i++) {
@@ -43,7 +43,7 @@ public class SpringAmqpTest {
     }
 
     @Test
-    public void testSendFanoutExchange() {
+    void testSendFanoutExchange() {
         // 交换机名称
         String exchangeName = "note.fanout";
         // 消息
@@ -53,7 +53,7 @@ public class SpringAmqpTest {
     }
 
     @Test
-    public void testSendDirectExchange() {
+    void testSendDirectExchange() {
         // 交换机名称
         String exchangeName = "note.direct";
         // 发送消息
@@ -62,7 +62,7 @@ public class SpringAmqpTest {
     }
 
     @Test
-    public void testSendTopicExchange() {
+    void testSendTopicExchange() {
         // 交换机名称
         String exchangeName = "note.topic";
         // 消息

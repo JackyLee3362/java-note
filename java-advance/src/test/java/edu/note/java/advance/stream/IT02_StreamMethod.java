@@ -26,7 +26,7 @@ public class IT02_StreamMethod {
 
     @Test
     @DisplayName("Filter Demo")
-    public void test01() {
+    void test01() {
 
         // filter 过滤
         list.stream().filter(s -> s.startsWith("张")).forEach(System.out::println);
@@ -43,7 +43,7 @@ public class IT02_StreamMethod {
     //  skip 跳过前几个元素
     @Test
     @DisplayName("Limit And Skip")
-    public void test02() {
+    void test02() {
 
         list.stream().limit(3).forEach(System.out::println);
         list.stream().skip(4).forEach(System.out::println);
@@ -63,7 +63,7 @@ public class IT02_StreamMethod {
     */
     @Test
     @DisplayName("Distinct And Concat")
-    public void test03() {
+    void test03() {
 
         ArrayList<String> list2 = new ArrayList<>();
         Collections.addAll(list2, "周芷若", "赵敏");
@@ -83,7 +83,7 @@ public class IT02_StreamMethod {
     @Test
     // 需求：只获取里面的年龄并进行打印
     @DisplayName("map")
-    public void test04() {
+    void test04() {
 
         ArrayList<String> list = new ArrayList<>();
         Collections.addAll(list, "张无忌-15", "周芷若-14", "赵敏-13", "张强-20", "张三丰-100", "张翠山-40", "张良-35",

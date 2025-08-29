@@ -16,13 +16,13 @@ public class IT02_StartRun {
     });
 
     @Test
-    public void testStart() {
+    void testStart() {
         t.start();
         log.debug("主线程");
     }
 
     @Test
-    public void testRun() {
+    void testRun() {
         log.debug("主线程");
         t.run();
         log.debug("主线程 在做其他事情 ... ");

@@ -7,7 +7,7 @@ import org.junit.jupiter.api.Test;
 public class ArraySpliteratorTest {
 
     @Test
-    public void test() {
+    void test() {
         String[] names = { "Alice", "Bob", "Charlie", "Dave", "Eve" };
 
         // 创建一个 ArraySpliterator

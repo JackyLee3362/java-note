@@ -27,14 +27,14 @@ public class IT04_GetParams {
 
     @Test
     @DisplayName("获取成员变量")
-    public void test01() {
+    void test01() {
         Field[] fields = clazz.getDeclaredFields();
         Assertions.assertEquals(4, fields.length);
     }
 
     @Test
     @DisplayName("获取单个成员变量")
-    public void test02() throws NoSuchFieldException, IllegalAccessException {
+    void test02() throws NoSuchFieldException, IllegalAccessException {
 
         // 获取单个的成员变量
         Field name = clazz.getDeclaredField("name");

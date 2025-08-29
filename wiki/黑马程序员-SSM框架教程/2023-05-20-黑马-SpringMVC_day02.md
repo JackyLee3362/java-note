@@ -526,13 +526,13 @@ public class BookServiceTest {
     private BookService bookService;
 
     @Test
-    public void testGetById(){
+    void testGetById(){
         Book book = bookService.getById(1);
         System.out.println(book);
     }
 
     @Test
-    public void testGetAll(){
+    void testGetAll(){
         List<Book> all = bookService.getAll();
         System.out.println(all);
     }

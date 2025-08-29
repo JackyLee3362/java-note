@@ -14,7 +14,7 @@ public class BaseIOTest {
     public static final String resource = Objects.requireNonNull(classLoader.getResource(".")).getPath();
 
     @Test
-    public void testBasic() {
+    void testBasic() {
         Assertions.assertInstanceOf(String.class, resource);
     }
 

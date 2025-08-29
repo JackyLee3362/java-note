@@ -14,13 +14,13 @@ import org.junit.jupiter.api.Test;
 
 public class IT02BeforeAfter {
     /*
-    测试原则:测试代码不能污染原数据
-
-    所以通常在Before进行数据初始化
-    利用Test测试数据
-    After去还原数据
-
-    文件的名字是相对模块的（主类中是相对项目的）
+     * 测试原则:测试代码不能污染原数据
+     * 
+     * 所以通常在Before进行数据初始化
+     * 利用Test测试数据
+     * After去还原数据
+     * 
+     * 文件的名字是相对模块的（主类中是相对项目的）
      */
 
     String srcName = "a.txt";
@@ -42,7 +42,7 @@ public class IT02BeforeAfter {
 
     @Disabled
     @Test
-    public void testMethod() {
+    void testMethod() {
         File src = new File(srcName);
         boolean delete = src.delete();
         boolean isExist = src.exists();

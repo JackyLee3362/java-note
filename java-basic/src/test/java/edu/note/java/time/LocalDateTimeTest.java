@@ -13,7 +13,7 @@ public class LocalDateTimeTest {
 
     @Test
     // NOTE 本地时间
-    public void test_create_local_date_time() {
+    void test_create_local_date_time() {
         LocalDateTime endTime = LocalDateTime.now();
         LocalDateTime startTime = LocalDateTime.now().minusMinutes(10);
         Date startDate = Date.from(startTime.atZone(ZoneId.systemDefault()).toInstant());
@@ -27,7 +27,7 @@ public class LocalDateTimeTest {
     }
 
     @Test
-    public void test_get_current_timestamp(){
+    void test_get_current_timestamp() {
         System.out.println(System.currentTimeMillis());
     }
 

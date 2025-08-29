@@ -11,7 +11,7 @@ import org.junit.jupiter.api.Test;
 public class TestPostConstruct {
 
     @Test
-    public void testPostConstruct() {
+    void testPostConstruct() {
         Student student = new Student();
         // TODO 是不是只能配合 Spring 完成
         Assertions.assertEquals("default", student.getName());

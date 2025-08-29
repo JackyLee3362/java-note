@@ -17,7 +17,7 @@ public class IT07_SaveFieldWithConfig {
 
     @Test
     @DisplayName("应用_和配置文件结合创建对象")
-    public void test01() throws IOException, ClassNotFoundException, NoSuchMethodException, InvocationTargetException,
+    void test01() throws IOException, ClassNotFoundException, NoSuchMethodException, InvocationTargetException,
         InstantiationException, IllegalAccessException {
         /*
          * 反射可以跟配置文件结合的方式，动态的创建对象，并调用方法

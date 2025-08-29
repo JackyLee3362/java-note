@@ -37,7 +37,7 @@ public class IT05_GetMethods {
 
     @Test
     @DisplayName("获取里面所有的方法对象(包含父类中所有的公共方法)")
-    public void test01() {
+    void test01() {
         Method[] methods = clazz.getMethods();
         Assertions.assertEquals(11, methods.length);
         for (Method method : methods) {
@@ -47,7 +47,7 @@ public class IT05_GetMethods {
 
     @Test
     @DisplayName("获取里面所有的方法对象(不能获取父类的，但是可以获取本类中私有的方法)")
-    public void test02() {
+    void test02() {
         Method[] methods = clazz.getDeclaredMethods();
         Assertions.assertEquals(2, methods.length);
         for (Method method : methods) {
@@ -56,7 +56,7 @@ public class IT05_GetMethods {
     }
 
     @Test
-    public void test()
+    void test()
             throws NoSuchMethodException, InvocationTargetException, IllegalAccessException {
         // 获取指定的单一方法
         Method m = clazz.getDeclaredMethod("eat", String.class);

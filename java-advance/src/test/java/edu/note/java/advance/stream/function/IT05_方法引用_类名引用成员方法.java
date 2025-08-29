@@ -53,7 +53,7 @@ public class IT05_方法引用_类名引用成员方法 {
         // test(); // 我写的代码
     }
 
-    static public void test(){
+    static void test(){
         ArrayList<String> list = new ArrayList<>();
         Collections.addAll(list, "aaa", "bbb", "ccc", "ddd");
         list.stream().map(String::toUpperCase).forEach(System.out::println);

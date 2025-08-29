@@ -17,7 +17,7 @@ public class ITSpringBean01 {
     private ApplicationContext applicationContext;
 
     @Test
-    public void test01() {
+    void test01() {
         // 测试 @Component 内部的 @Bean 是否会被初始化，结论是会
         User user = (User) applicationContext.getBean("admin");
         System.out.println(user);

@@ -24,23 +24,23 @@ public class IT06_PrintStream extends BaseIOTest {
     File f6a = new File(dir, "README-06a.md");
     File f6b = new File(dir, "README-06b.md");
 
-
     @Test
     @DisplayName("字节打印流 Demo")
-    public void test01() throws FileNotFoundException, UnsupportedEncodingException {
+    void test01() throws FileNotFoundException, UnsupportedEncodingException {
 
-    /*
-    构造方法
-        public PrintStream(OutputStream/File/String)            关联字节输出流/文件/文件路径
-        public PrintStream(String fileName, Charset charset)    指定字符编码
-        public PrintStream(OutputStream out, boolean autoFlush)  自动刷新
-        public PrintStream(OutputStream out, boolean autoFlush, String encoding)    指定字符编码且自动刷新
-    成员方法：
-        public void write(int b)            常规方法：规则跟之前一样，将指定的字节写出
-        public void println(Xxx xx)         特有方法：打印任意数据，自动刷新，自动换行
-        public void print(Xxx xx)           特有方法：打印任意数据，不换行
-        public void printf(String format, Object... args)   特有方法：带有占位符的打印语句，不换行
-    */
+        /*
+         * 构造方法
+         * public PrintStream(OutputStream/File/String) 关联字节输出流/文件/文件路径
+         * public PrintStream(String fileName, Charset charset) 指定字符编码
+         * public PrintStream(OutputStream out, boolean autoFlush) 自动刷新
+         * public PrintStream(OutputStream out, boolean autoFlush, String encoding)
+         * 指定字符编码且自动刷新
+         * 成员方法：
+         * public void write(int b) 常规方法：规则跟之前一样，将指定的字节写出
+         * public void println(Xxx xx) 特有方法：打印任意数据，自动刷新，自动换行
+         * public void print(Xxx xx) 特有方法：打印任意数据，不换行
+         * public void printf(String format, Object... args) 特有方法：带有占位符的打印语句，不换行
+         */
 
         // 1.创建字节打印流的对象
         PrintStream ps = new PrintStream(new FileOutputStream(f6a));
@@ -55,10 +55,10 @@ public class IT06_PrintStream extends BaseIOTest {
 
     @Test
     @DisplayName("printf 样例")
-    public void test02() throws FileNotFoundException {
+    void test02() throws FileNotFoundException {
         PrintStream ps = System.out;
 
-        //% n表示换行
+        // % n表示换行
         ps.printf("我叫%s %n", "阿玮");
         ps.printf("%s喜欢%s %n", "阿珍", "阿强");
         ps.printf("字母H的大写：%c %n", 'H');
@@ -96,8 +96,8 @@ public class IT06_PrintStream extends BaseIOTest {
         ps.printf("一本书的价格是：%2.5f元%n", 49.8);
         ps.printf("%(f%n", -76.04);
 
-        //%f，默认小数点后面7位，
-        //<，表示采取跟前面一样的内容
+        // %f，默认小数点后面7位，
+        // <，表示采取跟前面一样的内容
         ps.printf("%f和%3.2f %n", 86.04, 1.789651);
         ps.printf("%f和%<3.2f %n", 86.04, 1.789651);
         ps.println("---------------------");
@@ -147,20 +147,20 @@ public class IT06_PrintStream extends BaseIOTest {
 
     @Test
     @DisplayName("字符打印流 Demo")
-    public void test03() throws IOException {
-       /*
-        构造方法
-            public PrintWriter(Write/File/String)            关联字节输出流/文件/文件路径
-            public PrintWriter(String fileName, Charset charset)    指定字符编码
-            public PrintWriter(Write, boolean autoFlush)  自动刷新
-            public PrintWriter(OutputStream out, boolean autoFlush)
-            public PrintWriter(Write out, boolean autoFlush, String encoding)    指定字符编码且自动刷新
-        成员方法：
-            public void write(int b)            常规方法：规则跟之前一样，将指定的字节写出
-            public void println(Xxx xx)         特有方法：打印任意数据，自动刷新，自动换行
-            public void print(Xxx xx)           特有方法：打印任意数据，不换行
-            public void printf(String format, Object... args)   特有方法：带有占位符的打印语句，不换行
-        */
+    void test03() throws IOException {
+        /*
+         * 构造方法
+         * public PrintWriter(Write/File/String) 关联字节输出流/文件/文件路径
+         * public PrintWriter(String fileName, Charset charset) 指定字符编码
+         * public PrintWriter(Write, boolean autoFlush) 自动刷新
+         * public PrintWriter(OutputStream out, boolean autoFlush)
+         * public PrintWriter(Write out, boolean autoFlush, String encoding) 指定字符编码且自动刷新
+         * 成员方法：
+         * public void write(int b) 常规方法：规则跟之前一样，将指定的字节写出
+         * public void println(Xxx xx) 特有方法：打印任意数据，自动刷新，自动换行
+         * public void print(Xxx xx) 特有方法：打印任意数据，不换行
+         * public void printf(String format, Object... args) 特有方法：带有占位符的打印语句，不换行
+         */
 
         // 1.创建字符打印流的对象
         PrintWriter pw = new PrintWriter(new FileWriter("myio\\a.txt"), true);
@@ -172,12 +172,11 @@ public class IT06_PrintStream extends BaseIOTest {
         // 3.释放资源
         pw.close();
 
-
     }
 
     @Test
     @DisplayName("系统中的标准输出流")
-    public void test04() {
+    void test04() {
         /*
          * 打印流的应用场景
          **/

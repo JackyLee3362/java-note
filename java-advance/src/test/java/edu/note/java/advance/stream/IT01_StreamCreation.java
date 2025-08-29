@@ -20,7 +20,7 @@ public class IT01_StreamCreation {
     */
     @Test
     @DisplayName("单列集合")
-    public void test01() {
+    void test01() {
 
         // 1.单列集合获取Stream流
         ArrayList<String> list = new ArrayList<>();
@@ -42,7 +42,7 @@ public class IT01_StreamCreation {
 
     @Test
     @DisplayName("双列集合")
-    public void test02() {
+    void test02() {
         // 1.创建双列集合
         HashMap<String, Integer> hm = new HashMap<>();
         // 2.添加数据
@@ -60,7 +60,7 @@ public class IT01_StreamCreation {
 
     @Test
     @DisplayName("数据创建 Stream")
-    public void test03() {
+    void test03() {
 
         // 1.创建数组
         int[] arr1 = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
@@ -82,7 +82,7 @@ public class IT01_StreamCreation {
 
     @Test
     @DisplayName("直接创建 Stream")
-    public void test04() {
+    void test04() {
         // 一堆零散数据   public static<T> Stream<T> of(T... values)           Stream接口中的静态方法
         Stream.of(1, 2, 3, 4, 5).forEach(s -> System.out.println(s));
         Stream.of("a", "b", "c", "d", "e").forEach(s -> System.out.println(s));

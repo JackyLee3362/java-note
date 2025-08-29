@@ -164,7 +164,7 @@ class MpDemoApplicationTests {
 	@Autowired
 	private UserDao userDao;
 	@Test
-	public void testGetAll() {
+	void testGetAll() {
 		List<User> userList = userDao.selectList(null);
 		System.out.println(userList);
 	}

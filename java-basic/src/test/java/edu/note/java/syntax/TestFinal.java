@@ -28,7 +28,7 @@ public class TestFinal {
     }
 
     @Test
-    public void test01(){
+    void test01() {
         System.out.println(TestFinal.A);
         System.out.println(TestFinal.B);
         System.out.println(new TestFinal().a);
@@ -37,7 +37,7 @@ public class TestFinal {
     }
 
     @Test
-    public void test02(){
+    void test02() {
         System.out.println(TestFinal.A);
     }
 }

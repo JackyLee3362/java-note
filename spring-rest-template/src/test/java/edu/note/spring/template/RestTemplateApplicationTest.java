@@ -22,11 +22,11 @@ class RestTemplateApplicationTest {
     @BeforeEach
     public void setUp() {
         baseUrl = "http://localhost:" + port;
-        System.out.println("baseURL是"+baseUrl);
+        System.out.println("baseURL是" + baseUrl);
     }
 
     @Test
-    public void testRestTemplate() {
+    void testRestTemplate() {
         String url = baseUrl + "/hello?id=1";
         String res = restTemplate.getForObject(url, String.class);
         System.out.println(res);

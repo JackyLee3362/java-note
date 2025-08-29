@@ -1,6 +1,5 @@
 package edu.note.java.io.io.application;
 
-
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -13,13 +12,13 @@ public class T03_字符排序_面向过程 {
 
     @Test
     @DisplayName("字符排序_面向过程")
-    public void test03() throws IOException {
+    void test03() throws IOException {
         /*
-            文本文件中有以下的数据：
-                2-1-9-4-7-8
-            将文件中的数据进行排序，变成以下的数据：
-                1-2-4-7-8-9
-        */
+         * 文本文件中有以下的数据：
+         * 2-1-9-4-7-8
+         * 将文件中的数据进行排序，变成以下的数据：
+         * 1-2-4-7-8-9
+         */
 
         // 1.读取数据
         FileReader fr = new FileReader("myio\\number.txt");
@@ -51,7 +50,6 @@ public class T03_字符排序_面向过程 {
             }
         }
         fw.close();
-
 
     }
 }

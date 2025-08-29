@@ -15,7 +15,7 @@ import org.junit.jupiter.api.Test;
 public class IT02_GetClassObject {
 
     @Test
-    public void test1() throws ClassNotFoundException {
+    void test1() throws ClassNotFoundException {
         // 1. 第一种方式（最常用）
         // 全类名 ： 包名 + 类名
         Class<?> clazz1 = Class.forName("com.jackylee.reflect.Student");

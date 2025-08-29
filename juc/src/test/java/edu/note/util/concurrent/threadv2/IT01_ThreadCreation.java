@@ -15,14 +15,14 @@ public class IT01_ThreadCreation {
 
     @Test
     @DisplayName("继承 Thread 类")
-    public void test01() {
+    void test01() {
         Thread t = new Thread(() -> log.debug("继承 Thread 类实现 ..."), "threadDemo");
         t.start();
     }
 
     @Test
     @DisplayName("实现 Runnable 接口")
-    public void test02() {
+    void test02() {
         Runnable r = () -> log.debug("实现 Runnable 接口...");
         Thread t = new Thread(r, "runnableDemo");
         t.start();
@@ -30,7 +30,7 @@ public class IT01_ThreadCreation {
 
     @Test
     @DisplayName("实现 Callable 接口")
-    public void test03() throws ExecutionException, InterruptedException {
+    void test03() throws ExecutionException, InterruptedException {
         FutureTask<Integer> task = new FutureTask<>(() -> {
             log.debug("running...");
             Thread.sleep(1000);

@@ -13,15 +13,15 @@ import org.junit.jupiter.api.Test;
 public class TestSyncAndAsync {
 
     @Test
-    public void testSync() {
+    void testSync() {
         FileReader.pseudoRead("");
         log.debug("sync: do other things ...");
     }
+
     @Test
-    public void testAsync() {
+    void testAsync() {
         new Thread(() -> FileReader.pseudoRead("")).start();
         log.debug("Async: do other things ...");
     }
-
 
 }

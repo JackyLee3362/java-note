@@ -1170,7 +1170,7 @@ public class UserServiceTest {
     private BookService bookService;
     
     @Test
-    public void testSave(){
+    void testSave(){
         bookService.save();
     }
 }
@@ -1496,13 +1496,13 @@ public interface BookDao {
       private BookService bookService;
   
       @Test
-      public void testGetById(){
+      void testGetById(){
           Book book = bookService.getById(2);
           System.out.println(book);
       }
   
       @Test
-      public void testGetAll(){
+      void testGetAll(){
           List<Book> all = bookService.getAll();
           System.out.println(all);
       }

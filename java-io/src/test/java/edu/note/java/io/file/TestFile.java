@@ -10,7 +10,6 @@ import org.junit.jupiter.api.Test;
 
 public class TestFile extends BaseIOTest {
 
-
     @Test
     @DisplayName("文件属性")
     void test01() {
@@ -63,7 +62,7 @@ public class TestFile extends BaseIOTest {
         System.out.println(Arrays.toString(arr1));
     }
 
-    // public boolean createNewFile()      创建一个新的空的文件
+    // public boolean createNewFile() 创建一个新的空的文件
     // 1. 如果文件不存在：则创建成功，返回true，否则创建失败，返回 false
     // 2：如果父级路径不存在，抛出异常 IOException
     @Test
@@ -75,8 +74,8 @@ public class TestFile extends BaseIOTest {
         Assertions.assertTrue(f1.delete());
 
         // mkdir
-        //  1：windows当中路径是唯一的，如果当前路径已经存在，则创建失败，返回false
-        //  2：mkdir方法只能创建单级文件夹，无法创建多级文件夹。
+        // 1：windows当中路径是唯一的，如果当前路径已经存在，则创建失败，返回false
+        // 2：mkdir方法只能创建单级文件夹，无法创建多级文件夹。
         // public boolean mkdir() 创建单级文件夹
         File d1 = new File(dir, "temp-dir");
         Assertions.assertTrue(d1.mkdir());
@@ -84,14 +83,13 @@ public class TestFile extends BaseIOTest {
         Assertions.assertTrue(d1.delete());
     }
 
-
     @Test
     @DisplayName("递归创建文件夹")
-    public void test05() throws IOException {
+    void test05() throws IOException {
         File dir = new File(resource, "file");
 
         // public boolean mkdirs() 创建多级文件夹
-        // mkdirs   创建多级文件夹（递归创建）
+        // mkdirs 创建多级文件夹（递归创建）
         // 源码阅读（其实就是递归调用 mkdir）
         File d2 = new File(dir, "d03/sub");
         Assertions.assertTrue(d2.mkdirs());
@@ -105,7 +103,7 @@ public class TestFile extends BaseIOTest {
 
     @Test
     @DisplayName("递归删除文件夹")
-    public void test06() throws IOException {
+    void test06() throws IOException {
         File dir = new File(resource, "file");
         File d2 = new File(dir, "d04");
         File f2 = new File(d2, "FILE1.md");

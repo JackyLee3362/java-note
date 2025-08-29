@@ -16,7 +16,7 @@ public class IT00_ListInit {
 
     @Test
     @DisplayName("初始化 List 的方式")
-    public void test01() {
+    void test01() {
         // 1. 直接初始化
         List<Integer> list1 = new ArrayList<>();
         list1.add(1);

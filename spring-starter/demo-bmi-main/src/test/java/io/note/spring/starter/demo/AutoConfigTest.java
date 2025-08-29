@@ -12,7 +12,7 @@ class AutoConfigTest {
     UserBMI userBMI;
 
     @Test
-    public void testMyBmi(){
+    void testMyBmi() {
         userBMI.calculateBMI();
     }
 

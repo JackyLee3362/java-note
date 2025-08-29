@@ -13,7 +13,7 @@ import org.slf4j.LoggerFactory;
 public class IT01Introduction {
 
     @Test
-    public void testBasic() {
+    void testBasic() {
         String firstName = "jacky";
         String lastName = "lee";
         log.info("hello, {} {}.", firstName, lastName);
@@ -22,7 +22,7 @@ public class IT01Introduction {
 
 
     @Test
-    public void testRootLogger() {
+    void testRootLogger() {
         Logger logger = LoggerFactory.getLogger(Logger.ROOT_LOGGER_NAME);
         logger.info("I'm root logger");
     }

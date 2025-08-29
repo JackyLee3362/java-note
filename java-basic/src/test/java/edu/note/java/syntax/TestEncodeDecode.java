@@ -12,11 +12,11 @@ import org.junit.jupiter.api.Test;
  */
 public class TestEncodeDecode {
 
-    // public byte[] getBytes()                        使用默认方式进行编码
-    // public byte[] getBytes(String charsetName)      使用指定方式进行编码
+    // public byte[] getBytes() 使用默认方式进行编码
+    // public byte[] getBytes(String charsetName) 使用指定方式进行编码
     @Test
     @DisplayName("中文-编码与解码")
-    public void test01() throws UnsupportedEncodingException {
+    void test01() throws UnsupportedEncodingException {
 
         // 1.编码
         // String在java中默认使用UTF-16编码方式
@@ -32,8 +32,8 @@ public class TestEncodeDecode {
         byte[] bytes3 = str.getBytes(StandardCharsets.UTF_16);
         System.out.println(Arrays.toString(bytes3));
 
-        // String(byte[] bytes)                            使用默认方式进行解码
-        // String(byte[] bytes, String charsetName)        使用指定方式进行解码
+        // String(byte[] bytes) 使用默认方式进行解码
+        // String(byte[] bytes, String charsetName) 使用指定方式进行解码
         String str2 = new String(bytes1);
         System.out.println(str2);
 
@@ -43,7 +43,7 @@ public class TestEncodeDecode {
 
     @Test
     @DisplayName("emoji字节流and字符流")
-    public void test02() {
+    void test02() {
 
         String e1 = "😊";
         byte[] bytes1 = e1.getBytes();
@@ -63,36 +63,36 @@ public class TestEncodeDecode {
 
     @Test
     @DisplayName("emoji编码解释")
-    public void test03() {
+    void test03() {
 
-       /*
-            Unicode符号范围     |        UTF-8编码方式
-            (十六进制)        |              （二进制）
-            ----------------------+---------------------------------------------
-            0000 0000-0000 007F | 0xxxxxxx
-            0000 0080-0000 07FF | 110xxxxx 10xxxxxx
-            0000 0800-0000 FFFF | 1110xxxx 10xxxxxx 10xxxxxx
-            0001 0000-0010 FFFF | 11110xxx 10xxxxxx 10xxxxxx 10xxxxxx
-        */
+        /*
+         * Unicode符号范围 | UTF-8编码方式
+         * (十六进制) | （二进制）
+         * ----------------------+---------------------------------------------
+         * 0000 0000-0000 007F | 0xxxxxxx
+         * 0000 0080-0000 07FF | 110xxxxx 10xxxxxx
+         * 0000 0800-0000 FFFF | 1110xxxx 10xxxxxx 10xxxxxx
+         * 0001 0000-0010 FFFF | 11110xxx 10xxxxxx 10xxxxxx 10xxxxxx
+         */
 
         // 1.emoji编码
         String e1 = "😊";
         byte[] bytes1 = e1.getBytes();
 
         /*
-        ! 输出结果
-        chars1[0] '\uD83D' 55357   11011000 00111101
-        chars1[1] '\uDE0A' 56842   11011110 00001010
-        bytes [11110000, 10011111, 10011000, 10001010]
-        ! 解释
-        😊 在 应该是U+1F60A
-        0x1F60A - 0x10000 = 0xF60A = 0b 0000 1111 0110 0000 1010
-        其实是通过代理区域对照表实现的 surrogate pairs
-        高10bit位 = 0b 0000 1111 01 = 0x3D
-        低10bit位 = 0b 10 0000 1010 = 0x20A
-        high surrogate = 0xD800 + 0x3D = 0xD83D
-        low  surrogate = 0xDC00 + 0x20A = 0xDE0A
-        */
+         * ! 输出结果
+         * chars1[0] '\uD83D' 55357 11011000 00111101
+         * chars1[1] '\uDE0A' 56842 11011110 00001010
+         * bytes [11110000, 10011111, 10011000, 10001010]
+         * ! 解释
+         * 😊 在 应该是U+1F60A
+         * 0x1F60A - 0x10000 = 0xF60A = 0b 0000 1111 0110 0000 1010
+         * 其实是通过代理区域对照表实现的 surrogate pairs
+         * 高10bit位 = 0b 0000 1111 01 = 0x3D
+         * 低10bit位 = 0b 10 0000 1010 = 0x20A
+         * high surrogate = 0xD800 + 0x3D = 0xD83D
+         * low surrogate = 0xDC00 + 0x20A = 0xDE0A
+         */
 
         // 2.解码
         String decode = new String(bytes1);
@@ -103,7 +103,7 @@ public class TestEncodeDecode {
 
     @Test
     @DisplayName("0xD800的字符")
-    public void test04() {
+    void test04() {
 
         String e1 = "\uD83D\uDE0A"; // 😊
         System.out.println(e1);
@@ -115,16 +115,15 @@ public class TestEncodeDecode {
 
     @Test
     @DisplayName("char 转 int")
-    public void test05() {
+    void test05() {
 
         char ch = '我';
         System.out.println((int) ch);
-        char[] chars = {'a', '我'};
+        char[] chars = { 'a', '我' };
         int i = Character.codePointAt(chars, 1);
         System.out.println(Character.isHighSurrogate('\uD801'));
         System.out.println(Character.isLowSurrogate('\uDC00'));
         System.out.println(i);
-
 
     }
 }

@@ -12,12 +12,12 @@ public class IT01_Volatile {
     volatile static boolean run = true;
 
     @Test
-    public void test01() throws InterruptedException {
+    void test01() throws InterruptedException {
 
         Thread t1 = new Thread(() -> {
             System.out.println("开始运行");
             while (run) {
-                //...
+                // ...
                 System.out.println();
             }
         }, "t1");

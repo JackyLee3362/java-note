@@ -1,6 +1,5 @@
 package edu.note.util.concurrent.threadv2;
 
-
 import edu.note.util.concurrent.util.Sleeper;
 import java.lang.management.ManagementFactory;
 import java.lang.management.ThreadInfo;
@@ -34,7 +33,7 @@ public class IT09_WaitNotify {
     }
 
     @Test
-    public void test() throws InterruptedException {
+    void test() throws InterruptedException {
         Runnable runnable = () -> {
             synchronized (lock) {
                 log.debug("running...");

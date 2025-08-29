@@ -10,7 +10,7 @@ public class Test41_WaitNotify {
     final static Object obj = new Object();
 
     @Test
-    public void test(){
+    void test() {
         new Thread(() -> {
             synchronized (obj) {
                 log.debug("执行....");
@@ -21,7 +21,7 @@ public class Test41_WaitNotify {
                 }
                 log.debug("其它代码....");
             }
-        },"t1").start();
+        }, "t1").start();
 
         new Thread(() -> {
             synchronized (obj) {
@@ -34,13 +34,13 @@ public class Test41_WaitNotify {
                 }
                 log.debug("其它代码....");
             }
-        },"t2").start();
+        }, "t2").start();
 
         // 主线程两秒后执行
         sleep(0.5);
         log.debug("唤醒 obj 上其它线程");
         synchronized (obj) {
-//            obj.notify(); // 唤醒obj上一个线程
+            // obj.notify(); // 唤醒obj上一个线程
             obj.notifyAll(); // 唤醒obj上所有等待线程
         }
     }

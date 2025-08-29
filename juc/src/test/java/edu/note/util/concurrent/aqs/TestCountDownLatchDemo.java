@@ -12,7 +12,7 @@ public class TestCountDownLatchDemo {
     private static final int threadCount = 15;
 
     @Test
-    public void test() throws InterruptedException {
+    void test() throws InterruptedException {
         // 创建一个具有固定线程数量的线程池对象（推荐使用构造方法创建）
         ExecutorService threadPool = Executors.newFixedThreadPool(10);
 
@@ -23,7 +23,7 @@ public class TestCountDownLatchDemo {
             threadPool.execute(() -> {
                 try {
                     // 处理文件的业务操作
-                    int second = random.nextInt( 6);
+                    int second = random.nextInt(6);
                     String name = Thread.currentThread().getName();
                     System.out.println(name + ": 处理文件需要 " + second + " 秒");
                     Thread.sleep(second * 1000);

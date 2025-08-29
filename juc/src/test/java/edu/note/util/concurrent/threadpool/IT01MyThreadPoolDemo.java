@@ -1,6 +1,5 @@
 package edu.note.util.concurrent.threadpool;
 
-
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ThreadPoolExecutor;
@@ -18,7 +17,7 @@ public class IT01MyThreadPoolDemo {
 
     @Test
     @DisplayName("创建无上限的线程池")
-    public void test1() {
+    void test1() {
         // 1.获取线程池对象
         ExecutorService pool1 = Executors.newCachedThreadPool();
         // 2.提交任务
@@ -39,7 +38,7 @@ public class IT01MyThreadPoolDemo {
 
     @Test
     @DisplayName("创建有上限的线程池")
-    public void test2() {
+    void test2() {
         // 1.获取线程池对象
         ExecutorService pool1 = Executors.newFixedThreadPool(3);
         // 2.提交任务

@@ -12,7 +12,7 @@ public class IT04_FileStat extends BaseIOTest {
 
     @Test
     @DisplayName("统计一个文件夹的总大小")
-    public void test() {
+    void test() {
 
         File file = new File(resource);
 
@@ -22,7 +22,7 @@ public class IT04_FileStat extends BaseIOTest {
 
     @Test
     @DisplayName("递归统计一个文件夹中每种文件的个数")
-    public void test02() {
+    void test02() {
 
         File file = new File(resource);
         Map<String, Integer> hm = FileUtil.getCount(file);

@@ -12,7 +12,7 @@ import org.junit.jupiter.api.Test;
 public class SingletonListTest {
 
     @Test
-    public void test_singleton_list() {
+    void test_singleton_list() {
         List<String> list = Collections.singletonList("a");
         // 只能有一个元素
         Assertions.assertEquals(1, list.size());

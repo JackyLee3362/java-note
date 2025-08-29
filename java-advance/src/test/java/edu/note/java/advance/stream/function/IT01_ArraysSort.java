@@ -24,7 +24,7 @@ public class IT01_ArraysSort {
     @Test
     // 匿名内部类
     @DisplayName("匿名内部类排序")
-    public void test01() {
+    void test01() {
         Arrays.sort(arr);
         Assertions.assertArrayEquals(arr, sorted);
         Arrays.sort(arr, (o1, o2) -> o2 - o1);
@@ -33,7 +33,7 @@ public class IT01_ArraysSort {
 
     @Test
     @DisplayName("自定义方法引用")
-    public void test02() {
+    void test02() {
 
         // 方法引用
         // 1.引用处需要是函数式接口
@@ -49,7 +49,7 @@ public class IT01_ArraysSort {
 
     @Test
     @DisplayName("方法引用")
-    public void test03() {
+    void test03() {
         Arrays.sort(arr, Comparator.comparingInt(o -> o));
         Assertions.assertArrayEquals(arr, sorted);
 

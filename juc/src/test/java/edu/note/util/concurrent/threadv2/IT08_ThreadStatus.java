@@ -1,6 +1,5 @@
 package edu.note.util.concurrent.threadv2;
 
-
 import edu.note.util.concurrent.util.Sleeper;
 import java.lang.Thread.State;
 import lombok.extern.slf4j.Slf4j;
@@ -17,7 +16,7 @@ public class IT08_ThreadStatus {
 
     @Test
     @DisplayName("6-Terminated 状态")
-    public void testTerminated() {
+    void testTerminated() {
         Thread t = new Thread(() -> {
         });
         t.start();
@@ -27,10 +26,9 @@ public class IT08_ThreadStatus {
         log.debug("状态是 {}", t.getState());
     }
 
-
     @Test
     @DisplayName("5-TimeWaiting 状态")
-    public void testTimedWaiting() {
+    void testTimedWaiting() {
         Thread t = new Thread(() -> {
             try {
                 Thread.sleep(1000000); // timed_waiting
@@ -47,7 +45,7 @@ public class IT08_ThreadStatus {
 
     @Test
     @DisplayName("4-Waiting 状态")
-    public void testWaiting() {
+    void testWaiting() {
         Thread t1 = new Thread(() -> {
             while (true) {
             }
@@ -68,7 +66,7 @@ public class IT08_ThreadStatus {
 
     @Test
     @DisplayName("3-Blocked 状态")
-    public void testBlocked() {
+    void testBlocked() {
         Thread t1 = new Thread(() -> {
             synchronized (IT08_ThreadStatus.class) {
                 while (true) {
@@ -87,10 +85,9 @@ public class IT08_ThreadStatus {
         log.debug("状态是 {}", t2.getState());
     }
 
-
     @Test
     @DisplayName("2-Runnable 状态")
-    public void testRunnable() {
+    void testRunnable() {
         Thread t = new Thread(() -> {
             while (true) {
             }
@@ -102,7 +99,7 @@ public class IT08_ThreadStatus {
 
     @Test
     @DisplayName("1-New 状态")
-    public void testNew() {
+    void testNew() {
         Thread t = new Thread(() -> {
         });
 

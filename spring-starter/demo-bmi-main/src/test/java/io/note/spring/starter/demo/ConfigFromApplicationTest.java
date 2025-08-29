@@ -18,8 +18,9 @@ public class ConfigFromApplicationTest {
 
     @Resource
     Student student;
+
     @Test
-    public void testConfiguration(){
+    void testConfiguration() {
         System.out.println(name);
         System.out.println(student);
     }

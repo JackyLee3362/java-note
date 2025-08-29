@@ -1,6 +1,5 @@
 package edu.note.util.concurrent.threadv2;
 
-
 import edu.note.util.concurrent.util.Sleeper;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.DisplayName;
@@ -30,7 +29,7 @@ public class IT04_YieldPriorityJoinDaemon {
     };
 
     @Test
-    public void testWithoutYield() throws InterruptedException {
+    void testWithoutYield() throws InterruptedException {
         Thread t1 = new Thread(r1, "🔴");
         Thread t2 = new Thread(r1, "🟡");
         t1.setPriority(Thread.MIN_PRIORITY);
@@ -45,7 +44,7 @@ public class IT04_YieldPriorityJoinDaemon {
     // 但是 Junit 会在 main 线程执行完毕后调用 System.exit() 退出 JVM
     // 所以有些线程没有执行完，所以我们加上 Thread.join() 方法。
     @Test
-    public void testWithYield() throws InterruptedException {
+    void testWithYield() throws InterruptedException {
         Thread t1 = new Thread(r1, "🔴");
         Thread t2 = new Thread(r2, "🟡");
         t1.setPriority(Thread.MIN_PRIORITY);
@@ -77,7 +76,7 @@ public class IT04_YieldPriorityJoinDaemon {
 
     @Test
     @DisplayName("Join")
-    public void test1() throws InterruptedException {
+    void test1() throws InterruptedException {
         Runnable mr = () -> {
             for (int i = 0; i < 10; i++) {
                 System.out.println(Thread.currentThread().getName() + i);
@@ -94,4 +93,3 @@ public class IT04_YieldPriorityJoinDaemon {
         }
     }
 }
-

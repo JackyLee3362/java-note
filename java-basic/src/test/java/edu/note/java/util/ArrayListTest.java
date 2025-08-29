@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Test;
 public class ArrayListTest {
 
     @Test
-    public void test01() {
+    void test01() {
         ArrayList<Integer> a = new ArrayList<>();
         a.add(1);
         a.add(5);
@@ -18,8 +18,8 @@ public class ArrayListTest {
     }
 
     @Test
-    public void test02() {
-        int[] numbers = {1, 2, 3, 4, 5}; // 定义一个 int 类型的数组
+    void test02() {
+        int[] numbers = { 1, 2, 3, 4, 5 }; // 定义一个 int 类型的数组
 
         // 将数组强制转换为 Object 类型
         Object obj = (Object) numbers;
@@ -39,7 +39,7 @@ public class ArrayListTest {
 
         // todo: Arrays.copyOf 中，为什么需要强制转换
         // (Object)newType == (Object)Object[].class
-        Integer[] a = {1, 2, 3};
+        Integer[] a = { 1, 2, 3 };
         System.out.println(a);
         System.out.println(Integer[].class);
         System.out.println((Object) Integer[].class);

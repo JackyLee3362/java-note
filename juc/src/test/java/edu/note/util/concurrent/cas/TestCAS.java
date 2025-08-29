@@ -1,6 +1,5 @@
 package edu.note.util.concurrent.cas;
 
-
 import edu.note.util.concurrent.util.Sleeper;
 import java.util.concurrent.atomic.AtomicInteger;
 import lombok.extern.slf4j.Slf4j;
@@ -27,7 +26,7 @@ public class TestCAS {
     }
 
     @Test
-    public void testCas() throws InterruptedException {
+    void testCas() throws InterruptedException {
         TestCAS lock = new TestCAS();
 
         Thread t1 = new Thread(() -> {

@@ -14,24 +14,24 @@ import org.junit.jupiter.api.Test;
 public class IT02_CharStream extends BaseIOTest {
 
     /*
-        第一步：创建对象
-        public FileReader(File file)        创建字符输入流关联本地文件
-        public FileReader(String pathname)  创建字符输入流关联本地文件
-
-        第二步：读取数据
-        public int read()                   读取数据，读到末尾返回-1
-        public int read(char[] buffer)      读取多个数据，读到末尾返回-1
-
-        第三步：释放资源
-        public void close()                 释放资源/关流
-    */
+     * 第一步：创建对象
+     * public FileReader(File file) 创建字符输入流关联本地文件
+     * public FileReader(String pathname) 创建字符输入流关联本地文件
+     * 
+     * 第二步：读取数据
+     * public int read() 读取数据，读到末尾返回-1
+     * public int read(char[] buffer) 读取多个数据，读到末尾返回-1
+     * 
+     * 第三步：释放资源
+     * public void close() 释放资源/关流
+     */
     File f1 = new File(resource, "io/README.cn.md");
     File f2a = new File(resource, "io/README-02a.out.md");
     File f2b = new File(resource, "io/README-02b.out.md");
 
     @Test
     @DisplayName("FileReader read空参")
-    public void test_read_01() throws IOException {
+    void test_read_01() throws IOException {
 
         // 1.创建对象并关联本地文件
         Reader fr = new FileReader(f1);
@@ -41,10 +41,10 @@ public class IT02_CharStream extends BaseIOTest {
 
         // 1.read():默认也是一个字节一个字节的读取的,如果遇到中文就会一次读取多个
         // 2.在读取之后，方法的底层还会进行解码并转成十进制。
-        //  最终把这个十进制作为返回值
-        //  这个十进制的数据也表示在字符集上的数字
-        //  英文：文件里面二进制数据 0110 0001 read方法进行读取，解码并转成十进制97
-        //  中文：文件里面的二进制数据 11100110 10110001 10001001 read方法进行读取，解码并转成十进制27721
+        // 最终把这个十进制作为返回值
+        // 这个十进制的数据也表示在字符集上的数字
+        // 英文：文件里面二进制数据 0110 0001 read方法进行读取，解码并转成十进制97
+        // 中文：文件里面的二进制数据 11100110 10110001 10001001 read方法进行读取，解码并转成十进制27721
 
         int ch;
         ArrayList<Integer> bufferCh = new ArrayList<>();
@@ -61,19 +61,19 @@ public class IT02_CharStream extends BaseIOTest {
 
     @Test
     @DisplayName("FileReader read 带参数")
-    public void test02() throws IOException {
+    void test02() throws IOException {
         /*
-            第一步：创建对象
-            public FileReader(File file)        创建字符输入流关联本地文件
-            public FileReader(String pathname)  创建字符输入流关联本地文件
-
-            第二步：读取数据
-            public int read()                   读取数据，读到末尾返回-1
-            public int read(char[] buffer)      读取多个数据，读到末尾返回-1
-
-            第三步：释放资源
-            public void close()                 释放资源/关流
-        */
+         * 第一步：创建对象
+         * public FileReader(File file) 创建字符输入流关联本地文件
+         * public FileReader(String pathname) 创建字符输入流关联本地文件
+         * 
+         * 第二步：读取数据
+         * public int read() 读取数据，读到末尾返回-1
+         * public int read(char[] buffer) 读取多个数据，读到末尾返回-1
+         * 
+         * 第三步：释放资源
+         * public void close() 释放资源/关流
+         */
 
         // 1.创建对象
         FileReader fr = new FileReader(f1);
@@ -100,27 +100,27 @@ public class IT02_CharStream extends BaseIOTest {
 
     @Test
     @DisplayName("FileWriter Demo")
-    public void test_write_01() throws IOException {
-          /*
-            第一步：创建对象
-                public FileWriter(File file)                            创建字符输出流关联本地文件
-                public FileWriter(String pathname)                      创建字符输出流关联本地文件
-                public FileWriter(File file,  boolean append)           创建字符输出流关联本地文件，续写
-                public FileWriter(String pathname, boolean append)     创建字符输出流关联本地文件，续写
-
-            第二步：读取数据
-                void write(int c)                           写出一个字符
-                void write(String str)                      写出一个字符串
-                void write(String str, int off, int len)    写出一个字符串的一部分
-                void write(char[] cbuf)                     写出一个字符数组
-                void write(char[] cbuf, int off, int len)   写出字符数组的一部分
-
-            第三步：释放资源
-                public void close()                 释放资源/关流
-
-
-                '我'    25105
-        */
+    void test_write_01() throws IOException {
+        /*
+         * 第一步：创建对象
+         * public FileWriter(File file) 创建字符输出流关联本地文件
+         * public FileWriter(String pathname) 创建字符输出流关联本地文件
+         * public FileWriter(File file, boolean append) 创建字符输出流关联本地文件，续写
+         * public FileWriter(String pathname, boolean append) 创建字符输出流关联本地文件，续写
+         * 
+         * 第二步：读取数据
+         * void write(int c) 写出一个字符
+         * void write(String str) 写出一个字符串
+         * void write(String str, int off, int len) 写出一个字符串的一部分
+         * void write(char[] cbuf) 写出一个字符数组
+         * void write(char[] cbuf, int off, int len) 写出字符数组的一部分
+         * 
+         * 第三步：释放资源
+         * public void close() 释放资源/关流
+         * 
+         * 
+         * '我' 25105
+         */
 
         FileWriter fw = new FileWriter(f2a, true);
 
@@ -128,16 +128,15 @@ public class IT02_CharStream extends BaseIOTest {
         fw.write('\n');
         fw.write(25105);
         fw.write("Hello, world");
-        char[] chars = {'a', '\uD83D', '\uDC4B', 'c', '我'};
+        char[] chars = { 'a', '\uD83D', '\uDC4B', 'c', '我' };
         fw.write(chars);
         fw.close();
-
 
     }
 
     @Test
     @DisplayName("验证FileReader缓冲区")
-    public void test04() throws IOException {
+    void test04() throws IOException {
 
         Reader fr = new FileReader(f2b);
         fr.read();// 会把文件中的数据放到缓冲区当中
@@ -155,12 +154,11 @@ public class IT02_CharStream extends BaseIOTest {
         fw.close();
         fr.close();
 
-
     }
 
     @Test
     @DisplayName("flush 和 close 的区别")
-    public void test05() throws IOException {
+    void test05() throws IOException {
         File file = new File(resource, "io/FLUSH.md");
         FileWriter fw = new FileWriter(file);
         fw.write("An Apple a day,");

@@ -12,7 +12,7 @@ import org.junit.jupiter.api.Test;
 public class TestCharStream {
 
     @Test
-    public void test() {
+    void test() {
         InputStreamReader isr = new InputStreamReader(System.in);
 
     }

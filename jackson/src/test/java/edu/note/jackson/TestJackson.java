@@ -18,7 +18,7 @@ public class TestJackson {
 
     @Test
     @DisplayName("反序列化：从 json 获得 java 对象")
-    public void testJsonDemo() throws IOException {
+    void testJsonDemo() throws IOException {
         String studentJson = "{\"name\":\"Mike\", \"age\":18}";
         Student student = objectMapper.readValue(studentJson, Student.class);
         System.out.println(student);
@@ -26,7 +26,7 @@ public class TestJackson {
 
     @Test
     @DisplayName("序列化：从 java 对象 获得 json")
-    public void testJsonDemo2() throws JsonProcessingException {
+    void testJsonDemo2() throws JsonProcessingException {
         Student student = new Student("Mike", 12, 130, null, null);
         String s = objectMapper.writeValueAsString(student);
         System.out.println(s);
@@ -34,7 +34,7 @@ public class TestJackson {
 
     @Test
     @DisplayName("序列化：涉及日期时间")
-    public void testJsonDemo3() throws JsonProcessingException {
+    void testJsonDemo3() throws JsonProcessingException {
         Student student = new Student("Mike", 12, 130, LocalDateTime.now(), null);
         objectMapper.registerModule(new JavaTimeModule());
         String s = objectMapper.writeValueAsString(student);
@@ -43,7 +43,7 @@ public class TestJackson {
 
     @Test
     @DisplayName("从 json 获得 JsonNode 对象（树模型）")
-    public void testJsonDemo4() throws IOException {
+    void testJsonDemo4() throws IOException {
         // 树模型
         String studentJson = "{\"data\":{\"name\":\"Mike\", \"age\":18}}";
         JsonNode rootNode = objectMapper.readTree(studentJson);
@@ -54,7 +54,7 @@ public class TestJackson {
 
     @Test
     @DisplayName("从 JsonNode 构造 json")
-    public void testJsonDemo5() {
+    void testJsonDemo5() {
         ObjectNode jsonNodes = objectMapper.createObjectNode();
         jsonNodes.put("name", "Mike");
         jsonNodes.put("age", 18);
@@ -64,13 +64,14 @@ public class TestJackson {
 
     @Test
     @DisplayName("反序列化时，对于嵌套的数据的处理")
-    public void testJsonDemo6() throws IOException {
+    void testJsonDemo6() throws IOException {
         // {"name":"Mike", "info":"{"age":"hello"}"}
         String studentJson = "{'name':'Mike', 'info':['hello','world']}";
         ObjectMapper objectMapper = new ObjectMapper();
 
         objectMapper.enable(JsonParser.Feature.ALLOW_SINGLE_QUOTES);
-        // objectMapper.configure(DeserializationFeature.ACCEPT_SINGLE_VALUE_AS_ARRAY, true);
+        // objectMapper.configure(DeserializationFeature.ACCEPT_SINGLE_VALUE_AS_ARRAY,
+        // true);
         // objectMapper.enable(DeserializationFeature.ACCEPT_SINGLE_VALUE_AS_ARRAY);
 
         // DeserializationFeature.
@@ -80,7 +81,7 @@ public class TestJackson {
     }
 
     @Test
-    public void testJsonDemo7() throws IOException {
+    void testJsonDemo7() throws IOException {
         String teacherJson = "{'name':'Mike', 'info':[{'key1':'hello'}, {'key1':'world'}]}";
         ObjectMapper objectMapper = new ObjectMapper();
         objectMapper.configure(JsonParser.Feature.ALLOW_SINGLE_QUOTES, true);
@@ -89,7 +90,7 @@ public class TestJackson {
     }
 
     @Test
-    public void testJsonDemo8() throws IOException {
+    void testJsonDemo8() throws IOException {
         ObjectMapper objectMapper = new ObjectMapper();
         objectMapper.configure(JsonParser.Feature.ALLOW_SINGLE_QUOTES, true);
         objectMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);

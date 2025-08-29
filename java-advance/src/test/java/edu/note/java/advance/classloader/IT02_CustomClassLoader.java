@@ -18,7 +18,7 @@ public class IT02_CustomClassLoader {
     CustomClassLoader customClassLoader = new CustomClassLoader(url);
 
     @Test
-    public void test1() {
+    void test1() {
         try {
             Class<?> clazz = customClassLoader.loadClass("Person");
             clazz.newInstance();
@@ -28,7 +28,7 @@ public class IT02_CustomClassLoader {
     }
 
     @Test
-    public void test2() {
+    void test2() {
         try {
             Class<?> clazz2 = customClassLoader.loadClass("com.jackylee.classLoader.Person2");
         } catch (Exception e) {

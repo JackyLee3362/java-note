@@ -4,7 +4,7 @@ import org.junit.jupiter.api.Test;
 
 class MyLRUTest {
     @Test
-    public void testMyLRU() {
+    void testMyLRU() {
         MyLRU<Integer, String> lru = new MyLRU<Integer, String>(3);
         lru.put(1, "first");
         System.out.println(lru);

@@ -1,6 +1,5 @@
 package edu.note.util.concurrent.lock;
 
-
 import edu.note.util.concurrent.example.SellTicketsSynchronized;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -16,7 +15,7 @@ public class TestSynchronizeDemo {
 
     @Test
     @DisplayName("使用 synchronize 同步")
-    public void test() throws InterruptedException {
+    void test() throws InterruptedException {
 
         Runnable mr = new SellTicketsSynchronized();
 

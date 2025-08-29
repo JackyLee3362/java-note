@@ -20,7 +20,7 @@ public class TestFileInputStream extends BaseIOTest {
 
     @Test
     @DisplayName("循环读取")
-    public void test01() throws IOException {
+    void test01() throws IOException {
         FileInputStream inputStream = new FileInputStream(f1);
         // 2.循环读取
         int b;
@@ -34,7 +34,7 @@ public class TestFileInputStream extends BaseIOTest {
 
     @Test
     @DisplayName("Buffer 读取")
-    public void test02() throws IOException {
+    void test02() throws IOException {
         FileInputStream inputStream = new FileInputStream(f1);
 
         // 2.读取数据
@@ -52,10 +52,9 @@ public class TestFileInputStream extends BaseIOTest {
         inputStream.close();
     }
 
-
     @Test
     @DisplayName("Question: Emoji/中文 如何读取")
-    public void test07() throws IOException {
+    void test07() throws IOException {
         // code point>=65536 怎么办？
         // 因为是字节流读取，所以无法正确显示
         File f1 = new File(resource, "io/EMOJI.md");
@@ -73,14 +72,14 @@ public class TestFileInputStream extends BaseIOTest {
 
     @Test
     @DisplayName("写入文件")
-    public void test_write_01() throws IOException {
+    void test_write_01() throws IOException {
         FileOutputStream fos = new FileOutputStream(f1);
         // 先写一个 'a'
         fos.write(97);
         // 再写一个换行 '\r\n'
         fos.write("\r\n".getBytes());
         // 再写一个 'bc'
-        byte[] bytes = {97, 98, 99, 100, 101};
+        byte[] bytes = { 97, 98, 99, 100, 101 };
         fos.write(bytes, 1, 2);
         fos.close();
         Assertions.assertEquals(5, f1.length());
@@ -88,7 +87,7 @@ public class TestFileInputStream extends BaseIOTest {
 
     @Test
     @DisplayName("未释放资源无法删除文件")
-    public void test_write_02() throws IOException {
+    void test_write_02() throws IOException {
         FileOutputStream fos = new FileOutputStream(f1);
         fos.write(97);
         Assertions.assertFalse(f1.delete());
@@ -98,7 +97,7 @@ public class TestFileInputStream extends BaseIOTest {
 
     @Test
     @DisplayName("拷贝文件")
-    public void test_copy_01() throws IOException {
+    void test_copy_01() throws IOException {
 
         FileInputStream fis = new FileInputStream(f1);
         FileOutputStream fos = new FileOutputStream(f2);
@@ -112,10 +111,9 @@ public class TestFileInputStream extends BaseIOTest {
         fis.close();
     }
 
-
     @Test
     @DisplayName("Buffer 拷贝")
-    public void test_copy_02() throws IOException {
+    void test_copy_02() throws IOException {
         long start = System.currentTimeMillis();
         // 1.创建对象
         FileInputStream fis = new FileInputStream(f1);

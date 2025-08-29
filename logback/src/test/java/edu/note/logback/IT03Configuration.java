@@ -28,13 +28,13 @@ public class IT03Configuration {
 
     @Test
     @DisplayName("读取自己的配置")
-    public void test1() {
+    void test1() {
         log.info("123");
     }
 
     @Test
     @DisplayName("打印上下文/状态信息")
-    public void test2() {
+    void test2() {
         LoggerContext context = (LoggerContext) LoggerFactory.getILoggerFactory();
         // TODO 更高版本存在
         // new StatusPrinter2().print(context);

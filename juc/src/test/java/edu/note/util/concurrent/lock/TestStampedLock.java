@@ -1,6 +1,5 @@
 package edu.note.util.concurrent.lock;
 
-
 import edu.note.util.concurrent.util.Sleeper;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Assertions;
@@ -15,7 +14,7 @@ public class TestStampedLock {
 
     @Test
     @DisplayName("多个【乐观读锁】不互斥")
-    public void testOptimisticRead() throws InterruptedException {
+    void testOptimisticRead() throws InterruptedException {
         DataContainerStamped dataContainer = new DataContainerStamped(1);
         Thread reader1 = new Thread(() -> {
             int read = dataContainer.read(1);
@@ -36,7 +35,7 @@ public class TestStampedLock {
 
     @Test
     @DisplayName("【乐观读锁】Validate 失败，升级为读锁")
-    public void testReadLock() throws InterruptedException {
+    void testReadLock() throws InterruptedException {
         DataContainerStamped dataContainer = new DataContainerStamped(1);
 
         Thread reader = new Thread(() -> {
@@ -58,7 +57,7 @@ public class TestStampedLock {
 
     @Test
     @DisplayName("【乐观读锁】升级读锁 - 与【写锁】互斥")
-    public void testWrite() throws InterruptedException {
+    void testWrite() throws InterruptedException {
         DataContainerStamped dataContainer = new DataContainerStamped(1);
 
         Thread reader = new Thread(() -> {
@@ -77,7 +76,4 @@ public class TestStampedLock {
         writer.join();
     }
 
-
 }
-
-

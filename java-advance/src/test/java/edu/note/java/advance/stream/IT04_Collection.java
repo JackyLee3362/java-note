@@ -18,7 +18,7 @@ import org.junit.jupiter.api.Test;
 public class IT04_Collection {
 
     @Test
-    public void test() {
+    void test() {
 
         ArrayList<String> list = new ArrayList<>();
         Collections.addAll(list, "张无忌-男-15", "周芷若-女-14", "赵敏-女-13", "张强-男-20",

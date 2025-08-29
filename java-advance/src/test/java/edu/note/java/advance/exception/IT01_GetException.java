@@ -14,7 +14,7 @@ public class IT01_GetException {
 
     @Test
     @DisplayName("jdk7")
-    public void test1() {
+    void test1() {
 
         try (FileInputStream fis = new FileInputStream("D:\\itheima\\movie.mp4");
             FileOutputStream fos = new FileOutputStream("myio\\copy.mp4")) {
@@ -33,7 +33,7 @@ public class IT01_GetException {
 
     @Test
     @DisplayName("jdk9")
-    public void test2() throws FileNotFoundException {
+    void test2() throws FileNotFoundException {
 
         /*
          *    JDK9:IO流中捕获异常的写法

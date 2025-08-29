@@ -16,10 +16,9 @@ public class IT07_ZipStream extends BaseIOTest {
 
     File dir = new File(resource, "io/");
 
-
     @Test
     @DisplayName("解压")
-    public void test01() throws IOException {
+    void test01() throws IOException {
 
         // 1.创建一个File表示要解压的压缩包
         File src = new File(dir, "README-07.zip");
@@ -32,7 +31,7 @@ public class IT07_ZipStream extends BaseIOTest {
 
     @Test
     @DisplayName("压缩流：压缩单文件")
-    public void test02() throws IOException {
+    void test02() throws IOException {
 
         // 压缩流:把单个文件打包成一个压缩包
         // 1.创建File对象表示要压缩的文件
@@ -45,7 +44,7 @@ public class IT07_ZipStream extends BaseIOTest {
 
     @Test
     @DisplayName("压缩文件夹")
-    public void test03() throws IOException {
+    void test03() throws IOException {
         // 压缩流:把文件夹压缩成一个压缩包
         // 1.创建File对象表示要压缩的文件夹
         File src = new File(dir, "README-07");

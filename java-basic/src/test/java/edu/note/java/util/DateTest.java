@@ -11,13 +11,13 @@ import org.junit.Test;
  */
 public class DateTest {
     @Test
-    public void test_date_create() {
+    void test_date_create() {
         Date date = new Date();
         System.out.println(date);
     }
 
     @Test
-    public void test_date_to_instant() {
+    void test_date_to_instant() {
         Date date = new Date();
         // UTC 时间
         Instant instant = date.toInstant();
@@ -27,6 +27,5 @@ public class DateTest {
         System.out.println(ZoneId.systemDefault());
         System.out.println(localInstant);
     }
-
 
 }

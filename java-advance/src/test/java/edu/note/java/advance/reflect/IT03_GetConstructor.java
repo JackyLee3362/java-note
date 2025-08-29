@@ -29,7 +29,7 @@ public class IT03_GetConstructor {
 
     @Test
     @DisplayName("返回【公共】构造函数列表")
-    public void test1() {
+    void test1() {
         // 【公共】
         Assertions.assertEquals(2, clazz.getConstructors().length);
         // 【公共、默认、保护、私有】
@@ -38,7 +38,7 @@ public class IT03_GetConstructor {
 
     @Test
     @DisplayName("根据签名返回构造函数")
-    public void test2() throws NoSuchMethodException {
+    void test2() throws NoSuchMethodException {
         // 获取【公共】构造方法，无法获取【私有】的
         Assertions.assertNotNull(clazz.getConstructor(String.class));
         Assertions.assertThrows(NoSuchMethodException.class, () -> {
@@ -49,7 +49,7 @@ public class IT03_GetConstructor {
     }
 
     @Test
-    public void test3()
+    void test3()
             throws NoSuchMethodException, InvocationTargetException, InstantiationException, IllegalAccessException {
 
         Constructor con4 = clazz.getDeclaredConstructor(String.class, int.class, double.class, char.class);

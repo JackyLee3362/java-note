@@ -15,7 +15,7 @@ public class TestProxy {
 
     @Test
     @DisplayName("测试代理")
-    public void test() {
+    void test() {
 
         // 1. 获取代理的对象
         StarImpl bigStar = new StarImpl("鸡哥");

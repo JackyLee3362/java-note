@@ -9,7 +9,7 @@ import org.junit.jupiter.api.Test;
  */
 public class TestConcurrentHashMap {
     @Test
-    public void test(){
+    void test() {
         ConcurrentHashMap<Object, Object> objectObjectConcurrentHashMap = new ConcurrentHashMap<>(16, 0.75f, 16);
         System.out.println(objectObjectConcurrentHashMap);
     }

@@ -1,6 +1,5 @@
 package edu.note.java.io.io.application;
 
-
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.FileReader;
@@ -14,10 +13,10 @@ import org.junit.jupiter.api.Test;
 public class T06_缓冲流_写出师表 {
 
     @Test
-    public void test01() throws IOException {
-            /*
-                需求：把《出师表》的文章顺序进行恢复到一个新文件中。
-            */
+    void test01() throws IOException {
+        /*
+         * 需求：把《出师表》的文章顺序进行恢复到一个新文件中。
+         */
 
         // 1.读取数据
         BufferedReader br = new BufferedReader(new FileReader("myio\\csb.txt"));
@@ -25,7 +24,7 @@ public class T06_缓冲流_写出师表 {
         TreeMap<Integer, String> tm = new TreeMap<>();
         while ((line = br.readLine()) != null) {
             String[] arr = line.split("\\.");
-            // 0：序号  1 ：内容
+            // 0：序号 1 ：内容
             tm.put(Integer.parseInt(arr[0]), line);
         }
         br.close();
@@ -39,7 +38,6 @@ public class T06_缓冲流_写出师表 {
             bw.newLine();
         }
         bw.close();
-
 
     }
 }

@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Test;
 // 具体查看满一航的 JUC 课程 - java7
 public class TestDeadLink {
     @Test
-    public void test01() {
+    void test01() {
         // 测试 java 7 中哪些数字的 hash 结果相等
         System.out.println("长度为16时，桶下标为1的key");
         for (int i = 0; i < 64; i++) {
@@ -36,13 +36,13 @@ public class TestDeadLink {
         map.put(35, null);
         map.put(1, null);
 
-        System.out.println("扩容前大小[main]:"+map.size());
+        System.out.println("扩容前大小[main]:" + map.size());
         new Thread() {
             @Override
             public void run() {
                 // 放第 13 个元素, 发生扩容
                 map.put(50, null);
-                System.out.println("扩容后大小[Thread-0]:"+map.size());
+                System.out.println("扩容后大小[Thread-0]:" + map.size());
             }
         }.start();
         new Thread() {
@@ -50,7 +50,7 @@ public class TestDeadLink {
             public void run() {
                 // 放第 13 个元素, 发生扩容
                 map.put(50, null);
-                System.out.println("扩容后大小[Thread-1]:"+map.size());
+                System.out.println("扩容后大小[Thread-1]:" + map.size());
             }
         }.start();
     }

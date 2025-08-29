@@ -26,13 +26,13 @@ public class TestBufferByteStream extends BaseIOTest {
 
     /*
      * 字节缓冲输入流的构造方法：
-     *  public BufferedInputStream(InputStream is)
+     * public BufferedInputStream(InputStream is)
      * 字节缓冲输出流的构造方法：
-     *  public BufferedOutputStream(OutputStream os)
+     * public BufferedOutputStream(OutputStream os)
      **/
     @Test
     @DisplayName("字节缓冲流 单字节读取")
-    public void test_01() throws IOException {
+    void test_01() throws IOException {
 
         // 1.创建缓冲流的对象
         // CharArrayReader
@@ -50,12 +50,12 @@ public class TestBufferByteStream extends BaseIOTest {
 
     @Test
     @DisplayName("字节缓冲流 多字节读取")
-    public void test02() throws IOException {
+    void test02() throws IOException {
         /*
          * 字节缓冲输入流的构造方法：
-         *  public BufferedInputStream(InputStream is)
+         * public BufferedInputStream(InputStream is)
          * 字节缓冲输出流的构造方法：
-         *  public BufferedOutputStream(OutputStream os)
+         * public BufferedOutputStream(OutputStream os)
          **/
 
         // 1.创建缓冲流的对象
@@ -71,26 +71,25 @@ public class TestBufferByteStream extends BaseIOTest {
         bos.close();
         bis.close();
 
-
     }
 
     @Test
     @DisplayName("字符缓冲流Reader 行读取")
-    public void test03() throws IOException {
+    void test03() throws IOException {
         /*
          * 字符缓冲输入流：
-         *  构造方法：
-         *  public BufferedReader(Reader r)
+         * 构造方法：
+         * public BufferedReader(Reader r)
          * 特有方法：
-         *  public String readLine()   读一整行
+         * public String readLine() 读一整行
          **/
 
         // 1.创建字符缓冲输入流的对象
         BufferedReader br = new BufferedReader(new FileReader(f1));
         // 2.读取数据
         // 细节：
-        //  readLine在读取时，一次读一整行，
-        //  遇到回车换行结束 不会把回车换行读到内存当中
+        // readLine在读取时，一次读一整行，
+        // 遇到回车换行结束 不会把回车换行读到内存当中
 
         String line;
         while (((line = br.readLine()) != null)) {
@@ -100,19 +99,18 @@ public class TestBufferByteStream extends BaseIOTest {
         // 3.释放资源
         br.close();
 
-
     }
 
     /*
      * 字符缓冲输出流
      * 构造方法：
-     *   public BufferedWriter(Writer r)
+     * public BufferedWriter(Writer r)
      * 特有方法：
-     *   public void newLine()      跨平台的换行
-     * */
+     * public void newLine() 跨平台的换行
+     */
     @Test
     @DisplayName("字符缓冲流Writer 行写入")
-    public void test04() throws IOException {
+    void test04() throws IOException {
 
         // 1.创建字符缓冲输出流的对象
         BufferedWriter bw = new BufferedWriter(new FileWriter("io/README-03.out.md", true));
