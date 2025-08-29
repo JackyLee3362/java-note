@@ -1,4 +1,4 @@
-package edu.note.java.io.io;
+package edu.note.java.io.file;
 
 import edu.note.java.io.BaseIOTest;
 import java.io.File;
@@ -13,7 +13,7 @@ import org.junit.jupiter.api.Test;
  * @author jackylee
  * @date 2024/11/29 下午3:51
  */
-public class IT01_ByteStream extends BaseIOTest {
+public class TestFileInputStream extends BaseIOTest {
 
     File f1 = new File(resource, "io/README.md");
     File f2 = new File(resource, "io/README-01.out.md");
@@ -21,21 +21,21 @@ public class IT01_ByteStream extends BaseIOTest {
     @Test
     @DisplayName("循环读取")
     public void test01() throws IOException {
-        FileInputStream fis = new FileInputStream(f1);
+        FileInputStream inputStream = new FileInputStream(f1);
         // 2.循环读取
         int b;
-        while ((b = fis.read()) != -1) {
+        while ((b = inputStream.read()) != -1) {
             System.out.print((char) b);
         }
         // 3.释放资源
-        fis.close();
+        inputStream.close();
 
     }
 
     @Test
     @DisplayName("Buffer 读取")
     public void test02() throws IOException {
-        FileInputStream fis = new FileInputStream(f1);
+        FileInputStream inputStream = new FileInputStream(f1);
 
         // 2.读取数据
         byte[] bytes = new byte[4];
@@ -43,13 +43,13 @@ public class IT01_ByteStream extends BaseIOTest {
         // 返回值：本次读取到了多少个字节数据
         int len;
         String str;
-        while ((len = fis.read(bytes)) != -1) {
+        while ((len = inputStream.read(bytes)) != -1) {
             System.out.println("读取长度为 " + len);// 3
             str = new String(bytes, 0, len);
             System.out.println(str);
         }
         // 3.释放资源
-        fis.close();
+        inputStream.close();
     }
 
 

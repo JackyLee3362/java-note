@@ -19,7 +19,7 @@ import org.junit.jupiter.api.Test;
  * @date 2024/11/30 下午11:59
  */
 // IO 缓冲流
-public class IT03_BufferByteStream extends BaseIOTest {
+public class TestBufferByteStream extends BaseIOTest {
 
     File f1 = new File(resource, "io/README.md");
     File f2 = new File(resource, "io/README-2.md");

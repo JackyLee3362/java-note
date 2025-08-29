@@ -4,7 +4,7 @@ package edu.note.java.io.io.commonIo;
 
 import java.io.IOException;
 
-public class A01_文件操作 {
+public class A01_HandleFile {
     public static void main(String[] args) throws IOException {
         /*
           FileUtils类

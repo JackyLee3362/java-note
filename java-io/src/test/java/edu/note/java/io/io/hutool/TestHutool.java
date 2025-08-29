@@ -2,7 +2,7 @@ package edu.note.java.io.io.hutool;
 
 // import cn.hutool.core.io.FileUtil;
 
-public class A01_Demo {
+public class TestHutool {
     public static void main(String[] args) {
     /*
         ! 网址[[ https://hutool.cn/docs/#/ ]]

@@ -1,6 +1,7 @@
 package edu.note.java.io.io;
 
 import edu.note.java.io.BaseIOTest;
+import edu.note.java.io.Student;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;

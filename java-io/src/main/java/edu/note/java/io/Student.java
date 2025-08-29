@@ -1,4 +1,4 @@
-package edu.note.java.io.io;
+package edu.note.java.io;
 
 
 import java.io.Serializable;

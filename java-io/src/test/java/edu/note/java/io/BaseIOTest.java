@@ -1,6 +1,7 @@
 package edu.note.java.io;
 
 import java.util.Objects;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 /**
@@ -13,8 +14,8 @@ public class BaseIOTest {
     public static final String resource = Objects.requireNonNull(classLoader.getResource(".")).getPath();
 
     @Test
-    public void testBasic(){
-        System.out.println(resource);
+    public void testBasic() {
+        Assertions.assertInstanceOf(String.class, resource);
     }
 
 }
