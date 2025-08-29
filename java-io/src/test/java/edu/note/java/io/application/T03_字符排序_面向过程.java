@@ -1,4 +1,4 @@
-package edu.note.java.io.io.application;
+package edu.note.java.io.application;
 
 import java.io.FileReader;
 import java.io.FileWriter;

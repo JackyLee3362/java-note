@@ -18,13 +18,13 @@ import org.junit.jupiter.api.Test;
  * @date 2024/12/1 上午12:01
  */
 // 利用序列化流/对象操作输出流，把一个对象写到本地文件中
-public class IT05_SequenceStream extends BaseIOTest {
+public class TestSequenceStream extends BaseIOTest {
 
     File dir = new File(resource, "io");
 
     @Test
     @DisplayName("序列化对象")
-    void test01_Serialization() throws IOException {
+    void test01() throws IOException {
 
         // public ObjectOutputStream(OutputStream out) 把基本流变成高级流
         // public final void writeObject(Object obj) 把对象序列化（写出）到文件中去
@@ -42,7 +42,7 @@ public class IT05_SequenceStream extends BaseIOTest {
 
     @Test
     @DisplayName("反序列化 对象操作输入流")
-    void test() throws IOException, ClassNotFoundException {
+    void test02() throws IOException, ClassNotFoundException {
 
         // public ObjectInputStream(InputStream out) 把基本流变成高级流
         // public Object readObject() 把序列化到本地文件中的对象，读取到程序中来

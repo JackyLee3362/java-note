@@ -1,4 +1,4 @@
-package edu.note.java.io.io.hutool;
+package edu.note.java.io.hutool;
 
 // import cn.hutool.core.io.FileUtil;
 

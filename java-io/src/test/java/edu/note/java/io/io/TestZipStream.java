@@ -12,7 +12,7 @@ import org.junit.jupiter.api.Test;
  * @author jackylee
  * @date 2024/12/1 上午12:02
  */
-public class IT07_ZipStream extends BaseIOTest {
+public class TestZipStream extends BaseIOTest {
 
     File dir = new File(resource, "io/");
 

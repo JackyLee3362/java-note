@@ -18,7 +18,7 @@ import org.junit.jupiter.api.Test;
  * @date 2024/12/1 上午12:02
  */
 @DisplayName("打印流")
-public class IT06_PrintStream extends BaseIOTest {
+public class TestPrintStream extends BaseIOTest {
 
     File dir = new File(resource, "io");
     File f6a = new File(dir, "README-06a.md");

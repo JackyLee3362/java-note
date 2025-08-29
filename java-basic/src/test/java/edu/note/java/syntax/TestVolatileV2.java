@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Test;
  * @author jackylee
  * @date 2024/12/11 14:32
  */
-public class IT01_Volatile {
+public class TestVolatileV2 {
 
     // 如果没有 volatile ，线程不会停止
     volatile static boolean run = true;

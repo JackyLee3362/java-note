@@ -1,4 +1,4 @@
-package edu.note.java.io.io.commonIo;
+package edu.note.java.io.commonIo;
 
 // import org.apache.commons.io.FileUtils;
 

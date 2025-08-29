@@ -74,7 +74,7 @@ public class TestBufferByteStream extends BaseIOTest {
     }
 
     @Test
-    @DisplayName("字符缓冲流Reader 行读取")
+    @DisplayName("字符缓冲流 Reader 行读取")
     void test03() throws IOException {
         /*
          * 字符缓冲输入流：
@@ -109,7 +109,7 @@ public class TestBufferByteStream extends BaseIOTest {
      * public void newLine() 跨平台的换行
      */
     @Test
-    @DisplayName("字符缓冲流Writer 行写入")
+    @DisplayName("字符缓冲流 Writer 行写入")
     void test04() throws IOException {
 
         // 1.创建字符缓冲输出流的对象
