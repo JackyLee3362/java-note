@@ -3,6 +3,8 @@ package edu.note.java.time;
 import java.text.SimpleDateFormat;
 import java.time.format.DateTimeFormatter;
 import java.time.temporal.TemporalAccessor;
+
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 public class TestDateTimeFormatter {
@@ -12,7 +14,7 @@ public class TestDateTimeFormatter {
         for (int i = 0; i < 10; i++) {
             new Thread(() -> {
                 TemporalAccessor parse = stf.parse("1951-04-21");
-                System.out.println(parse);
+                Assertions.assertEquals(0, parse);
             }).start();
         }
     }
@@ -24,9 +26,9 @@ public class TestDateTimeFormatter {
             new Thread(() -> {
                 synchronized (sdf) {
                     try {
-                        System.out.println(sdf.parse("1951-04-21"));
+                        Assertions.assertEquals(0, sdf.parse("1951-04-21"));
                     } catch (Exception e) {
-                        System.out.println(e);
+                        Assertions.assertEquals(0, e);
                     }
                 }
             }).start();

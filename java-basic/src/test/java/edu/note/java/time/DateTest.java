@@ -4,6 +4,7 @@ import java.time.Instant;
 import java.time.ZoneId;
 import java.util.Date;
 import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
 
 /**
  * @author jackylee
@@ -13,7 +14,7 @@ public class DateTest {
     @Test
     void test_date_create() {
         Date date = new Date();
-        System.out.println(date);
+        Assertions.assertEquals(0, date);
     }
 
     @Test
@@ -21,11 +22,11 @@ public class DateTest {
         Date date = new Date();
         // UTC 时间
         Instant instant = date.toInstant();
-        System.out.println(instant);
+        Assertions.assertEquals(0, instant);
         // 当地时间
         Instant localInstant = instant.atZone(ZoneId.systemDefault()).toInstant();
-        System.out.println(ZoneId.systemDefault());
-        System.out.println(localInstant);
+        Assertions.assertEquals(0, ZoneId.systemDefault());
+        Assertions.assertEquals(0, localInstant);
     }
 
 }

@@ -6,21 +6,28 @@ import java.time.ZoneId;
 import java.time.ZonedDateTime;
 import java.time.format.DateTimeFormatter;
 
-public class A04_DateTimeFormatter_日期时间_解析_格式化 {
-    public static void main(String[] args) {
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
+
+public class TestDateTimeFormatter2 {
+
+    @Test
+    @DisplayName("日期时间 解析 格式化")
+    void test() {
         /*
-            static DateTimeFormatter ofPattern(格式) 获取格式对象
-            String format(时间对象) 按照指定方式格式化
-        */
+         * static DateTimeFormatter ofPattern(格式) 获取格式对象
+         * String format(时间对象) 按照指定方式格式化
+         */
 
         // 1. 获取时间对象
         ZonedDateTime time = Instant.now().atZone(ZoneId.of("Asia/Shanghai"));
 
         // 2. 解析/格式化器
-        DateTimeFormatter dtf1=DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm;ss EE a");
-        
+        DateTimeFormatter dtf1 = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm;ss EE a");
+
         // 3. 格式化
-        System.out.println(dtf1.format(time));
+        Assertions.assertEquals(0, dtf1.format(time));
 
         // 4. 解析
         String dateTimeString = "2023-11-21 13:33:23";
@@ -30,6 +37,6 @@ public class A04_DateTimeFormatter_日期时间_解析_格式化 {
         LocalDateTime dateTime = LocalDateTime.parse(dateTimeString, formatter);
 
         // 输出解析后的 LocalDateTime 对象
-        System.out.println("Parsed LocalDateTime: " + dateTime);
+        Assertions.assertEquals(0, dateTime);
     }
 }

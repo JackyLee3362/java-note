@@ -4,6 +4,8 @@ import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import lombok.extern.slf4j.Slf4j;
+
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 @Slf4j
@@ -15,7 +17,7 @@ public class TestSimpleDateFormat {
         for (int i = 0; i < 10; i++) {
             new Thread(() -> {
                 try {
-                    System.out.println(sdf.parse("1951-04-21"));
+                    Assertions.assertEquals(0, sdf.parse("1951-04-21"));
                 } catch (Exception e) {
                     log.error(e.getMessage());
                 }
@@ -30,7 +32,7 @@ public class TestSimpleDateFormat {
             new Thread(() -> {
                 synchronized (sdf) {
                     try {
-                        System.out.println(sdf.parse("1951-04-21"));
+                        Assertions.assertEquals(0, sdf.parse("1951-04-21"));
                     } catch (Exception e) {
                         log.error(e.getMessage());
                     }
@@ -45,7 +47,7 @@ public class TestSimpleDateFormat {
         for (int i = 0; i < 10; i++) {
             new Thread(() -> {
                 LocalDate date = dtf.parse("2018-10-01", LocalDate::from);
-                System.out.println(date);
+                Assertions.assertEquals(0, date);
             }).start();
         }
     }

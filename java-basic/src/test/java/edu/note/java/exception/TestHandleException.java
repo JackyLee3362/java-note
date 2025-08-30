@@ -1,5 +1,6 @@
 package edu.note.java.exception;
 
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 public class TestHandleException {
@@ -8,25 +9,25 @@ public class TestHandleException {
     void test01() {
 
         /*
-         * public String getMessage() 返回此 throwable 的详细消息字符串
-         * public String toString() 返回此可抛出的简短描述
+         * getMessage() 返回此 throwable 的详细消息字符串
+         * toString() 返回此可抛出的简短描述
          *
-         * public void printStackTrace() 在底层是利用System.err.println进行输出
+         * printStackTrace() 在底层是利用System.err.println进行输出
          * 把异常的错误信息以红色字体输出在控制台
-         * 细节：仅仅是打印信息，不会停止程序运行
+         * 仅仅是打印信息，不会停止程序运行
          */
 
-        int[] arr = {1, 2, 3, 4, 5, 6};
+        int[] arr = { 1, 2, 3, 4, 5, 6 };
 
         try {
-            System.out.println(arr[10]);
+            arr[10] = 1;
         } catch (ArrayIndexOutOfBoundsException e) {
-            String message = e.getMessage();
-            System.out.println(message);// Index 10 out of bounds for length 6*//*
 
-            String str = e.toString();
-            System.out.println(str);// java.lang.ArrayIndexOutOfBoundsException: Index 10 out of bounds for length
-            // 6*//*
+            // Index 10 out of bounds for length 6
+            Assertions.assertEquals("Index 10 out of bounds for length 6", e.getMessage());
+
+            // java.lang.ArrayIndexOutOfBoundsException: Index 10 out of bounds for length
+            Assertions.assertEquals("java.lang.ArrayIndexOutOfBoundsException: 10", e.toString());
 
             e.printStackTrace();
 
