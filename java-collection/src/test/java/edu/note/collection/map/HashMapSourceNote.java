@@ -1,9 +1,6 @@
-package edu.note.collection.hashmap;
+package edu.note.collection.map;
 
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Test;
-
-public class HashMap源码笔记<K, V> {
+public class HashMapSourceNote<K, V> {
     // HashMap源码笔记
     transient Node<K, V>[] table;
 

@@ -5,7 +5,7 @@ import org.junit.jupiter.api.Test;
 
 import java.util.TreeMap;
 
-public class A02_TreeMapDemo2 {
+public class TestTreeMapDemo2 {
     @Test
     @DisplayName("")
     void test01() {

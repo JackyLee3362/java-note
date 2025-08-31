@@ -1,9 +1,11 @@
-package edu.note.collection.linked;
+package edu.note.collection.map;
 
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import java.util.LinkedHashMap;
+import java.util.Map;
 
 public class TestLinkedHashMap {
     @Test
@@ -19,17 +21,16 @@ public class TestLinkedHashMap {
          * 底层数据结构是依然哈希表，只是每个键值对元素又额外的多了一个双链表的机制记录存储的顺序。
          */
 
-        // 1.创建集合
-        LinkedHashMap<String, Integer> lhm = new LinkedHashMap<>();
+        Map<Integer/* id */, String/* 省份 */> hm = new LinkedHashMap<>();
 
-        // 2.添加元素
-        lhm.put("c", 789);
-        lhm.put("b", 456);
-        lhm.put("a", 123);
-        lhm.put("a", 111);
+        // 添加元素
+        hm.put(1, "江苏");
+        hm.put(2, "浙江");
+        hm.put(3, "福建");
+        hm.put(4, "山东");
 
-        // 3.打印集合
-        System.out.println(lhm);
+        Assertions.assertEquals(4, hm.size());
+        Assertions.assertEquals("江苏", hm.get(1));
 
     }
 }

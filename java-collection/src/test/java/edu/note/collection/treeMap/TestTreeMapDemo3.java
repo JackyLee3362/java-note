@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Test;
 import java.util.StringJoiner;
 import java.util.TreeMap;
 
-public class A03_TreeMapDemo3 {
+public class TestTreeMapDemo3 {
     @Test
     @DisplayName("")
     void test01() {

@@ -5,7 +5,7 @@ import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 
-public class A03_泛型通配符 {
+public class TestGeneric {
     @Test
     @DisplayName("")
     void test01() {

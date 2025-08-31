@@ -1,8 +1,5 @@
 package edu.note.collection.treeMap;
 
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Test;
-
 public class Student implements Comparable<Student> {
     private String name;
     private int age;

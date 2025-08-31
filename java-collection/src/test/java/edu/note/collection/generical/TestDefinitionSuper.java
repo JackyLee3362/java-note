@@ -5,7 +5,7 @@ import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 
-public class A02_集合定义父类_添加子对象 {
+public class TestDefinitionSuper {
     @Test
     @DisplayName("")
     void test01() {

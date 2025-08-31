@@ -1,20 +1,20 @@
 package edu.note.collection.list;
 
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Test;
-
 import java.util.Collections;
 import java.util.List;
+
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 /**
  * @author jackylee
  * @date 2025/8/22 16:24
  */
-public class SingletonListTest {
+public class TestSingletonList {
 
     @Test
+    @DisplayName("测试单例列表")
     void test_singleton_list() {
         List<String> list = Collections.singletonList("a");
         // 只能有一个元素

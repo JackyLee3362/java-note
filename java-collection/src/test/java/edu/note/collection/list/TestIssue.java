@@ -6,9 +6,9 @@ import org.junit.jupiter.api.Test;
 import java.util.ArrayList;
 import java.util.List;
 
-public class A04_递归问题 {
+public class TestIssue {
     @Test
-    @DisplayName("")
+    @DisplayName("无限递归问题")
     void test01() {
         List<Object> myList = new ArrayList<>();
         myList.add("Item 1");

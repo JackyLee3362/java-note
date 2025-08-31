@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Iterator;
 
-public class TestIteratorDemo {
+public class TestIteratorIssue {
     @Test
     @DisplayName("迭代器遍历完后不会复位")
     void test01() {
