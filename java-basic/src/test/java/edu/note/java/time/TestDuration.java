@@ -1,10 +1,10 @@
 package edu.note.java.time;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
+import java.time.Duration;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.Period;
 import java.time.temporal.ChronoUnit;
-import java.util.Date;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
@@ -12,33 +12,60 @@ import org.junit.jupiter.api.Test;
 
 public class TestDuration {
     @Test
-    @DisplayName("JDK7 - 计算间隔天数")
-    void test01() throws ParseException {
+    @DisplayName("Duration 时间间隔")
+    void test01() {
 
-        // 请使用代码实现计算你活了多少天，用JDK7和JDK8两种方式完成
-        // JDK7
-        // 规则:只要对时间进行计算或者判断，都需要先获取当前时间的毫秒值
-        // 1.计算出生年月日的毫秒值
-        String birthday = "2000-01-01";
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-        Date date = sdf.parse(birthday);
-        long birthdayTime = date.getTime();
-        // 2.获取当前时间的毫秒值
-        long todayTime = System.currentTimeMillis();
-        // 3.计算间隔多少天
-        long time = todayTime - birthdayTime;
-        Assertions.assertEquals(0, time / 1000 / 60 / 60 / 24);
+        LocalDateTime t1 = LocalDateTime.of(2000, 1, 1, 0, 0, 0);
+        LocalDateTime t2 = LocalDateTime.of(2001, 2, 3, 4, 5, 6);
+
+        Duration duration = Duration.between(t1, t2);// 第二个参数减第一个参数
+
+        Assertions.assertEquals(399, duration.toDays());// 两个时间差的天数
+        Assertions.assertEquals(9580, duration.toHours());// 两个时间差的小时数
+        Assertions.assertEquals(574805, duration.toMinutes());// 两个时间差的分钟数
+        Assertions.assertEquals(344883000, duration.toMillis());// 两个时间差的毫秒数
+        Assertions.assertEquals(344883000000L, duration.toNanos());// 两个时间差的纳秒数
     }
 
     @Test
-    @DisplayName("JDK8 - 计算间隔天数")
+    @DisplayName("(太麻烦,不建议)ChronoUnit 时间间隔")
     void test02() {
 
-        // JDK8
-        LocalDate ld1 = LocalDate.of(2000, 1, 1);
-        LocalDate ld2 = LocalDate.now();
-        long days = ChronoUnit.DAYS.between(ld1, ld2);
-        Assertions.assertEquals(0, days);
+        LocalDateTime t1 = LocalDateTime.of(2000, 1, 1, 0, 0, 0);
+        LocalDateTime t2 = LocalDateTime.of(2001, 2, 3, 4, 5, 6);
 
+        Assertions.assertEquals(1, ChronoUnit.YEARS.between(t1, t2), "相差的年数");
+        Assertions.assertEquals(13, ChronoUnit.MONTHS.between(t1, t2), "相差的月数");
+        Assertions.assertEquals(57, ChronoUnit.WEEKS.between(t1, t2), "相差的周数");
+        Assertions.assertEquals(399, ChronoUnit.DAYS.between(t1, t2), "相差的天数");
+        Assertions.assertEquals(9580, ChronoUnit.HOURS.between(t1, t2), "相差的时数");
+        Assertions.assertEquals(574805, ChronoUnit.MINUTES.between(t1, t2), "相差的分数");
+        Assertions.assertEquals(34488306, ChronoUnit.SECONDS.between(t1, t2), "相差的秒数");
+        Assertions.assertEquals(34488306000L, ChronoUnit.MILLIS.between(t1, t2), "相差的毫秒数");
+        Assertions.assertEquals(34488306000000L, ChronoUnit.MICROS.between(t1, t2), "相差的微秒数");
+        Assertions.assertEquals(34488306000000000L, ChronoUnit.NANOS.between(t1, t2), "相差的纳秒数");
+        Assertions.assertEquals(798, ChronoUnit.HALF_DAYS.between(t1, t2), "相差的半天数");
+        Assertions.assertEquals(0, ChronoUnit.DECADES.between(t1, t2), "相差的十年数");
+        Assertions.assertEquals(0, ChronoUnit.CENTURIES.between(t1, t2), "相差的世纪(百年)数");
+        Assertions.assertEquals(0, ChronoUnit.MILLENNIA.between(t1, t2), "相差的千年数");
+        Assertions.assertEquals(0, ChronoUnit.ERAS.between(t1, t2), "相差的纪元数");
+    }
+
+    @Test
+    @DisplayName("(JDK7,不建议)测试 Period - LocalDate")
+    void test03() {
+
+        // 生日的 年月日
+        LocalDate birthDate = LocalDate.of(2000, 1, 1);
+        LocalDate today = LocalDate.of(2001, 2, 3);
+
+        Period period = Period.between(birthDate, today);// 第二个参数减第一个参数
+
+        Assertions.assertEquals(0, "相差的时间间隔对象:" + period);
+        Assertions.assertEquals(0, period.getYears());
+        Assertions.assertEquals(0, period.getMonths());
+        Assertions.assertEquals(0, period.getDays());
+
+        Assertions.assertEquals(0, period.toTotalMonths());
     }
 }

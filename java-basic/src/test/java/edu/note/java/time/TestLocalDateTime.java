@@ -1,66 +1,117 @@
 package edu.note.java.time;
 
+import java.sql.Date;
+import java.time.DayOfWeek;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
+import java.time.Month;
+import java.time.MonthDay;
 import java.time.ZoneId;
-import java.util.Date;
-import org.junit.Test;
+import java.time.ZoneOffset;
+
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
 
-/**
- * @author jackylee
- * @date 2025/7/9 15:41
- */
 public class TestLocalDateTime {
-
     @Test
-    // NOTE 本地时间
-    @DisplayName("创建本地日期时间")
+    @DisplayName("构造器")
     void test01() {
-        LocalDateTime endTime = LocalDateTime.now();
-        LocalDateTime startTime = LocalDateTime.now().minusMinutes(10);
-        Date startDate = Date.from(startTime.atZone(ZoneId.systemDefault()).toInstant());
-        Date endDate = Date.from(endTime.atZone(ZoneId.systemDefault()).toInstant());
-        Assertions.assertEquals(0, startDate);
-        Assertions.assertEquals(0, endDate);
-        // Assertions.assertEquals(0,startTime.toLocalDate());
-        // Assertions.assertEquals(0,startTime.toLocalTime());
-        // Assertions.assertEquals(0,endTime.toLocalDate());
-        // Assertions.assertEquals(0,endTime.toLocalTime());
+        // 类方法: now
+        LocalDate.now();
+
+        // 类方法: of
+        LocalDate date = LocalDate.of(2023, 4, 5);
+
+        // 类方法 with
+        date.withYear(2020);
+        date.withMonth(3);
+        date.withDayOfMonth(1);
+
+        // 计算 minus/plus
+        date.minusYears(1);
+        date.minusMonths(2);
+        date.minusDays(1);
+
     }
 
     @Test
-    void test_get_current_timestamp() {
-        Assertions.assertEquals(0, System.currentTimeMillis());
+    @DisplayName("属性")
+    void test02() {
+        LocalDate date = LocalDate.of(2023, 4, 5);
+        // 年
+        Assertions.assertEquals(2023, date.getYear());
+        // 月
+        Assertions.assertEquals(Month.APRIL, date.getMonth());
+        Assertions.assertEquals(4, date.getMonthValue());
+        // 日
+        Assertions.assertEquals(5, date.getDayOfMonth());
+        Assertions.assertEquals(95, date.getDayOfYear());
+        Assertions.assertEquals(DayOfWeek.WEDNESDAY, date.getDayOfWeek());
+        // 月日
+        Assertions.assertEquals(MonthDay.of(4, 5), MonthDay.from(date));
+
+        // 判断
+        // 平年闰年
+        Assertions.assertEquals(false, date.isLeapYear());
+        Assertions.assertEquals(false, date.isAfter(date));
+        Assertions.assertEquals(false, date.isBefore(date));
     }
 
+    // 获取本地时间的日历对象。(包含 时分秒)
     @Test
-    @DisplayName("测试")
+    @DisplayName("构造器")
     void test03() {
-        // 当前时间的的日历对象(包含年月日时分秒)
-        LocalDateTime nowDateTime = LocalDateTime.now();
+        LocalTime.now();
+        LocalTime.of(14, 12);
+        LocalTime.of(14, 12, 33);
+        LocalTime time = LocalTime.of(14, 12, 33, 222);
 
-        Assertions.assertEquals(0, "今天是:" + nowDateTime);// 今天是：
-        Assertions.assertEquals(0, nowDateTime.getYear());// 年
-        Assertions.assertEquals(0, nowDateTime.getMonthValue());// 月
-        Assertions.assertEquals(0, nowDateTime.getDayOfMonth());// 日
-        Assertions.assertEquals(0, nowDateTime.getHour());// 时
-        Assertions.assertEquals(0, nowDateTime.getMinute());// 分
-        Assertions.assertEquals(0, nowDateTime.getSecond());// 秒
-        Assertions.assertEquals(0, nowDateTime.getNano());// 纳秒
-        // 日:当年的第几天
-        Assertions.assertEquals(0, "dayofYear:" + nowDateTime.getDayOfYear());
-        // 星期
-        Assertions.assertEquals(0, nowDateTime.getDayOfWeek());
-        Assertions.assertEquals(0, nowDateTime.getDayOfWeek().getValue());
-        // 月份
-        Assertions.assertEquals(0, nowDateTime.getMonth());
-        Assertions.assertEquals(0, nowDateTime.getMonth().getValue());
+        // with
+        time.withHour(0);
+        time.withMinute(0);
+        time.withSecond(0);
+        time.withNano(20);
 
-        LocalDate ld = nowDateTime.toLocalDate();
-        LocalTime lt = nowDateTime.toLocalTime();
     }
 
+    @Test
+    @DisplayName("获取当地时间")
+    void test04() {
+        LocalTime nowTime = LocalTime.of(14, 12, 33, 222);
+        Assertions.assertEquals(14, nowTime.getHour());
+        Assertions.assertEquals(12, nowTime.getMinute());
+        Assertions.assertEquals(33, nowTime.getSecond());
+        Assertions.assertEquals(222, nowTime.getNano());
+
+        LocalTime mTime = LocalTime.of(8, 20, 30, 150);
+
+        // is系列的方法
+        Assertions.assertEquals(true, nowTime.isBefore(mTime));
+        Assertions.assertEquals(false, nowTime.isAfter(mTime));
+
+        // with系列的方法，只能修改时、分、秒
+        Assertions.assertEquals(0, nowTime.withHour(10));
+
+        // plus系列的方法，只能修改时、分、秒
+        Assertions.assertEquals(0, nowTime.plusHours(10));
+
+    }
+
+    @Test
+    @DisplayName("LocalDateTime 构造器")
+    void testLocalDateTime() {
+
+        // 当前时间
+        LocalDateTime.now();
+        // 指定时间
+        LocalDateTime ldt = LocalDateTime.of(2025, 9, 1, 20, 10, 11);
+        // 属性同 LocalDate / LocalTime
+        // 转换
+        Date.from(ldt.atZone(ZoneId.systemDefault()).toInstant());
+        ldt.toLocalDate();
+        ldt.toLocalTime();
+        ldt.toInstant(ZoneOffset.UTC);
+    }
 }
