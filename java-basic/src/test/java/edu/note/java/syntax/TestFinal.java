@@ -1,5 +1,6 @@
 package edu.note.java.syntax;
 
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 public class TestFinal {
@@ -30,15 +31,11 @@ public class TestFinal {
 
     @Test
     void test02() {
-        System.out.println(TestFinal.A);
-        System.out.println(TestFinal.B);
-        System.out.println(new TestFinal().a);
-        System.out.println(new TestFinal().b);
+        Assertions.assertEquals(10, TestFinal.A);
+        Assertions.assertEquals(32768, TestFinal.B);
+        Assertions.assertEquals(20, new TestFinal().a);
+        Assertions.assertEquals(Integer.MAX_VALUE, new TestFinal().b);
         // new TestFinal().test();
     }
 
-    @Test
-    void test03() {
-        System.out.println(TestFinal.A);
-    }
 }

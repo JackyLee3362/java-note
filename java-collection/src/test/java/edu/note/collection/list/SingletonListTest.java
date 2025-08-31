@@ -1,4 +1,7 @@
-package edu.note.java.util;
+package edu.note.collection.list;
+
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
 
 import java.util.Collections;
 import java.util.List;

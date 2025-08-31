@@ -19,7 +19,7 @@ public class TestEncodeDecode {
     void test01() throws UnsupportedEncodingException {
 
         // 1.编码
-        // String在java中默认使用UTF-16编码方式
+        // java 中的 String默认使用UTF-16编码方式
         // 如果在调试时查看String对象的value(),可以看到是以小端方式（little end存储的）
         String str = "你好世界";
         // 但是在调用getBytes()时是使用UTF-8的编码方式

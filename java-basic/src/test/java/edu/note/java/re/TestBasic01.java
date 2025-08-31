@@ -9,6 +9,7 @@ public class TestBasic01 {
     void test01() {
         String qq = "1234567890";
         boolean matches = qq.matches("[1-9]\\d{5,19}");
+        Assertions.assertTrue(matches);
     }
 
     @Test
@@ -69,7 +70,6 @@ public class TestBasic01 {
         Assertions.assertTrue("23 F".matches("[a-zA-Z0-9]{4}"));// false
         Assertions.assertTrue("23dF".matches("[\\w&&[^_]]{4}"));// true
         Assertions.assertTrue("23_F".matches("[\\w&&[^_]]{4}"));// false
-
 
     }
 }

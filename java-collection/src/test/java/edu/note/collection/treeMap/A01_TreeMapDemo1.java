@@ -1,18 +1,23 @@
 package edu.note.collection.treeMap;
 
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
+
 import java.util.Comparator;
 import java.util.TreeMap;
 
 public class A01_TreeMapDemo1 {
-    public static void main(String[] args) {
+    @Test
+    @DisplayName("")
+    void test01() {
         /*
-           TreeMap集合：基本应用
-            需求1：
-                键：整数表示id
-	            值：字符串表示商品名称
-	            要求1：按照id的升序排列
-
-	            要求2：按照id的降序排列
+         * TreeMap集合：基本应用
+         * 需求1：
+         * 键：整数表示id
+         * 值：字符串表示商品名称
+         * 要求1：按照id的升序排列
+         * 
+         * 要求2：按照id的降序排列
          */
 
         // 1.创建集合对象
@@ -37,7 +42,6 @@ public class A01_TreeMapDemo1 {
 
         // 3.打印集合
         System.out.println(tm);
-
 
     }
 }

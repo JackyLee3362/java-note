@@ -1,13 +1,17 @@
 package edu.note.collection.map;
 
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
+
 import java.util.HashMap;
 import java.util.Map;
 import java.util.function.BiConsumer;
 
 public class A04_MapDemo4 {
-    public static void main(String[] args) {
+    @Test
+    @DisplayName("")
+    void test01() {
         // Map集合的第三种遍历方式
-
 
         // 1.创建Map集合的对象
         Map<String, String> map = new HashMap<>();
@@ -34,14 +38,12 @@ public class A04_MapDemo4 {
         System.out.println("-----------------------------------");
 
         map.forEach((String key, String value) -> {
-                    System.out.println(key + "=" + value);
-                }
-        );
+            System.out.println(key + "=" + value);
+        });
 
         System.out.println("-----------------------------------");
 
         map.forEach((key, value) -> System.out.println(key + "=" + value));
-
 
     }
 }

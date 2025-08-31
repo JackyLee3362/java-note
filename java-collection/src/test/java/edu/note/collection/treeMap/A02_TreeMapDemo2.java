@@ -1,17 +1,21 @@
 package edu.note.collection.treeMap;
 
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
+
 import java.util.TreeMap;
 
 public class A02_TreeMapDemo2 {
-    public static void main(String[] args) {
+    @Test
+    @DisplayName("")
+    void test01() {
         /*
-           TreeMap集合：基本应用
-            需求2：
-                键：学生对象
-	            值：籍贯
-	            要求：按照学生年龄的升序排列，年龄一样按照姓名的字母排列，同姓名年龄视为同一个人。
+         * TreeMap集合：基本应用
+         * 需求2：
+         * 键：学生对象
+         * 值：籍贯
+         * 要求：按照学生年龄的升序排列，年龄一样按照姓名的字母排列，同姓名年龄视为同一个人。
          */
-
 
         // 1.创建集合
         TreeMap<Student, String> tm = new TreeMap<>();
@@ -28,7 +32,6 @@ public class A02_TreeMapDemo2 {
 
         // 4.打印集合
         System.out.println(tm);
-
 
     }
 }

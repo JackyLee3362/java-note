@@ -9,10 +9,27 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-// 和时区相关
+// 是 UTC 时间，全球统一
 public class TestInstant {
     @Test
-    @DisplayName("构造器")
+    @DisplayName("时区")
+    void testZone() {
+        // 1.获取所有的时区名称
+        Set<String> zoneIds = ZoneId.getAvailableZoneIds();
+        Assertions.assertTrue(zoneIds.size() > 600);// 603
+        Assertions.assertTrue(zoneIds.contains("Asia/Shanghai"));
+
+        // 2.获取当前系统的默认时区
+        ZoneId zoneId = ZoneId.systemDefault();
+        Assertions.assertEquals("Asia/Shanghai", zoneId.getId());
+
+        // 3.获取指定的时区
+        ZoneId zoneId1 = ZoneId.of("Asia/Tokyo");
+        Assertions.assertEquals("Asia/Tokyo", zoneId1.getId());
+    }
+
+    @Test
+    @DisplayName("UTC 时间")
     void test01() {
 
         // 当前时间(标准时间)
@@ -36,24 +53,25 @@ public class TestInstant {
         // 3. 指定时区
         ZonedDateTime time = Instant.now().atZone(ZoneId.of("Asia/Shanghai"));
         Assertions.assertEquals("Asia/Shanghai", time.getZone().getId());
+        Assertions.assertEquals(2025, time.getYear());
 
         // 4. isXxx 判断
-        Instant i4 = Instant.ofEpochMilli(0L);
-        Instant i5 = Instant.ofEpochMilli(1000L);
-        Assertions.assertTrue(i4.isBefore(i5));
-        Assertions.assertFalse(i4.isAfter(i5));
+        Instant i1 = Instant.ofEpochMilli(0L);
+        Instant i2 = Instant.ofEpochMilli(1000L);
+        Assertions.assertTrue(i1.isBefore(i2));
+        Assertions.assertFalse(i1.isAfter(i2));
 
         // 5. minus/plusMillis(long millisToSubtract) 减少时间系列的方法
-        Instant i6 = i5.minusMillis(500L);
-        Assertions.assertEquals("1970-01-01T00:00:00.500Z", i6.toString());
-        Instant i7 = i5.plusMillis(1000L);
-        Assertions.assertEquals("1970-01-01T00:00:02Z", i7.toString());
+        Instant i3 = i2.minusMillis(500L);
+        Assertions.assertEquals("1970-01-01T00:00:00.500Z", i3.toString());
+        Instant i4 = i2.plusMillis(1000L);
+        Assertions.assertEquals("1970-01-01T00:00:02Z", i4.toString());
 
         // 6. minus/plusSeconds(long secondsToAdd) 方法
-        Instant i8 = i5.minusSeconds(1);
-        Assertions.assertEquals("1970-01-01T00:00:00Z", i8.toString());
-        Instant i9 = i5.plusSeconds(1);
-        Assertions.assertEquals("1970-01-01T00:00:02Z", i9.toString());
+        Instant i5 = i2.minusSeconds(1);
+        Assertions.assertEquals("1970-01-01T00:00:00Z", i5.toString());
+        Instant i6 = i2.plusSeconds(1);
+        Assertions.assertEquals("1970-01-01T00:00:02Z", i6.toString());
 
     }
 
@@ -97,21 +115,4 @@ public class TestInstant {
 
     }
 
-    @Test
-    @DisplayName("测试获取所有时区")
-    void test04() {
-        // 1.获取所有的时区名称
-        Set<String> zoneIds = ZoneId.getAvailableZoneIds();
-        Assertions.assertEquals(0, zoneIds.size());// 600
-        Assertions.assertEquals(0, zoneIds);// Asia/Shanghai
-
-        // 2.获取当前系统的默认时区
-        ZoneId zoneId = ZoneId.systemDefault();
-        Assertions.assertEquals(0, zoneId);// Asia/Shanghai
-
-        // 3.获取指定的时区
-        ZoneId zoneId1 = ZoneId.of("Asia/Pontianak");
-        Assertions.assertEquals(0, zoneId1);// Asia/Pontianak
-
-    }
 }

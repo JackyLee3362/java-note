@@ -1,7 +1,12 @@
 package edu.note.collection.mutable;
 
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
+
 public class ArgsDemo3 {
-    public static void main(String[] args) {
+    @Test
+    @DisplayName("")
+    void test01() {
         // JDK5
         // 可变参数
         // 方法形参的个数是可以发生变化的，0 1 2 3 ...

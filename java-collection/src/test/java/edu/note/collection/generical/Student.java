@@ -1,9 +1,11 @@
-package edu.note.collection.generic;
+package edu.note.collection.generical;
+
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
 
 public class Student {
     private String name;
     private int age;
-
 
     public Student() {
     }

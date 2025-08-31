@@ -6,7 +6,7 @@ import java.util.Comparator;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-public class LambdaDemo1Test {
+public class TestLambdaExp {
 
     @Test
     @DisplayName("测试1")

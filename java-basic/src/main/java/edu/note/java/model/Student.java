@@ -1,7 +1,6 @@
 package edu.note.java.model;
 
 import javax.annotation.PostConstruct;
-import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 /**
@@ -25,6 +24,5 @@ public class Student {
     public String getName() {
         return this.name;
     }
-
 
 }

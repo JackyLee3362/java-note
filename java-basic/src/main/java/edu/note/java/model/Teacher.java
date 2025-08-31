@@ -1,16 +1,15 @@
-package edu.note.collection.collection;
+package edu.note.java.model;
 
 import java.util.Objects;
 
-public class Student {
+public class Teacher {
     private String name;
     private int age;
 
-
-    public Student() {
+    public Teacher() {
     }
 
-    public Student(String name, int age) {
+    public Teacher(String name, int age) {
         this.name = name;
         this.age = age;
     }
@@ -51,15 +50,15 @@ public class Student {
         this.age = age;
     }
 
-
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Student student = (Student) o;
-        return age == student.age && Objects.equals(name, student.name);
+        if (this == o)
+            return true;
+        if (o == null || getClass() != o.getClass())
+            return false;
+        Teacher teacher = (Teacher) o;
+        return age == teacher.age && Objects.equals(name, teacher.name);
     }
-
 
     public String toString() {
         return "Student{name = " + name + ", age = " + age + "}";

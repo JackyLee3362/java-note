@@ -1,5 +1,8 @@
 package edu.note.collection.hashmap;
 
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
+
 public class HashMap源码笔记<K, V> {
     // HashMap源码笔记
     transient Node<K, V>[] table;
@@ -35,13 +38,12 @@ public class HashMap源码笔记<K, V> {
     ;
 
     V putVal(int hash, K key, V value, boolean onlyIfAbsent,
-             boolean evict) {
+            boolean evict) {
 
         // 1. 定义局部变量
         Node<K, V>[] tab; // 用来记录table指针的局部变量
-        Node<K, V> p;     // table中具体的Node指针
+        Node<K, V> p; // table中具体的Node指针
         int n, i;
-
 
         // 2. 如果tab是null，或者长度为0，则调用resize()方法
         // resize：初始化或者使原数组增长为原来的2倍
@@ -74,7 +76,7 @@ public class HashMap源码笔记<K, V> {
 
             } else { //
                 // 这里其实就是一个while循环
-                for (int binCount = 0; ; ++binCount) {
+                for (int binCount = 0;; ++binCount) {
                     if ((e = p.next) == null) { // 如果e的next结点为空，
                         // p.next = newNode(hash, key, value, null);
 
@@ -103,7 +105,7 @@ public class HashMap源码笔记<K, V> {
         }
         // ++modCount; // 增加操作数
         // if (++size > threshold)
-        //     resize();
+        // resize();
         // afterNodeInsertion(evict);
         return null;
     }

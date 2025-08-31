@@ -1,10 +1,15 @@
 package edu.note.collection.list;
 
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
+
 import java.util.ArrayList;
 import java.util.List;
 
 public class A02_List_添加_删除 {
-    public static void main(String[] args) {
+    @Test
+    @DisplayName("")
+    void test01() {
 
         // List系列集合中的两个删除的方法
         // 1.直接删除元素
@@ -17,7 +22,6 @@ public class A02_List_添加_删除 {
         list.add(2);
         list.add(3);
 
-
         // 2.删除元素
         // 请问：此时删除的是1这个元素，还是1索引上的元素？
         // 为什么？
@@ -26,14 +30,12 @@ public class A02_List_添加_删除 {
 
         list.remove(1);
 
-
         // 手动装箱，手动把基本数据类型的1，变成Integer类型
         Integer i = Integer.valueOf(1);
 
         list.remove(i);
 
         System.out.println(list);
-
 
     }
 }

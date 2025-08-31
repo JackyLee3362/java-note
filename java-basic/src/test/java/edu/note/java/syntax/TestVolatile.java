@@ -7,7 +7,7 @@ public class TestVolatile {
     volatile boolean initialized = false;
 
     @Test
-    void init() {
+    void test01() {
         if (initialized) {
             return;
         }

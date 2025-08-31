@@ -1,20 +1,24 @@
 package edu.note.collection.hashmap;
 
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
+
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
 
 public class A01_HashMapDemo1 {
-    public static void main(String[] args) {
-       /*
-        需求：创建一个HashMap集合，键是学生对象(Student)，值是籍贯(String)。
-        存储三个键值对元素，并遍历
-        要求：同姓名，同年龄认为是同一个学生
-
-        核心点：
-            HashMap的键位置如果存储的是自定义对象，需要重写hashCode和equals方法。
-       */
-
+    @Test
+    @DisplayName("")
+    void test01() {
+        /*
+         * 需求：创建一个HashMap集合，键是学生对象(Student)，值是籍贯(String)。
+         * 存储三个键值对元素，并遍历
+         * 要求：同姓名，同年龄认为是同一个学生
+         * 
+         * 核心点：
+         * HashMap的键位置如果存储的是自定义对象，需要重写hashCode和equals方法。
+         */
 
         // 1.创建HashMap的对象
         HashMap<Student, String> hm = new HashMap<>();

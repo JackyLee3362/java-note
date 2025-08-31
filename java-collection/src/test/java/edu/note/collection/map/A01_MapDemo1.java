@@ -1,20 +1,24 @@
 package edu.note.collection.map;
 
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
+
 import java.util.HashMap;
 import java.util.Map;
 
 public class A01_MapDemo1 {
-    public static void main(String[] args) {
+    @Test
+    @DisplayName("")
+    void test01() {
         /*
-            V put(K key,V value)                    添加元素
-            V remove(Object key)                    根据键删除键值对元素
-            void clear()                            移除所有的键值对元素
-            boolean containsKey(Object key)         判断集合是否包含指定的键
-            boolean containsValue(Object value)     判断集合是否包含指定的值
-            boolean isEmpty()                       判断集合是否为空
-            int size()                              集合的长度，也就是集合中键值对的个数
-        */
-
+         * V put(K key,V value) 添加元素
+         * V remove(Object key) 根据键删除键值对元素
+         * void clear() 移除所有的键值对元素
+         * boolean containsKey(Object key) 判断集合是否包含指定的键
+         * boolean containsValue(Object value) 判断集合是否包含指定的值
+         * boolean isEmpty() 判断集合是否为空
+         * int size() 集合的长度，也就是集合中键值对的个数
+         */
 
         // 1.创建Map集合的对象
         Map<String, String> m = new HashMap<>();
@@ -40,18 +44,21 @@ public class A01_MapDemo1 {
         // m.clear();
 
         // 判断是否包含
-        /*boolean keyResult = m.containsKey("郭靖");
-        System.out.println(keyResult);
+        /*
+         * boolean keyResult = m.containsKey("郭靖");
+         * System.out.println(keyResult);
+         * 
+         * boolean valueResult = m.containsValue("小龙女2");
+         * System.out.println(valueResult);
+         */
 
-        boolean valueResult = m.containsValue("小龙女2");
-        System.out.println(valueResult);*/
-
-       /* boolean result = m.isEmpty();
-        System.out.println(result);*/
+        /*
+         * boolean result = m.isEmpty();
+         * System.out.println(result);
+         */
 
         int size = m.size();
         System.out.println(size);
-
 
         // 3.打印集合
         System.out.println(m);
