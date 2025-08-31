@@ -35,9 +35,9 @@ public class TestShutDown {
         });
 
         log.debug("shutdown");
-//        pool.shutdown();
-//        pool.awaitTermination(3, TimeUnit.SECONDS);
+        // pool.shutdown();
+        // pool.awaitTermination(3, TimeUnit.SECONDS);
         List<Runnable> runnables = pool.shutdownNow();
-        log.debug("other.... {}" , runnables);
+        log.debug("other.... {}", runnables);
     }
 }

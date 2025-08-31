@@ -17,7 +17,7 @@ public class TestYield {
             while (true) {
                 // Thread.yield();
                 log.error("2: {}", count++);
-                // System.out.println("              ---->2 " + count++);
+                // System.out.println(" ---->2 " + count++);
             }
         };
         Thread t1 = new Thread(task1, "t1");

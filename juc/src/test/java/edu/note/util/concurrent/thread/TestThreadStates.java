@@ -71,7 +71,8 @@ public class TestThreadStates {
 
     private static void showWaiting_t5() {
         Thread t = new Thread(() -> {
-            while (true) ;
+            while (true)
+                ;
         });
         Thread t5 = new Thread(() -> {
             try {

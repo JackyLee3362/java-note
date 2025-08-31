@@ -12,7 +12,6 @@ public class Test47_CorrectPostureStep5 {
 
     public static void main(String[] args) {
 
-
         new Thread(() -> {
             synchronized (room) {
                 log.debug("有烟没？[{}]", hasCigarette);
@@ -62,7 +61,6 @@ public class Test47_CorrectPostureStep5 {
                 room.notifyAll();
             }
         }, "送外卖的").start();
-
 
     }
 

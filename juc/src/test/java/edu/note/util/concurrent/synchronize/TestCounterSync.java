@@ -28,6 +28,6 @@ public class TestCounterSync {
         t2.start();
         t1.join();
         t2.join();
-        log.debug("{}",counter);
+        log.debug("{}", counter);
     }
 }

@@ -10,7 +10,7 @@ public class TestStartAndRun {
 
     public static void main(String[] args) {
         Thread t1 = new Thread(() -> log.debug("running..."), "t1");
-        t1.start();  // t1 线程执行
+        t1.start(); // t1 线程执行
         // t1.run(); // 在 main 线程执行
         log.debug("do other things...");
     }

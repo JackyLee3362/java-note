@@ -45,6 +45,6 @@ public class TestCounterOop {
 
         t1.join();
         t2.join();
-        log.debug("count: {}" , room.get());
+        log.debug("count: {}", room.get());
     }
 }

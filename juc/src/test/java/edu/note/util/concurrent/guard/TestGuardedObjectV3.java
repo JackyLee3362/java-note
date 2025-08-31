@@ -30,5 +30,3 @@ public class TestGuardedObjectV3 {
         }
     }
 }
-
-

@@ -22,7 +22,7 @@ public class Day4_Test55_MailboxDemo {
 }
 
 @Slf4j(topic = "c.People")
-class People extends Thread{
+class People extends Thread {
     @Override
     public void run() {
         // 收信
@@ -50,11 +50,13 @@ class Postman extends Thread {
         guardedObject.complete(mail);
     }
 }
+
 @Slf4j
 class Mailboxes {
     private static Map<Integer, GuardedObject_ForMailBox> boxes = new Hashtable<>();
 
     private static int id = 1;
+
     // 产生唯一 id
     private static synchronized int generateId() {
         return id++;
@@ -111,7 +113,7 @@ class GuardedObject_ForMailBox {
                     log.error(e.getMessage());
                 }
                 // 求得经历时间
-                passedTime = System.currentTimeMillis() - begin; // 15:00:02  1s
+                passedTime = System.currentTimeMillis() - begin; // 15:00:02 1s
             }
             return response;
         }

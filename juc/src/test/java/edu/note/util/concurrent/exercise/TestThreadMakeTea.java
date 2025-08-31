@@ -7,7 +7,6 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j(topic = "c.TestThreadMakeTea")
 public class TestThreadMakeTea {
 
-
     public static void main(String[] args) {
         S3.makeTea();
     }

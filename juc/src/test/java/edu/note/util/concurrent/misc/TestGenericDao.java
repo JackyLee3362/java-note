@@ -38,11 +38,12 @@ class GenericDaoCached extends GenericDao {
     @Override
     public <T> T queryOne(Class<T> beanClass, String sql, Object... args) {
         // 先从缓存中找，找到直接返回
-        SqlPair key = new SqlPair(sql, args);;
+        SqlPair key = new SqlPair(sql, args);
+        ;
         rw.readLock().lock();
         try {
             T value = (T) map.get(key);
-            if(value != null) {
+            if (value != null) {
                 return value;
             }
         } finally {
@@ -52,7 +53,7 @@ class GenericDaoCached extends GenericDao {
         try {
             // 多个线程
             T value = (T) map.get(key);
-            if(value == null) {
+            if (value == null) {
                 // 缓存中没有，查询数据库
                 value = dao.queryOne(beanClass, sql, args);
                 map.put(key, value);

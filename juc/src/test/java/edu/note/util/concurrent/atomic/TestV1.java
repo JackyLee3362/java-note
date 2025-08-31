@@ -96,12 +96,10 @@ class MyQueueV1<E> implements Queue<E> {
 
     }
 
-
     @Override
     public E remove() {
         return null;
     }
-
 
     @Override
     public E element() {
@@ -121,13 +119,15 @@ class MyQueueV1<E> implements Queue<E> {
     private volatile Node<E> head;
 
     private E dequeue() {
-        /*Node<E> h = head;
-        Node<E> first = h.next;
-        h.next = h;
-        head = first;
-        E x = first.item;
-        first.item = null;
-        return x;*/
+        /*
+         * Node<E> h = head;
+         * Node<E> first = h.next;
+         * h.next = h;
+         * head = first;
+         * E x = first.item;
+         * first.item = null;
+         * return x;
+         */
         return null;
     }
 
@@ -139,11 +139,11 @@ class MyQueueV1<E> implements Queue<E> {
     @Override
     public boolean offer(E e) {
         Node<E> n = new Node<>(e, null);
-        while(true) {
+        while (true) {
             // 获取尾节点
             AtomicReference<Node<E>> next = last.next;
             // S1: 真正尾节点的 next 是 null, cas 从 null 到新节点
-            if(next.compareAndSet(null, n)) {
+            if (next.compareAndSet(null, n)) {
                 // 这时的 last 已经是倒数第二, next 不为空了, 其它线程的 cas 肯定失败
                 // S2: 更新 last 为倒数第一的节点
                 last = n;

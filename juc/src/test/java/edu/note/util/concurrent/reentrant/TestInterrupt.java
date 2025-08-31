@@ -24,7 +24,6 @@ public class TestInterrupt {
             }
         }, "t1");
 
-
         lock.lock();
         log.debug("获得了锁");
         t1.start();
@@ -57,7 +56,6 @@ public class TestInterrupt {
                 lock.unlock();
             }
         }, "t1");
-
 
         lock.lock();
         log.debug("获得了锁");

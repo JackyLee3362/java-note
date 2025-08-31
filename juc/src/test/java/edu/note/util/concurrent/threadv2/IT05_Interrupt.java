@@ -1,6 +1,5 @@
 package edu.note.util.concurrent.threadv2;
 
-
 import edu.note.util.concurrent.util.Sleeper;
 import java.lang.Thread.State;
 import java.util.concurrent.locks.LockSupport;
@@ -60,7 +59,6 @@ public class IT05_Interrupt {
         Assertions.assertEquals(State.TERMINATED, t.getState());
         Assertions.assertFalse(t.isAlive());
     }
-
 
     /**
      * 打断 park 中的线程，打断标记是 true

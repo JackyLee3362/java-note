@@ -14,14 +14,15 @@ public class TestV2 {
         MyQueueV2<String> queue = new edu.note.util.concurrent.atomic.MyQueueV2<>();
         new Thread(() -> {
             queue.offer("1");
-        },"t1").start();
+        }, "t1").start();
         new Thread(() -> {
             queue.offer("2");
-        },"t2").start();
+        }, "t2").start();
         Thread.sleep(1000);
         System.out.println(queue);
     }
 }
+
 @Slf4j(topic = "c.MyQueueV2")
 class MyQueueV2<E> implements Queue<E> {
 
@@ -90,12 +91,10 @@ class MyQueueV2<E> implements Queue<E> {
 
     }
 
-
     @Override
     public E remove() {
         return null;
     }
-
 
     @Override
     public E element() {
@@ -118,13 +117,15 @@ class MyQueueV2<E> implements Queue<E> {
     private AtomicReference<Node<E>> tail;
 
     private E dequeue() {
-        /*Node<E> h = head;
-        Node<E> first = h.next;
-        h.next = h;
-        head = first;
-        E x = first.item;
-        first.item = null;
-        return x;*/
+        /*
+         * Node<E> h = head;
+         * Node<E> first = h.next;
+         * h.next = h;
+         * head = first;
+         * E x = first.item;
+         * first.item = null;
+         * return x;
+         */
         return null;
     }
 
@@ -140,10 +141,10 @@ class MyQueueV2<E> implements Queue<E> {
             Node<E> curTail = tail.get();
             AtomicReference<Node<E>> curNext = curTail.next;
             if (curNext.compareAndSet(null, newNode)) {
-                log.debug("cas {}->{}:{}",curTail.item,newNode.item, tail.compareAndSet(curTail, newNode));
+                log.debug("cas {}->{}:{}", curTail.item, newNode.item, tail.compareAndSet(curTail, newNode));
                 return true;
             }
-            log.debug("cas {}->{}:{}",curTail.item,newNode.item, tail.compareAndSet(curTail, newNode));
+            log.debug("cas {}->{}:{}", curTail.item, newNode.item, tail.compareAndSet(curTail, newNode));
         }
     }
 

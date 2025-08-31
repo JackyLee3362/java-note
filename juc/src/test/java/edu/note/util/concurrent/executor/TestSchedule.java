@@ -11,15 +11,15 @@ public class TestSchedule {
 
     // 如何让每周四 18:00:00 定时执行任务？
     public static void main(String[] args) {
-        //  获取当前时间
+        // 获取当前时间
         LocalDateTime now = LocalDateTime.now();
         System.out.println(now);
         // 获取周四时间
         LocalDateTime time = now.withHour(18)
-            .withMinute(0)
-            .withSecond(0)
-            .withNano(0)
-            .with(DayOfWeek.THURSDAY);
+                .withMinute(0)
+                .withSecond(0)
+                .withNano(0)
+                .with(DayOfWeek.THURSDAY);
         // 如果 当前时间 > 本周周四，必须找到下周周四
         if (now.isAfter(time)) {
             time = time.plusWeeks(1);

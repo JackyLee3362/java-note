@@ -1,13 +1,19 @@
 package edu.note.util.concurrent.executor;
 
-
 import java.sql.Connection;
 import java.util.Random;
+
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
+
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 public class TestPoolWithSqlConnection {
-    public static void main(String[] args) {
+    @Test
+    @DisplayName("测试连接池")
+    void test() {
+
         Pool pool = new Pool(2);
         for (int i = 0; i < 5; i++) {
             new Thread(() -> {
@@ -22,4 +28,3 @@ public class TestPoolWithSqlConnection {
         }
     }
 }
-

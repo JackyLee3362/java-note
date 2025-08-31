@@ -64,7 +64,6 @@ public class TestBiased {
         }, "t1");
         t1.start();
 
-
         Thread t2 = new Thread(() -> {
             synchronized (TestBiased.class) {
                 try {
@@ -106,7 +105,6 @@ public class TestBiased {
         }, "t1");
         t1.start();
 
-
         Thread t2 = new Thread(() -> {
             synchronized (list) {
                 try {
@@ -131,10 +129,11 @@ public class TestBiased {
         t2.join();
     }
 
-
     /*
      * @description: 批量撤销
+     * 
      * @author: Jacky Lee
+     * 
      * @date: 2024/4/2 13:34
      */
     @Test
@@ -198,7 +197,4 @@ public class TestBiased {
         }
     }
 
-
 }
-
-

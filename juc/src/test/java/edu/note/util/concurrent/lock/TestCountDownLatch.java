@@ -41,7 +41,7 @@ public class TestCountDownLatch {
             latch.countDown();
             log.debug("end...{}", latch.getCount());
         });
-        service.submit(()->{
+        service.submit(() -> {
             try {
                 log.debug("waiting...");
                 latch.await();
@@ -86,20 +86,23 @@ public class TestCountDownLatch {
         log.debug("begin");
         ExecutorService service = Executors.newCachedThreadPool();
         CountDownLatch latch = new CountDownLatch(4);
-        Future<Map<String,Object>> f1 = service.submit(() -> {
+        Future<Map<String, Object>> f1 = service.submit(() -> {
             Map<String, Object> response = restTemplate.getForObject("http://localhost:8080/order/{1}", Map.class, 1);
             return response;
         });
         Future<Map<String, Object>> f2 = service.submit(() -> {
-            Map<String, Object> response1 = restTemplate.getForObject("http://localhost:8080/product/{1}", Map.class, 1);
+            Map<String, Object> response1 = restTemplate.getForObject("http://localhost:8080/product/{1}", Map.class,
+                    1);
             return response1;
         });
         Future<Map<String, Object>> f3 = service.submit(() -> {
-            Map<String, Object> response1 = restTemplate.getForObject("http://localhost:8080/product/{1}", Map.class, 2);
+            Map<String, Object> response1 = restTemplate.getForObject("http://localhost:8080/product/{1}", Map.class,
+                    2);
             return response1;
         });
         Future<Map<String, Object>> f4 = service.submit(() -> {
-            Map<String, Object> response3 = restTemplate.getForObject("http://localhost:8080/logistics/{1}", Map.class, 1);
+            Map<String, Object> response3 = restTemplate.getForObject("http://localhost:8080/logistics/{1}", Map.class,
+                    1);
             return response3;
         });
 

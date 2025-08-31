@@ -6,7 +6,6 @@ import lombok.extern.slf4j.Slf4j;
 
 import java.util.concurrent.Semaphore;
 
-
 @Slf4j(topic = "c.TestSemaphore")
 public class TestSemaphore {
     public static void main(String[] args) {

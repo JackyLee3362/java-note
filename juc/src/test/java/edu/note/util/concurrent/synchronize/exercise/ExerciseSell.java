@@ -33,8 +33,8 @@ public class ExerciseSell {
         }
 
         // 统计卖出的票数和剩余票数
-        log.debug("余票：{}",window.getCount());
-        log.debug("卖出的票数：{}", amountList.stream().mapToInt(i-> i).sum());
+        log.debug("余票：{}", window.getCount());
+        log.debug("卖出的票数：{}", amountList.stream().mapToInt(i -> i).sum());
     }
 
     // Random 为线程安全

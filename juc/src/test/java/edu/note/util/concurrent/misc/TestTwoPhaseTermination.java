@@ -13,15 +13,16 @@ public class TestTwoPhaseTermination {
         t.stop();
     }
 }
+
 @Slf4j(topic = "c.TPTInterrupt")
 class TPTInterrupt {
     private Thread thread;
 
-    public void start(){
+    public void start() {
         thread = new Thread(() -> {
-            while(true) {
+            while (true) {
                 Thread current = Thread.currentThread();
-                if(current.isInterrupted()) {
+                if (current.isInterrupted()) {
                     log.debug("料理后事");
                     break;
                 }
@@ -33,7 +34,7 @@ class TPTInterrupt {
                 }
 
             }
-        },"监控线程");
+        }, "监控线程");
         thread.start();
     }
 
@@ -41,16 +42,17 @@ class TPTInterrupt {
         thread.interrupt();
     }
 }
+
 @Slf4j(topic = "c.TPTVolatile")
 class TPTVolatile {
     private Thread thread;
     private volatile boolean stop = false;
 
-    public void start(){
+    public void start() {
         thread = new Thread(() -> {
-            while(true) {
+            while (true) {
                 Thread current = Thread.currentThread();
-                if(stop) {
+                if (stop) {
                     log.debug("料理后事");
                     break;
                 }
@@ -60,7 +62,7 @@ class TPTVolatile {
                 } catch (InterruptedException e) {
                 }
             }
-        },"监控线程");
+        }, "监控线程");
         thread.start();
     }
 
@@ -69,5 +71,3 @@ class TPTVolatile {
         thread.interrupt();
     }
 }
-
-

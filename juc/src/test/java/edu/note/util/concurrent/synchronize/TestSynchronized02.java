@@ -7,7 +7,7 @@ import lombok.extern.slf4j.Slf4j;
 public class TestSynchronized02 {
 
     public static void main(String[] args) throws InterruptedException {
-        new Thread(()->{
+        new Thread(() -> {
             synchronized (TestSynchronized02.class) {
                 try {
                     System.out.println("Thread 1: Start");
@@ -17,23 +17,23 @@ public class TestSynchronized02 {
                     log.error(e.getMessage());
                 }
             }
-        },"t1").start();
+        }, "t1").start();
 
         System.out.println("Thread Main start Sleep");
         Thread.sleep(3000);
         System.out.println("Thread Main end Sleep");
-        new Thread(()->{
+        new Thread(() -> {
             System.out.println("Thread 2 Start");
             synchronized (TestSynchronized02.class) {
                 System.out.println("Thread 2");
             }
-        },"t2").start();
+        }, "t2").start();
 
-        new Thread(()->{
+        new Thread(() -> {
             System.out.println("Thread 3 Start");
             synchronized (TestSynchronized02.class) {
                 System.out.println("Thread 3");
             }
-        },"t3").start();
+        }, "t3").start();
     }
 }

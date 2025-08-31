@@ -1,6 +1,5 @@
 package edu.note.util.concurrent.thread;
 
-
 import edu.note.util.concurrent.util.Sleeper;
 import java.util.concurrent.locks.LockSupport;
 import lombok.extern.slf4j.Slf4j;
@@ -10,7 +9,6 @@ import org.junit.jupiter.api.Test;
 
 @Slf4j(topic = "c.TestInterrupt")
 public class TestInterrupt {
-
 
     /**
      * @description 打断 sleep 中的线程，抛出 InterruptedException，重置打断标记为 false
@@ -55,7 +53,6 @@ public class TestInterrupt {
 
         t2.interrupt();
     }
-
 
     /**
      * @description 测试打断 park 中的线程，打断标记是 true
@@ -104,9 +101,8 @@ public class TestInterrupt {
         log.info("结束");
     }
 
-
     @Test
-    void test(){
+    void test() {
         Thread t1 = new Thread(() -> {
             log.info("t1 暂停");
             LockSupport.park();

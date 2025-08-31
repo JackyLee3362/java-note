@@ -8,6 +8,7 @@ import java.util.Properties;
 import java.util.concurrent.Executor;
 import java.util.concurrent.Semaphore;
 import java.util.concurrent.atomic.AtomicIntegerArray;
+
 @Slf4j
 public class TestPoolSemaphore {
     public static void main(String[] args) {
@@ -47,7 +48,7 @@ class Pool {
         this.connections = new Connection[poolSize];
         this.states = new AtomicIntegerArray(new int[poolSize]);
         for (int i = 0; i < poolSize; i++) {
-            connections[i] = new MockConnection("连接" + (i+1));
+            connections[i] = new MockConnection("连接" + (i + 1));
         }
     }
 
@@ -61,7 +62,7 @@ class Pool {
         }
         for (int i = 0; i < poolSize; i++) {
             // 获取空闲连接
-            if(states.get(i) == 0) {
+            if (states.get(i) == 0) {
                 if (states.compareAndSet(i, 0, 1)) {
                     log.debug("borrow {}", connections[i]);
                     return connections[i];
@@ -71,6 +72,7 @@ class Pool {
         // 不会执行到这里
         return null;
     }
+
     // 6. 归还连接
     public void free(Connection conn) {
         for (int i = 0; i < poolSize; i++) {
@@ -200,7 +202,8 @@ class MockConnection implements Connection {
     }
 
     @Override
-    public PreparedStatement prepareStatement(String sql, int resultSetType, int resultSetConcurrency) throws SQLException {
+    public PreparedStatement prepareStatement(String sql, int resultSetType, int resultSetConcurrency)
+            throws SQLException {
         return null;
     }
 
@@ -250,17 +253,20 @@ class MockConnection implements Connection {
     }
 
     @Override
-    public Statement createStatement(int resultSetType, int resultSetConcurrency, int resultSetHoldability) throws SQLException {
+    public Statement createStatement(int resultSetType, int resultSetConcurrency, int resultSetHoldability)
+            throws SQLException {
         return null;
     }
 
     @Override
-    public PreparedStatement prepareStatement(String sql, int resultSetType, int resultSetConcurrency, int resultSetHoldability) throws SQLException {
+    public PreparedStatement prepareStatement(String sql, int resultSetType, int resultSetConcurrency,
+            int resultSetHoldability) throws SQLException {
         return null;
     }
 
     @Override
-    public CallableStatement prepareCall(String sql, int resultSetType, int resultSetConcurrency, int resultSetHoldability) throws SQLException {
+    public CallableStatement prepareCall(String sql, int resultSetType, int resultSetConcurrency,
+            int resultSetHoldability) throws SQLException {
         return null;
     }
 

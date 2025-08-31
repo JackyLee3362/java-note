@@ -14,15 +14,17 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j(topic = "c.TestTimer")
 public class TestTimer {
     public static void main(String[] args) throws ExecutionException, InterruptedException {
-        /*ScheduledExecutorService pool = Executors.newScheduledThreadPool(1);
-        pool.schedule(() -> {
-            try {
-                log.debug("task1");
-                int i = 1 / 0;
-            } catch (Exception e) {
-                log.error("error:", e);
-            }
-        }, 1, TimeUnit.SECONDS);*/
+        /*
+         * ScheduledExecutorService pool = Executors.newScheduledThreadPool(1);
+         * pool.schedule(() -> {
+         * try {
+         * log.debug("task1");
+         * int i = 1 / 0;
+         * } catch (Exception e) {
+         * log.error("error:", e);
+         * }
+         * }, 1, TimeUnit.SECONDS);
+         */
 
         ExecutorService pool = Executors.newFixedThreadPool(1);
         pool.submit(() -> {

@@ -40,6 +40,7 @@ public class TestTimeout {
             lock.unlock();
         }
     }
+
     private static void test2() {
         ReentrantLock lock = new ReentrantLock();
         Thread t1 = new Thread(() -> {

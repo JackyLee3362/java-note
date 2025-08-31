@@ -1,6 +1,5 @@
 package edu.note.util.concurrent.thread;
 
-
 import edu.note.util.concurrent.util.Sleeper;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.AfterEach;
@@ -15,12 +14,11 @@ public class TestJoin {
     static int r2 = 0;
 
     @AfterEach
-    void afterEach(){
+    void afterEach() {
         r0 = 0;
         r1 = 0;
         r2 = 0;
     }
-
 
     /**
      * @description: 测试 join 限时等待

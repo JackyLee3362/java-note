@@ -21,7 +21,7 @@ public class TestSynchronousQueue {
             } catch (InterruptedException e) {
                 log.error(e.getMessage());
             }
-        },"t1").start();
+        }, "t1").start();
 
         sleep(1);
 
@@ -32,7 +32,7 @@ public class TestSynchronousQueue {
             } catch (InterruptedException e) {
                 log.error(e.getMessage());
             }
-        },"t2").start();
+        }, "t2").start();
 
         sleep(1);
 
@@ -43,6 +43,6 @@ public class TestSynchronousQueue {
             } catch (InterruptedException e) {
                 log.error(e.getMessage());
             }
-        },"t3").start();
+        }, "t3").start();
     }
 }

@@ -6,8 +6,8 @@ import lombok.extern.slf4j.Slf4j;
 public class TestMultiLock {
     public static void main(String[] args) {
         BigRoom bigRoom = new BigRoom();
-        new Thread(bigRoom::study,"小南").start();
-        new Thread(bigRoom::sleep,"小女").start();
+        new Thread(bigRoom::study, "小南").start();
+        new Thread(bigRoom::sleep, "小女").start();
     }
 }
 

@@ -1,10 +1,8 @@
 package edu.note.util.concurrent.compare;
 
-
 import org.junit.jupiter.api.Test;
 
 public class TestOrder {
-
 
     @Test
     void test3() {

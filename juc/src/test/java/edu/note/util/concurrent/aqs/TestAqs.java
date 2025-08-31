@@ -21,7 +21,7 @@ public class TestAqs {
                 log.debug("unlocking...");
                 lock.unlock();
             }
-        },"t1").start();
+        }, "t1").start();
 
         new Thread(() -> {
             lock.lock();
@@ -31,18 +31,18 @@ public class TestAqs {
                 log.debug("unlocking...");
                 lock.unlock();
             }
-        },"t2").start();
+        }, "t2").start();
     }
 }
 
 // 自定义锁（不可重入锁）
 class MyLock implements Lock {
 
-    // 独占锁  同步器类
+    // 独占锁 同步器类
     static class MySync extends AbstractQueuedSynchronizer {
         @Override
         protected boolean tryAcquire(int arg) {
-            if(compareAndSetState(0, 1)) {
+            if (compareAndSetState(0, 1)) {
                 // 加上了锁，并设置 owner 为当前线程
                 setExclusiveOwnerThread(Thread.currentThread());
                 return true;

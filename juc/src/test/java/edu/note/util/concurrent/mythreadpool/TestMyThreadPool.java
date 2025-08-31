@@ -11,7 +11,6 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j(topic = "c.test-thread-pool")
 public class TestMyThreadPool {
 
-
     public static void main(String[] args) {
 
         MyThreadPool myThreadPool = new MyThreadPool(2, 1, TimeUnit.SECONDS, 10);
@@ -23,7 +22,6 @@ public class TestMyThreadPool {
             });
 
         }
-
 
     }
 

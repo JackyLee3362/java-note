@@ -40,4 +40,3 @@ public class TestDeadLock {
         t2.join();
     }
 }
-

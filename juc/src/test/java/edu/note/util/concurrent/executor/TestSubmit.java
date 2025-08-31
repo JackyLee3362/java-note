@@ -36,8 +36,7 @@ public class TestSubmit {
                     Thread.sleep(2000);
                     log.debug("end 3");
                     return "3";
-                }
-        ));
+                }));
         log.debug("{}", result);
     }
 
@@ -57,10 +56,9 @@ public class TestSubmit {
                     log.debug("begin");
                     Thread.sleep(2000);
                     return "3";
-                }
-        ));
+                }));
 
-        futures.forEach( f ->  {
+        futures.forEach(f -> {
             try {
                 log.debug("{}", f.get());
             } catch (InterruptedException | ExecutionException e) {

@@ -9,7 +9,8 @@ package edu.note.util.concurrent.misc;
  * jstack [pid] 快照信息
  * jconsole
  * java -Djava.rmi.server.hostname=172.31.132.194 -Dcom.sun.management.jmxremote
- * -Dcom.sun.management.jmxremote.port=12345 -Dcom.sun.management.jmxremote.ssl=false
+ * -Dcom.sun.management.jmxremote.port=12345
+ * -Dcom.sun.management.jmxremote.ssl=false
  * -Dcom.sun.management.jmxremote.authenticate=false Test2
  */
 public class TestRunningInLinux {
