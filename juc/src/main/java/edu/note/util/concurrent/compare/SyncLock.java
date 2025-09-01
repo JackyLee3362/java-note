@@ -9,7 +9,7 @@ import lombok.extern.slf4j.Slf4j;
  * @date 2025/7/26 22:01
  */
 @Slf4j
-class SyncLock extends ReentrantLock {
+public class SyncLock extends ReentrantLock {
 
     Condition waitSet = this.newCondition();
     private int flag;

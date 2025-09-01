@@ -4,8 +4,6 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-import edu.note.java.model.Teacher;
-
 public class TestOverrideEqual {
     @Test
     @DisplayName("")

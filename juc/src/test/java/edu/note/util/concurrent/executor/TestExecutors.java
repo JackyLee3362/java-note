@@ -6,14 +6,15 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ThreadFactory;
 import java.util.concurrent.atomic.AtomicInteger;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
 
 @Slf4j(topic = "c.TestExecutors")
 public class TestExecutors {
-    public static void main(String[] args) throws InterruptedException {
-        test2();
-    }
 
-    public static void test2() {
+    @Test
+    @DisplayName("test1")
+    void test01() {
         ExecutorService pool = Executors.newSingleThreadExecutor();
         pool.execute(() -> {
             log.debug("1");
@@ -29,9 +30,11 @@ public class TestExecutors {
         });
     }
 
-    private static void test1() {
+    @Test
+    @DisplayName("test1")
+    void test02() {
         ExecutorService pool = Executors.newFixedThreadPool(2, new ThreadFactory() {
-            private AtomicInteger t = new AtomicInteger(1);
+            private final AtomicInteger t = new AtomicInteger(1);
 
             @Override
             public Thread newThread(Runnable r) {

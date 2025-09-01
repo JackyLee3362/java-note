@@ -6,7 +6,7 @@ import java.util.concurrent.locks.LockSupport;
  * @author jackylee
  * @date 2025/7/26 22:02
  */
-class SyncPark {
+public class SyncPark {
 
     private Thread[] threads;
     private final int loopNumber;

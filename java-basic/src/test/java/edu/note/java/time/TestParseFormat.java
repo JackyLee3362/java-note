@@ -18,10 +18,12 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 @Slf4j
+@SuppressWarnings("deprecation")
 public class TestParseFormat {
 
     @Test
     @DisplayName("SimpleDateFormat 存在线程安全问题")
+    // 解决方法，ThreadLocal
     void test01() throws ParseException {
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 
@@ -83,7 +85,7 @@ public class TestParseFormat {
          * 需求:
          * 秒杀活动开始时间:2023年11月11日 0:0:0(毫秒值)
          * 秒杀活动结束时间:2023年11月11日 0:10:0(毫秒值)
-         * 
+         *
          * 小贾下单并付款的时间为:2023年11月11日 0:01:0
          * 小皮下单并付款的时间为:2023年11月11日 0:11:0
          * 用代码说明这两位同学有没有参加上秒杀活动?

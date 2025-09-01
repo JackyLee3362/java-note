@@ -9,7 +9,7 @@ import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
 
 public class TestBalking {
-    private static final String FILE_NAME = "d:\\mylog.log";
+    private static final String FILE_NAME = "my.log";
     private static final ConcurrentHashMap<String, String> INFO = new ConcurrentHashMap<>();
 
     public static void main(String[] args) {
