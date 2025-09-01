@@ -1,4 +1,4 @@
-package edu.note.util.concurrent.threadv2;
+package edu.note.util.concurrent.thread;
 
 import edu.note.util.concurrent.util.Sleeper;
 import java.lang.Thread.State;
@@ -12,7 +12,7 @@ import org.junit.jupiter.api.Test;
  * @date 2024/12/2 17:04
  */
 @Slf4j(topic = "c.TestState")
-public class IT08_ThreadStatus {
+public class TestThreadStatusV1 {
 
     @Test
     @DisplayName("6-Terminated 状态")
@@ -68,14 +68,14 @@ public class IT08_ThreadStatus {
     @DisplayName("3-Blocked 状态")
     void testBlocked() {
         Thread t1 = new Thread(() -> {
-            synchronized (IT08_ThreadStatus.class) {
+            synchronized (TestThreadStatusV1.class) {
                 while (true) {
                 }
             }
         });
         t1.start();
         Thread t2 = new Thread(() -> {
-            synchronized (IT08_ThreadStatus.class) { // blocked
+            synchronized (TestThreadStatusV1.class) { // blocked
                 log.info("running...");
             }
         });

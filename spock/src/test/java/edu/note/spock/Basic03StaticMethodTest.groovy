@@ -18,7 +18,7 @@ import spock.lang.Specification
 @PowerMockRunnerDelegate(Sputnik.class)
 @PrepareForTest([NumberUtil.class])
 // 限制静态方法初始化，因为可能会导致【静态代码块】执行
-@SuppressStaticInitializationFor("note.spock.NumberUtil")
+@SuppressStaticInitializationFor("edu.note.spock.NumberUtil")
 class Basic03StaticMethodTest extends Specification {
 
     def userDao = Mock(UserDao.class)

@@ -8,7 +8,7 @@ import java.util.Map;
 import java.util.Set;
 import java.util.function.BiConsumer;
 
-public class TestMap {
+public class TestHashMap {
     @Test
     @DisplayName("测试Map的基本操作")
     void testBasic() {
@@ -72,6 +72,9 @@ public class TestMap {
                 // ...
             }
         });
+
+        // Stream 遍历
+        map.entrySet().stream().filter(null).forEach(null);
 
     }
 }

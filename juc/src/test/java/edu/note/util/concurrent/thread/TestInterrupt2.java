@@ -1,4 +1,4 @@
-package edu.note.util.concurrent.threadv2;
+package edu.note.util.concurrent.thread;
 
 import edu.note.util.concurrent.util.Sleeper;
 import java.lang.Thread.State;
@@ -13,7 +13,7 @@ import org.junit.jupiter.api.Test;
  * @date 2024/12/2 10:18
  */
 @Slf4j(topic = "c.TestInterrupt")
-public class IT05_Interrupt {
+public class TestInterrupt2 {
 
     /**
      * 打断正常运行的线程，打断标记是 true

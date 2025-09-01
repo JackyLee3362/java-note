@@ -1,4 +1,4 @@
-package edu.note.util.concurrent.threadv2;
+package edu.note.util.concurrent.thread;
 
 import edu.note.util.concurrent.util.Sleeper;
 import java.lang.management.ManagementFactory;
@@ -13,7 +13,7 @@ import org.junit.jupiter.api.Test;
  */
 
 @Slf4j(topic = "c.TestWaitNotify")
-public class IT09_WaitNotify {
+public class TestWaitNotify {
 
     final static Object lock = new Object();
 

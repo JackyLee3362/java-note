@@ -1,5 +1,7 @@
 package edu.note.util.concurrent.thread;
 
+import org.junit.jupiter.api.Test;
+
 import lombok.extern.slf4j.Slf4j;
 
 // run 方法 和 start 方法区别
@@ -8,10 +10,20 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j(topic = "c.Test4")
 public class TestStartAndRun {
 
-    public static void main(String[] args) {
-        Thread t1 = new Thread(() -> log.debug("running..."), "t1");
-        t1.start(); // t1 线程执行
-        // t1.run(); // 在 main 线程执行
-        log.debug("do other things...");
+    Thread t = new Thread(() -> {
+        log.debug("running...");
+    });
+
+    @Test
+    void testStart() {
+        t.start();
+        log.debug("主线程");
+    }
+
+    @Test
+    void testRun() {
+        log.debug("主线程");
+        t.run();
+        log.debug("主线程 在做其他事情 ... ");
     }
 }

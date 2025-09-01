@@ -1,4 +1,4 @@
-package edu.note.util.concurrent;
+package edu.note.collection.map;
 
 import java.util.concurrent.ConcurrentHashMap;
 import org.junit.jupiter.api.Test;

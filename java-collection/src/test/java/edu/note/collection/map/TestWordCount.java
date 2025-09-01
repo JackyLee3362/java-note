@@ -1,4 +1,4 @@
-package edu.note.util.concurrent.concurrentHashMap;
+package edu.note.collection.map;
 
 import java.io.BufferedReader;
 import java.io.FileInputStream;

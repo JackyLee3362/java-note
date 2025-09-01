@@ -1,6 +1,6 @@
 package edu.note.collection.map;
 
-public class HashMapSourceNote<K, V> {
+public class SourceHashMap<K, V> {
     // HashMap源码笔记
     transient Node<K, V>[] table;
 
