@@ -1,6 +1,6 @@
 ---
 type: basic-note
-title: spring
+title: ISSUE
 author: JackyLee
 create_date: 2025-08-29
 update_date:
@@ -8,9 +8,7 @@ tags:
 description:
 ---
 
-## ISSUE
-
-### 如何在 spring 中通过查看日志判别是加载了什么环境的配置文件？
+## 如何在 spring 中通过查看日志判别是加载了什么环境的配置文件？
 
 搜索一下信息
 
@@ -18,11 +16,11 @@ description:
 
 如何切换
 
-### java 修饰符
+## java 修饰符
 
 尤其是 protect 的使用范围
 
-### java 循环
+## java 循环
 
 - stream().forEach 
 - forEach 
