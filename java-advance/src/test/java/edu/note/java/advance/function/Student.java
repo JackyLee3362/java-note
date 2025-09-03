@@ -1,4 +1,4 @@
-package edu.note.java.advance.stream.function;
+package edu.note.java.advance.function;
 
 public class Student {
     private String name;

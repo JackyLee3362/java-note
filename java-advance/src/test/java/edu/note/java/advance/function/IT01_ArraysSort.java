@@ -1,5 +1,4 @@
-package edu.note.java.advance.stream.function;
-
+package edu.note.java.advance.function;
 
 import java.util.Arrays;
 import java.util.Comparator;
@@ -12,13 +11,12 @@ import org.junit.jupiter.api.Test;
 public class IT01_ArraysSort {
 
     Integer[] arr;
-    Integer[] sorted = new Integer[]{1, 2, 3, 4, 5, 6};
-    Integer[] reversed = new Integer[]{6, 5, 4, 3, 2, 1};
-
+    Integer[] sorted = new Integer[] { 1, 2, 3, 4, 5, 6 };
+    Integer[] reversed = new Integer[] { 6, 5, 4, 3, 2, 1 };
 
     @BeforeEach
     public void init() {
-        arr = new Integer[]{3, 5, 4, 1, 6, 2};
+        arr = new Integer[] { 3, 5, 4, 1, 6, 2 };
     }
 
     @Test
@@ -59,7 +57,6 @@ public class IT01_ArraysSort {
         Arrays.sort(arr, Integer::compare);
         Assertions.assertArrayEquals(arr, sorted);
     }
-
 
     // 可以是Java已经写好的，也可以是一些第三方的工具类
     public static int subtraction(int num1, int num2) {

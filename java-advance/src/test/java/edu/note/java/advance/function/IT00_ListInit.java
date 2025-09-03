@@ -1,4 +1,4 @@
-package edu.note.java.advance.stream.function;
+package edu.note.java.advance.function;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -12,7 +12,6 @@ import org.junit.jupiter.api.Test;
  * @date 2024/11/30 下午10:42
  */
 public class IT00_ListInit {
-
 
     @Test
     @DisplayName("初始化 List 的方式")
@@ -32,11 +31,11 @@ public class IT00_ListInit {
         // 4. 匿名内部类（不可变）
         // TODO NOT JDK8
         // List<Integer> list4 = new ArrayList<>() {
-        //     {
-        //         add(1);
-        //         add(2);
-        //         add(3);
-        //     }
+        // {
+        // add(1);
+        // add(2);
+        // add(3);
+        // }
         // };
         // System.out.println(list4);
         // 5. Stream（不可变）
