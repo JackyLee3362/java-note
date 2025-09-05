@@ -1,5 +1,6 @@
 package edu.note.collection.map;
 
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -15,6 +16,8 @@ public class TestHashMap {
 
         // 创建
         HashMap<Integer/* id */, String/* 省份 */> map = new HashMap<>();
+        String string = map.get(1);
+        Assertions.assertEquals(null, string);
         // 添加
         map.put(1, "浙江");
         map.put(2, "江苏");
@@ -33,6 +36,15 @@ public class TestHashMap {
         map.containsValue("浙江");
         // 长度
         map.size();
+
+    }
+
+    @Test
+    @DisplayName("测试 null 传入构造器")
+    void testNullToConstructor() {
+
+        HashMap<String, String> map = new HashMap<>(null);
+        Assertions.assertEquals(0, map.size());
 
     }
 

@@ -1,4 +1,4 @@
-package edu.note.java.model;
+package edu.note.java.advance.model;
 
 import lombok.Data;
 

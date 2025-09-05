@@ -1,6 +1,5 @@
 package edu.note.java.advance.stream;
 
-import edu.note.java.model.User;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -8,6 +7,8 @@ import java.util.Map;
 import java.util.stream.Collectors;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
+
+import edu.note.java.advance.model.User;
 
 /**
  * @author jackylee
@@ -20,7 +21,7 @@ public class StreamTest {
         List<String> list = Arrays.asList("1", "2", "3", "4", "5");
         // List<Integer> collect =
         // list.stream().map(Integer::parseInt).collect(Collectors.toList());
-        Assertions.assertArrayEquals(new Integer[]{1, 2, 3, 4, 5}, list.stream().map(Integer::parseInt).toArray());
+        Assertions.assertArrayEquals(new Integer[] { 1, 2, 3, 4, 5 }, list.stream().map(Integer::parseInt).toArray());
     }
 
     @Test
@@ -32,10 +33,10 @@ public class StreamTest {
         users.add(new User("David", 15));
         users.add(new User("Alice", 16));
         Map<String, Integer> map = users.stream().collect(
-            Collectors.toMap(
-                User::getName,
-                User::getAge,
-                (oldValue, newValue) -> newValue));
+                Collectors.toMap(
+                        User::getName,
+                        User::getAge,
+                        (oldValue, newValue) -> newValue));
         System.out.println(map);
     }
 }
