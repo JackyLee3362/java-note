@@ -43,7 +43,7 @@
                     <exclude>org.apache.maven.plugins:maven-surefire-plugin</exclude>
                   </excludes>
                   <includes>
-                    <include>org.apache.maven.plugins:maven-surefire-plugin:3.5</include>
+                    <include>org.apache.maven.plugins:maven-surefire-plugin:3.2.*</include>
                   </includes>
                 </bannedPlugins>
               </rules>

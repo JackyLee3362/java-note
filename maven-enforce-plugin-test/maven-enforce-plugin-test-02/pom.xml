@@ -21,6 +21,7 @@
       <groupId>org.spockframework</groupId>
       <artifactId>spock-core</artifactId>
       <version>2.0-M2-groovy-3.0</version>
+      <!--<version>1.3-groovy-2.4</version>-->
       <scope>test</scope>
     </dependency>
     <dependency>
@@ -33,9 +34,10 @@
   <build>
     <plugins>
       <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-surefire-plugin</artifactId>
-        <version>2.20</version>
+      <groupId>org.apache.maven.plugins</groupId>
+      <artifactId>maven-surefire-plugin</artifactId>
+      <!--<version>3.5.0</version>-->
+      <version>2.20</version>
       </plugin>
       <plugin>
         <groupId>org.codehaus.gmavenplus</groupId>
@@ -76,26 +78,26 @@
           </execution>
         </executions>
       </plugin>
-      <plugin>
-        <groupId>org.jacoco</groupId>
-        <artifactId>jacoco-maven-plugin</artifactId>
-        <version>0.8.7</version> <!-- 使用最新版本 -->
-        <executions>
-          <execution>
-            <goals>
-              <goal>prepare-agent</goal>
-            </goals>
-          </execution>
-          <!-- 绑定jacoco:report目标到test阶段后执行 -->
-          <execution>
-            <id>generate-report</id>
-            <phase>test</phase>
-            <goals>
-              <goal>report</goal>
-            </goals>
-          </execution>
-        </executions>
-      </plugin>
+      <!--<plugin>-->
+      <!--  <groupId>org.jacoco</groupId>-->
+      <!--  <artifactId>jacoco-maven-plugin</artifactId>-->
+      <!--  <version>0.8.7</version> &lt;!&ndash; 使用最新版本 &ndash;&gt;-->
+      <!--  <executions>-->
+      <!--    <execution>-->
+      <!--      <goals>-->
+      <!--        <goal>prepare-agent</goal>-->
+      <!--      </goals>-->
+      <!--    </execution>-->
+      <!--    &lt;!&ndash; 绑定jacoco:report目标到test阶段后执行 &ndash;&gt;-->
+      <!--    <execution>-->
+      <!--      <id>generate-report</id>-->
+      <!--      <phase>test</phase>-->
+      <!--      <goals>-->
+      <!--        <goal>report</goal>-->
+      <!--      </goals>-->
+      <!--    </execution>-->
+      <!--  </executions>-->
+      <!--</plugin>-->
     </plugins>
   </build>
 
