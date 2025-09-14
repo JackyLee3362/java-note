@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>edu.note</groupId>
+  <artifactId>maven-enforce-plugin-test</artifactId>
+  <version>1.0-SNAPSHOT</version>
+  <packaging>pom</packaging>
+  <modules>
+    <module>maven-enforce-plugin-test-02</module>
+  </modules>
+
+  <properties>
+    <maven.compiler.source>8</maven.compiler.source>
+    <maven.compiler.target>8</maven.compiler.target>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+  </properties>
+
+  <build>
+    <plugins>
+      <!--<plugin>-->
+      <!--  <groupId>org.apache.maven.plugins</groupId>-->
+      <!--  <artifactId>maven-surefire-plugin</artifactId>-->
+      <!--  <version>2.20</version>-->
+      <!--</plugin>-->
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-enforcer-plugin</artifactId>
+        <version>3.5.0</version>
+        <executions>
+          <execution>
+            <id>enforce-banned-dependencies</id>
+            <goals>
+              <goal>enforce</goal>
+            </goals>
+            <phase>validate</phase>
+            <configuration>
+              <rules>
+                <bannedPlugins>
+                  <excludes>
+                    <exclude>org.apache.maven.plugins:maven-surefire-plugin</exclude>
+                  </excludes>
+                  <!--<includes>-->
+                  <!--  <include>org.apache.maven.plugins:maven-surefire-plugin:2.20</include>-->
+                  <!--</includes>-->
+                </bannedPlugins>
+              </rules>
+              <fail>true</fail>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
+  </build>
+
+</project>
