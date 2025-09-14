@@ -16,14 +16,42 @@
     <maven.compiler.target>8</maven.compiler.target>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
-
+  <dependencies>
+    <dependency>
+      <groupId>org.spockframework</groupId>
+      <artifactId>spock-core</artifactId>
+      <version>2.0-M2-groovy-3.0</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.junit.jupiter</groupId>
+      <artifactId>junit-jupiter-engine</artifactId>
+      <version>5.9.1</version>
+      <scope>test</scope>
+    </dependency>
+  </dependencies>
   <build>
     <plugins>
-      <!--<plugin>-->
-      <!--  <groupId>org.apache.maven.plugins</groupId>-->
-      <!--  <artifactId>maven-surefire-plugin</artifactId>-->
-      <!--  <version>2.20</version>-->
-      <!--</plugin>-->
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-surefire-plugin</artifactId>
+        <version>2.20</version>
+      </plugin>
+      <plugin>
+        <groupId>org.codehaus.gmavenplus</groupId>
+        <artifactId>gmavenplus-plugin</artifactId>
+        <version>1.9.0</version>
+        <executions>
+          <execution>
+            <goals>
+              <goal>compileTests</goal>
+            </goals>
+            <configuration>
+              <targetBytecode>1.8</targetBytecode>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-enforcer-plugin</artifactId>
@@ -39,12 +67,32 @@
               <rules>
                 <bannedPlugins>
                   <includes>
-                    <include>org.apache.maven.plugins:maven-surefire-plugin:3.2.5</include>
+                    <include>org.apache.maven.plugins:maven-surefire-plugin:2.20</include>
                   </includes>
                 </bannedPlugins>
               </rules>
               <fail>true</fail>
             </configuration>
+          </execution>
+        </executions>
+      </plugin>
+      <plugin>
+        <groupId>org.jacoco</groupId>
+        <artifactId>jacoco-maven-plugin</artifactId>
+        <version>0.8.7</version> <!-- 使用最新版本 -->
+        <executions>
+          <execution>
+            <goals>
+              <goal>prepare-agent</goal>
+            </goals>
+          </execution>
+          <!-- 绑定jacoco:report目标到test阶段后执行 -->
+          <execution>
+            <id>generate-report</id>
+            <phase>test</phase>
+            <goals>
+              <goal>report</goal>
+            </goals>
           </execution>
         </executions>
       </plugin>

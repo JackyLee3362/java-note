@@ -42,9 +42,9 @@
                   <excludes>
                     <exclude>org.apache.maven.plugins:maven-surefire-plugin</exclude>
                   </excludes>
-                  <!--<includes>-->
-                  <!--  <include>org.apache.maven.plugins:maven-surefire-plugin:2.20</include>-->
-                  <!--</includes>-->
+                  <includes>
+                    <include>org.apache.maven.plugins:maven-surefire-plugin:3.5</include>
+                  </includes>
                 </bannedPlugins>
               </rules>
               <fail>true</fail>
