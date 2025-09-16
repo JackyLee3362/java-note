@@ -16,21 +16,7 @@
     <maven.compiler.target>8</maven.compiler.target>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
-  <dependencies>
-    <dependency>
-      <groupId>org.spockframework</groupId>
-      <artifactId>spock-core</artifactId>
-      <version>2.0-M2-groovy-3.0</version>
-      <!--<version>1.3-groovy-2.4</version>-->
-      <scope>test</scope>
-    </dependency>
-    <dependency>
-      <groupId>org.junit.jupiter</groupId>
-      <artifactId>junit-jupiter-engine</artifactId>
-      <version>5.9.1</version>
-      <scope>test</scope>
-    </dependency>
-  </dependencies>
+
   <build>
     <plugins>
       <plugin>
@@ -38,21 +24,6 @@
       <artifactId>maven-surefire-plugin</artifactId>
       <!--<version>3.5.0</version>-->
       <version>2.20</version>
-      </plugin>
-      <plugin>
-        <groupId>org.codehaus.gmavenplus</groupId>
-        <artifactId>gmavenplus-plugin</artifactId>
-        <version>1.9.0</version>
-        <executions>
-          <execution>
-            <goals>
-              <goal>compileTests</goal>
-            </goals>
-            <configuration>
-              <targetBytecode>1.8</targetBytecode>
-            </configuration>
-          </execution>
-        </executions>
       </plugin>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
@@ -78,26 +49,6 @@
           </execution>
         </executions>
       </plugin>
-      <!--<plugin>-->
-      <!--  <groupId>org.jacoco</groupId>-->
-      <!--  <artifactId>jacoco-maven-plugin</artifactId>-->
-      <!--  <version>0.8.7</version> &lt;!&ndash; 使用最新版本 &ndash;&gt;-->
-      <!--  <executions>-->
-      <!--    <execution>-->
-      <!--      <goals>-->
-      <!--        <goal>prepare-agent</goal>-->
-      <!--      </goals>-->
-      <!--    </execution>-->
-      <!--    &lt;!&ndash; 绑定jacoco:report目标到test阶段后执行 &ndash;&gt;-->
-      <!--    <execution>-->
-      <!--      <id>generate-report</id>-->
-      <!--      <phase>test</phase>-->
-      <!--      <goals>-->
-      <!--        <goal>report</goal>-->
-      <!--      </goals>-->
-      <!--    </execution>-->
-      <!--  </executions>-->
-      <!--</plugin>-->
     </plugins>
   </build>
 
