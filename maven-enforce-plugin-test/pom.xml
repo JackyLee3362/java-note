@@ -9,7 +9,8 @@
   <version>1.0-SNAPSHOT</version>
   <packaging>pom</packaging>
   <modules>
-    <module>maven-enforce-plugin-test-02</module>
+    <module>maven-enforce-banned-plugins</module>
+    <module>maven-enforce-require-maven</module>
   </modules>
 
   <properties>
@@ -38,13 +39,13 @@
             <phase>validate</phase>
             <configuration>
               <rules>
+                <RequireMavenVersion>
+                  <version>[3.9.11,)</version>
+                </RequireMavenVersion>
                 <bannedPlugins>
                   <excludes>
                     <exclude>org.apache.maven.plugins:maven-surefire-plugin</exclude>
                   </excludes>
-                  <includes>
-                    <include>org.apache.maven.plugins:maven-surefire-plugin:3.2.*</include>
-                  </includes>
                 </bannedPlugins>
               </rules>
               <fail>true</fail>
