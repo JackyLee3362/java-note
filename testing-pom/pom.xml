@@ -17,6 +17,7 @@
 
   <modules>
     <module>junit5</module>
+    <module>spock</module>
   </modules>
 
 </project>

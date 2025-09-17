@@ -15,4 +15,11 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
 
+  <modules>
+    <module>custom-maven-plugin</module>
+    <module>custom-maven-plugin-test</module>
+    <module>enforcer-parent</module>
+    <module>surefire-test</module>
+  </modules>
+
 </project>

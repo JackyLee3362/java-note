@@ -1,13 +1,10 @@
 package edu.note.util.concurrent.thread;
 
 import edu.note.util.concurrent.util.Sleeper;
-import java.lang.Thread.State;
 import java.util.concurrent.locks.LockSupport;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.RepeatedTest;
-import org.junit.jupiter.api.Test;
 
 /**
  * @author jackylee
@@ -17,6 +14,19 @@ import org.junit.jupiter.api.Test;
 public class Interrupt02Test {
 
 
+    @RepeatedTest(10)
+    void interruptParkWithTrueFlag01() throws InterruptedException {
+        Thread t1 = new Thread(() -> {
+                log.debug("t1: start...");
+                LockSupport.park();
+                log.debug("t1: resume...");
+            });
+
+        t1.start();
+        Sleeper.sleep(0.2);
+        t1.interrupt();
+        t1.join();
+    }
 
 
     /**
@@ -41,7 +51,7 @@ public class Interrupt02Test {
         t.join();
     }
 
-    @Test
+    @RepeatedTest(10)
     void interruptParkWithFalseFlag() throws InterruptedException {
         Thread t1 = new Thread(LockSupport::park, "t1");
         Thread t2 = new Thread(() -> {

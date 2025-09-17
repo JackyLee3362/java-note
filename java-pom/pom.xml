@@ -23,6 +23,7 @@
     <module>java-spi</module>
     <module>juc</module>
     <module>java-thread</module>
+    <module>java-math</module>
   </modules>
 
 </project>

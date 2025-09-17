@@ -19,7 +19,6 @@
     <module>fastjson</module>
     <module>freemarker</module>
     <module>jackson</module>
-    <module>logback</module>
     <module>mapstruct</module>
     <module>mybatis</module>
   </modules>

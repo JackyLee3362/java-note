@@ -29,7 +29,7 @@ public class Interrupt01Test {
                 Assertions.assertFalse(Thread.currentThread().isInterrupted());
             }
             log.info("结束");
-        }, "t1");
+        });
         t1.start();
         t1.interrupt();
         // Sleeper.sleep(0.2);
@@ -68,13 +68,11 @@ public class Interrupt01Test {
     @RepeatedTest(10)
     @DisplayName("打断 park 线程")
     void test3() {
-        Thread t1 = new Thread(() -> {
-            Assertions.assertFalse(Thread.interrupted());
-            LockSupport.park();
-        });
+        Thread t1 = new Thread(LockSupport::park);
         t1.start();
 
         Sleeper.sleep(0.2);
+        Assertions.assertFalse(t1.isInterrupted(), "park 后, 打断标记为 false");
         t1.interrupt();
         Assertions.assertTrue(t1.isInterrupted(), "打断 park, 打断标记为 true");
         // Sleeper.sleep(0.2);
@@ -90,10 +88,7 @@ public class Interrupt01Test {
     @Test
     @DisplayName("取消 park")
     void test4() {
-        Thread t1 = new Thread(() -> {
-            Assertions.assertFalse(Thread.interrupted());
-            LockSupport.park();
-        });
+        Thread t1 = new Thread(LockSupport::park);
         t1.start();
 
         Sleeper.sleep(0.5);

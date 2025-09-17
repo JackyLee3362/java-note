@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>edu.note</groupId>
+    <artifactId>enforcer-parent</artifactId>
+    <version>1.0-SNAPSHOT</version>
+  </parent>
+  <packaging>pom</packaging>
+
+  <artifactId>maven-enforce-require-maven</artifactId>
+
+  <properties>
+    <maven.compiler.source>8</maven.compiler.source>
+    <maven.compiler.target>8</maven.compiler.target>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+  </properties>
+
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-enforcer-plugin</artifactId>
+        <version>3.5.0</version>
+        <!--方案1:跳过-->
+        <!--<configuration>-->
+        <!--  <skip>true</skip>-->
+        <!--</configuration>-->
+        <!--方案2:跳过-->
+        <!--<configuration>-->
+        <!--  <rulesToSkip>requireMavenVersion</rulesToSkip>-->
+        <!--</configuration>-->
+        <!--方案3:覆盖-->
+        <!--<executions>-->
+        <!--  <execution>-->
+        <!--    <id>enforce-banned-dependencies</id>-->
+        <!--    <goals>-->
+        <!--      <goal>enforce</goal>-->
+        <!--    </goals>-->
+        <!--    <configuration>-->
+        <!--      <rules>-->
+        <!--        <RequireMavenVersion>-->
+        <!--          <version>[3.9.10,)</version>-->
+        <!--        </RequireMavenVersion>-->
+        <!--      </rules>-->
+        <!--    </configuration>-->
+        <!--  </execution>-->
+        <!--</executions>-->
+      </plugin>
+    </plugins>
+  </build>
+
+</project>

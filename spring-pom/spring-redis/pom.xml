@@ -9,13 +9,13 @@
     <version>2.7.18</version>
   </parent>
 
+  <groupId>edu.note</groupId>
   <artifactId>spring-redis</artifactId>
 
   <properties>
     <maven.compiler.source>8</maven.compiler.source>
     <maven.compiler.target>8</maven.compiler.target>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <spring-boot.version>2.6.13</spring-boot.version>
   </properties>
 
   <dependencies>
@@ -60,21 +60,21 @@
   <!--  </dependencies>-->
   <!--</dependencyManagement>-->
 
-  <build>
-    <plugins>
-      <plugin>
-        <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-maven-plugin</artifactId>
-        <version>2.6.13</version>
-        <configuration>
-          <excludes>
-            <exclude>
-              <groupId>org.projectlombok</groupId>
-              <artifactId>lombok</artifactId>
-            </exclude>
-          </excludes>
-        </configuration>
-      </plugin>
-    </plugins>
-  </build>
+  <!--<build>-->
+  <!--  <plugins>-->
+  <!--    <plugin>-->
+  <!--      <groupId>org.springframework.boot</groupId>-->
+  <!--      <artifactId>spring-boot-maven-plugin</artifactId>-->
+  <!--      <version>2.6.13</version>-->
+  <!--      <configuration>-->
+  <!--        <excludes>-->
+  <!--          <exclude>-->
+  <!--            <groupId>org.projectlombok</groupId>-->
+  <!--            <artifactId>lombok</artifactId>-->
+  <!--          </exclude>-->
+  <!--        </excludes>-->
+  <!--      </configuration>-->
+  <!--    </plugin>-->
+  <!--  </plugins>-->
+  <!--</build>-->
 </project>
