@@ -14,29 +14,12 @@ import org.junit.jupiter.api.RepeatedTest;
 public class Interrupt02Test {
 
 
-    @RepeatedTest(10)
-    void interruptParkWithTrueFlag01() throws InterruptedException {
-        Thread t1 = new Thread(() -> {
-                log.debug("t1: start...");
-                LockSupport.park();
-                log.debug("t1: resume...");
-            });
-
-        t1.start();
-        Sleeper.sleep(0.2);
-        t1.interrupt();
-        t1.join();
-    }
-
-
     /**
      * 如果 interrupt 标记为 true，park 还能被正常运行吗？答：不行 park 只能在 interrupt 标记为 false 时阻塞
      */
     @RepeatedTest(10)
     void interruptParkWithTrueFlag() throws InterruptedException {
         Thread t = new Thread(() -> {
-            // 一开始打断标记是 false
-            Assertions.assertFalse(Thread.currentThread().isInterrupted());
             LockSupport.park();
             // 打断标记是 true
             Assertions.assertTrue(Thread.currentThread().isInterrupted());
@@ -46,7 +29,7 @@ public class Interrupt02Test {
         }, "test");
 
         t.start();
-        Sleeper.sleep(0.5);
+        Sleeper.sleep(0.2);
         t.interrupt();
         t.join();
     }

@@ -12,7 +12,7 @@ import org.junit.jupiter.api.Test;
  * @date 2024/12/2 17:04
  */
 @Slf4j(topic = "c.TestState")
-public class TestThreadStatusV1 {
+public class ThreadStatusTest {
 
     @Test
     @DisplayName("6-Terminated 状态")
@@ -68,14 +68,14 @@ public class TestThreadStatusV1 {
     @DisplayName("3-Blocked 状态")
     void testBlocked() {
         Thread t1 = new Thread(() -> {
-            synchronized (TestThreadStatusV1.class) {
+            synchronized (ThreadStatusTest.class) {
                 while (true) {
                 }
             }
         });
         t1.start();
         Thread t2 = new Thread(() -> {
-            synchronized (TestThreadStatusV1.class) { // blocked
+            synchronized (ThreadStatusTest.class) { // blocked
                 log.info("running...");
             }
         });
