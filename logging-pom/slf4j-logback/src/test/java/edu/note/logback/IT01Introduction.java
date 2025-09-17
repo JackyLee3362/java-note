@@ -20,7 +20,6 @@ public class IT01Introduction {
     }
 
 
-
     @Test
     void testRootLogger() {
         Logger logger = LoggerFactory.getLogger(Logger.ROOT_LOGGER_NAME);

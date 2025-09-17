@@ -1,4 +1,4 @@
-package edu.note.java.advance.function;
+package edu.note.java.function;
 
 import java.util.Arrays;
 import java.util.Comparator;
