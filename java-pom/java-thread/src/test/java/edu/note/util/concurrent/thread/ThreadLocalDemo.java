@@ -4,7 +4,7 @@ package edu.note.util.concurrent.thread;
  * @author jackylee
  * @date 2024/11/29 下午2:58
  */
-public class IT05ThreadLocal {
+public class ThreadLocalDemo {
 
     public static ThreadLocal<Long> userId = new ThreadLocal<>();
 

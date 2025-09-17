@@ -12,7 +12,7 @@
     <module>spring</module>
     <module>spring-aop</module>
     <module>spring-bean</module>
-    <module>spring-jwt</module>
+    <module>spring-jwt-test</module>
     <module>spring-mq</module>
     <module>spring-redis</module>
     <module>spring-rest-template</module>

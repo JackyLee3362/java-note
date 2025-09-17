@@ -1,7 +1,7 @@
 package edu.note.util.concurrent.executor;
 
 
-import edu.note.util.concurrent.executor.util.Sleeper;
+import edu.note.util.concurrent.util.Sleeper;
 import java.util.concurrent.BrokenBarrierException;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.CyclicBarrier;

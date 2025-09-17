@@ -1,4 +1,4 @@
-package edu.note.util.concurrent.executor.util;
+package edu.note.util.concurrent.util;
 
 import java.util.concurrent.TimeUnit;
 

@@ -25,6 +25,8 @@
     <module>utils-pom</module>
     <module>java-pom</module>
     <module>data-structure-pom</module>
+    <module>groovy-pom</module>
+    <module>logging-pom</module>
   </modules>
 
   <properties>
