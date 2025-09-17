@@ -2,9 +2,8 @@ package edu.note.util.concurrent.lock;
 
 import static edu.note.util.concurrent.util.Sleeper.sleep;
 
-import lombok.extern.slf4j.Slf4j;
-
 import java.util.concurrent.Semaphore;
+import lombok.extern.slf4j.Slf4j;
 
 @Slf4j(topic = "c.TestSemaphore")
 public class TestSemaphore {

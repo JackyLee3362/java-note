@@ -22,9 +22,10 @@
     <module>java-io</module>
     <module>java-spi</module>
     <module>juc</module>
-    <module>java-thread</module>
+    <module>juc-thread</module>
     <module>java-math</module>
     <module>java-stream</module>
+    <module>juc-lock</module>
   </modules>
 
 </project>

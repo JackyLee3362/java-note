@@ -1,11 +1,10 @@
 package edu.note.util.concurrent.lock;
 
+import java.util.Vector;
+import java.util.concurrent.locks.LockSupport;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
 import org.openjdk.jol.info.ClassLayout;
-
-import java.util.Vector;
-import java.util.concurrent.locks.LockSupport;
 
 // -XX:-UseCompressedOops -XX:-UseCompressedClassPointers -XX:BiasedLockingStartupDelay=0 -XX:+PrintFlagsFinal
 //-XX:-UseBiasedLocking tid=0x000000001f173000  -XX:BiasedLockingStartupDelay=0 -XX:+TraceBiasedLocking

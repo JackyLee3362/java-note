@@ -1,8 +1,5 @@
 package edu.note.util.concurrent.lock;
 
-import static edu.note.util.concurrent.util.Sleeper.sleep;
-
-import java.util.concurrent.locks.ReentrantReadWriteLock;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j(topic = "c.TestReadWriteLock")

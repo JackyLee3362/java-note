@@ -2,10 +2,6 @@ package edu.note.util.concurrent.lock;
 
 import static edu.note.util.concurrent.util.Sleeper.sleep;
 
-import java.util.concurrent.TimeUnit;
-import java.util.concurrent.locks.AbstractQueuedSynchronizer;
-import java.util.concurrent.locks.Condition;
-import java.util.concurrent.locks.Lock;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j(topic = "c.TestAqs")
