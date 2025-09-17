@@ -1,6 +1,6 @@
 ---
 title: java 语言级别
-tags: 
+tags:
   - 编程
   - java/语言级别
 created_time: 2024-02-11
@@ -21,7 +21,7 @@ created_time: 2024-02-11
 
 ```xml
 <!-- Maven 中的一个配置参数，它指定了编译Java 源代码时使用的版本 -->
-<maven.compiler.source>17</maven.compiler.source> 
+<maven.compiler.source>17</maven.compiler.source>
 <maven.compiler.target>17</maven.compiler.target>
 ```
 
@@ -33,42 +33,45 @@ created_time: 2024-02-11
 
 基本可以认为 jdk版本 + 44 = 字节码版本
 
-|JDK 版本 |字节码版本|
-|---|---|
-| Java 1.0 | 45.0 |
-| Java 1.1 | 45.3 |
-| Java 1.2 | 46.0 |
-| Java 1.3 | 47.0 |
-| Java 1.4 | 48.0 |
-| Java 5 | 49.0 |
-| Java 6 | 50.0 |
-| Java 7 | 51.0 |
-| **Java 8** | **52.0** |
-| Java 9 | 53.0 |
-| Java 10 | 54.0 |
+| JDK 版本      | 字节码版本    |
+|-------------|----------|
+| Java 1.0    | 45.0     |
+| Java 1.1    | 45.3     |
+| Java 1.2    | 46.0     |
+| Java 1.3    | 47.0     |
+| Java 1.4    | 48.0     |
+| Java 5      | 49.0     |
+| Java 6      | 50.0     |
+| Java 7      | 51.0     |
+| **Java 8**  | **52.0** |
+| Java 9      | 53.0     |
+| Java 10     | 54.0     |
 | **Java 11** | **55.0** |
-| Java 12 | 56.0 |
-| Java 13 | 57.0 |
-| Java 14 | 58.0 |
-| Java 15 | 59.0 |
-| Java 16 | 60.0 |
+| Java 12     | 56.0     |
+| Java 13     | 57.0     |
+| Java 14     | 58.0     |
+| Java 15     | 59.0     |
+| Java 16     | 60.0     |
 | **Java 17** | **61.0** |
-| Java 18 | 62.0 |
+| Java 18     | 62.0     |
 
 ### java的错误顺序：按照调用栈输出
 
 ```java
 public class Hello {
+
     public static void main(String[] args) {
         test1();
     }
-    public static void test1(){
+
+    public static void test1() {
         test2();
     }
-    public static void test2(){
-        try{
+
+    public static void test2() {
+        try {
             int a = 1 / 0;
-        }catch(Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
