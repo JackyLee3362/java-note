@@ -1,9 +1,9 @@
 package edu.note.util.concurrent.thread;
 
-import edu.note.util.concurrent.util.Sleeper;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.FutureTask;
 import lombok.extern.slf4j.Slf4j;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -14,14 +14,14 @@ import org.junit.jupiter.api.Test;
  * @author: Jacky Lee
  * @date: 2024/3/30 11:22
  */
-@Slf4j(topic = "c.TestCreateThread")
-public class TestCreateThread {
+@Slf4j(topic = "c.ThreadCreateTest")
+public class ThreadCreateTest {
 
     @Test
     @DisplayName("Thread 类创建")
     void testCreate01() throws InterruptedException {
         // 创建时设置线程名
-        Thread t = new Thread(() -> log.debug("thread class: running..."), "t2");
+        Thread t = new Thread(() -> log.debug("thread class: running..."));
         // 之后也可以修改
         t.setName("t1");
         t.start();
@@ -42,13 +42,12 @@ public class TestCreateThread {
     void testCreate03() throws ExecutionException, InterruptedException {
         FutureTask<Integer> task = new FutureTask<>(() -> {
             log.debug("using future task: running...");
-            Sleeper.sleep(1);
             return 101;
         });
         Thread t = new Thread(task, "futureTaskDemo");
         t.start();
         // 获取返回值
-        log.debug("{}", task.get());
         t.join();
+        Assertions.assertEquals(101, task.get());
     }
 }

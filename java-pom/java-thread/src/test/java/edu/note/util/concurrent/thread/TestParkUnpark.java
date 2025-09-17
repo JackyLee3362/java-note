@@ -1,7 +1,7 @@
 package edu.note.util.concurrent.thread;
 
-import static edu.note.util.concurrent.util.Sleeper.sleep;
 
+import edu.note.util.concurrent.util.Sleeper;
 import java.util.concurrent.locks.LockSupport;
 import lombok.extern.slf4j.Slf4j;
 

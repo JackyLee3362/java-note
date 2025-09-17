@@ -1,7 +1,7 @@
 package edu.note.util.concurrent.executor;
 
-import static edu.note.util.concurrent.util.Sleeper.sleep;
 
+import edu.note.util.concurrent.util.Sleeper;
 import java.util.Timer;
 import java.util.TimerTask;
 import java.util.concurrent.ExecutionException;
