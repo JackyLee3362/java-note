@@ -4,18 +4,18 @@
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <parent>
-   <groupId>edu.note</groupId>
-    <artifactId>java-note</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-parent</artifactId>
+    <version>2.7.18</version>
   </parent>
 
-  <artifactId>spring-rest-template</artifactId>
+  <artifactId>spring-task</artifactId>
 
   <properties>
     <maven.compiler.source>8</maven.compiler.source>
     <maven.compiler.target>8</maven.compiler.target>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <spring-boot.version>2.6.13</spring-boot.version>
+    <spring-boot.version>2.7.18</spring-boot.version>
   </properties>
   <dependencies>
     <dependency>
@@ -28,19 +28,7 @@
       <artifactId>spring-boot-starter-test</artifactId>
       <scope>test</scope>
     </dependency>
-
   </dependencies>
-  <dependencyManagement>
-    <dependencies>
-      <dependency>
-        <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-dependencies</artifactId>
-        <version>${spring-boot.version}</version>
-        <type>pom</type>
-        <scope>import</scope>
-      </dependency>
-    </dependencies>
-  </dependencyManagement>
 
   <build>
     <plugins>
@@ -59,7 +47,7 @@
         <artifactId>spring-boot-maven-plugin</artifactId>
         <version>${spring-boot.version}</version>
         <configuration>
-          <mainClass>com.example.rest.RestTemplateApplication</mainClass>
+          <mainClass>com.taskdemo.TaskApplication</mainClass>
           <skip>true</skip>
         </configuration>
         <executions>
@@ -73,5 +61,7 @@
       </plugin>
     </plugins>
   </build>
+
+
 
 </project>

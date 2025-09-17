@@ -33,34 +33,18 @@
 
     <!-- Third Part Package -->
     <module>mybatis</module>
-    <module>junit5</module>
-    <module>spock</module>
     <module>mapstruct</module>
-    <module>jackson</module>
 
     <!-- Spring -->
-    <module>spring</module>
-    <module>spring-bean</module>
-    <module>spring-aop</module>
-    <module>spring-task</module>
-    <module>spring-rest-template</module>
-    <module>spring-redis</module>
-    <module>spring-jwt</module>
-    <module>spring-mq</module>
     <module>algorithm</module>
-    <module>fastjson</module>
     <module>logback</module>
 
     <!-- Thrift 配套测试 -->
-    <module>thrift-server</module>
-    <module>thrift-anno-sdk</module>
-    <module>thrift-client</module>
-    <module>custom-maven-plugin</module>
-    <module>custom-maven-plugin-test</module>
-    <module>maven-plugin-test</module>
-    <module>maven-enforce-plugin-test</module>
-    <module>maven-surefire-plugin-test</module>
-    <module>maven-surefire-plugin-test/surefire-test-2.20</module>
+    <module>testing-pom</module>
+    <module>spring-pom</module>
+    <module>thrift-pom</module>
+    <module>maven-pom</module>
+    <module>json-pom</module>
 
     <!-- Spring Start -->
     <!--<module>spring-starter/demo-bmi-main</module>-->

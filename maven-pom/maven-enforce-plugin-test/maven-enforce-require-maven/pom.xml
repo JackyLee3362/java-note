@@ -30,7 +30,7 @@
         <!--</configuration>-->
         <!--方案2:跳过-->
         <!--<configuration>-->
-        <!--  <rulesToSkip>RequireMavenVersion</rulesToSkip>-->
+        <!--  <rulesToSkip>requireMavenVersion</rulesToSkip>-->
         <!--</configuration>-->
         <!--方案3:覆盖-->
         <!--<executions>-->
