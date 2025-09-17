@@ -24,6 +24,7 @@
     <module>juc</module>
     <module>java-thread</module>
     <module>java-math</module>
+    <module>java-stream</module>
   </modules>
 
 </project>
