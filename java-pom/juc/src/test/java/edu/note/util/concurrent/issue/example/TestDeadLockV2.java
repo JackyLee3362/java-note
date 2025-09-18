@@ -1,7 +1,7 @@
 package edu.note.util.concurrent.issue.example;
 
 import edu.note.util.concurrent.model.Chopstick;
-import edu.note.util.concurrent.util.Sleeper;
+import edu.note.thread.util.Sleeper;
 import lombok.extern.slf4j.Slf4j;
 
 public class TestDeadLockV2 {

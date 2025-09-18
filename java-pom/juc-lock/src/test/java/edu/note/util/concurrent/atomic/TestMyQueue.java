@@ -1,6 +1,6 @@
 package edu.note.util.concurrent.atomic;
 
-import edu.note.util.concurrent.util.Sleeper;
+import edu.note.thread.util.Sleeper;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 

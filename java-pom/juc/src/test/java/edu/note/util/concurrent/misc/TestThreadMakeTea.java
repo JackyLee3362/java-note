@@ -1,6 +1,6 @@
 package edu.note.util.concurrent.misc;
 
-import static edu.note.util.concurrent.util.Sleeper.sleep;
+import static edu.note.thread.util.Sleeper.sleep;
 
 import lombok.extern.slf4j.Slf4j;
 

@@ -1,6 +1,6 @@
 package edu.note.util.concurrent.reentrant;
 
-import static edu.note.util.concurrent.util.Sleeper.sleep;
+import static edu.note.thread.util.Sleeper.sleep;
 
 import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.ReentrantLock;

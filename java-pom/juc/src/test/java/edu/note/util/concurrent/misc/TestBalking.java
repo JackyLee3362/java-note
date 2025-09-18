@@ -1,7 +1,7 @@
 package edu.note.util.concurrent.misc;
 
-import edu.note.util.concurrent.util.FileSaver;
-import edu.note.util.concurrent.util.Sleeper;
+import edu.note.thread.util.FileSaver;
+import edu.note.thread.util.Sleeper;
 
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.Executors;

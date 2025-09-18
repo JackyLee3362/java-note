@@ -1,6 +1,6 @@
 package edu.note.util.concurrent.misc;
 
-import edu.note.util.concurrent.util.Downloader;
+import edu.note.thread.util.Downloader;
 import lombok.extern.slf4j.Slf4j;
 
 import java.io.IOException;

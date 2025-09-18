@@ -1,6 +1,6 @@
 package edu.note.util.concurrent.example;
 
-import edu.note.util.concurrent.util.Sleeper;
+import edu.note.thread.util.Sleeper;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 import lombok.extern.slf4j.Slf4j;

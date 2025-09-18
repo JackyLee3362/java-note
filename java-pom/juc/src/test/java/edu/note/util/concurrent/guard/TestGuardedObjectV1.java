@@ -1,6 +1,6 @@
 package edu.note.util.concurrent.guard;
 
-import static edu.note.util.concurrent.util.Downloader.download;
+import static edu.note.thread.util.Downloader.download;
 
 import lombok.extern.slf4j.Slf4j;
 

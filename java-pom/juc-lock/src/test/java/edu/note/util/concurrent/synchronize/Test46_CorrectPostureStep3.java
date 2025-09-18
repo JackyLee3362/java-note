@@ -2,7 +2,7 @@ package edu.note.util.concurrent.synchronize;
 
 import lombok.extern.slf4j.Slf4j;
 
-import static edu.note.util.concurrent.util.Sleeper.sleep;
+import static edu.note.thread.util.Sleeper.sleep;
 
 @Slf4j(topic = "c.TestCorrectPosture")
 public class Test46_CorrectPostureStep3 {

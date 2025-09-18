@@ -1,6 +1,6 @@
 package edu.note.util.concurrent.synchronize;
 
-import edu.note.util.concurrent.util.Sleeper;
+import edu.note.thread.util.Sleeper;
 import lombok.extern.slf4j.Slf4j;
 
 public class TestMultiLock {

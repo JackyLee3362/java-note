@@ -1,6 +1,6 @@
 package edu.note.util.concurrent.lock;
 
-import static edu.note.util.concurrent.util.Sleeper.sleep;
+import static edu.note.thread.util.Sleeper.sleep;
 
 import java.util.Arrays;
 import java.util.Map;
