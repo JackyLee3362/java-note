@@ -1,38 +1,42 @@
 package edu.note.util.concurrent.lock;
 
 import edu.note.thread.util.Sleeper;
+import java.util.Random;
 import java.util.concurrent.locks.ReentrantReadWriteLock;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j(topic = "c.DataContainer")
 public class DataContainer {
-    private Object data;
-    private ReentrantReadWriteLock rw = new ReentrantReadWriteLock();
-    private ReentrantReadWriteLock.ReadLock r = rw.readLock();
-    private ReentrantReadWriteLock.WriteLock w = rw.writeLock();
 
-    public Object read() {
+    private int data;
+    private final Random RANDOM = new Random();
+    private final ReentrantReadWriteLock readWriteLock = new ReentrantReadWriteLock();
+    private final ReentrantReadWriteLock.ReadLock readLock = readWriteLock.readLock();
+    private final ReentrantReadWriteLock.WriteLock writeLock = readWriteLock.writeLock();
+
+    public int read() {
         log.debug("获取读锁...");
-        r.lock();
+        readLock.lock();
         try {
-            log.debug("读取");
-            Sleeper.sleep(1);
+            Sleeper.sleep(RANDOM.nextFloat());
+            log.debug("读取数据");
             return data;
         } finally {
             log.debug("释放读锁...");
-            r.unlock();
+            readLock.unlock();
         }
     }
 
-    public void write() {
+    public void write(int newData) {
         log.debug("获取写锁...");
-        w.lock();
+        writeLock.lock();
         try {
-            log.debug("写入");
-            Sleeper.sleep(1);
+            Sleeper.sleep(RANDOM.nextFloat());
+            log.debug("写入数据");
+            data = newData;
         } finally {
             log.debug("释放写锁...");
-            w.unlock();
+            writeLock.unlock();
         }
     }
 }

@@ -6,15 +6,11 @@ import java.util.Random;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
-import java.util.concurrent.TimeUnit;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
 
 @Slf4j(topic = "c.CountDownLatchTest")
 public class CountDownLatchTest {
-    // public static void main(String[] args) throws InterruptedException, ExecutionException {
-    //     test3();
-    // }
 
     @Test
     void test01() throws InterruptedException {
@@ -22,7 +18,6 @@ public class CountDownLatchTest {
         CountDownLatch latch = new CountDownLatch(10);
         Random random = new Random();
         for (int j = 0; j < 10; j++) {
-            int x = j;
             log.info("开始加载...");
             pool.submit(() -> {
                 for (int i = 0; i <= 10; i++) {
@@ -63,17 +58,10 @@ public class CountDownLatchTest {
             log.debug("前置任务 3: end...{}", latch.getCount());
             latch.countDown();
         });
-        pool.submit(() -> {
-            try {
-                log.debug("后置任务: waiting...");
-                latch.await();
-                log.debug("后置任务: wait end...");
-            } catch (InterruptedException e) {
-                log.error(e.getMessage());
-            }
-        });
+        log.debug("后置任务: waiting...");
+        latch.await();
+        log.debug("后置任务: wait end...");
         pool.shutdown();
-        pool.awaitTermination(4, TimeUnit.MINUTES);
     }
 
 

@@ -23,4 +23,8 @@ public class Sleeper {
             // log.error(e.getMessage());
         }
     }
+
+    public static void randomSleep(int bound) {
+        // TODO
+    }
 }
