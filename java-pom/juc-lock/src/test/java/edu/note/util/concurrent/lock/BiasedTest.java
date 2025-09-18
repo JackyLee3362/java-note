@@ -7,9 +7,9 @@ import org.junit.jupiter.api.Test;
 import org.openjdk.jol.info.ClassLayout;
 
 // -XX:-UseCompressedOops -XX:-UseCompressedClassPointers -XX:BiasedLockingStartupDelay=0 -XX:+PrintFlagsFinal
-//-XX:-UseBiasedLocking tid=0x000000001f173000  -XX:BiasedLockingStartupDelay=0 -XX:+TraceBiasedLocking
-@Slf4j(topic = "c.TestBiased")
-public class TestBiased {
+// -XX:-UseBiasedLocking tid=0x000000001f173000  -XX:BiasedLockingStartupDelay=0 -XX:+TraceBiasedLocking
+@Slf4j(topic = "c.BiasedTest")
+public class BiasedTest {
     static Thread t1, t2, t3;
 
     static class Dog {
@@ -57,17 +57,17 @@ public class TestBiased {
                 log.debug(ClassLayout.parseInstance(d).toPrintable());
             }
             log.debug(ClassLayout.parseInstance(d).toPrintable());
-            synchronized (TestBiased.class) {
-                TestBiased.class.notify();
+            synchronized (BiasedTest.class) {
+                BiasedTest.class.notify();
             }
         }, "t1");
         t1.start();
 
         Thread t2 = new Thread(() -> {
-            synchronized (TestBiased.class) {
+            synchronized (BiasedTest.class) {
                 try {
                     // 【类锁】等待
-                    TestBiased.class.wait();
+                    BiasedTest.class.wait();
                 } catch (InterruptedException e) {
                     log.error(e.getMessage());
                 }

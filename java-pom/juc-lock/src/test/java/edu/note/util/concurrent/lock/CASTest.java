@@ -5,8 +5,9 @@ import java.util.concurrent.atomic.AtomicInteger;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
 
-@Slf4j(topic = "c.Test42")
-public class TestCAS {
+// 乐观锁
+@Slf4j(topic = "c.CASTest")
+public class CASTest {
 
     // 0 没加锁
     // 1 加锁
@@ -15,19 +16,20 @@ public class TestCAS {
     public void lock() {
         while (true) {
             if (state.compareAndSet(0, 1)) {
+                log.info("{} set value", Thread.currentThread().getName());
                 break;
             }
         }
     }
 
     public void unlock() {
-        log.debug("unlock...");
+        log.info("{} unlock...", Thread.currentThread().getName());
         state.set(0);
     }
 
     @Test
     void testCas() throws InterruptedException {
-        TestCAS lock = new TestCAS();
+        CASTest lock = new CASTest();
 
         Thread t1 = new Thread(() -> {
             log.debug("begin...");
@@ -38,7 +40,7 @@ public class TestCAS {
             } finally {
                 lock.unlock();
             }
-        }, "t1");
+        });
 
         Thread t2 = new Thread(() -> {
             log.debug("begin...");
@@ -48,10 +50,10 @@ public class TestCAS {
             } finally {
                 lock.unlock();
             }
-        }, "t2");
+        });
 
         t1.start();
-        Sleeper.sleep(.5);
+        Sleeper.sleep(0.5);
         t2.start();
         t1.join();
         t2.join();

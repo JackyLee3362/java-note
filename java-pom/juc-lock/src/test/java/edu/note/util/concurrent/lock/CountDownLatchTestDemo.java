@@ -6,7 +6,7 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import org.junit.jupiter.api.Test;
 
-public class TestCountDownLatchDemo {
+public class CountDownLatchTestDemo {
 
     // 处理文件的数量
     private static final int threadCount = 15;

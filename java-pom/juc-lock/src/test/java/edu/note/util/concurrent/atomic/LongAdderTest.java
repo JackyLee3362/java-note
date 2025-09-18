@@ -10,7 +10,7 @@ import org.junit.jupiter.api.Test;
 public class LongAdderTest {
 
     @Test
-    void test() {
+    void test01() {
         LongAdder longAdder = new LongAdder();
         longAdder.increment();
     }

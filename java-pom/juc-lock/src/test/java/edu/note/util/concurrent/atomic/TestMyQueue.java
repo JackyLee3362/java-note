@@ -9,7 +9,6 @@ public class TestMyQueue {
     @Test
     @DisplayName("MyQueue1")
     void test(){
-
         MyQueueV1<String> queue = new MyQueueV1<>();
         queue.offer("1");
         queue.offer("2");

@@ -1,23 +1,24 @@
 package edu.note.util.concurrent.lock;
 
-import static edu.note.thread.util.Sleeper.sleep;
-
+import edu.note.thread.util.Sleeper;
 import lombok.extern.slf4j.Slf4j;
 
-@Slf4j(topic = "c.TestAqs")
-public class TestAqs {
+@Slf4j(topic = "c.AqsTest")
+public class AqsTest {
+
+    // TODO 不理解这个 Demo
     public static void main(String[] args) {
         MyAqsLock lock = new MyAqsLock();
         new Thread(() -> {
             lock.lock();
             try {
                 log.debug("locking...");
-                sleep(1);
+                Sleeper.sleep(1);
             } finally {
                 log.debug("unlocking...");
                 lock.unlock();
             }
-        }, "t1").start();
+        }).start();
 
         new Thread(() -> {
             lock.lock();
@@ -27,7 +28,7 @@ public class TestAqs {
                 log.debug("unlocking...");
                 lock.unlock();
             }
-        }, "t2").start();
+        }).start();
     }
 }
 

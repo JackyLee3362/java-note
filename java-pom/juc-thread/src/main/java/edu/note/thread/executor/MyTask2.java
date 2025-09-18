@@ -7,7 +7,7 @@ import lombok.extern.slf4j.Slf4j;
  * @author jackylee
  * @date 2025/9/18 15:13
  */
-@Slf4j(topic = "c.AddTask")
+@Slf4j(topic = "c.MyTask2")
 class MyTask2 extends RecursiveTask<Integer> {
 
     int begin;
@@ -20,7 +20,7 @@ class MyTask2 extends RecursiveTask<Integer> {
 
     @Override
     public String toString() {
-        return "{" + begin + "," + end + '}';
+        return "Task{" + begin + "," + end + '}';
     }
 
     @Override
