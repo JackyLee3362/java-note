@@ -19,7 +19,7 @@ public class DataContainer {
         readLock.lock();
         try {
             Sleeper.sleep(RANDOM.nextFloat());
-            log.debug("读取数据");
+            log.debug("读取数据 {} ", data);
             return data;
         } finally {
             log.debug("释放读锁...");
@@ -32,8 +32,8 @@ public class DataContainer {
         writeLock.lock();
         try {
             Sleeper.sleep(RANDOM.nextFloat());
-            log.debug("写入数据");
             data = newData;
+            log.debug("写入数据, {}", data);
         } finally {
             log.debug("释放写锁...");
             writeLock.unlock();

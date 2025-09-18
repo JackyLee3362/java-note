@@ -1,8 +1,13 @@
 package edu.note.thread.util;
 
+import java.util.Random;
 import java.util.concurrent.TimeUnit;
 
 public class Sleeper {
+
+    final static Random random = new Random();
+
+
     /**
      * @param second
      * @author: Jacky Lee
@@ -24,7 +29,19 @@ public class Sleeper {
         }
     }
 
-    public static void randomSleep(int bound) {
-        // TODO
+    /**
+     * bound 是毫秒上限
+     *
+     * @param bound
+     */
+    public static void sleepRandom(int bound) {
+        try {
+            int i = random.nextInt(bound);
+            TimeUnit.MILLISECONDS.sleep(i);
+        } catch (InterruptedException e) {
+            // ...
+        }
+
+
     }
 }
