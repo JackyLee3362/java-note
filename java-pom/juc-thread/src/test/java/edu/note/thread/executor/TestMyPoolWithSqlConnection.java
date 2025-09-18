@@ -1,6 +1,6 @@
 package edu.note.thread.executor;
 
-import edu.note.thread.Pool;
+import edu.note.thread.MyPool;
 import java.sql.Connection;
 import java.util.Random;
 
@@ -10,12 +10,12 @@ import org.junit.jupiter.api.Test;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
-public class TestPoolWithSqlConnection {
+public class TestMyPoolWithSqlConnection {
     @Test
     @DisplayName("测试连接池")
     void test() {
 
-        Pool pool = new Pool(2);
+        MyPool pool = new MyPool(2);
         for (int i = 0; i < 5; i++) {
             new Thread(() -> {
                 Connection conn = pool.borrow();

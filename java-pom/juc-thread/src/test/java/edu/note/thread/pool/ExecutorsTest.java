@@ -1,4 +1,4 @@
-package edu.note.thread.threadpool;
+package edu.note.thread.pool;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -72,7 +72,9 @@ public class ExecutorsTest {
     void test04() {
 
         // 该方法返回一个用来在给定的延迟后运行任务或者定期执行任务的线程池。
-        ExecutorService executor = Executors.newSingleThreadScheduledExecutor();
+        ExecutorService pool = Executors.newSingleThreadScheduledExecutor();
+        pool.submit(runnable);
+        pool.shutdown();
 
     }
 }

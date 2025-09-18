@@ -9,16 +9,15 @@ import java.util.concurrent.atomic.AtomicInteger;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-@Slf4j(topic = "c.TestExecutors")
-public class TestExecutors {
+@Slf4j(topic = "c.ExecutorsTest")
+public class ExecutorsTest {
 
     @Test
-    @DisplayName("test1")
+    @DisplayName("即使异常，也不会停止执行")
     void test01() {
         ExecutorService pool = Executors.newSingleThreadExecutor();
         pool.execute(() -> {
-            log.debug("1");
-            int i = 1 / 0;
+            throw new RuntimeException();
         });
 
         pool.execute(() -> {
@@ -30,15 +29,14 @@ public class TestExecutors {
         });
     }
 
-    @Test
-    @DisplayName("test1")
-    void test02() {
+    public static void main(String[] args) {
+
         ExecutorService pool = Executors.newFixedThreadPool(2, new ThreadFactory() {
             private final AtomicInteger t = new AtomicInteger(1);
 
             @Override
             public Thread newThread(Runnable r) {
-                return new Thread(r, "mypool_t" + t.getAndIncrement());
+                return new Thread(r, "my-pool-t" + t.getAndIncrement());
             }
         });
 
@@ -53,5 +51,31 @@ public class TestExecutors {
         pool.execute(() -> {
             log.debug("3");
         });
+        pool.shutdown();
+    }
+    @Test
+    @DisplayName("test1")
+    void test02() {
+        ExecutorService pool = Executors.newFixedThreadPool(2, new ThreadFactory() {
+            private final AtomicInteger t = new AtomicInteger(1);
+
+            @Override
+            public Thread newThread(Runnable r) {
+                return new Thread(r, "my-pool-t" + t.getAndIncrement());
+            }
+        });
+
+        pool.execute(() -> {
+            log.debug("1");
+        });
+
+        pool.execute(() -> {
+            log.debug("2");
+        });
+
+        pool.execute(() -> {
+            log.debug("3");
+        });
+        pool.shutdown();
     }
 }

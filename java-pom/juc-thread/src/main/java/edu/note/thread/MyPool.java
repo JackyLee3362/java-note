@@ -8,8 +8,8 @@ import lombok.extern.slf4j.Slf4j;
  * @author jackylee
  * @date 2025/7/26 22:23
  */
-@Slf4j(topic = "c.Pool")
-public class Pool {
+@Slf4j(topic = "c.MyPool")
+public class MyPool {
 
     // 1. 连接池大小
     private final int poolSize;
@@ -21,7 +21,7 @@ public class Pool {
     private AtomicIntegerArray states;
 
     // 4. 构造方法初始化
-    public Pool(int poolSize) {
+    public MyPool(int poolSize) {
         this.poolSize = poolSize;
         this.connections = new Connection[poolSize];
         this.states = new AtomicIntegerArray(new int[poolSize]);

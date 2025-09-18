@@ -1,23 +1,23 @@
 package edu.note.thread.executor;
 
-import edu.note.thread.Pool;
+import edu.note.thread.MyPool;
 import lombok.extern.slf4j.Slf4j;
 
 import java.sql.*;
 
 @Slf4j
-public class TestPoolSemaphore {
+public class TestMyPool {
     public static void main(String[] args) {
-        Pool pool = new Pool(2);
+        MyPool myPool = new MyPool(2);
         for (int i = 0; i < 5; i++) {
             new Thread(() -> {
-                Connection conn = pool.borrow();
+                Connection conn = myPool.borrow();
                 try {
                     Thread.sleep(1000);
                 } catch (InterruptedException e) {
                     log.error(e.getMessage());
                 }
-                pool.free(conn);
+                myPool.free(conn);
             }).start();
         }
     }
