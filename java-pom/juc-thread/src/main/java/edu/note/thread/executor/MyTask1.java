@@ -8,11 +8,11 @@ import lombok.extern.slf4j.Slf4j;
  * @date 2025/9/18 15:12
  */
 @Slf4j(topic = "c.AddTask")
-class AddTask1 extends RecursiveTask<Integer> {
+class MyTask1 extends RecursiveTask<Integer> {
 
     int n;
 
-    public AddTask1(int n) {
+    public MyTask1(int n) {
         this.n = n;
     }
 
@@ -27,7 +27,7 @@ class AddTask1 extends RecursiveTask<Integer> {
             log.debug("join() {}", n);
             return n;
         }
-        AddTask1 t1 = new AddTask1(n - 1);
+        MyTask1 t1 = new MyTask1(n - 1);
 
         t1.fork();
         log.debug("fork() {} + {}", n, t1);

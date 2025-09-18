@@ -8,12 +8,12 @@ import lombok.extern.slf4j.Slf4j;
  * @date 2025/9/18 15:13
  */
 @Slf4j(topic = "c.AddTask")
-class AddTask3 extends RecursiveTask<Integer> {
+class MyTask2 extends RecursiveTask<Integer> {
 
     int begin;
     int end;
 
-    public AddTask3(int begin, int end) {
+    public MyTask2(int begin, int end) {
         this.begin = begin;
         this.end = end;
     }
@@ -35,14 +35,14 @@ class AddTask3 extends RecursiveTask<Integer> {
         }
         int mid = (end + begin) / 2;
 
-        AddTask3 t1 = new AddTask3(begin, mid);
+        MyTask2 t1 = new MyTask2(begin, mid - 1);
         t1.fork();
-        AddTask3 t2 = new AddTask3(mid + 1, end);
+        MyTask2 t2 = new MyTask2(mid + 1, end);
         t2.fork();
-        log.debug("fork() {} + {} = ?", t1, t2);
+        log.debug("fork() {} + {} + {} = ?", mid, t1, t2);
 
-        int result = t1.join() + t2.join();
-        log.debug("join() {} + {} = {}", t1, t2, result);
+        int result = mid + t1.join() + t2.join();
+        log.debug("join() {} + {} + {} = {}", mid, t1, t2, result);
         return result;
     }
 }

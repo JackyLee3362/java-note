@@ -16,6 +16,7 @@ import org.junit.jupiter.api.Test;
 
 // 完全是在本地解析的，不涉及时区
 public class TestLocalDateTime {
+
     @Test
     @DisplayName("构造器")
     void test01() {
@@ -34,6 +35,7 @@ public class TestLocalDateTime {
         date.minusYears(1);
         date.minusMonths(2);
         date.minusDays(1);
+
 
     }
 
@@ -114,5 +116,13 @@ public class TestLocalDateTime {
         ldt.toLocalDate();
         ldt.toLocalTime();
         ldt.toInstant(ZoneOffset.UTC);
+
+        // 生成特定时间的对象
+        LocalDateTime with = ldt.withHour(18)
+            .withMinute(0)
+            .withSecond(0)
+            .withNano(0)
+            .with(DayOfWeek.THURSDAY);
+
     }
 }

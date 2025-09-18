@@ -1,8 +1,12 @@
 package edu.note.thread.pool;
 
+import edu.note.thread.util.Sleeper;
+import java.util.Random;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.ThreadPoolExecutor;
+import java.util.concurrent.TimeUnit;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
@@ -72,9 +76,8 @@ public class ExecutorsTest {
     void test04() {
 
         // 该方法返回一个用来在给定的延迟后运行任务或者定期执行任务的线程池。
-        ExecutorService pool = Executors.newSingleThreadScheduledExecutor();
-        pool.submit(runnable);
-        pool.shutdown();
-
+        ScheduledExecutorService pool = Executors.newSingleThreadScheduledExecutor();
+        // TODO
     }
+
 }
