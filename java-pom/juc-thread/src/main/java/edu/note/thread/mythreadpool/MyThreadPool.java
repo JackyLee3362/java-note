@@ -12,18 +12,18 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j(topic = "c.thread-poll")
 public class MyThreadPool {
 
-    private MyBlockingQueue<Runnable> taskQueue;
+    private final MyBlockingQueue<Runnable> taskQueue;
 
-    private HashSet<Worker> workers = new HashSet<>();
+    private final HashSet<Worker> workers = new HashSet<>();
 
     // 核心线程数
-    private int coreSize;
+    private final int coreSize;
 
     // 超时时间
-    private long timeout;
+    private final long timeout;
 
     // 时间单位
-    private TimeUnit unit;
+    private final TimeUnit unit;
 
     public MyThreadPool(int coreSize, long timeout, TimeUnit unit, int capacity) {
         this.coreSize = coreSize;
@@ -36,7 +36,7 @@ public class MyThreadPool {
         synchronized (workers) {
             if (workers.size() < coreSize) {
                 Worker worker = new Worker(task);
-                log.debug("新增 worker:{}, {}", worker, task);
+                log.debug("新增 worker={}, task={}", worker, task);
                 workers.add(worker);
                 worker.start();
             } else {
@@ -63,7 +63,7 @@ public class MyThreadPool {
                     log.debug("执行任务:{}", task);
                     task.run();
                 } catch (Exception e) {
-                    e.printStackTrace();
+                    log.error(e.getMessage());
                 } finally {
                     task = null;
                 }

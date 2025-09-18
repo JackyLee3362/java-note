@@ -10,7 +10,7 @@ import lombok.extern.slf4j.Slf4j;
  * @date 2024/12/18 00:03
  */
 @Slf4j(topic = "c.test-thread-pool")
-public class TestMyThreadPool {
+public class MyThreadPoolTest {
 
     public static void main(String[] args) {
 
@@ -19,7 +19,7 @@ public class TestMyThreadPool {
             int j = i;
             myThreadPool.execute(() -> {
                 Sleeper.sleep(1);
-                log.debug("{}", j);
+                log.debug("{}, {}", Thread.currentThread().getName(), j);
             });
 
         }

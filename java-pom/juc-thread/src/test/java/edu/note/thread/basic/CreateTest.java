@@ -14,8 +14,8 @@ import org.junit.jupiter.api.Test;
  * @author: Jacky Lee
  * @date: 2024/3/30 11:22
  */
-@Slf4j(topic = "c.ThreadCreateTest")
-public class ThreadCreateTest {
+@Slf4j(topic = "c.CreateTest")
+public class CreateTest {
 
     @Test
     @DisplayName("Thread 类创建")
