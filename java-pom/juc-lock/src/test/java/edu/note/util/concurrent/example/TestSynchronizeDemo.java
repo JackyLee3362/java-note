@@ -1,6 +1,5 @@
-package edu.note.util.concurrent.lock;
+package edu.note.util.concurrent.example;
 
-import edu.note.util.concurrent.example.SellTicketsSynchronized;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 

@@ -1,4 +1,4 @@
-package edu.note.util.concurrent.synchronize.exercise;
+package edu.note.util.concurrent.example.exercise;
 
 import lombok.extern.slf4j.Slf4j;
 

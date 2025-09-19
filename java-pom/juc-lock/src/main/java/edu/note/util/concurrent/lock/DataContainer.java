@@ -14,11 +14,15 @@ public class DataContainer {
     private final ReentrantReadWriteLock.ReadLock readLock = readWriteLock.readLock();
     private final ReentrantReadWriteLock.WriteLock writeLock = readWriteLock.writeLock();
 
+    DataContainer(int data) {
+        this.data = data;
+    }
+
     public int read() {
         log.debug("获取读锁...");
         readLock.lock();
         try {
-            Sleeper.sleep(RANDOM.nextFloat());
+            Sleeper.sleepRandom(1000);
             log.debug("读取数据 {} ", data);
             return data;
         } finally {
@@ -27,12 +31,12 @@ public class DataContainer {
         }
     }
 
-    public void write(int newData) {
+    public void write(int increment) {
         log.debug("获取写锁...");
         writeLock.lock();
         try {
-            Sleeper.sleep(RANDOM.nextFloat());
-            data = newData;
+            Sleeper.sleepRandom(1000);
+            data += increment;
             log.debug("写入数据, {}", data);
         } finally {
             log.debug("释放写锁...");

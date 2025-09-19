@@ -1,4 +1,4 @@
-package edu.note.util.concurrent.lock;
+package edu.note.util.concurrent.example;
 
 import static edu.note.thread.util.Sleeper.sleep;
 

@@ -10,8 +10,8 @@ import org.junit.jupiter.api.Test;
  * @date 2024/12/2 19:21
  */
 
-@Slf4j(topic = "c.TestWaitNotify")
-public class TestWaitNotify {
+@Slf4j(topic = "c.WaitNotifyTest")
+public class WaitNotifyTest {
 
     final static Object lock = new Object();
 

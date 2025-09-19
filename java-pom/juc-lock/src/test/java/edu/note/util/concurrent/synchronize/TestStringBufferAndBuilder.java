@@ -10,5 +10,4 @@ package edu.note.util.concurrent.synchronize;
  */
 public class TestStringBufferAndBuilder {
     // todo
-
 }

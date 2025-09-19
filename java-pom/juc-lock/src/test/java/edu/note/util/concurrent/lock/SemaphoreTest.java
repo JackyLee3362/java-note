@@ -27,7 +27,7 @@ public class SemaphoreTest {
                 }
                 try {
                     log.debug("running...");
-                    Sleeper.sleep(.5);
+                    Sleeper.sleepRandom(1000);
                     log.debug("end...");
                 } finally {
                     log.info("release...");

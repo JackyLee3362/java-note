@@ -1,13 +1,13 @@
-package edu.note.util.concurrent.synchronize;
-
-import static edu.note.thread.util.Sleeper.sleep;
+package edu.note.util.concurrent.example;
 
 import lombok.extern.slf4j.Slf4j;
 
+import static edu.note.thread.util.Sleeper.sleep;
+
 @Slf4j(topic = "c.TestCorrectPosture")
-public class Test44_CorrectPostureStep1 {
+public class Test45_CorrectPostureStep2 {
     static final Object room = new Object();
-    static boolean hasCigarette = false; // 有没有烟
+    static boolean hasCigarette = false;
     static boolean hasTakeout = false;
 
     public static void main(String[] args) {
@@ -16,7 +16,11 @@ public class Test44_CorrectPostureStep1 {
                 log.debug("有烟没？[{}]", hasCigarette);
                 if (!hasCigarette) {
                     log.debug("没烟，先歇会！");
-                    sleep(2);
+                    try {
+                        room.wait(2000);
+                    } catch (InterruptedException e) {
+                        log.error(e.getMessage());
+                    }
                 }
                 log.debug("有烟没？[{}]", hasCigarette);
                 if (hasCigarette) {
@@ -35,10 +39,10 @@ public class Test44_CorrectPostureStep1 {
 
         sleep(1);
         new Thread(() -> {
-            // 这里能不能加 synchronized (room)？
             synchronized (room) {
                 hasCigarette = true;
                 log.debug("烟到了噢！");
+                room.notify();
             }
         }, "送烟的").start();
     }
