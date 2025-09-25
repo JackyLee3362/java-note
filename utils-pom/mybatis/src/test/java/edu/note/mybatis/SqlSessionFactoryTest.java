@@ -2,7 +2,6 @@ package edu.note.mybatis;
 
 import java.io.IOException;
 import java.io.Reader;
-import java.sql.SQLException;
 import org.apache.ibatis.datasource.pooled.PooledDataSource;
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.mapping.Environment;
@@ -21,16 +20,8 @@ import org.junit.jupiter.api.Test;
 public class SqlSessionFactoryTest {
 
     @Test
-    @DisplayName("使用配置构建 sqlSessionFactory")
-    void test01() throws IOException {
-        Reader reader = Resources.getResourceAsReader("mybatis-config.xml");
-        SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(reader);
-        Assertions.assertNotNull(sqlSessionFactory);
-    }
-
-    @Test
     @DisplayName("使用代码构建 sqlSessionFactory")
-    void test02() {
+    void test01() {
         // 配置数据源
         PooledDataSource dataSource = new PooledDataSource();
         dataSource.setDriver("org.h2.Driver");
@@ -47,4 +38,21 @@ public class SqlSessionFactoryTest {
 
         Assertions.assertNotNull(sqlSessionFactory);
     }
+
+    @Test
+    @DisplayName("使用配置构建 sqlSessionFactory")
+    void test02() throws IOException {
+        Reader reader = Resources.getResourceAsReader("mybatis-config.xml");
+        SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(reader);
+        Assertions.assertNotNull(sqlSessionFactory);
+    }
+
+    @Test
+    @DisplayName("加载属性")
+    void test03() {
+
+
+    }
+
+
 }
