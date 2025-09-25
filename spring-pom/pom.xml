@@ -16,7 +16,7 @@
     <module>spring-mq</module>
     <module>spring-redis</module>
     <module>spring-rest-template</module>
-    <module>spring-task-test</module>
+    <module>spring-task</module>
     <module>spring-web</module>
     <module>spring-starter</module>
   </modules>
