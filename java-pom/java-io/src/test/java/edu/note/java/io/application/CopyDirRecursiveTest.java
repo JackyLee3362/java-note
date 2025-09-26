@@ -6,7 +6,10 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import org.junit.jupiter.api.Test;
 
-public class T01_递归拷贝文件夹 {
+/**
+ * @desc 递归拷贝文件夹
+ */
+public class CopyDirRecursiveTest {
 
     @Test
     void test01() throws IOException {

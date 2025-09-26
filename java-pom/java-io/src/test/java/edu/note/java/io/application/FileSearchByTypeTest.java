@@ -10,15 +10,15 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 /**
- * 需求： 定义一个方法找某一个文件夹中，是否有以avi结尾的电影。 （暂时不需要考虑子文件夹）
+ * 需求： 定义一个方法找某一个文件夹中，是否有以 md 文件 不需要考虑子文件夹
  */
-public class IT03_FileSearch extends BaseIOTest {
+public class FileSearchByTypeTest extends BaseIOTest {
 
     File dir = new File(resource, "file");
     String type = "md";
 
     @Test
-    @DisplayName("遍历文件夹找到文件")
+    @DisplayName("遍历文件夹找到文件(不考虑子文件夹)")
     void testFindFile() {
         Arrays.stream(Objects.requireNonNull(dir.listFiles()))
                 .filter(File::isFile)

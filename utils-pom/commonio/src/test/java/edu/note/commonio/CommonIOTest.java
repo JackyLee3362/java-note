@@ -1,10 +1,15 @@
-package edu.note.java.io.commonIo;
-
-// import org.apache.commons.io.FileUtils;
+package edu.note.commonio;
 
 import java.io.IOException;
 
-public class A01_HandleFile {
+// import org.apache.commons.io.FileUtils;
+
+/**
+ * @author jackylee
+ * @date 2025/9/26 10:21
+ */
+public class CommonIOTest {
+
     public static void main(String[] args) throws IOException {
         /*
           FileUtils类

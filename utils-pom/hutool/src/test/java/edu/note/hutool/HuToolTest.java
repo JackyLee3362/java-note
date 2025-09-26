@@ -1,8 +1,13 @@
-package edu.note.java.io.hutool;
+package edu.note.hutool;
 
+/**
+ * @author jackylee
+ * @date 2025/9/26 10:20
+ */
 // import cn.hutool.core.io.FileUtil;
 
-public class TestHutool {
+// todo
+public class HuToolTest {
     public static void main(String[] args) {
     /*
         ! 网址[[ https://hutool.cn/docs/#/ ]]

@@ -6,7 +6,8 @@ import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 
-public class T05_缓冲流_统计四种缓冲流用时 {
+// 缓冲流_统计四种缓冲流用时
+public class BufferedReaderStatTimeTest {
 
     private static final String path = "io/a.txt";
     private static final String src = "io/copy.txt";

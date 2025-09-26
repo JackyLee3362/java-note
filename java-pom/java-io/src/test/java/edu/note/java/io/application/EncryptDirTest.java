@@ -7,7 +7,7 @@ import java.io.IOException;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-public class T02_文件夹加密 {
+public class EncryptDirTest {
 
     @Test
     @DisplayName("文件夹加密")

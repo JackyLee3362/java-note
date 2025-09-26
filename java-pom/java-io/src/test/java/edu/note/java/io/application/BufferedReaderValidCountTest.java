@@ -6,7 +6,8 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 
-public class T07_缓冲流_验证次数小程序 {
+// 缓冲流 验证次数小程序
+public class BufferedReaderValidCountTest {
     public static void main(String[] args) throws IOException {
             /*
                 实现一个验证程序运行次数的小程序，要求如下：
