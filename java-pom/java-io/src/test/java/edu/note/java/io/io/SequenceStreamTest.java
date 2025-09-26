@@ -19,7 +19,8 @@ import org.junit.jupiter.api.Test;
 // 利用序列化流/对象操作输出流，把一个对象写到本地文件中
 public class SequenceStreamTest extends BaseIOTest {
 
-    File dir = new File(resource, "io");
+    File read = new File(ioDir, "sequence.read.txt");
+    File write = new File(ioDir, "sequence.write.txt");
 
     @Test
     @DisplayName("序列化对象")
@@ -30,9 +31,8 @@ public class SequenceStreamTest extends BaseIOTest {
 
         // 1.创建对象
         Student stu = new Student("John", 23);
-        File file = new File(dir, "john.obj");
         // 2.创建序列化流的对象/对象操作输出流
-        ObjectOutputStream oos = new ObjectOutputStream(Files.newOutputStream(file.toPath()));
+        ObjectOutputStream oos = new ObjectOutputStream(Files.newOutputStream(read.toPath()));
         // 3. 写出数据
         oos.writeObject(stu);
         // 4. 释放资源
@@ -46,10 +46,8 @@ public class SequenceStreamTest extends BaseIOTest {
         // public ObjectInputStream(InputStream out) 把基本流变成高级流
         // public Object readObject() 把序列化到本地文件中的对象，读取到程序中来
 
-        File file = new File(dir, "john.obj");
-
         // 1.创建反序列化流的对象
-        ObjectInputStream ois = new ObjectInputStream(Files.newInputStream(file.toPath()));
+        ObjectInputStream ois = new ObjectInputStream(Files.newInputStream(read.toPath()));
 
         // 2.读取数据
         Student o = (Student) ois.readObject();
@@ -67,7 +65,6 @@ public class SequenceStreamTest extends BaseIOTest {
     void test03() throws IOException {
         // 将多个自定义对象序列化到文件中，但是对象的个数不确定，该如何操作呢？
         // 1.序列化多个对象
-        File file = new File(dir, "list.obj");
         Student s1 = new Student("Jack", 23, "南京");
         Student s2 = new Student("John", 24, "重庆");
         Student s3 = new Student("Mick", 25, "北京");
@@ -76,7 +73,7 @@ public class SequenceStreamTest extends BaseIOTest {
         list.add(s1);
         list.add(s2);
         list.add(s3);
-        ObjectOutputStream oos = new ObjectOutputStream(Files.newOutputStream(file.toPath()));
+        ObjectOutputStream oos = new ObjectOutputStream(Files.newOutputStream(write.toPath()));
         oos.writeObject(list);
         oos.close();
     }
@@ -86,8 +83,7 @@ public class SequenceStreamTest extends BaseIOTest {
     void test04() throws IOException, ClassNotFoundException {
         // 将多个自定义对象序列化到文件中，但是对象的个数不确定，该如何操作呢？
         // 1.序列化多个对象
-        File file = new File(dir, "list.obj");
-        ObjectInputStream ois = new ObjectInputStream(Files.newInputStream(file.toPath()));
+        ObjectInputStream ois = new ObjectInputStream(Files.newInputStream(write.toPath()));
         List<Student> o = (List<Student>) ois.readObject();
         System.out.println(o);
     }
