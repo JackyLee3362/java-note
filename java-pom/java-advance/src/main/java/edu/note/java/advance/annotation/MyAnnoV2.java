@@ -1,4 +1,4 @@
-package edu.note.java.annotation;
+package edu.note.java.advance.annotation;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;

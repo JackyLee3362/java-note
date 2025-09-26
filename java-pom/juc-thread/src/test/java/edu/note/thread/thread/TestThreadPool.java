@@ -1,4 +1,4 @@
-package edu.note.java.clazz;
+package edu.note.thread.thread;
 
 import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.ThreadPoolExecutor;

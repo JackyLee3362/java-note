@@ -1,4 +1,4 @@
-package edu.note.java.annotation;
+package edu.note.java.advance.annotation;
 
 public class TestMyAnnoV2 {
 

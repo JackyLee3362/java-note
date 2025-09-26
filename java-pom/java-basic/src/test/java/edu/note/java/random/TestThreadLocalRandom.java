@@ -1,4 +1,4 @@
-package edu.note.java.advance.random;
+package edu.note.java.random;
 
 import java.util.Random;
 import java.util.concurrent.ThreadLocalRandom;

@@ -1,4 +1,4 @@
-package edu.note.java.clazz;
+package edu.note.java.syntax;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;

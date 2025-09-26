@@ -1,4 +1,4 @@
-package edu.note.java.annotation;
+package edu.note.java.advance.annotation;
 
 import edu.note.java.model.Student;
 import org.junit.jupiter.api.Assertions;

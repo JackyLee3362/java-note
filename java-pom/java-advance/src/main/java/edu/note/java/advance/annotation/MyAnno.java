@@ -1,4 +1,4 @@
-package edu.note.java.annotation;
+package edu.note.java.advance.annotation;
 
 import static java.lang.annotation.ElementType.CONSTRUCTOR;
 import static java.lang.annotation.ElementType.FIELD;

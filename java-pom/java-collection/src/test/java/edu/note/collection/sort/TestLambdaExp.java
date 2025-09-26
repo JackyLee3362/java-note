@@ -1,4 +1,4 @@
-package edu.note.java.sort;
+package edu.note.collection.sort;
 
 import java.util.Arrays;
 import java.util.Comparator;

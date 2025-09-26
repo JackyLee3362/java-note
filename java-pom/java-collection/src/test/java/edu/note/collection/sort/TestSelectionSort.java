@@ -1,4 +1,4 @@
-package edu.note.java.sort;
+package edu.note.collection.sort;
 
 import org.junit.jupiter.api.Test;
 

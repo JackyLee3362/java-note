@@ -1,4 +1,4 @@
-package edu.note.java.annotation;
+package edu.note.java.advance.annotation;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;

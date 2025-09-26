@@ -1,4 +1,4 @@
-package edu.note.java.annotation;
+package edu.note.java.advance.annotation;
 
 //@SuppressWarnings("all") // 压制警告
 public class TestMyAnno {
