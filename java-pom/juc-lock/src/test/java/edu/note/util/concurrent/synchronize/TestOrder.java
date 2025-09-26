@@ -1,4 +1,4 @@
-package edu.note.util.concurrent.example;
+package edu.note.util.concurrent.synchronize;
 
 import edu.note.util.concurrent.compare.SyncLock;
 import edu.note.util.concurrent.compare.SyncPark;

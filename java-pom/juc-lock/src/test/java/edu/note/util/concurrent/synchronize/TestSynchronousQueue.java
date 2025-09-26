@@ -1,4 +1,4 @@
-package edu.note.util.concurrent.example;
+package edu.note.util.concurrent.synchronize;
 
 import static edu.note.thread.util.Sleeper.sleep;
 

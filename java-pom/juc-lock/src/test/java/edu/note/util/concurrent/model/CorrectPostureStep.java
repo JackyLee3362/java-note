@@ -1,41 +1,38 @@
-package edu.note.util.concurrent.example;
+package edu.note.util.concurrent.model;
 
 import lombok.extern.slf4j.Slf4j;
 
 import static edu.note.thread.util.Sleeper.sleep;
 
+// 同步模型
 @Slf4j(topic = "c.TestCorrectPosture")
-public class Test47_CorrectPostureStep4 {
+public class CorrectPostureStep {
     static final Object room = new Object();
-    static boolean hasCigarette = false;
-    static boolean hasTakeout = false;
+    static boolean condition1 = false;
+    static boolean condition2 = false;
 
     public static void main(String[] args) {
+
         new Thread(() -> {
             synchronized (room) {
-                log.debug("有烟没？[{}]", hasCigarette);
-                while (!hasCigarette) {
-                    log.debug("没烟，先歇会！");
+                while (!condition1) {
                     try {
                         room.wait();
                     } catch (InterruptedException e) {
                         log.error(e.getMessage());
                     }
                 }
-                log.debug("有烟没？[{}]", hasCigarette);
-                if (hasCigarette) {
+                if (condition1) {
                     log.debug("可以开始干活了");
                 } else {
                     log.debug("没干成活...");
                 }
             }
-        }, "小南").start();
+        }, "T1").start();
 
         new Thread(() -> {
             synchronized (room) {
-                Thread thread = Thread.currentThread();
-                log.debug("外卖送到没？[{}]", hasTakeout);
-                if (!hasTakeout) {
+                while (!condition2) {
                     log.debug("没外卖，先歇会！");
                     try {
                         room.wait();
@@ -43,8 +40,7 @@ public class Test47_CorrectPostureStep4 {
                         log.error(e.getMessage());
                     }
                 }
-                log.debug("外卖送到没？[{}]", hasTakeout);
-                if (hasTakeout) {
+                if (condition2) {
                     log.debug("可以开始干活了");
                 } else {
                     log.debug("没干成活...");
@@ -55,11 +51,12 @@ public class Test47_CorrectPostureStep4 {
         sleep(1);
         new Thread(() -> {
             synchronized (room) {
-                hasTakeout = true;
+                condition2 = true;
                 log.debug("外卖到了噢！");
                 room.notifyAll();
             }
         }, "送外卖的").start();
+
     }
 
 }

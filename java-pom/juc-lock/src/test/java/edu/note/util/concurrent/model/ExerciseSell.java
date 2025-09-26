@@ -1,5 +1,6 @@
-package edu.note.util.concurrent.example.exerciseV0;
+package edu.note.util.concurrent.model;
 
+import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
 
 import java.util.ArrayList;
@@ -47,16 +48,13 @@ public class ExerciseSell {
 }
 
 // 售票窗口
+@Data
 class TicketWindow {
-    private int count;
+    // 余票数量
+    private Integer count;
 
     public TicketWindow(int count) {
         this.count = count;
-    }
-
-    // 获取余票数量
-    public int getCount() {
-        return count;
     }
 
     // 售票

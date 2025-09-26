@@ -1,5 +1,6 @@
-package edu.note.util.concurrent.example.exerciseV0;
+package edu.note.util.concurrent.model;
 
+import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
 
 import java.util.Random;
@@ -37,18 +38,11 @@ public class ExerciseTransfer {
 }
 
 // 账户
+@Data
 class Account {
     private int money;
 
     public Account(int money) {
-        this.money = money;
-    }
-
-    public int getMoney() {
-        return money;
-    }
-
-    public void setMoney(int money) {
         this.money = money;
     }
 
