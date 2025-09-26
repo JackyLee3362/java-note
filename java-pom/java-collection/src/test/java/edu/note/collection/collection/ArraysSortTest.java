@@ -1,4 +1,4 @@
-package edu.note.java.function;
+package edu.note.collection.collection;
 
 import java.util.Arrays;
 import java.util.Comparator;
@@ -8,7 +8,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 // 需求：创建一个数组，进行倒序排列
-public class IT01_ArraysSort {
+public class ArraysSortTest {
 
     Integer[] arr;
     Integer[] sorted = new Integer[] { 1, 2, 3, 4, 5, 6 };
@@ -41,7 +41,7 @@ public class IT01_ArraysSort {
         // 表示引用FunctionDemo1类里面的subtraction方法
         // 把这个方法当做抽象方法的方法体
 
-        Arrays.sort(arr, IT01_ArraysSort::subtraction);
+        Arrays.sort(arr, ArraysSortTest::subtraction);
         Assertions.assertArrayEquals(arr, reversed);
     }
 
