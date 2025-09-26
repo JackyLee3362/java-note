@@ -1,6 +1,6 @@
 # README
 
-Java 代码笔记 - Today
+Java 代码笔记
 
 ## vscode 开发指南
 

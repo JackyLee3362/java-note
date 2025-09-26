@@ -18,6 +18,7 @@
     <module>java-pom</module>
     <module>data-structure-pom</module>
     <module>groovy-pom</module>
+    <module>json-pom</module>
     <module>logging-pom</module>
   </modules>
 

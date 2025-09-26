@@ -1,8 +1,8 @@
 ---
 type: basic-note
-title: java-packages-第三方包
+title: camel
 created_time: 2025-03-14
-modified_time: 
+modified_time:
 tags:
 description:
 ---
@@ -17,11 +17,3 @@ description:
 - [Apache Camel 详解 - BlogMemory - 博客园](https://www.cnblogs.com/huangdh/p/17750049.html#:~:text=org.apache.camel.ProducerTemplate,%E9%80%9A%E8%BF%87ProducerTemplate%E6%8E%A5%E5%8F%A3%E6%9D%A5%E5%AE%9E%E7%8E%B0%E3%80%82)
 - [认识学习Apache Camel及其重要组件目录 什么是Apache Camel 特定领域的语言 应用集成的四种方法 A - 掘金](https://juejin.cn/post/7116743200651345927)
 - [自定义Camel组件 | 油腻中年大叔](https://www.coding-daddy.com/eip/camel-component-custom.html)
-
-## json
-
-- [fastjson到底做错了什么？为什么会被频繁爆出漏洞？ - 知乎](https://zhuanlan.zhihu.com/p/157211675?from_voters_page=true)
-- [jackson学习之二：jackson-core-CSDN博客](https://blog.csdn.net/boling_cavalry/article/details/108571629)
-- [Jackson工具类使用及配置指南、高性能配置_jackson配置类-CSDN博客](https://blog.csdn.net/zzhongcy/article/details/120066586)
-
-## 参考资料

@@ -16,13 +16,12 @@
   </properties>
 
   <modules>
-    <module>fastjson</module>
     <module>freemarker</module>
-    <module>jackson</module>
     <module>mapstruct</module>
     <module>mybatis</module>
     <module>hutool</module>
     <module>commonio</module>
+    <module>camel</module>
   </modules>
 
 </project>

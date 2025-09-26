@@ -1,4 +1,4 @@
-package edu.note.collection.generical;
+package edu.note.java.advance.generics;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;

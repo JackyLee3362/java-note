@@ -5,19 +5,13 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>edu.note</groupId>
+  <artifactId>camel</artifactId>
   <version>1.0-SNAPSHOT</version>
-  <artifactId>logging-pom</artifactId>
-  <packaging>pom</packaging>
 
   <properties>
     <maven.compiler.source>8</maven.compiler.source>
     <maven.compiler.target>8</maven.compiler.target>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
-
-  <modules>
-    <module>slf4j-logback</module>
-    <module>slf4j-nop</module>
-  </modules>
 
 </project>

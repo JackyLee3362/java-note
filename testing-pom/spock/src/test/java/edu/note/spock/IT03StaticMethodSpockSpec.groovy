@@ -47,5 +47,7 @@ class IT03StaticMethodSpockSpec extends Specification {
         then: "验证结果"
         res1 == true
         res2 == true
+        // 静态方法调用验证
+        PowerMockito.verifyStatic(NumberUtil.class, Mockito.times(2))
     }
 }

@@ -34,4 +34,16 @@ class IT01TableSpockSpec extends Specification {
         123    || true
         123456 || false
     }
+
+    @Unroll
+    def "test 是否是奇数 - 3"() {
+        when:
+        def response = NumberUtil.isOdd(num)
+
+
+        then: "when + then 的组合"
+        response
+        where: "表格方式测试不同的分支逻辑"
+        num << [1, 3, 5, 7, 9]
+    }
 }

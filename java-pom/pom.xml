@@ -20,12 +20,12 @@
     <module>java-basic</module>
     <module>java-collection</module>
     <module>java-io</module>
-    <module>java-spi</module>
-    <module>juc</module>
-    <module>juc-thread</module>
     <module>java-math</module>
+    <module>java-spi</module>
     <module>java-stream-function</module>
+    <module>juc</module>
     <module>juc-lock</module>
+    <module>juc-thread</module>
   </modules>
 
 </project>
