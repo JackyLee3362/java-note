@@ -2,6 +2,7 @@ package edu.note.mybatis;
 
 import java.io.IOException;
 import java.io.Reader;
+import java.util.Properties;
 import org.apache.ibatis.datasource.pooled.PooledDataSource;
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.mapping.Environment;
@@ -42,14 +43,19 @@ public class SqlSessionFactoryTest {
     @Test
     @DisplayName("使用配置构建 sqlSessionFactory")
     void test02() throws IOException {
-        Reader reader = Resources.getResourceAsReader("mybatis-config.xml");
-        SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(reader);
+        Reader config = Resources.getResourceAsReader("mybatis-config.xml");
+        SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(config);
         Assertions.assertNotNull(sqlSessionFactory);
     }
 
     @Test
     @DisplayName("加载属性")
-    void test03() {
+    void test03() throws IOException {
+        Reader config = Resources.getResourceAsReader("mybatis-config-props.xml");
+        Properties props = new Properties();
+        SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(config, props);
+        Assertions.assertNotNull(sqlSessionFactory);
+
 
 
     }

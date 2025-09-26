@@ -1,13 +1,9 @@
-package edu.note.collection.immutable;
+package edu.note.collection.map;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import java.util.HashMap;
-import java.util.Map;
-
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Test;
 
 // Java9 
 public class TestMapCopyOfHashMap {

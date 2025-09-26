@@ -1,10 +1,4 @@
-package edu.note.collection.immutable;
-
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Test;
-
-import java.util.Iterator;
-import java.util.List;
+package edu.note.collection.list;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;

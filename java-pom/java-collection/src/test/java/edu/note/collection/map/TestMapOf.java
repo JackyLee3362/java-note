@@ -1,10 +1,4 @@
-package edu.note.collection.immutable;
-
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Test;
-
-import java.util.Map;
-import java.util.Set;
+package edu.note.collection.map;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;

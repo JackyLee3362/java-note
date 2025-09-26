@@ -10,9 +10,9 @@ import org.junit.jupiter.api.Test;
  * @author jackylee
  * @date 2024/11/27 下午9:49
  */
-public class TestResourcesPath {
+public class ResourcesPathTest {
 
-    Class<TestResourcesPath> clazz = TestResourcesPath.class;
+    Class<ResourcesPathTest> clazz = ResourcesPathTest.class;
     ClassLoader classLoader = getClass().getClassLoader();
 
     @Test
@@ -20,10 +20,10 @@ public class TestResourcesPath {
     void testClassLoaderPath() {
         URL res = classLoader.getResource(".");
         // 测试 Resource 路径
-        System.out.println(res);
-        Assertions.assertNotNull(res);
-        URL res2 = classLoader.getResource("/");
-        System.out.println(res2);
+        Assertions.assertNotNull(res); // file:/path/to/test-classes/
+        URL root = classLoader.getResource("/");
+        System.out.println(root); // null
+        Assertions.assertNull(root);
     }
 
     @Test

@@ -1,12 +1,10 @@
-package edu.note.collection.collection;
+package edu.note.collection.list;
 
-import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
-import org.junit.jupiter.api.Test;
 
-public class TestArrayList {
+public class ArrayListTest {
 
     @Test
     void test01() {

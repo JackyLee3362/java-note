@@ -17,7 +17,7 @@ public class TestHashMap {
         // 创建
         HashMap<Integer/* id */, String/* 省份 */> map = new HashMap<>();
         String string = map.get(1);
-        Assertions.assertEquals(null, string);
+        Assertions.assertNull(string);
         // 添加
         map.put(1, "浙江");
         map.put(2, "江苏");

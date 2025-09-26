@@ -1,6 +1,7 @@
 package edu.note.mybatis;
 
 import edu.note.mybatis.aop.MyCustomInterceptor;
+import edu.note.mybatis.aop.SqlLogInterceptor;
 import edu.note.mybatis.mapper.AccountMapper;
 import java.io.IOException;
 import java.io.Reader;
@@ -45,6 +46,7 @@ public class AccountMapperTest {
 
         // 注册拦截器
         configuration.addInterceptor(new MyCustomInterceptor());
+        // configuration.addInterceptor(new SqlLogInterceptor());
 
         // 加载 AccountMapper.xml
         Reader mapperReader = Resources.getResourceAsReader("AccountMapper.xml");

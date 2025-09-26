@@ -1,4 +1,4 @@
-package edu.note.collection.collections;
+package edu.note.collection.collection;
 
 import java.util.ArrayList;
 import java.util.Collections;
