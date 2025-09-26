@@ -7,29 +7,18 @@ import java.util.Comparator;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-public class TestCollections {
+public class CollectionsTest {
   @Test
   @DisplayName("")
   void test() {
 
-    /*
-     * public static <T> boolean addAll(Collection<T> c, T... elements) 批量添加元素
-     * public static void shuffle(List<?> list) 打乱List集合元素的顺序
-     */
-
     // addAll 批量添加元素
-    // 1.创建集合对象
     ArrayList<String> list = new ArrayList<>();
-    // 2.批量添加元素
-    Collections.addAll(list, "abc", "bcd", "qwer", "df", "asdf", "zxcv", "1234", "qwer");
-    // 3.打印集合
-    System.out.println(list);
+    // 1.批量添加元素
+    Collections.addAll(list, "abc", "bcd", "qwe", "df", "asdf", "zxc", "1234", "qwe");
 
-    // shuffle 打乱
+    // shuffle 打乱元素
     Collections.shuffle(list);
-
-    System.out.println(list);
-
   }
 
   @Test

@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Test;
 import java.util.ArrayList;
 import java.util.List;
 
-public class TestIssue {
+public class IssueTest {
     @Test
     @DisplayName("无限递归问题")
     void test01() {

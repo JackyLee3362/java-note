@@ -7,7 +7,7 @@ import org.junit.jupiter.api.Test;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
-public class TestLinkedHashMap {
+public class LinkedHashMapTest {
     @Test
     @DisplayName("")
     void test01() {

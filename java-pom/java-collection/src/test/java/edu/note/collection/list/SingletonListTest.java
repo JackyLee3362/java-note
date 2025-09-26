@@ -11,7 +11,7 @@ import org.junit.jupiter.api.Test;
  * @author jackylee
  * @date 2025/8/22 16:24
  */
-public class TestSingletonList {
+public class SingletonListTest {
 
     @Test
     @DisplayName("测试单例列表")

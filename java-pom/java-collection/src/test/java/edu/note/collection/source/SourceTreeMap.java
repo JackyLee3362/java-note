@@ -1,4 +1,4 @@
-package edu.note.collection.map;
+package edu.note.collection.source;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;

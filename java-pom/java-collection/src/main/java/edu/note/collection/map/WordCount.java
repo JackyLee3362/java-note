@@ -4,11 +4,12 @@ import java.io.BufferedReader;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 import java.util.Map;
-import java.util.concurrent.ConcurrentHashMap;
-import java.util.concurrent.atomic.LongAdder;
 import java.util.function.BiConsumer;
 import java.util.function.Function;
 import java.util.function.Supplier;
@@ -16,45 +17,23 @@ import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 import lombok.extern.slf4j.Slf4j;
 
+/**
+ * @author jackylee
+ * @date 2025/9/26 10:14
+ */
 @Slf4j
-public class TestWordCount {
-
-    public static void main(String[] args) {
-        demo(
-                // 创建 map 集合
-                // 创建 ConcurrentHashMap 对不对？
-                () -> new ConcurrentHashMap<String, LongAdder>(8, 0.75f, 8),
-
-                (map, words) -> {
-                    for (String word : words) {
-
-                        // 如果缺少一个 key，则计算生成一个 value , 然后将 key value 放入 map
-                        // a 0
-                        LongAdder value = map.computeIfAbsent(word, (key) -> new LongAdder());
-                        // 执行累加
-                        value.increment(); // 2
-
-                        /*
-                         * // 检查 key 有没有
-                         * Integer counter = map.get(word);
-                         * int newValue = counter == null ? 1 : counter + 1;
-                         * // 没有 则 put
-                         * map.put(word, newValue);
-                         */
-                    }
-                });
-    }
+public class WordCount {
 
     private static void demo2() {
 
         Map<String, Integer> collect = IntStream.range(1, 27).parallel()
-                .mapToObj(idx -> readFromFile(idx))
-                .flatMap(list -> list.stream())
-                .collect(Collectors.groupingBy(Function.identity(), Collectors.summingInt(w -> 1)));
+            .mapToObj(WordCount::readFromFile)
+            .flatMap(Collection::stream)
+            .collect(Collectors.groupingBy(Function.identity(), Collectors.summingInt(w -> 1)));
         System.out.println(collect);
     }
 
-    private static <V> void demo(Supplier<Map<String, V>> supplier, BiConsumer<Map<String, V>, List<String>> consumer) {
+    static <V> void demo(Supplier<Map<String, V>> supplier, BiConsumer<Map<String, V>, List<String>> consumer) {
         Map<String, V> counterMap = supplier.get();
         // key value
         // a 200
@@ -69,7 +48,7 @@ public class TestWordCount {
             ts.add(thread);
         }
 
-        ts.forEach(t -> t.start());
+        ts.forEach(Thread::start);
         ts.forEach(t -> {
             try {
                 t.join();
@@ -83,7 +62,8 @@ public class TestWordCount {
 
     public static List<String> readFromFile(int i) {
         ArrayList<String> words = new ArrayList<>();
-        try (BufferedReader in = new BufferedReader(new InputStreamReader(new FileInputStream("tmp/" + i + ".txt")))) {
+        try (BufferedReader in = new BufferedReader(new InputStreamReader(
+            Files.newInputStream(Paths.get("tmp/" + i + ".txt"))))) {
             while (true) {
                 String word = in.readLine();
                 if (word == null) {

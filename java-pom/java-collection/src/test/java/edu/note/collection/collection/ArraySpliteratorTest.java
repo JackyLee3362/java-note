@@ -1,13 +1,11 @@
 package edu.note.collection.collection;
 
-import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import java.util.Spliterator;
 import java.util.Spliterators;
-import org.junit.jupiter.api.Test;
 
-public class TestArraySpliterator {
+public class ArraySpliteratorTest {
 
     @Test
     void test() {

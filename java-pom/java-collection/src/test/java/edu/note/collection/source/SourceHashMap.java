@@ -1,4 +1,4 @@
-package edu.note.collection.map;
+package edu.note.collection.source;
 
 public class SourceHashMap<K, V> {
     // HashMap源码笔记
