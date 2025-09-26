@@ -15,8 +15,9 @@ import org.junit.jupiter.api.Test;
  */
 public class FileInputStreamTest extends BaseIOTest {
 
-    File f1 = new File(resource, "io/README.md");
-    File f2 = new File(resource, "io/README-01.out.md");
+    File f1 = new File(fileDir, "README.md");
+    File f2 = new File(fileDir, "README-01.out.md");
+    File emojiFile = new File(fileDir, "file.emoji.md");
 
     @Test
     @DisplayName("循环读取")
@@ -57,8 +58,7 @@ public class FileInputStreamTest extends BaseIOTest {
     void test07() throws IOException {
         // code point>=65536 怎么办？
         // 因为是字节流读取，所以无法正确显示
-        File f1 = new File(resource, "io/EMOJI.md");
-        FileInputStream f = new FileInputStream(f1);
+        FileInputStream f = new FileInputStream(emojiFile);
         // 2.循环读取
         int b;
         while ((b = f.read()) != -1) {

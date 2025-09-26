@@ -3,11 +3,10 @@ package edu.note.java.io.io;
 import edu.note.java.io.BaseIOTest;
 import edu.note.java.io.Student;
 import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.nio.file.Files;
 import java.util.ArrayList;
 import java.util.List;
 import org.junit.jupiter.api.DisplayName;
@@ -18,7 +17,7 @@ import org.junit.jupiter.api.Test;
  * @date 2024/12/1 上午12:01
  */
 // 利用序列化流/对象操作输出流，把一个对象写到本地文件中
-public class TestSequenceStream extends BaseIOTest {
+public class SequenceStreamTest extends BaseIOTest {
 
     File dir = new File(resource, "io");
 
@@ -33,7 +32,7 @@ public class TestSequenceStream extends BaseIOTest {
         Student stu = new Student("John", 23);
         File file = new File(dir, "john.obj");
         // 2.创建序列化流的对象/对象操作输出流
-        ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(file));
+        ObjectOutputStream oos = new ObjectOutputStream(Files.newOutputStream(file.toPath()));
         // 3. 写出数据
         oos.writeObject(stu);
         // 4. 释放资源
@@ -50,7 +49,7 @@ public class TestSequenceStream extends BaseIOTest {
         File file = new File(dir, "john.obj");
 
         // 1.创建反序列化流的对象
-        ObjectInputStream ois = new ObjectInputStream(new FileInputStream(file));
+        ObjectInputStream ois = new ObjectInputStream(Files.newInputStream(file.toPath()));
 
         // 2.读取数据
         Student o = (Student) ois.readObject();
@@ -77,7 +76,7 @@ public class TestSequenceStream extends BaseIOTest {
         list.add(s1);
         list.add(s2);
         list.add(s3);
-        ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(file));
+        ObjectOutputStream oos = new ObjectOutputStream(Files.newOutputStream(file.toPath()));
         oos.writeObject(list);
         oos.close();
     }
@@ -88,7 +87,7 @@ public class TestSequenceStream extends BaseIOTest {
         // 将多个自定义对象序列化到文件中，但是对象的个数不确定，该如何操作呢？
         // 1.序列化多个对象
         File file = new File(dir, "list.obj");
-        ObjectInputStream ois = new ObjectInputStream(new FileInputStream(file));
+        ObjectInputStream ois = new ObjectInputStream(Files.newInputStream(file.toPath()));
         List<Student> o = (List<Student>) ois.readObject();
         System.out.println(o);
     }

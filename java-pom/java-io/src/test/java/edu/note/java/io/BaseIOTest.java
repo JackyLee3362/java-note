@@ -1,5 +1,6 @@
 package edu.note.java.io;
 
+import java.io.File;
 import java.util.Objects;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
@@ -12,6 +13,8 @@ public class BaseIOTest {
 
     public static final ClassLoader classLoader = ClassLoader.getSystemClassLoader();
     public static final String resource = Objects.requireNonNull(classLoader.getResource(".")).getPath();
+    public static final File ioDir = new File(resource, "io");
+    public static final File fileDir = new File(resource, "file");
 
     @Test
     void testBasic() {

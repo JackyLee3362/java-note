@@ -17,7 +17,7 @@ import org.junit.jupiter.api.Test;
  * @date 2024/12/1 上午12:01
  */
 // 转换流
-public class TestTransStream extends BaseIOTest {
+public class TransStreamTest extends BaseIOTest {
 
     File f1 = new File(resource, "io/GBK.md");
     File f2 = new File(resource, "io/GBK.out.md");
