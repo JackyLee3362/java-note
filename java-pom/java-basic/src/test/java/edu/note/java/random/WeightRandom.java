@@ -1,4 +1,4 @@
-package edu.note.java.io.application;
+package edu.note.java.random;
 
 import java.util.ArrayList;
 import java.util.Arrays;

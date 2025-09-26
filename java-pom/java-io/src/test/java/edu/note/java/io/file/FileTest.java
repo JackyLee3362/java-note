@@ -8,7 +8,7 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-public class TestFile extends BaseIOTest {
+public class FileTest extends BaseIOTest {
 
     @Test
     @DisplayName("文件属性")

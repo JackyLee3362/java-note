@@ -11,6 +11,7 @@ import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.nio.file.Files;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -19,7 +20,7 @@ import org.junit.jupiter.api.Test;
  * @date 2024/11/30 下午11:59
  */
 // IO 缓冲流
-public class TestBufferByteStream extends BaseIOTest {
+public class BufferStreamTest extends BaseIOTest {
 
     File f1 = new File(resource, "io/README.md");
     File f2 = new File(resource, "io/README-2.md");
@@ -36,8 +37,8 @@ public class TestBufferByteStream extends BaseIOTest {
 
         // 1.创建缓冲流的对象
         // CharArrayReader
-        BufferedInputStream bis = new BufferedInputStream(new FileInputStream(f1));
-        BufferedOutputStream bos = new BufferedOutputStream(new FileOutputStream(f2));
+        BufferedInputStream bis = new BufferedInputStream(Files.newInputStream(f1.toPath()));
+        BufferedOutputStream bos = new BufferedOutputStream(Files.newOutputStream(f2.toPath()));
         // 2.循环读取并写到目的地
         int b;
         while ((b = bis.read()) != -1) {
@@ -59,8 +60,8 @@ public class TestBufferByteStream extends BaseIOTest {
          **/
 
         // 1.创建缓冲流的对象
-        BufferedInputStream bis = new BufferedInputStream(new FileInputStream(f1));
-        BufferedOutputStream bos = new BufferedOutputStream(new FileOutputStream(f2));
+        BufferedInputStream bis = new BufferedInputStream(Files.newInputStream(f1.toPath()));
+        BufferedOutputStream bos = new BufferedOutputStream(Files.newOutputStream(f2.toPath()));
         // 2.拷贝（一次读写多个字节）
         byte[] bytes = new byte[1024];
         int len;

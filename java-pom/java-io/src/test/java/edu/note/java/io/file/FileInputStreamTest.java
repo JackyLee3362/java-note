@@ -13,7 +13,7 @@ import org.junit.jupiter.api.Test;
  * @author jackylee
  * @date 2024/11/29 下午3:51
  */
-public class TestFileInputStream extends BaseIOTest {
+public class FileInputStreamTest extends BaseIOTest {
 
     File f1 = new File(resource, "io/README.md");
     File f2 = new File(resource, "io/README-01.out.md");

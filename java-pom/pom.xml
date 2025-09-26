@@ -26,8 +26,6 @@
     <module>java-math</module>
     <module>java-stream-function</module>
     <module>juc-lock</module>
-    <module>java-common</module>
-    <module>java-function</module>
   </modules>
 
 </project>

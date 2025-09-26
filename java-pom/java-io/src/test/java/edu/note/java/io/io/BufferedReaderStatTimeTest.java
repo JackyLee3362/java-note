@@ -1,4 +1,4 @@
-package edu.note.java.io.application;
+package edu.note.java.io.io;
 
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;

@@ -1,4 +1,4 @@
-package edu.note.java.io.io;
+package edu.note.java.io.file;
 
 import java.io.File;
 import java.io.FileInputStream;
