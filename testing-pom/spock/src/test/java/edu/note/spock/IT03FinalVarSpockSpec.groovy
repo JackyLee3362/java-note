@@ -8,7 +8,7 @@ import spock.lang.Unroll
  * @author jackylee
  * @date 2025/7/1 16:19
  */
-class Basic03FinalVarTest extends Specification {
+class IT03FinalVarSpockSpec extends Specification {
 
     @Unroll
     def "final 变量测试"() {

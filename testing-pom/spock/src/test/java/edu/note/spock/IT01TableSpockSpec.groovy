@@ -7,7 +7,7 @@ import spock.lang.Unroll
  * @author jackylee
  * @date 2025/6/30 19:56
  */
-class Basic01TableTest extends Specification {
+class IT01TableSpockSpec extends Specification {
     // 表格语法，将表格的每行单独作为一个测试用例执行
     @Unroll
     def "test 是否是奇数"() {

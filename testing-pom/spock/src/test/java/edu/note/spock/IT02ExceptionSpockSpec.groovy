@@ -6,7 +6,7 @@ import spock.lang.Specification
  * @author jackylee
  * @date 2025/7/1 15:27
  */
-class Basic02ExceptionTest extends Specification {
+class IT02ExceptionSpockSpec extends Specification {
 
     def "test 异常"() {
         when: "执行异常"

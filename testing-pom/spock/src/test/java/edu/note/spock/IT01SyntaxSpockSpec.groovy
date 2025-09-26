@@ -7,7 +7,7 @@ import spock.lang.Specification
  * @date 2025/7/1 14:49
  * @description Spock Mock 测试语法
  */
-class Basic01SyntaxTest extends Specification {
+class IT01SyntaxSpockSpec extends Specification {
 
     // mock 的类必须是接口类
     def userDao = Mock(UserDao)
