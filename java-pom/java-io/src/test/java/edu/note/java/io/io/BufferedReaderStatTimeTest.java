@@ -1,16 +1,19 @@
 package edu.note.java.io.io;
 
+import edu.note.java.io.BaseIOTest;
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.nio.file.Files;
 
 // 缓冲流_统计四种缓冲流用时
-public class BufferedReaderStatTimeTest {
+public class BufferedReaderStatTimeTest extends BaseIOTest {
 
-    private static final String path = "io/a.txt";
-    private static final String src = "io/copy.txt";
+    private static final File src = new File(ioDir, "buffer.copy.src.txt");
+    private static final File dst = new File(ioDir, "buffer.copy.dst.txt");
 
     public static void main(String[] args) throws IOException {
            /*
@@ -34,8 +37,8 @@ public class BufferedReaderStatTimeTest {
     // 课程中文件大小：4,588,568,576 字节
     // 字节流的基本流：一次读写一个字节
     public static void method1() throws IOException {
-        FileInputStream fis = new FileInputStream(path);
-        FileOutputStream fos = new FileOutputStream(src);
+        FileInputStream fis = new FileInputStream(src);
+        FileOutputStream fos = new FileOutputStream(dst);
         int b;
         while ((b = fis.read()) != -1) {
             fos.write(b);
@@ -46,8 +49,8 @@ public class BufferedReaderStatTimeTest {
 
     // 字节流的基本流：一次读写一个字节数组
     public static void method2() throws IOException {
-        FileInputStream fis = new FileInputStream(path);
-        FileOutputStream fos = new FileOutputStream(src);
+        FileInputStream fis = new FileInputStream(src);
+        FileOutputStream fos = new FileOutputStream(dst);
         byte[] bytes = new byte[8192];
         int len;
         while ((len = fis.read(bytes)) != -1) {
@@ -59,8 +62,8 @@ public class BufferedReaderStatTimeTest {
 
     // 字节流的基本流：一次读写一个字节数组
     public static void method3() throws IOException {
-        BufferedInputStream bis = new BufferedInputStream(new FileInputStream(path));
-        BufferedOutputStream bos = new BufferedOutputStream(new FileOutputStream(src));
+        BufferedInputStream bis = new BufferedInputStream(Files.newInputStream(src.toPath()));
+        BufferedOutputStream bos = new BufferedOutputStream(Files.newOutputStream(dst.toPath()));
         int b;
         while ((b = bis.read()) != -1) {
             bos.write(b);
@@ -71,8 +74,8 @@ public class BufferedReaderStatTimeTest {
 
     // 字节流的基本流：一次读写一个字节数组
     public static void method4() throws IOException {
-        BufferedInputStream bis = new BufferedInputStream(new FileInputStream(path));
-        BufferedOutputStream bos = new BufferedOutputStream(new FileOutputStream(src));
+        BufferedInputStream bis = new BufferedInputStream(Files.newInputStream(src.toPath()));
+        BufferedOutputStream bos = new BufferedOutputStream(Files.newOutputStream(dst.toPath()));
         byte[] bytes = new byte[8192];
         int len;
         while ((len = bis.read(bytes)) != -1) {

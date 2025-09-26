@@ -74,15 +74,14 @@ public class FileUtil {
         log.info("[ PATH DELETE ] Dir({}) is deleted({}). ", path, delete);
     }
 
-    public static long getLen(File src) {
+    public static Long getLen(File src) {
+        // 参数校验
         Objects.requireNonNull(src);
-        // 1.定义变量进行累加
         long len = 0;
-        // 2.进入src文件夹
         File[] files = src.listFiles();
         // 3.遍历数组
         if (files == null) {
-            return 0;
+            return 0L;
         }
         for (File file : files) {
             // 4.判断
@@ -94,29 +93,19 @@ public class FileUtil {
                 len += getLen(file);
             }
         }
-
         return len;
 
 
     }
 
-    /*
-     * 作用：
-     *       统计一个文件夹中每种文件的个数
-     * 参数：
-     *       要统计的那个文件夹
-     * 返回值：
-     *       用来统计map集合
-     *       键：后缀名 值：次数
-     *
-     *       a.txt
-     *       a.a.txt
-     *       aaa（不需要统计的）
-     * */
-
-
     private static final int MAX_RECURSION_DEPTH = 100; // 设置最大递归深度
 
+    /**
+     * 统计一个文件夹中每种文件的个数
+     *
+     * @param src 待统计文件夹
+     * @return map集合
+     */
     public static Map<String, Integer> getCount(File src) {
         return getCount(src, 0); // 调用带递归深度的重载方法
     }
@@ -166,11 +155,7 @@ public class FileUtil {
 
     public static boolean copyFileBuffer(File src, File dst) {
         // 1.创建对象
-        FileInputStream fis = null;
-        FileOutputStream fos = null;
-        try {
-            fis = new FileInputStream(src);
-            fos = new FileOutputStream(dst);
+        try (FileInputStream fis = new FileInputStream(src); FileOutputStream fos = new FileOutputStream(dst)) {
             // 2.拷贝
             int len;
             byte[] bytes = new byte[1024 * 1024 * 5];
@@ -180,75 +165,41 @@ public class FileUtil {
         } catch (IOException e) {
             log.error(e.getMessage());
             return false;
-        } finally {
-            // 3.释放资源
-            if (fos != null) {
-                try {
-                    fos.close();
-                } catch (IOException e) {
-                    log.error(e.getMessage());
-                }
-            }
-            if (fis != null) {
-                try {
-                    fis.close();
-                } catch (IOException e) {
-                    log.error(e.getMessage());
-                }
-            }
-
         }
         return true;
     }
 
 
-    /*
-     * 为了保证文件的安全性，就需要对原始文件进行加密存储，再使用的时候再对其进行解密处理。
-     * 加密原理：
-     * 对原始文件中的每一个字节数据进行更改，然后将更改以后的数据存储到新的文件中。
-     * 解密原理：
-     * 读取加密之后的文件，按照加密的规则反向操作，变成原始文件。
+    /**
+     * 根据 a ^ b ^ b = a 对文件加密
      *
-     *
-     * ^ : 异或
-     * 两边相同：false
-     * 两边不同：true
-     *
-     * 0：false
-     * 1：true
-     *
-     * 100:1100100
-     * 10: 1010
-     *
-     * 1100100
-     * ^ 0001010
-     * __________
-     * 1101110
-     * ^ 0001010
-     * __________
-     * 1100100
-     *
+     * @param src
+     * @param dest
+     * @param key  密钥
+     * @throws IOException
      */
-    public static void encryptionAndReduction(File src, File dest) throws IOException {
-        FileInputStream fis = new FileInputStream(src);
-        FileOutputStream fos = new FileOutputStream(dest);
-        int b;
-        while ((b = fis.read()) != -1) {
-            fos.write(b ^ 2);
+    public static void encryptionAndReduction(File src, File dest, Integer key) throws IOException {
+        try (FileInputStream fis = new FileInputStream(src); FileOutputStream fos = new FileOutputStream(dest)) {
+            int b;
+            while ((b = fis.read()) != -1) {
+                fos.write(b ^ key);
+            }
         }
-        // 4.释放资源
-        fos.close();
-        fis.close();
     }
 
-    /*
-     * 作用：拷贝文件夹
-     * 参数一：数据源
-     * 参数二：目的地
+
+    /**
+     * 拷贝文件夹
      *
+     * @param src  原文件
+     * @param dest 目标文件
+     * @throws IOException
      */
     public static void copyDir(File src, File dest) throws IOException {
-        dest.mkdirs(); // 如果不存在就创建
+        boolean mkdirs = dest.mkdirs();// 如果不存在就创建
+        if (!mkdirs) {
+            throw new IOException("Can't create dir: " + dest);
+        }
         // 递归
         // 1.进入数据源
         File[] files = src.listFiles();
@@ -257,17 +208,18 @@ public class FileUtil {
             return;
         }
         for (File file : files) {
+            // 3.判断文件，拷贝
             if (file.isFile()) {
-                // 3.判断文件，拷贝
-                FileInputStream fis = new FileInputStream(file);
-                FileOutputStream fos = new FileOutputStream(new File(dest, file.getName()));
-                byte[] bytes = new byte[1024];
-                int len;
-                while ((len = fis.read(bytes)) != -1) {
-                    fos.write(bytes, 0, len);
+                try (FileInputStream fis = new FileInputStream(file);
+                    FileOutputStream fos = new FileOutputStream(new File(dest, file.getName()))) {
+                    byte[] bytes = new byte[1024];
+                    int len;
+                    while ((len = fis.read(bytes)) != -1) {
+                        fos.write(bytes, 0, len);
+                    }
+                } catch (Exception e) {
+                    log.error(e.getMessage());
                 }
-                fos.close();
-                fis.close();
             } else {
                 // 4.判断文件夹，递归
                 copyDir(file, new File(dest, file.getName()));

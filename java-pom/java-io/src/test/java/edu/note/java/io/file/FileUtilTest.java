@@ -26,7 +26,7 @@ public class FileUtilTest extends BaseIOTest {
     @DisplayName("递归统计一个文件夹中每种文件的个数")
     void test02() {
         File file = new File(resource);
-        Map<String, Integer> hm = FileUtil.getCount(file);
+        Map<String, Integer> hm = FileUtil.getCount(new File(ioDir, "buffer.read.txt"));
         System.out.println(hm);
     }
 
@@ -55,7 +55,7 @@ public class FileUtilTest extends BaseIOTest {
     void testEncryptFile() throws IOException {
         File src = new File(resource, "file/1.txt");
         File dst = new File(resource, "file/1.txt.enc");
-        FileUtil.encryptionAndReduction(src, dst);
+        FileUtil.encryptionAndReduction(src, dst, 2);
     }
 
     @Test
