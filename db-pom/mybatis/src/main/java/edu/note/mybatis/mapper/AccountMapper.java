@@ -1,6 +1,6 @@
 package edu.note.mybatis.mapper;
 
-import edu.note.mybatis.Account;
+import edu.note.mybatis.model.Account;
 
 /**
  * @author jackylee

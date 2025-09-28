@@ -1,7 +1,8 @@
 package edu.note.mybatis.mapper;
 
-import edu.note.mybatis.User;
 import edu.note.mybatis.mapper.UserMapper;
+import edu.note.mybatis.model.User;
+
 import java.io.IOException;
 import java.io.Reader;
 import java.io.StringReader;

@@ -1,4 +1,4 @@
-package edu.note.mybatis;
+package edu.note.mybatis.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -6,16 +6,15 @@ import lombok.NoArgsConstructor;
 
 /**
  * @author jackylee
- * @date 2025/9/25 13:11
+ * @date 2025/9/25 11:59
  */
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Account {
+public class User {
 
-    private Integer id;
+    Integer id;
+    String name;
+    Integer age;
 
-    private String name;
-
-    private String password;
 }

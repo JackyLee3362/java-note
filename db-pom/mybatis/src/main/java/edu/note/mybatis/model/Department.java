@@ -1,4 +1,4 @@
-package edu.note.mybatis;
+package edu.note.mybatis.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -22,6 +22,5 @@ public class Department {
      * 部门名称
      */
     String name;
-
 
 }

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+  <!-- 属性 -->
+  <properties resource="config/db.property">
+    <property name="username" value="dev_user" />
+    <property name="password" value="F2Fa3!33TYyg" />
+  </properties>
+</configuration>

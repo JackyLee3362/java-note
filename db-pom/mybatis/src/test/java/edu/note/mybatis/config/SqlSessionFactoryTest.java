@@ -2,15 +2,11 @@ package edu.note.mybatis.config;
 
 import java.io.IOException;
 import java.io.Reader;
-import java.util.Properties;
 
-import org.apache.ibatis.datasource.pooled.PooledDataSource;
 import org.apache.ibatis.io.Resources;
-import org.apache.ibatis.mapping.Environment;
 import org.apache.ibatis.session.Configuration;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
-import org.apache.ibatis.transaction.jdbc.JdbcTransactionFactory;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -22,29 +18,17 @@ import org.junit.jupiter.api.Test;
 public class SqlSessionFactoryTest {
 
     @Test
-    @DisplayName("使用代码构建 sqlSessionFactory")
+    @DisplayName("使用代码构建")
     void test01() {
-        // 配置数据源
-        PooledDataSource dataSource = new PooledDataSource();
-        dataSource.setDriver("org.h2.Driver");
-        dataSource.setUrl("jdbc:h2:mem:test;DB_CLOSE_DELAY=-1");
-        dataSource.setUsername("sa");
-        dataSource.setPassword("");
-
-        // 配置 MyBatis 环境
-        Environment environment = new Environment("development", new JdbcTransactionFactory(), dataSource);
-        Configuration configuration = new Configuration(environment);
-
-        // 构建 SqlSessionFactoryTest
+        Configuration configuration = new Configuration();
         SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(configuration);
-
         Assertions.assertNotNull(sqlSessionFactory);
     }
 
     @Test
-    @DisplayName("使用配置文件构建 ")
+    @DisplayName("使用配置文件构建")
     void test02() throws IOException {
-        Reader reader = Resources.getResourceAsReader("mybatis-config-固定值.xml");
+        Reader reader = Resources.getResourceAsReader("config/mybatis-config.xml");
         SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(reader);
         Assertions.assertNotNull(sqlSessionFactory);
     }

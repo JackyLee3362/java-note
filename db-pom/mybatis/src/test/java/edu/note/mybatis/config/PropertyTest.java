@@ -5,6 +5,7 @@ import java.io.Reader;
 import java.util.Properties;
 
 import org.apache.ibatis.io.Resources;
+import org.apache.ibatis.session.Configuration;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 import org.junit.jupiter.api.Assertions;
@@ -15,28 +16,32 @@ import org.junit.jupiter.api.Test;
  * @author jackylee
  * @date 2025/9/26 14:04
  */
-public class PropertyLoadTest {
+public class PropertyTest {
 
     @Test
-    @DisplayName("使用配置+属性构建")
+    @DisplayName("使用配置+注入属性")
     void test03() throws IOException {
-        Reader reader = Resources.getResourceAsReader("mybatis-config-属性.xml");
-        Reader propReader = Resources.getResourceAsReader("mybatis-config-属性.property");
+        Reader reader = Resources.getResourceAsReader("config/mybatis-config.xml");
+        Reader propReader = Resources.getResourceAsReader("config/db.property");
         // 加载配置
         Properties prop = new Properties();
         prop.load(propReader);
         // 构建工厂
-        SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(reader, prop);
-        Assertions.assertNotNull(sqlSessionFactory);
+        SqlSessionFactory factory = new SqlSessionFactoryBuilder().build(reader, prop);
+        // 获取配置
+        Configuration config = factory.getConfiguration();
+        Assertions.assertEquals("org.h2.Driver", config.getVariables().getProperty("driver"));
     }
 
     @Test
-    @DisplayName("使用配置(包含属性文件路径)构建")
+    @DisplayName("使用配置(内联属性文件路径)")
     void test04() throws IOException {
-        Reader reader = Resources.getResourceAsReader("mybatis-config-属性-路径.xml");
+        Reader reader = Resources.getResourceAsReader("config/mybatis-config-prop.xml");
         // 构建工厂
-        SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(reader);
-        Assertions.assertNotNull(sqlSessionFactory);
+        SqlSessionFactory factory = new SqlSessionFactoryBuilder().build(reader);
+        // 获取配置
+        Configuration config = factory.getConfiguration();
+        Assertions.assertEquals("org.h2.Driver", config.getVariables().getProperty("driver"));
     }
 
     @Test

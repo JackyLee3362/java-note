@@ -1,7 +1,8 @@
 package edu.note.mybatis.mapper;
 
-import edu.note.mybatis.User;
 import org.apache.ibatis.annotations.Select;
+
+import edu.note.mybatis.model.User;
 
 /**
  * @author jackylee

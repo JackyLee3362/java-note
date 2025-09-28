@@ -1,9 +1,10 @@
-package edu.note.mybatis.config;
+package edu.note.mybatis.mapper;
 
-import edu.note.mybatis.Account;
 import edu.note.mybatis.aop.MyCustomInterceptor;
 import edu.note.mybatis.aop.SqlLogInterceptor;
 import edu.note.mybatis.mapper.AccountMapper;
+import edu.note.mybatis.model.Account;
+
 import java.io.IOException;
 import java.io.Reader;
 import java.io.StringReader;
