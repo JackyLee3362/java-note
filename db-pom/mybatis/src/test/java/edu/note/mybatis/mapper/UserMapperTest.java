@@ -1,5 +1,6 @@
-package edu.note.mybatis;
+package edu.note.mybatis.mapper;
 
+import edu.note.mybatis.User;
 import edu.note.mybatis.mapper.UserMapper;
 import java.io.IOException;
 import java.io.Reader;
@@ -58,16 +59,16 @@ public class UserMapperTest {
         // 初始化数据库 schema & 数据
         Connection connection = dataSource.getConnection();
         RunScript.execute(connection,
-            new StringReader("CREATE TABLE user (id INT PRIMARY KEY, name VARCHAR(255));" +
-                             "INSERT INTO user (id, name) VALUES (1, 'Test User');"));
+                new StringReader("CREATE TABLE user (id INT PRIMARY KEY, name VARCHAR(255));" +
+                        "INSERT INTO user (id, name) VALUES (1, 'Test User');"));
         connection.close();
 
         // // 初始化数据库，插入测试数据
-        // sqlSession.update("CREATE TABLE User (id INT PRIMARY KEY, name VARCHAR(255))");
+        // sqlSession.update("CREATE TABLE User (id INT PRIMARY KEY, name
+        // VARCHAR(255))");
         // sqlSession.update("INSERT INTO User (id, name) VALUES (1, 'Test User')");
         // sqlSession.commit();
     }
-
 
     @Test
     public void testSelectById() {

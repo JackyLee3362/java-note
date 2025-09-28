@@ -1,5 +1,6 @@
-package edu.note.mybatis;
+package edu.note.mybatis.config;
 
+import edu.note.mybatis.User;
 import edu.note.mybatis.mapper.UserMapper;
 import java.io.IOException;
 import java.io.Reader;
@@ -25,20 +26,20 @@ public class SqlSessionTest {
 
     @BeforeAll
     public static void setUp() throws IOException {
-        Reader reader = Resources.getResourceAsReader("mybatis-config.xml");
+        Reader reader = Resources.getResourceAsReader("SqlSessionFactory.xml");
         sqlSessionFactory = new SqlSessionFactoryBuilder().build(reader);
         try (SqlSession session = sqlSessionFactory.openSession()) {
             Connection connection = session.getConnection();
             RunScript.execute(connection,
-                new StringReader("CREATE TABLE user (id INT PRIMARY KEY, name VARCHAR(255));" +
-                    "INSERT INTO user (id, name) VALUES (1, 'Test User');"));
+                    new StringReader("CREATE TABLE user (id INT PRIMARY KEY, name VARCHAR(255));" +
+                            "INSERT INTO user (id, name) VALUES (1, 'Test User');"));
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
     }
 
     @Test
-    @DisplayName("比较原始的调用")
+    @DisplayName("原始的调用")
     void test01() {
         try (SqlSession session = sqlSessionFactory.openSession()) {
             User o = (User) session.selectOne("edu.note.mybatis.mapper.UserMapper.selectById", 1);

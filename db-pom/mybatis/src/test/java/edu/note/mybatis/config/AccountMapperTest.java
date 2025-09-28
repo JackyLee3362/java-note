@@ -1,5 +1,6 @@
-package edu.note.mybatis;
+package edu.note.mybatis.config;
 
+import edu.note.mybatis.Account;
 import edu.note.mybatis.aop.MyCustomInterceptor;
 import edu.note.mybatis.aop.SqlLogInterceptor;
 import edu.note.mybatis.mapper.AccountMapper;
@@ -64,18 +65,19 @@ public class AccountMapperTest {
         // 初始化数据库 schema & 数据
         Connection connection = dataSource.getConnection();
         RunScript.execute(connection,
-            new StringReader("CREATE TABLE account (id INT PRIMARY KEY, name VARCHAR(255), password VARCHAR(255));"));
+                new StringReader(
+                        "CREATE TABLE account (id INT PRIMARY KEY, name VARCHAR(255), password VARCHAR(255));"));
         connection.close();
 
     }
+
     @Test
-    void test01(){
+    void test01() {
         Account account = new Account(1, "mock account", "mock password");
         accountMapper.insertAccount(account);
         Account account1 = accountMapper.selectById(1);
         Assertions.assertNotNull(account);
         Assertions.assertEquals(account1, account);
-
     }
 
 }
