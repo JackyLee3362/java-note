@@ -39,21 +39,16 @@ public class ThreadStatusTest {
     @DisplayName("3-Blocked 状态")
     void testBlocked() {
         Thread t1 = new Thread(() -> {
-            synchronized (ThreadStatusTest.class) {
-                while (true) {
-                }
-            }
-        });
-        t1.start();
-        Thread t2 = new Thread(() -> {
             synchronized (ThreadStatusTest.class) { // blocked
                 log.info("running...");
             }
         });
-        t2.start();
-        Sleeper.sleep(0.1);
-        Assertions.assertEquals(State.BLOCKED, t2.getState());
-        log.debug("状态是 {}", t2.getState());
+        synchronized (ThreadStatusTest.class) {
+            t1.start();
+            Sleeper.sleep(0.1);
+            Assertions.assertEquals(State.BLOCKED, t1.getState());
+            log.debug("状态是 {}", t1.getState());
+        }
     }
 
     @Test

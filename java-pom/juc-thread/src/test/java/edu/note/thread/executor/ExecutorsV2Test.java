@@ -1,12 +1,9 @@
-package edu.note.thread.pool;
+package edu.note.thread.executor;
 
-import edu.note.thread.util.Sleeper;
-import java.util.Random;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.ThreadPoolExecutor;
-import java.util.concurrent.TimeUnit;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
@@ -14,7 +11,7 @@ import org.junit.jupiter.api.Test;
 
 // public static ExecutorService newFixedThreadPool (int nThreads) 创建有上限的线程池
 @Slf4j(topic = "c.ThreadPool")
-public class ExecutorsTest {
+public class ExecutorsV2Test {
 
     Runnable runnable = () -> {
         for (int i = 1; i <= 100; i++) {

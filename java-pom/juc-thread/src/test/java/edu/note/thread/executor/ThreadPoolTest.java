@@ -1,4 +1,4 @@
-package edu.note.thread.pool;
+package edu.note.thread.executor;
 
 import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.Executors;
@@ -19,11 +19,11 @@ import org.junit.jupiter.api.Test;
     参数六：创建线程工厂              不能为null
     参数七：任务的拒绝策略             不能为null
 */
-public class ThreadPoolExecutorTest {
+public class ThreadPoolTest {
 
     @Test
     @DisplayName("线程池参数")
-    void test() {
+    void test01() {
         ThreadPoolExecutor pool = new ThreadPoolExecutor(
             3, // 核心线程数量，能小于0
             6, // 最大线程数，不能小于0，最大数量 >= 核心线程数量
@@ -34,5 +34,45 @@ public class ThreadPoolExecutorTest {
             new ThreadPoolExecutor.AbortPolicy()// 任务的拒绝策略
         );
 
+    }
+
+    public static int cnt = 1;
+
+    @Test
+    @DisplayName("线程池示例")
+    void test02() {
+        ThreadPoolExecutor executor = new ThreadPoolExecutor(
+            10, 20,
+            20, TimeUnit.SECONDS,
+            new ArrayBlockingQueue<>(10));
+        for (int i = 0; i < 10; i++) {
+            int temp = i;
+            executor.execute(() -> {
+                String name = Thread.currentThread().getName();
+                System.out.println(name + ":" + temp);
+            });
+        }
+        executor.shutdown();
+    }
+
+    @Test
+    @DisplayName("线程池示例2")
+    void test03() {
+
+        ThreadPoolExecutor executor = new ThreadPoolExecutor(
+            10, 20,
+            20, TimeUnit.SECONDS,
+            new ArrayBlockingQueue<>(10));
+        Thread t = new Thread(() -> {
+            synchronized (this) {
+                String name = Thread.currentThread().getName();
+                System.out.println(name + ":" + cnt);
+                cnt += 1;
+            }
+        });
+        for (int i = 0; i < 100; i++) {
+            executor.execute(t);
+        }
+        executor.shutdown();
     }
 }

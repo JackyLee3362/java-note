@@ -1,4 +1,4 @@
-package edu.note.thread.pool;
+package edu.note.thread.executor;
 
 import edu.note.thread.mythreadpool.MyThreadPool;
 import edu.note.thread.util.Sleeper;

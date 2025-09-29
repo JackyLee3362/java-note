@@ -9,7 +9,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-@Slf4j(topic = "c.ExecutorsTest")
+@Slf4j(topic = "c.ExecutorsV2Test")
 public class ExecutorsTest {
 
     @Test

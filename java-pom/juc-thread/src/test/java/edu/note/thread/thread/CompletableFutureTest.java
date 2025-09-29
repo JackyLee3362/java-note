@@ -1,4 +1,4 @@
-package edu.note.thread.future;
+package edu.note.thread.thread;
 
 import java.util.Random;
 import java.util.concurrent.CompletableFuture;

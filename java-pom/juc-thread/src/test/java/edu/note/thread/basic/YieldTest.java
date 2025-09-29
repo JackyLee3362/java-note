@@ -6,17 +6,17 @@ import lombok.extern.slf4j.Slf4j;
 
 @Slf4j(topic = "c.YieldTest")
 public class YieldTest {
-    static final int COUNT = 2000;
+    static final int MAX_COUNT = 2000;
 
     Runnable r1 = () -> {
         int count = 0;
-        while (count < COUNT) {
+        while (count < MAX_COUNT) {
             log.debug("{}", count++);
         }
     };
     Runnable r2 = () -> {
         int count = 0;
-        while (count < COUNT) {
+        while (count < MAX_COUNT) {
             Thread.yield();
             log.debug("{}", count++);
         }
