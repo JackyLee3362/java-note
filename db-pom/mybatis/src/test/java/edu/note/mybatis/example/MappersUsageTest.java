@@ -1,4 +1,4 @@
-package edu.note.mybatis.mapper;
+package edu.note.mybatis.example;
 
 import edu.note.mybatis.mapper.UserMapper;
 import edu.note.mybatis.model.User;
@@ -21,19 +21,21 @@ import org.junit.jupiter.api.Test;
  * @author jackylee
  * @date 2025/9/25 13:46
  */
-public class MappersTest {
+public class MappersUsageTest {
 
     static SqlSessionFactory sqlSessionFactory;
 
     @BeforeAll
     public static void setUp() throws IOException {
-        Reader reader = Resources.getResourceAsReader("config/mybatis-config-mapper.xml");
+        Reader reader = Resources.getResourceAsReader("example/mybatis-config-mapper.xml");
         sqlSessionFactory = new SqlSessionFactoryBuilder().build(reader);
         try (SqlSession session = sqlSessionFactory.openSession()) {
             Connection connection = session.getConnection();
             RunScript.execute(connection,
-                    new StringReader("CREATE TABLE user (id INT PRIMARY KEY, name VARCHAR(255));" +
-                            "INSERT INTO user (id, name) VALUES (1, 'Test User');"));
+                    new StringReader(
+                            "DROP TABLE IF EXISTS user;"
+                                    + "CREATE TABLE IF NOT EXISTS user (id INT PRIMARY KEY, name VARCHAR(255));"
+                                    + "INSERT INTO user (id, name) VALUES (1, 'Test User');"));
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }

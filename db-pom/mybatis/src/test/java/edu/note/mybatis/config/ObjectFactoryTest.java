@@ -12,7 +12,7 @@ import org.junit.jupiter.api.Test;
 public class ObjectFactoryTest {
     @Test
     @DisplayName("对象工厂设置 - 代码配置")
-    void test() {
+    void test01() {
         // 对象工厂处理
         Configuration config = new Configuration();
         ExampleObjectFactory exampleObjectFactory = new ExampleObjectFactory();

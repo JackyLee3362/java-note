@@ -30,7 +30,7 @@ public class SettingTest {
     @Test
     @DisplayName("配置文件设置")
     void test02() throws IOException {
-        Reader reader = Resources.getResourceAsReader("config/mybatis-config.xml");
+        Reader reader = Resources.getResourceAsReader("config/mybatis-config-settings.xml");
         SqlSessionFactory factory = new SqlSessionFactoryBuilder().build(reader);
         Configuration config = factory.getConfiguration();
         Assertions.assertFalse(config.isCacheEnabled());
