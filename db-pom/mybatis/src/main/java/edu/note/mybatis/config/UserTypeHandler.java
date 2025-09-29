@@ -7,35 +7,37 @@ import java.sql.SQLException;
 
 import org.apache.ibatis.type.BaseTypeHandler;
 import org.apache.ibatis.type.JdbcType;
-import org.apache.ibatis.type.MappedJdbcTypes;
+
+import edu.note.mybatis.model.User;
 
 /**
  * @author jackylee
- * @date 2025-09-28 19:38
- * @desc xml 中 javaType 和 jdbcType 优先级要高于注解
+ * @date 2025-09-28 19:42
  */
-@MappedJdbcTypes(value = JdbcType.VARCHAR, includeNullJdbcType = true)
-public class UserTypeHandler extends BaseTypeHandler<String> {
+public class UserTypeHandler extends BaseTypeHandler<User> {
 
-    @Override
-    public void setNonNullParameter(PreparedStatement ps, int i, String parameter, JdbcType jdbcType)
-            throws SQLException {
-        ps.setString(i, parameter);
-    }
+  @Override
+  public void setNonNullParameter(PreparedStatement ps, int i, User parameter, JdbcType jdbcType) throws SQLException {
+    // TODO Auto-generated method stub
+    throw new UnsupportedOperationException("Unimplemented method 'setNonNullParameter'");
+  }
 
-    @Override
-    public String getNullableResult(ResultSet rs, String columnName) throws SQLException {
-        return rs.getString(columnName);
-    }
+  @Override
+  public User getNullableResult(ResultSet rs, String columnName) throws SQLException {
+    // TODO Auto-generated method stub
+    throw new UnsupportedOperationException("Unimplemented method 'getNullableResult'");
+  }
 
-    @Override
-    public String getNullableResult(ResultSet rs, int columnIndex) throws SQLException {
-        return rs.getString(columnIndex);
-    }
+  @Override
+  public User getNullableResult(ResultSet rs, int columnIndex) throws SQLException {
+    // TODO Auto-generated method stub
+    throw new UnsupportedOperationException("Unimplemented method 'getNullableResult'");
+  }
 
-    @Override
-    public String getNullableResult(CallableStatement cs, int columnIndex) throws SQLException {
-        return cs.getString(columnIndex);
-    }
+  @Override
+  public User getNullableResult(CallableStatement cs, int columnIndex) throws SQLException {
+    // TODO Auto-generated method stub
+    throw new UnsupportedOperationException("Unimplemented method 'getNullableResult'");
+  }
 
 }

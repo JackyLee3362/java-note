@@ -1,5 +1,8 @@
 package edu.note.mybatis.config;
 
+import org.apache.ibatis.plugin.Interceptor;
+import org.apache.ibatis.session.Configuration;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -22,5 +25,10 @@ public class PluginTest {
     @Test
     @DisplayName("测试插件")
     void test01() {
+        // 对象工厂处理
+        Configuration config = new Configuration();
+        Interceptor interceptor = new ExamplePlugin();
+        config.addInterceptor(interceptor);
+        Assertions.assertTrue(config.getInterceptors().stream().allMatch(o -> o instanceof ExamplePlugin));
     }
 }

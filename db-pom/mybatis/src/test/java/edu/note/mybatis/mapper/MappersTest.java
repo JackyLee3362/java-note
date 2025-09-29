@@ -1,4 +1,4 @@
-package edu.note.mybatis.config;
+package edu.note.mybatis.mapper;
 
 import edu.note.mybatis.mapper.UserMapper;
 import edu.note.mybatis.model.User;
@@ -27,7 +27,7 @@ public class MappersTest {
 
     @BeforeAll
     public static void setUp() throws IOException {
-        Reader reader = Resources.getResourceAsReader("mybatis-config.xml");
+        Reader reader = Resources.getResourceAsReader("config/mybatis-config-mapper.xml");
         sqlSessionFactory = new SqlSessionFactoryBuilder().build(reader);
         try (SqlSession session = sqlSessionFactory.openSession()) {
             Connection connection = session.getConnection();

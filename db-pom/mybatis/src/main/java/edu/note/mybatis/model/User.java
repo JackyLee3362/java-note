@@ -10,11 +10,13 @@ import lombok.NoArgsConstructor;
  */
 @Data
 @AllArgsConstructor
-@NoArgsConstructor
 public class User {
 
     Integer id;
     String name;
     Integer age;
+
+    public User() {
+    }
 
 }
