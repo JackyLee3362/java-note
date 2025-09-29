@@ -2,17 +2,12 @@ package edu.note.mybatis.config;
 
 import java.io.IOException;
 import java.io.Reader;
-import java.io.StringReader;
-import java.sql.Connection;
-import java.sql.SQLException;
 
 import org.apache.ibatis.builder.xml.XMLMapperBuilder;
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.Configuration;
-import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
-import org.h2.tools.RunScript;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;

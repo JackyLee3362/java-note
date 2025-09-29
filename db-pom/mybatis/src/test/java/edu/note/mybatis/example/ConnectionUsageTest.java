@@ -45,9 +45,7 @@ public class ConnectionUsageTest {
         Connection connection = session.getConnection();
         RunScript.execute(connection,
                 new StringReader(
-                        "DROP TABLE IF EXISTS user;"
-                                + "CREATE TABLE IF NOT EXISTS user (id INT PRIMARY KEY, name VARCHAR(255));"
-                                + "INSERT INTO user (id, name) VALUES (1, 'Test User');"));
+                        "DROP TABLE IF EXISTS user; CREATE TABLE IF NOT EXISTS user (id INT PRIMARY KEY, name VARCHAR(255));"));
         connection.close();
         session.close();
     }
@@ -63,7 +61,7 @@ public class ConnectionUsageTest {
                 new StringReader(
                         "DROP TABLE IF EXISTS user;"
                                 + "CREATE TABLE IF NOT EXISTS user (id INT PRIMARY KEY, name VARCHAR(255));"
-                                + "INSERT INTO user (id, name) VALUES (1, 'Test User');"));
+                                + "INSERT INTO user (id, name) VALUES (1, 'Foo');"));
         connection.close();
         session.close();
     }

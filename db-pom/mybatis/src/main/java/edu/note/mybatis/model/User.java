@@ -9,14 +9,14 @@ import lombok.NoArgsConstructor;
  * @date 2025/9/25 11:59
  */
 @Data
+@NoArgsConstructor
 @AllArgsConstructor
 public class User {
 
     Integer id;
-    String name;
-    Integer age;
 
-    public User() {
-    }
+    String name;
+
+    String city;
 
 }

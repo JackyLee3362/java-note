@@ -26,16 +26,14 @@ public class MappersUsageTest {
     static SqlSessionFactory sqlSessionFactory;
 
     @BeforeAll
-    public static void setUp() throws IOException {
+    static void setUp() throws IOException {
         Reader reader = Resources.getResourceAsReader("example/mybatis-config-mapper.xml");
         sqlSessionFactory = new SqlSessionFactoryBuilder().build(reader);
         try (SqlSession session = sqlSessionFactory.openSession()) {
             Connection connection = session.getConnection();
             RunScript.execute(connection,
                     new StringReader(
-                            "DROP TABLE IF EXISTS user;"
-                                    + "CREATE TABLE IF NOT EXISTS user (id INT PRIMARY KEY, name VARCHAR(255));"
-                                    + "INSERT INTO user (id, name) VALUES (1, 'Test User');"));
+                            "DROP TABLE IF EXISTS user; CREATE TABLE IF NOT EXISTS user (id INT PRIMARY KEY, name VARCHAR(255));"));
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
@@ -59,7 +57,7 @@ public class MappersUsageTest {
             UserMapper mapper = session.getMapper(UserMapper.class);
             User user = mapper.selectById(1);
             System.out.println(user);
-            User user2 = mapper.selectByName("Test User");
+            User user2 = mapper.selectByName("Foo");
             System.out.println(user2);
         } catch (Exception e) {
             System.out.println(e.getMessage());

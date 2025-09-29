@@ -1,8 +1,6 @@
 package edu.note.mybatis.mapper;
 
 import edu.note.mybatis.aop.MyCustomInterceptor;
-import edu.note.mybatis.aop.SqlLogInterceptor;
-import edu.note.mybatis.mapper.AccountMapper;
 import edu.note.mybatis.model.Account;
 
 import java.io.IOException;
@@ -34,7 +32,7 @@ public class AccountMapperTest {
     private AccountMapper accountMapper;
 
     @BeforeEach
-    public void setUp() throws IOException, SQLException {
+    void setUp() throws IOException, SQLException {
         // 配置数据源
         PooledDataSource dataSource = new PooledDataSource();
         dataSource.setDriver("org.h2.Driver");
