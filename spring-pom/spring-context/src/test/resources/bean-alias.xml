@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- 别名: name=xxx,使用 空格/逗号/分号 分隔 -->
+    <!-- ref 一般使用 id(建议)，也可以使用 name -->
+    <bean id="helloDao" name="dao helloDao" class="edu.note.spring.HelloDaoImpl" />
+    <bean id="helloService" name="service,helloService" class="edu.note.spring.HelloServiceImpl">
+        <property name="helloDao" ref="helloDao" />
+    </bean>
+
+</beans>

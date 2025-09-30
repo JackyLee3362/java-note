@@ -8,9 +8,6 @@ tags:
 description: 微服务笔记
 ---
 
-## 参考资料
-
-
 # 工具 Springboot
 
 [课程](https://www.bilibili.com/video/BV1Lq4y1J77x)
@@ -22,7 +19,7 @@ application.properties > application.yml > application.yaml
 ```conf
 # properties的写法
 server.port=8081
-server.address=127.0.0.1 
+server.address=127.0.0.1
 ```
 
 ## 读取配置内容
@@ -131,7 +128,7 @@ private Person person;
 spring.profile.active=dev # 要和文件后缀保持一致
 ```
 
-### yml多文档
+### yml 多文档
 
 ```yml
 ---
@@ -163,7 +160,7 @@ spring:
     active: prod # dev/test
 ```
 
-### 配置configuration
+### 配置 configuration
 
 虚拟机参数：右上角 - Edit Configuration - VM options - `-Dspring.profiles.active=test`
 
@@ -174,15 +171,15 @@ spring:
 
 ## 内部配置的加载顺序
 
-- `file:./config/`：当前项目下的/config目录下（点击`Project`，再点击`Project Files`，切换为
+- `file:./config/`：当前项目下的/config 目录下（点击`Project`，再点击`Project Files`，切换为
   `Project Files`视图
 - `file:./`：当前项目的根目录
-- `classpath:/config/`：classpath的/config目录（在`resources`创建`config`文件夹
-- `classpath:/`：classpath的根目录（就是默认的`application.properties`文件）
+- `classpath:/config/`：classpath 的/config 目录（在`resources`创建`config`文件夹
+- `classpath:/`：classpath 的根目录（就是默认的`application.properties`文件）
 
 ## 外部配置加载顺序
 
-[官方网站docs](https://docs.spring.io/spring-boot/docs/current/reference/html/)
+[官方网站 docs](https://docs.spring.io/spring-boot/docs/current/reference/html/)
 
 [External config](https://docs.spring.io/spring-boot/docs/current/reference/html/features.html#features.external-config)
 
@@ -191,18 +188,18 @@ java -jar [jar包名字] --spring.config.location=[文件绝对路径]
 
 ```
 
-## Spring整合其他框架
+## Spring 整合其他框架
 
-### 需求：整合Junit
+### 需求：整合 Junit
 
 实现步骤
 
-- 搭建SpringBoot工程
-- 引入start-test起步依赖
+- 搭建 SpringBoot 工程
+- 引入 start-test 起步依赖
 - 编写测试类
 - 添加测试相关注解
-    - @RunWith(SpringRunner.class)
-    - @SpringBootTest(classes=启动类.class)
+  - @RunWith(SpringRunner.class)
+  - @SpringBootTest(classes=启动类.class)
 - 编写测试方法
 
 ```java
@@ -230,12 +227,12 @@ public class UserServicesTest {
 
 ```
 
-## 整合redis（跳过）
+## 整合 redis（跳过）
 
-## 整合mybatis（跳过）
+## 整合 mybatis（跳过）
 
-## Springboot原理
+## Springboot 原理
 
-## SpringBoot监控
+## SpringBoot 监控
 
-## SpringBoot部署
+## SpringBoot 部署

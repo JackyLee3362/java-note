@@ -19,6 +19,7 @@
     <module>spring-task</module>
     <module>spring-web</module>
     <module>spring-starter</module>
+    <module>spring-context</module>
   </modules>
 
   <properties>

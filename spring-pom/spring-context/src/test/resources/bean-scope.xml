@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- scope 默认是 singleton -->
+    <!-- 多例 prototype -->
+    <bean id="helloDao" class="edu.note.spring.HelloDaoImpl" scope="singleton" />
+    <bean id="helloService" class="edu.note.spring.HelloServiceImpl"
+        scope="prototype">
+        <property name="helloDao" ref="helloDao" />
+    </bean>
+
+</beans>

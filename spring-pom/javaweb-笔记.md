@@ -8,7 +8,7 @@ tags:
 description: 黑马程序员-JavaWeb学习笔记
 ---
 
-黑马程序员2023新版JavaWeb开发教程，实现javaweb企业开发全流程（涵盖Spring+MyBatis+SpringMVC+SpringBoot等）[视频地址](https://www.bilibili.com/video/BV1m84y1w7Tb)
+黑马程序员 2023 新版 JavaWeb 开发教程，实现 javaweb 企业开发全流程（涵盖 Spring+MyBatis+SpringMVC+SpringBoot 等）[视频地址](https://www.bilibili.com/video/BV1m84y1w7Tb)
 
 ## VUE
 
@@ -18,9 +18,9 @@ description: 黑马程序员-JavaWeb学习笔记
 
 ![image-20230521170813102](https://assets-1302294329.cos.ap-shanghai.myqcloud.com/2025/md/202505150238153.png)
 
-vue.js下载网址：https://v2.cn.vuejs.org/v2/guide/installation.html
+vue.js 下载网址：https://v2.cn.vuejs.org/v2/guide/installation.html
 
-#### 3:50 v-bind和v-model指令
+#### 3:50 v-bind 和 v-model 指令
 
 ![image-20230521171044684](https://assets-1302294329.cos.ap-shanghai.myqcloud.com/2025/md/202505150238154.png)
 
@@ -38,11 +38,11 @@ vue.js下载网址：https://v2.cn.vuejs.org/v2/guide/installation.html
 
 ![image-20230521193112490](https://assets-1302294329.cos.ap-shanghai.myqcloud.com/2025/md/202505150238157.png)
 
-#### 00:54 vue的生命周期
+#### 00:54 vue 的生命周期
 
 ![image-20230521195128616](https://assets-1302294329.cos.ap-shanghai.myqcloud.com/2025/md/202505150238158.png)
 
-#### 1:22 vue官方的生命周期
+#### 1:22 vue 官方的生命周期
 
 ![image-20230521195205220](https://assets-1302294329.cos.ap-shanghai.myqcloud.com/2025/md/202505150238159.png)
 
@@ -74,13 +74,13 @@ vue ui # 图形化界面，如果使用此法创建，且保存预设，预设�
 
 ### p38
 
-#### 8:25 VUE项目的目录结构
+#### 8:25 VUE 项目的目录结构
 
 ![image-20230522110141242](https://assets-1302294329.cos.ap-shanghai.myqcloud.com/2025/md/202505150238161.png)
 
 ### p39
 
-#### 6:43 Vue项目开发流程
+#### 6:43 Vue 项目开发流程
 
 ![image-20230522111742833](https://assets-1302294329.cos.ap-shanghai.myqcloud.com/2025/md/202505150238162.png)
 
@@ -94,17 +94,17 @@ vue ui # 图形化界面，如果使用此法创建，且保存预设，预设�
 
 #### 如何部署
 
-npm build，将dist中的**内容**放到nginx安装目录中的html中
+npm build，将 dist 中的**内容**放到 nginx 安装目录中的 html 中
 
 查看占用端口 `netstat -ano | findStr 80`
 
-可以在nginx的安装目录下找到`nginx.conf`更改端口号
+可以在 nginx 的安装目录下找到`nginx.conf`更改端口号
 
 ## Maven
 
 ### p51
 
-#### maven的安装
+#### maven 的安装
 
 #### 8:53
 
@@ -114,9 +114,9 @@ npm build，将dist中的**内容**放到nginx安装目录中的html中
 
 ![image-20230521145530511](https://assets-1302294329.cos.ap-shanghai.myqcloud.com/2025/md/202505150238165.png)
 
-#### MAVEN包自动设置
+#### MAVEN 包自动设置
 
-找到maven安装目录，里面有个conf/setting.xml，搜索LocalRepository，然后填写标签，我命名为repository目录
+找到 maven 安装目录，里面有个 conf/setting.xml，搜索 LocalRepository，然后填写标签，我命名为 repository 目录
 
 ```xml
 <mirror>
@@ -147,23 +147,22 @@ npm build，将dist中的**内容**放到nginx安装目录中的html中
 
 ### P119
 
-#### 9:18 jdbc和MyBatis的对比
+#### 9:18 jdbc 和 MyBatis 的对比
 
 ![p119-09-18-jdbc和MyBatis的对比](https://assets-1302294329.cos.ap-shanghai.myqcloud.com/2025/md/202505150238169.png)
 
-#### 10:17 jdbc和MyBatis的对比
+#### 10:17 jdbc 和 MyBatis 的对比
 
 ![p119-10-17-jdbc和MyBatis的对比](https://assets-1302294329.cos.ap-shanghai.myqcloud.com/2025/md/202505150238170.png)
 
 ### P120
 
-#### 7:36 切换为Druid数据库连接池
+#### 7:36 切换为 Druid 数据库连接池
 
 ![p120-07-36-切换为Druid数据库连接池](https://assets-1302294329.cos.ap-shanghai.myqcloud.com/2025/md/202505150238171.png)
 
 ### P121
 
-#### 2:57 lombok使用方法
+#### 2:57 lombok 使用方法
 
 ![p121-02-57-lombok使用方法](https://assets-1302294329.cos.ap-shanghai.myqcloud.com/2025/md/202505150238172.png)
-
