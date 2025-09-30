@@ -1,4 +1,4 @@
-package edu.note.java.classloader;
+package edu.note.java.loader;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;

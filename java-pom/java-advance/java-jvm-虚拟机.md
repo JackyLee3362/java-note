@@ -7,9 +7,15 @@ tags:
 description:
 ---
 
+## 语法
+
+- [static{}静态代码块与{}普通代码块之间的区别 - Rooker - 博客园](https://www.cnblogs.com/lukelook/p/11183155.html)
+
 ## 类加载
 
 - [一看你就懂，超详细java中的ClassLoader详解-CSDN博客](https://blog.csdn.net/briblue/article/details/54973413)
+- [自定义一个类加载器 - 五月的仓颉 - 博客园](https://www.cnblogs.com/xrq730/p/4847337.html)
+
 
 ## GC
 

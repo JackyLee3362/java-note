@@ -1,4 +1,4 @@
-package edu.note.java.classLoader;
+package edu.note.java.loader;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;

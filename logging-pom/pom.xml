@@ -18,6 +18,7 @@
   <modules>
     <module>slf4j-logback</module>
     <module>slf4j-nop</module>
+    <module>slf4j-log4j2</module>
   </modules>
 
 </project>
