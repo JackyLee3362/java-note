@@ -1,3 +1,13 @@
+---
+type: basic-note
+title: 2023-05-21-day-05-Mybatis
+author: JackyLee
+create_date: 2023-05-21
+update_date:
+tags:
+description:
+---
+
 ## Mybatis 练习
 
 **目标**
@@ -1341,3 +1351,5 @@ Mybatis 针对 CURD 操作都提供了对应的注解，已经做到见名知意
 <img src="https://assets-1302294329.cos.ap-shanghai.myqcloud.com/2025/md/202505150240502.png" alt="image-20210805234842497" style="zoom:70%;" />
 
 上述代码将 java 代码和 SQL 语句融到了一块，使得代码的可读性大幅度降低。
+
+## 参考资料

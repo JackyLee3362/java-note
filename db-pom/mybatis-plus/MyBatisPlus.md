@@ -1,6 +1,14 @@
-## MyBatisPlus
+---
+type: basic-note
+title: 2023-05-20-黑马-MyBatisPlus
+author: JackyLee
+create_date: 2025-09-30
+update_date:
+tags:
+description:
+---
 
-**今日目标**
+## MyBatisPlus
 
 > 基于MyBatisPlus完成标准Dao的增删改查功能
 >
@@ -12,7 +20,8 @@
 
 ## 1，MyBatisPlus入门案例与简介
 
-这一节我们来学习下MyBatisPlus的入门案例与简介，这个和其他课程都不太一样，其他的课程都是先介绍概念，然后再写入门案例。而对于MyBatisPlus的学习，我们将顺序做了调整，主要的原因MyBatisPlus主要是对MyBatis的简化，所有我们先体会下它简化在哪，然后再学习它是什么，以及它帮我们都做哪些事。
+这一节我们来学习下MyBatisPlus的入门案例与简介，这个和其他课程都不太一样，其他的课程都是先介绍概念，然后再写入门案例。
+而对于MyBatisPlus的学习，我们将顺序做了调整，主要的原因MyBatisPlus主要是对MyBatis的简化，所有我们先体会下它简化在哪，然后再学习它是什么，以及它帮我们都做哪些事。
 
 ### 1.1 入门案例
 
@@ -957,11 +966,11 @@ class Mybatisplus02DqlApplicationTests {
 >
 > 用户在输入值的时候，
 >
-> ​	如果只输入第一个框，说明要查询大于该年龄的用户
+>  	如果只输入第一个框，说明要查询大于该年龄的用户
 >
-> ​	如果只输入第二个框，说明要查询小于该年龄的用户
+>  	如果只输入第二个框，说明要查询小于该年龄的用户
 >
-> ​    如果两个框都输入了，说明要查询年龄在两个范围之间的用户
+>      如果两个框都输入了，说明要查询年龄在两个范围之间的用户
 
 思考第一个问题：后台如果想接收前端的两个数据，该如何接收?
 
@@ -2701,3 +2710,5 @@ class Mybatisplus04GeneratorApplicationTests {
 
 查看官方文档:`https://mp.baomidou.com/guide/crud-interface.html`,这些提供的方法大家可以参考官方文档进行学习使用，方法的名称可能有些变化，但是方法对应的参数和返回值基本类似。
 
+
+## 参考资料

@@ -1,3 +1,17 @@
+---
+type: basic-note
+title: 2023-05-23-Mybatis框架
+author: JackyLee
+create_date: 2023-05-23
+update_date:
+tags:
+description:
+---
+
+
+
+## 参考资料
+
 # Mybatis
 
 application.yml配置

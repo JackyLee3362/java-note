@@ -1,4 +1,12 @@
-# JavaWeb学习笔记
+---
+type: basic-note
+title: java-web
+author: JackyLee
+create_date: 2023-05-21
+update_date:
+tags:
+description: 黑马程序员-JavaWeb学习笔记
+---
 
 黑马程序员2023新版JavaWeb开发教程，实现javaweb企业开发全流程（涵盖Spring+MyBatis+SpringMVC+SpringBoot等）[视频地址](https://www.bilibili.com/video/BV1m84y1w7Tb)
 

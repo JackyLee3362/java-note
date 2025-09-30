@@ -1,4 +1,12 @@
-# SSM
+---
+type: basic-note
+title: ssm
+author: JackyLee
+create_date: 2025-09-30
+update_date:
+tags:
+description: 黑马程序员
+---
 
 [课程](https://www.bilibili.com/video/BV1Fi4y1S7ix)
 

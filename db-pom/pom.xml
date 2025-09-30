@@ -17,6 +17,8 @@
 
   <modules>
     <module>mybatis</module>
+    <module>jdbc-h2</module>
+    <module>mybatis-plus</module>
   </modules>
 
 </project>

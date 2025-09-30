@@ -26,7 +26,7 @@
 
 <img src="https://assets-1302294329.cos.ap-shanghai.myqcloud.com/2025/md/202505151018553.png" alt="image-20210911133219847" style="zoom:50%;" />
 
-​	做到这只是将工程的架子搭起来。要想被外界访问，最起码还需要提供一个 `Controller` 类，在该类中提供一个方法。
+ 	做到这只是将工程的架子搭起来。要想被外界访问，最起码还需要提供一个 `Controller` 类，在该类中提供一个方法。
 
 4. **编写 `Controller` 类**
 

@@ -1,3 +1,16 @@
+---
+type: basic-note
+title: 2023-05-15-day3-JDBC
+author: JackyLee
+create_date: 2025-09-30
+update_date:
+tags:
+description:
+---
+
+
+
+
 ## JDBC
 
 **今日目标**
@@ -1315,3 +1328,5 @@ void testDeleteById() throws Exception {
 }
 ```
 
+
+## 参考资料
