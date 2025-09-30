@@ -1,4 +1,4 @@
-package edu.note.java.re;
+package edu.note.java.regex;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;

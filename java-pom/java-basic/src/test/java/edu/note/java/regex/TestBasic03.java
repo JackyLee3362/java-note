@@ -1,4 +1,4 @@
-package edu.note.java.re;
+package edu.note.java.regex;
 
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
