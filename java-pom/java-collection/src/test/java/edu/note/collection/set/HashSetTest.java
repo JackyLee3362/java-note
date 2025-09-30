@@ -10,7 +10,7 @@ import java.util.Iterator;
 import java.util.Set;
 import java.util.TreeSet;
 
-public class SetTest {
+public class HashSetTest {
 
     @Test
     @DisplayName("集合基本")

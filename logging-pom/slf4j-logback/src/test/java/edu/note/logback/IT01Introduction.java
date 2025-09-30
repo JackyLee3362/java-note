@@ -14,8 +14,8 @@ public class IT01Introduction {
 
     @Test
     void testBasic() {
-        String firstName = "jacky";
-        String lastName = "lee";
+        String firstName = "Foo";
+        String lastName = "Bar";
         log.info("hello, {} {}.", firstName, lastName);
     }
 

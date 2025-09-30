@@ -7,6 +7,10 @@ tags:
 description:
 ---
 
+## 多线程
+
+![线程的生命周期](https://assets-1302294329.cos.ap-shanghai.myqcloud.com/2025/md/202507271629003.png)
+
 ## 语法
 
 - [static{}静态代码块与{}普通代码块之间的区别 - Rooker - 博客园](https://www.cnblogs.com/lukelook/p/11183155.html)
