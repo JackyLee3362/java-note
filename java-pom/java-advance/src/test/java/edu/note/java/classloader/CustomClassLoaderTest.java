@@ -10,10 +10,10 @@ import org.junit.jupiter.api.Test;
  * @date 2024/11/28 下午11:10
  */
 @Slf4j
-public class IT02_CustomClassLoader {
+public class CustomClassLoaderTest {
 
 
-    ClassLoader classLoader = IT02_CustomClassLoader.class.getClassLoader();
+    ClassLoader classLoader = CustomClassLoaderTest.class.getClassLoader();
     String url = Objects.requireNonNull(classLoader.getResource(".")).getPath();
     CustomClassLoader customClassLoader = new CustomClassLoader(url);
 

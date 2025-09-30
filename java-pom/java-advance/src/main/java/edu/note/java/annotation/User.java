@@ -1,13 +1,17 @@
 package edu.note.java.annotation;
 
-public class TestMyAnnoV2 {
+//@SuppressWarnings("all") // 压制警告
+public class User {
 
-    @MyAnnoV2
+    @MyAnno(name = "all", age = 12, value = { "123", "456" })
+    public String username;
+
+    @MyLogAnno
     public void method1() {
         System.out.println("method1");
     }
 
-    @MyAnnoV2
+    @MyLogAnno
     public void method2() {
         System.out.println("method2");
     }

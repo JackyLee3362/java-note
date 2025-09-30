@@ -8,7 +8,7 @@ import org.junit.jupiter.api.Test;
  * @author jackylee
  * @date 2025/7/15 14:43
  */
-public class TestPostConstruct {
+public class PostConstructTest {
 
     @Test
     void testPostConstruct() {

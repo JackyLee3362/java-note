@@ -11,22 +11,22 @@ import org.junit.jupiter.api.Test;
  * 2. 再调用代理的唱歌方法
  * 代理对象.唱歌的方法("只因你太美");
  */
-public class TestProxy {
+public class ProxyTest {
 
     @Test
     @DisplayName("测试代理")
     void test() {
 
         // 1. 获取代理的对象
-        StarImpl bigStar = new StarImpl("鸡哥");
-        Star proxy = StarProxy.createProxy(bigStar);
+        UserImpl bigStar = new UserImpl("Alice");
+        User proxy = UserProxy.createProxy(bigStar);
 
-        // 2. 调用唱歌的方法
-        String result = proxy.sing("只因你太美");
+        // 2. 调用 register 的方法
+        String result = proxy.register("User0001");
         System.out.println(result);
 
-        // 3. 调用跳舞的方法
-        proxy.dance();
+        // 3. 调用 browse 的方法
+        proxy.browse();
 
     }
 }
