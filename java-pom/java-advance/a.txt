@@ -1,4 +1,0 @@
-name=小A
-age=23
-height=167.5
-gender=男
