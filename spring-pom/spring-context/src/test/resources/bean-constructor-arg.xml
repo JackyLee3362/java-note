@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="helloDao" class="edu.note.spring.HelloDaoImpl" />
+    <bean id="helloService" class="edu.note.spring.HelloServiceImpl">
+        <!-- name 必须与构造器参数名中保持一致 -->
+        <constructor-arg name="helloDao" ref="helloDao" />
+        <!-- 简单参数 -->
+        <constructor-arg name="prefix" value="Hello, " />
+        <!-- 使用类型，不常用，了解即可 -->
+        <!-- <constructor-arg type="java.lang.String" value="Hello, " /> -->
+        <!-- 使用 index -->
+        <!-- <constructor-arg index="0" value="Hello, " /> -->
+    </bean>
+
+</beans>

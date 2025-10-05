@@ -11,6 +11,7 @@
   <modules>
     <module>spring</module>
     <module>spring-aop</module>
+    <module>spring-context</module>
     <module>spring-bean</module>
     <module>spring-jwt-test</module>
     <module>spring-mq</module>

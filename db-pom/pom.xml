@@ -19,6 +19,8 @@
     <module>mybatis</module>
     <module>jdbc-h2</module>
     <module>mybatis-plus</module>
+    <module>druid</module>
+    <module>c3p0</module>
   </modules>
 
 </project>
