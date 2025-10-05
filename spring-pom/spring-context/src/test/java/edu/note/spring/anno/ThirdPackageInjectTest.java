@@ -8,8 +8,10 @@ import org.junit.jupiter.api.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
+import edu.note.spring.config.SpringConfigImport;
 import edu.note.spring.config.SpringConfigThirdPackage;
 import edu.note.spring.config.SpringConfigThirdPkgWithValue;
+import edu.note.spring.config.SpringConfigThirdPkgWithRef;
 
 /**
  * @author jackylee
@@ -18,17 +20,36 @@ import edu.note.spring.config.SpringConfigThirdPkgWithValue;
 public class ThirdPackageInjectTest {
     @Test
     @DisplayName("测试第三方包")
-    // 主要有三种方法
-    // 1. ComponentScan("第三方包")
+    void testThirdPackage() {
+        ApplicationContext ctx = new AnnotationConfigApplicationContext(SpringConfigThirdPackage.class);
+        DataSource ds = ctx.getBean(DataSource.class);
+        Assertions.assertNotNull(ds);
+    }
+
+    @Test
+    @DisplayName("测试第三方包导入 - 注入简单类型")
     void testThirdPackageWithValue() {
-        // 不适用 value
-        ApplicationContext context1 = new AnnotationConfigApplicationContext(SpringConfigThirdPackage.class);
-        DataSource ds1 = context1.getBean(DataSource.class);
-        Assertions.assertNotNull(ds1);
-        // 存在 value
-        ApplicationContext context2 = new AnnotationConfigApplicationContext(SpringConfigThirdPkgWithValue.class);
-        DataSource ds2 = context2.getBean(DataSource.class);
+        // 使用配置文件
+        ApplicationContext ctx = new AnnotationConfigApplicationContext(SpringConfigThirdPkgWithValue.class);
+        DataSource ds = ctx.getBean(DataSource.class);
+        Assertions.assertNotNull(ds);
+    }
+
+    @Test
+    @DisplayName("测试第三方包导入 - 注入引用类型")
+    void testThirdPackageWithRef() {
+        ApplicationContext ctx = new AnnotationConfigApplicationContext(SpringConfigThirdPkgWithRef.class);
+        DataSource ds2 = ctx.getBean(DataSource.class);
         Assertions.assertNotNull(ds2);
+
+    }
+
+    @Test
+    @DisplayName("测试第三方包 - Import")
+    void testImport() {
+        ApplicationContext ctx = new AnnotationConfigApplicationContext(SpringConfigImport.class);
+        DataSource ds1 = ctx.getBean(DataSource.class);
+        Assertions.assertNotNull(ds1);
     }
 
 }

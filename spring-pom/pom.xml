@@ -21,6 +21,8 @@
     <module>spring-web</module>
     <module>spring-starter</module>
     <module>spring-context</module>
+    <module>spring-aop</module>
+    <module>spring-transaction</module>
   </modules>
 
   <properties>

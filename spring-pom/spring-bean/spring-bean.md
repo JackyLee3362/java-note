@@ -1,11 +1,215 @@
-## Spring_day02
+---
+type: basic-note
+title: Spring-day01
+author: JackyLee
+create_date: 2023-05-20
+update_date:
+tags:
+description: 2023-05-20 黑马程序员
+---
 
-**今日目标**
+## 1 主要内容
 
-> - 掌握 IOC/DI 配置管理第三方 bean
-> - 掌握 IOC/DI 的注解开发
-> - 掌握 IOC/DI 注解管理第三方 bean
-> - 完成 Spring 与 Mybatis 及 Junit 的整合开发
+特性： IOC AOP(处理事务)
+
+框架整合:
+
+- MyBatis
+- MyBatis-plus
+- Struts
+- Struts2
+- Hibernate
+- ……
+
+## 2 Spring 相关概念
+
+#### 2.1.1 Spring 家族
+
+- [Spring | Home](https://spring.io/)
+
+  - web 开发、微服务、分布式系统
+  - Spring 全家桶: 查看官网 project 查看所有技术
+
+    - 关注 `Spring Framework`、`SpringBoot`和`SpringCloud`:
+    - Spring Framework:Spring 框架，是 Spring 中最早最核心的技术，也是所有其他技术的基础。
+    - SpringBoot:Spring 是来简化开发，而 SpringBoot 是来帮助 Spring 在简化的基础上能更快速进行开发。
+    - SpringCloud:这个是用来做分布式之微服务架构的相关开发。
+
+    - 其他的比如也比较流行，如 SpringData,SpringSecurity 等
+
+#### 2.1.2 了解 Spring 发展史
+
+接下来我们介绍下 Spring Framework 这个技术是如何来的呢?
+
+![image-20210729171926576](https://assets-1302294329.cos.ap-shanghai.myqcloud.com/2025/md/202505151020916.png)
+
+Spring 发展史
+
+- IBM(IT 公司-国际商业机器公司)在 1997 年提出了 EJB 思想,早期的 JAVAEE 开发大都基于该思想。
+- Rod Johnson(Java 和 J2EE 开发领域的专家)在 2002 年出版的`Expert One-on-One J2EE Design and Development`,书中有阐述在开发中使用 EJB 该如何做。
+- Rod Johnson 在 2004 年出版的`Expert One-on-One J2EE Development without EJB`,书中提出了比 EJB 思想更高效的实现方案，并且在同年将方案进行了具体的落地实现，这个实现就是 Spring1.0。
+- 随着时间推移，版本不断更新维护，目前最新的是 Spring5
+  - Spring1.0 是纯配置文件开发
+  - Spring2.0 为了简化开发引入了注解开发，此时是配置文件加注解的开发方式
+  - Spring3.0 已经可以进行纯注解开发，使开发效率大幅提升，我们的课程会以注解开发为主
+  - Spring4.0 根据 JDK 的版本升级对个别 API 进行了调整
+  - Spring5.0 已经全面支持 JDK8，现在 Spring 最新的是 5 系列所以建议大家把 JDK 安装成 1.8 版
+
+### 2.2 Spring 系统架构
+
+前面我们说 spring 指的是 Spring Framework,那么它其中都包含哪些内容以及我们该如何学习这个框架?
+
+针对这些问题，我们将从`系统架构图`和`课程学习路线`来进行说明:
+
+#### 2.2.1 系统架构图
+
+![image-20210729172153796](https://assets-1302294329.cos.ap-shanghai.myqcloud.com/2025/md/202505151020917.png)
+
+Spring Framework 的 5 版本目前没有最新的架构图，而最新的是 4 版本，所以接下来主要研究的是 4 的架构图
+
+![1629720945720](https://assets-1302294329.cos.ap-shanghai.myqcloud.com/2025/md/202505151020918.png)
+
+1. 核心层
+   - Core Container:核心容器，这个模块是 Spring 最核心的模块，其他的都需要依赖该模块
+2. AOP 层
+   - AOP:面向切面编程，它依赖核心层容器，目的是==在不改变原有代码的前提下对其进行功能增强==
+   - Aspects:AOP 是思想,Aspects 是对 AOP 思想的具体实现
+3. 数据层
+   - Data Access:数据访问，Spring 全家桶中有对数据访问的具体实现技术
+   - Data Integration:数据集成，Spring 支持整合其他的数据层解决方案，比如 Mybatis
+   - Transactions:事务，Spring 中事务管理是 Spring AOP 的一个具体实现，也是后期学习的重点内容
+4. Web 层
+   - 这一层的内容将在 SpringMVC 框架具体学习
+5. Test 层
+   - Spring 主要整合了 Junit 来完成单元测试和集成测试
+
+#### 2.2.2 学习路线
+
+介绍完 Spring 的体系结构后，从中我们可以得出对于 Spring 的学习主要包含四部分内容，分别是:
+
+- IOC / DI
+- AOP
+- AOP 的具体应用,事务管理
+- IOC/DI 的具体应用,整合 Mybatis
+
+## 2.3 Spring 核心概念
+
+### 2.3.2 IOC、IOC 容器、Bean、DI
+
+1. ==IOC（Inversion of Control）控制反转==
+
+(1)什么是控制反转呢？
+
+- 使用对象时，由主动 new 产生对象转换为由==外部==提供对象，此过程中对象创建控制权由程序转移到外部，此思想称为控制反转。
+  - 业务层要用数据层的类对象，以前是自己`new`的
+  - 现在自己不 new 了，交给`别人[外部]`来创建对象
+  - `别人[外部]`就反转控制了数据层对象的创建权
+  - 这种思想就是控制反转
+  - 别人[外部]指定是什么呢?继续往下学
+
+(2)Spring 和 IOC 之间的关系是什么呢?
+
+- Spring 技术对 IOC 思想进行了实现
+- Spring 提供了一个容器，称为==IOC 容器==，用来充当 IOC 思想中的"外部"
+- IOC 思想中的`别人[外部]`指的就是 Spring 的 IOC 容器
+
+(3)IOC 容器的作用以及内部存放的是什么?
+
+- IOC 容器负责对象的创建、初始化等一系列工作，其中包含了数据层和业务层的类对象
+- 被创建或被管理的对象在 IOC 容器中统称为==Bean==
+- IOC 容器中放的就是一个个的 Bean 对象
+
+(4)当 IOC 容器中创建好 service 和 dao 对象后，程序能正确执行么?
+
+- 不行，因为 service 运行需要依赖 dao 对象
+- IOC 容器中虽然有 service 和 dao 对象
+- 但是 service 对象和 dao 对象没有任何关系
+- 需要把 dao 对象交给 service,也就是说要绑定 service 和 dao 对象之间的关系
+
+像这种在容器中建立对象与对象之间的绑定关系就要用到 DI:
+
+2. ==DI（Dependency Injection）依赖注入==
+
+![1629735078619](https://assets-1302294329.cos.ap-shanghai.myqcloud.com/2025/md/202505151020922.png)
+
+(1)什么是依赖注入呢?
+
+- 在容器中建立 bean 与 bean 之间的依赖关系的整个过程，称为依赖注入
+  - 业务层要用数据层的类对象，以前是自己`new`的
+  - 现在自己不 new 了，靠`别人[外部其实指的就是IOC容器]`来给注入进来
+  - 这种思想就是依赖注入
+
+(2)IOC 容器中哪些 bean 之间要建立依赖关系呢?
+
+- 这个需要程序员根据业务需求提前建立好关系，如业务层需要依赖数据层，service 就要和 dao 建立依赖关系
+
+介绍完 Spring 的 IOC 和 DI 的概念后，我们会发现这两个概念的最终目标就是:==充分解耦==，具体实现靠:
+
+- 使用 IOC 容器管理 bean（IOC)
+- 在 IOC 容器内将有依赖关系的 bean 进行关系绑定（DI）
+- 最终结果为:使用对象时不仅可以直接从 IOC 容器中获取，并且获取到的 bean 已经绑定了所有的依赖关系.
+
+#### 2.3.3 核心概念小结
+
+这节比较重要，重点要理解`什么是IOC/DI思想`、`什么是IOC容器`和`什么是Bean`：
+
+(1)什么 IOC/DI 思想?
+
+- IOC:控制反转，控制反转的是对象的创建权
+- DI:依赖注入，绑定对象与对象之间的依赖关系
+
+(2)什么是 IOC 容器?
+
+Spring 创建了一个容器用来存放所创建的对象，这个容器就叫 IOC 容器
+
+(3)什么是 Bean?
+
+容器中所存放的一个个对象就叫 Bean 或 Bean 对象
+
+## 5 DI 相关内容
+
+前面我们已经完成了 bean 相关操作的讲解，接下来就进入第二个大的模块`DI依赖注入`，首先来介绍下 Spring 中有哪些注入方式?
+
+我们先来思考
+
+- 向一个类中传递数据的方式有几种?
+  - 普通方法(set 方法)
+  - 构造方法
+- 依赖注入描述了在容器中建立 bean 与 bean 之间的依赖关系的过程，如果 bean 运行需要的是数字或字符串呢?
+  - 引用类型
+  - 简单类型(基本数据类型与 String)
+
+Spring 就是基于上面这些知识点，为我们提供了两种注入方式，分别是:
+
+- setter 注入
+  - 简单类型
+  - ==引用类型==
+- 构造器注入
+  - 简单类型
+  - 引用类型
+
+#### 5.1.3 注入简单数据类型
+
+### 5.2 构造器注入
+
+介绍完setter注入和构造器参数两种注入方式，具体我们该如何选择呢?
+
+1. 强制依赖使用构造器进行，使用 setter 注入有概率不进行注入导致 null 对象出现
+   - 强制依赖指对象在创建的过程中必须要注入指定的参数
+2. 可选依赖使用 setter 注入进行，灵活性强
+   - 可选依赖指对象在创建过程中注入的参数可有可无
+3. Spring 框架倡导使用构造器，第三方框架内部大多数采用构造器注入的形式进行数据初始化，相对严谨
+4. 如果有必要可以两者同时使用，使用构造器注入完成强制依赖的注入，使用 setter 注入完成可选依赖的注入
+5. 实际开发过程中还要根据实际情况分析，如果受控对象没有提供 setter 方法就必须使用构造器注入
+6. **==自己开发的模块推荐使用 setter 注入==**
+
+<!-- day02 内容 -->
+
+目标
+- 掌握 IOC/DI 配置管理第三方 bean
+- 掌握 IOC/DI 的注解开发
+- 掌握 IOC/DI 注解管理第三方 bean
+- 完成 Spring 与 Mybatis 及 Junit 的整合开发
 
 ## 1，IOC/DI 配置管理第三方 bean
 
@@ -341,207 +545,3 @@ public class BookServiceImpl implements BookService {
 
 ==注意:@Qualifier 不能独立使用，必须和@Autowired 一起使用==
 
-#### 3.4.4 简单数据类型注入
-
-引用类型看完，简单类型注入就比较容易懂了。
-简单类型注入的是基本数据类型或者字符串类型，下面在`BookDaoImpl`类中添加一个`name`属性，用其进行简单类型注入
-
-```java
-@Repository("bookDao")
-public class BookDaoImpl implements BookDao {
-    private String name;
-    public void save() {
-        System.out.println("book dao save ..." + name);
-    }
-}
-```
-
-介绍完后，会有一种感觉就是这个注解好像没什么用，跟直接赋值是一个效果，还没有直接赋值简单，所以这个注解存在的意义是什么?
-
-### 4.2 注解开发管理第三方 bean
-
-### 4.3 引入外部配置类
-
-#### 4.3.1 使用包扫描引入
-
-##### 步骤 1:在 Spring 的配置类上添加包扫描
-
-##### 步骤 2:在 JdbcConfig 上添加配置注解
-
-#### 4.3.2 使用`@Import`引入
-
-这种方案可以不用加`@Configuration`注解，但是必须在 Spring 配置类上使用`@Import`注解手动引入需要加载的配置类
-
-##### 步骤 1:去除 JdbcConfig 类上的注解
-
-```java
-public class JdbcConfig {
-	@Bean
-    public DataSource dataSource(){
-        DruidDataSource ds = new DruidDataSource();
-        ds.setDriverClassName("com.mysql.jdbc.Driver");
-        ds.setUrl("jdbc:mysql://localhost:3306/spring_db");
-        ds.setUsername("root");
-        ds.setPassword("root");
-        return ds;
-    }
-}
-```
-
-##### 步骤 2:在 Spring 配置类中引入
-
-```java
-@Configuration
-//@ComponentScan("com.itheima.config")
-@Import({JdbcConfig.class})
-public class SpringConfig {
-
-}
-```
-
-**注意:**
-
-- 扫描注解可以移除
-
-- @Import 参数需要的是一个数组，可以引入多个配置类。
-
-- @Import 注解在配置类中只能写一次，下面的方式是==不允许的==
-
-  ```java
-  @Configuration
-  //@ComponentScan("com.itheima.config")
-  @Import(JdbcConfig.class)
-  @Import(Xxx.class)
-  public class SpringConfig {
-
-  }
-  ```
-
-##### 步骤 3:运行程序
-
-依然能获取到 bean 对象并打印控制台
-
-### 知识点 1：@Bean
-
-| 名称 | @Bean                                     |
-| ---- | ----------------------------------------- |
-| 类型 | 方法注解                                  |
-| 位置 | 方法定义上方                              |
-| 作用 | 设置该方法的返回值作为 spring 管理的 bean |
-| 属性 | value（默认）：定义 bean 的 id            |
-
-### 知识点 2：@Import
-
-| 名称 | @Import                                                                                    |
-| ---- | ------------------------------------------------------------------------------------------ |
-| 类型 | 类注解                                                                                     |
-| 位置 | 类定义上方                                                                                 |
-| 作用 | 导入配置类                                                                                 |
-| 属性 | value（默认）：定义导入的配置类类名，<br/>当配置类有多个时使用数组格式一次性导入多个配置类 |
-
-##### 4.4.1.1 需求分析
-
-对于下面代码关于数据库的四要素不应该写死在代码中，应该是从 properties 配置文件中读取。如何来优化下面的代码?
-
-```java
-public class JdbcConfig {
-	@Bean
-    public DataSource dataSource(){
-        DruidDataSource ds = new DruidDataSource();
-        ds.setDriverClassName("com.mysql.jdbc.Driver");
-        ds.setUrl("jdbc:mysql://localhost:3306/spring_db");
-        ds.setUsername("root");
-        ds.setPassword("root");
-        return ds;
-    }
-}
-```
-
-##### 4.4.1.2 注入简单数据类型步骤
-
-###### 步骤 1:类中提供四个属性
-
-```java
-public class JdbcConfig {
-    private String driver;
-    private String url;
-    private String userName;
-    private String password;
-	@Bean
-    public DataSource dataSource(){
-        DruidDataSource ds = new DruidDataSource();
-        ds.setDriverClassName("com.mysql.jdbc.Driver");
-        ds.setUrl("jdbc:mysql://localhost:3306/spring_db");
-        ds.setUsername("root");
-        ds.setPassword("root");
-        return ds;
-    }
-}
-```
-
-###### 扩展
-
-现在的数据库连接四要素还是写在代码中，需要做的是将这些内容提
-
-取到 jdbc.properties 配置文件，大家思考下该如何实现?
-
-> 1.resources 目录下添加 jdbc.properties
->
-> 2.配置文件中提供四个键值对分别是数据库的四要素
->
-> 3.使用@PropertySource 加载 jdbc.properties 配置文件
->
-> 4.修改@Value 注解属性的值，将其修改为`${key}`，key 就是键值对中的键的值
-
-具体的实现就交由大家自行实现下。
-
-#### 4.4.2 引用数据类型
-
-##### 4.4.2.1 需求分析
-
-假设在构建 DataSource 对象的时候，需要用到 BookDao 对象，该如何把 BookDao 对象注入进方法内让其使用呢?
-
-```java
-public class JdbcConfig {
-	@Bean
-    public DataSource dataSource(){
-        DruidDataSource ds = new DruidDataSource();
-        ds.setDriverClassName("com.mysql.jdbc.Driver");
-        ds.setUrl("jdbc:mysql://localhost:3306/spring_db");
-        ds.setUsername("root");
-        ds.setPassword("root");
-        return ds;
-    }
-}
-```
-
-##### 4.4.2.2 注入引用数据类型步骤
-
-###### 步骤 1:在 SpringConfig 中扫描 BookDao
-
-扫描的目的是让 Spring 能管理到 BookDao,也就是说要让 IOC 容器中有一个 bookDao 对象
-
-```java
-@Configuration
-@ComponentScan("com.itheima.dao")
-@Import({JdbcConfig.class})
-public class SpringConfig {
-}
-```
-
-###### 步骤 2:在 JdbcConfig 类的方法上添加参数
-
-```java
-@Bean
-public DataSource dataSource(BookDao bookDao){
-    System.out.println(bookDao);
-    DruidDataSource ds = new DruidDataSource();
-    ds.setDriverClassName(driver);
-    ds.setUrl(url);
-    ds.setUsername(userName);
-    ds.setPassword(password);
-    return ds;
-}
-```
-
-==引用类型注入只需要为 bean 定义方法设置形参即可，容器会根据类型自动装配对象。==
