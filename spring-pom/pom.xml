@@ -11,8 +11,9 @@
   <modules>
     <module>spring</module>
     <module>spring-aop</module>
-    <module>spring-context</module>
-    <module>spring-bean</module>
+    <module>spring-context-xml</module>
+    <module>spring-context-anno</module>
+    <module>spring-bean-xml</module>
     <module>spring-jwt-test</module>
     <module>spring-mq</module>
     <module>spring-redis</module>
@@ -23,6 +24,7 @@
     <module>spring-context</module>
     <module>spring-aop</module>
     <module>spring-transaction</module>
+    <module>spring-boot</module>
   </modules>
 
   <properties>
