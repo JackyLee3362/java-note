@@ -145,24 +145,22 @@ Spring Framework 的 5 版本目前没有最新的架构图，而最新的是 4 
 
 介绍完 Spring 的 IOC 和 DI 的概念后，我们会发现这两个概念的最终目标就是:==充分解耦==，具体实现靠:
 
-- 使用 IOC 容器管理 bean（IOC)
-- 在 IOC 容器内将有依赖关系的 bean 进行关系绑定（DI）
+- 使用 IOC 容器管理 bean (IOC)
+- 在 IOC 容器内将有依赖关系的 bean 进行关系绑定 (DI)
 - 最终结果为:使用对象时不仅可以直接从 IOC 容器中获取，并且获取到的 bean 已经绑定了所有的依赖关系.
 
 #### 2.3.3 核心概念小结
 
-这节比较重要，重点要理解`什么是IOC/DI思想`、`什么是IOC容器`和`什么是Bean`：
-
-(1)什么 IOC/DI 思想?
+1. 什么是 IOC/DI 思想?
 
 - IOC:控制反转，控制反转的是对象的创建权
 - DI:依赖注入，绑定对象与对象之间的依赖关系
 
-(2)什么是 IOC 容器?
+2. 什么是 IOC 容器?
 
 Spring 创建了一个容器用来存放所创建的对象，这个容器就叫 IOC 容器
 
-(3)什么是 Bean?
+3. 什么是 Bean?
 
 容器中所存放的一个个对象就叫 Bean 或 Bean 对象
 
@@ -192,7 +190,7 @@ Spring 就是基于上面这些知识点，为我们提供了两种注入方式�
 
 ### 5.2 构造器注入
 
-介绍完setter注入和构造器参数两种注入方式，具体我们该如何选择呢?
+介绍完 setter 注入和构造器参数两种注入方式，具体我们该如何选择呢?
 
 1. 强制依赖使用构造器进行，使用 setter 注入有概率不进行注入导致 null 对象出现
    - 强制依赖指对象在创建的过程中必须要注入指定的参数
@@ -203,244 +201,33 @@ Spring 就是基于上面这些知识点，为我们提供了两种注入方式�
 5. 实际开发过程中还要根据实际情况分析，如果受控对象没有提供 setter 方法就必须使用构造器注入
 6. **==自己开发的模块推荐使用 setter 注入==**
 
-<!-- day02 内容 -->
-
-目标
-- 掌握 IOC/DI 配置管理第三方 bean
-- 掌握 IOC/DI 的注解开发
-- 掌握 IOC/DI 注解管理第三方 bean
-- 完成 Spring 与 Mybatis 及 Junit 的整合开发
-
-## 1，IOC/DI 配置管理第三方 bean
-
-前面所讲的知识点都是基于我们自己写的类，现在如果有需求让我们去管理第三方 jar 包中的类，该如何管理?
-
-### 1.1 案例:数据源对象管理
-
-在这一节中，我们将通过一个案例来学习下对于第三方 bean 该如何进行配置管理。
-
-以后我们会用到很多第三方的 bean,本次案例将使用咱们前面提到过的数据源`Druid(德鲁伊)`和`C3P0`来配置学习下。
-
-#### 1.1.3 实现 Druid 管理
-
-带着这两个问题，把下面的案例实现下:
-
-##### 步骤 1:导入`druid`的依赖
-
-pom.xml 中添加依赖
-
-```xml
-<dependency>
-    <groupId>com.alibaba</groupId>
-    <artifactId>druid</artifactId>
-    <version>1.1.16</version>
-</dependency>
-```
-
-##### 步骤 2:配置第三方 bean
-
-在 applicationContext.xml 配置文件中添加`DruidDataSource`的配置
-
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
        xsi:schemaLocation="
             http://www.springframework.org/schema/beans
-            http://www.springframework.org/schema/beans/spring-beans.xsd">
-	<!--管理DruidDataSource对象-->
-    <bean class="com.alibaba.druid.pool.DruidDataSource">
-        <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
-        <property name="url" value="jdbc:mysql://localhost:3306/spring_db"/>
-        <property name="username" value="root"/>
-        <property name="password" value="root"/>
-    </bean>
+            http://www.springframework.org/schema/beans/spring-beans.xsd
+            http://www.springframework.org/schema/context
+            http://www.springframework.org/schema/context/spring-context.xsd">
+    <!--方式一 -->
+    <context:property-placeholder location="jdbc.properties,jdbc2.properties" system-properties-mode="NEVER"/>
+    <!--方式二-->
+    <context:property-placeholder location="*.properties" system-properties-mode="NEVER"/>
+    <!--方式三 -->
+    <context:property-placeholder location="classpath:*.properties" system-properties-mode="NEVER"/>
+    <!--方式四-->
+    <context:property-placeholder location="classpath*:*.properties" system-properties-mode="NEVER"/>
 </beans>
 ```
 
 **说明:**
 
-- driverClassName:数据库驱动
-- url:数据库连接地址
-- username:数据库连接用户名
-- password:数据库连接密码
-- 数据库连接的四要素要和自己使用的数据库信息一致。
-
-##### 步骤 3:从 IOC 容器中获取对应的 bean 对象
-
-```java
-public class App {
-    public static void main(String[] args) {
-       ApplicationContext ctx = new ClassPathXmlApplicationContext("applicationContext.xml");
-       DataSource dataSource = (DataSource) ctx.getBean("dataSource");
-       System.out.println(dataSource);
-    }
-}
-```
-
-##### 步骤 4:运行程序
-
-打印如下结果: 说明第三方 bean 对象已经被 spring 的 IOC 容器进行管理
-
-![1629887733081](https://assets-1302294329.cos.ap-shanghai.myqcloud.com/2025/md/202505151022160.png)
-
-做完案例后，我们可以将刚才思考的两个问题答案说下:
-
-- 第三方的类指的是什么?
-
-  ```
-  DruidDataSource
-  ```
-
-- 如何注入数据库连接四要素?
-
-  ```
-  setter注入
-  ```
-
-#### 1.1.4 实现 C3P0 管理
-
-完成了 DruidDataSource 的管理，接下来我们再来加深下练习，这次我们来管理`C3P0`数据源，具体的实现步骤是什么呢?
-
-> 需求:使用 Spring 的 IOC 容器来管理 C3P0 连接池对象
->
-> 实现方案和上面基本一致，重点要关注管理的是哪个 bean 对象`?
-
-##### 步骤 1:导入`C3P0`的依赖
-
-pom.xml 中添加依赖
-
-```xml
-<dependency>
-    <groupId>c3p0</groupId>
-    <artifactId>c3p0</artifactId>
-    <version>0.9.1.2</version>
-</dependency>
-```
-
-**对于新的技术，不知道具体的坐标该如何查找?**
-
-- 直接百度搜索
-
-- 从 mvn 的仓库`https://mvnrepository.com/`中进行搜索
-
-  ![1629888540286](https://assets-1302294329.cos.ap-shanghai.myqcloud.com/2025/md/202505151022161.png)
-
-##### 步骤 2:配置第三方 bean
-
-在 applicationContext.xml 配置文件中添加配置
-
-```xml
-<bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
-    <property name="driverClass" value="com.mysql.jdbc.Driver"/>
-    <property name="jdbcUrl" value="jdbc:mysql://localhost:3306/spring_db"/>
-    <property name="user" value="root"/>
-    <property name="password" value="root"/>
-    <property name="maxPoolSize" value="1000"/>
-</bean>
-```
-
-**==注意:==**
-
-- ComboPooledDataSource 的属性是通过 setter 方式进行注入
-- 想注入属性就需要在 ComboPooledDataSource 类或其上层类中有提供属性对应的 setter 方法
-- C3P0 的四个属性和 Druid 的四个属性是不一样的
-
-##### 步骤 3:运行程序
-
-程序会报错，错误如下
-
-![1629889170229](https://assets-1302294329.cos.ap-shanghai.myqcloud.com/2025/md/202505151022162.png)
-
-报的错为==ClassNotFoundException==,翻译出来是`类没有发现的异常`，具体的类为`com.mysql.jdbc.Driver`。错误的原因是缺少 mysql 的驱动包。
-
-分析出错误的原因，具体的解决方案就比较简单，只需要在 pom.xml 把驱动包引入即可。
-
-```xml
-<dependency>
-    <groupId>mysql</groupId>
-    <artifactId>mysql-connector-java</artifactId>
-    <version>5.1.47</version>
-</dependency>
-```
-
-添加完 mysql 的驱动包以后，再次运行 App,就可以打印出结果:
-
-![1629903845404](https://assets-1302294329.cos.ap-shanghai.myqcloud.com/2025/md/202505151022163.png)
-
-**注意：**
-
-- 数据连接池在配置属性的时候，除了可以注入数据库连接四要素外还可以配置很多其他的属性，具体都有哪些属性用到的时候再去查，一般配置基础的四个，其他都有自己的默认值
-- Druid 和 C3P0 在没有导入 mysql 驱动包的前提下，一个没报错一个报错，说明 Druid 在初始化的时候没有去加载驱动，而 C3P0 刚好相反
-- Druid 程序运行虽然没有报错，但是当调用 DruidDataSource 的 getConnection()方法获取连接的时候，也会报找不到驱动类的错误
-
-  ```xml
-  <?xml version="1.0" encoding="UTF-8"?>
-  <beans xmlns="http://www.springframework.org/schema/beans"
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xmlns:context="http://www.springframework.org/schema/context"
-         xsi:schemaLocation="
-              http://www.springframework.org/schema/beans
-              http://www.springframework.org/schema/beans/spring-beans.xsd
-              http://www.springframework.org/schema/context
-              http://www.springframework.org/schema/context/spring-context.xsd">
-
-      <context:property-placeholder location="jdbc.properties" system-properties-mode="NEVER"/>
-  </beans>
-  ```
-
-  system-properties-mode:设置为 NEVER,表示不加载系统属性，就可以解决上述问题。
-
-  当然还有一个解决方案就是避免使用`username`作为属性的`key`。
-
-- 问题二:当有多个 properties 配置文件需要被加载，该如何配置?
-
-  1.调整下配置文件的内容，在 resources 下添加`jdbc.properties`,`jdbc2.properties`,内容如下:
-
-  jdbc.properties
-
-  ```ini
-  jdbc.driver=com.mysql.jdbc.Driver
-  jdbc.url=jdbc:mysql://127.0.0.1:3306/spring_db
-  jdbc.username=root
-  jdbc.password=root
-  ```
-
-  jdbc2.properties
-
-  ```ini
-  username=root666
-  ```
-
-  2.修改 applicationContext.xml
-
-  ```xml
-  <?xml version="1.0" encoding="UTF-8"?>
-  <beans xmlns="http://www.springframework.org/schema/beans"
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xmlns:context="http://www.springframework.org/schema/context"
-         xsi:schemaLocation="
-              http://www.springframework.org/schema/beans
-              http://www.springframework.org/schema/beans/spring-beans.xsd
-              http://www.springframework.org/schema/context
-              http://www.springframework.org/schema/context/spring-context.xsd">
-      <!--方式一 -->
-      <context:property-placeholder location="jdbc.properties,jdbc2.properties" system-properties-mode="NEVER"/>
-      <!--方式二-->
-      <context:property-placeholder location="*.properties" system-properties-mode="NEVER"/>
-      <!--方式三 -->
-      <context:property-placeholder location="classpath:*.properties" system-properties-mode="NEVER"/>
-      <!--方式四-->
-      <context:property-placeholder location="classpath*:*.properties" system-properties-mode="NEVER"/>
-  </beans>
-  ```
-
-  **说明:**
-
-  - 方式一:可以实现，如果配置文件多的话，每个都需要配置
-  - 方式二:`*.properties`代表所有以 properties 结尾的文件都会被加载，可以解决方式一的问题，但是不标准
-  - 方式三:标准的写法，`classpath:`代表的是从根路径下开始查找，但是只能查询当前项目的根路径
-  - 方式四:不仅可以加载当前项目还可以加载当前项目所依赖的所有项目的根路径下的 properties 配置文件
+- 方式一:可以实现，如果配置文件多的话，每个都需要配置
+- 方式二:`*.properties`代表所有以 properties 结尾的文件都会被加载，可以解决方式一的问题，但是不标准
+- 方式三:标准的写法，`classpath:`代表的是从根路径下开始查找，但是只能查询当前项目的根路径
+- 方式四:不仅可以加载当前项目还可以加载当前项目所依赖的所有项目的根路径下的 properties 配置文件
 
 #### 1.2.3 加载 properties 文件小结
 
@@ -467,26 +254,6 @@ pom.xml 中添加依赖
 ### 3.4 注解开发依赖注入
 
 Spring 为了使用注解简化开发，并没有提供`构造函数注入`、`setter注入`对应的注解，只提供了自动装配的注解实现。
-
-**注意:**
-
-- @Autowired 可以写在属性上，也可也写在 setter 方法上，最简单的处理方式是`写在属性上并将setter方法删除掉`
-- 为什么 setter 方法可以删除呢?
-  - 自动装配基于反射设计创建对象并通过暴力反射为私有属性进行设值
-  - 普通反射只能获取 public 修饰的内容
-  - 暴力反射除了获取 public 修饰的内容还可以获取 private 修改的内容
-  - 所以此处无需提供 setter 方法
-
-(2)@Autowired 是按照类型注入，那么对应 BookDao 接口如果有多个实现类，比如添加 BookDaoImpl2
-
-```java
-@Repository
-public class BookDaoImpl2 implements BookDao {
-    public void save() {
-        System.out.println("book dao save ...2");
-    }
-}
-```
 
 这个时候再次运行 App，就会报错
 
@@ -544,4 +311,3 @@ public class BookServiceImpl implements BookService {
 @Qualifier 注解后的值就是需要注入的 bean 的名称。
 
 ==注意:@Qualifier 不能独立使用，必须和@Autowired 一起使用==
-

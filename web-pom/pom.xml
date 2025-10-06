@@ -15,4 +15,11 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
+    <modules>
+        <module>jwt</module>
+        <module>rest-template</module>
+        <!-- <module>tomcat </module> -->
+        <!-- <module>netty</module> -->
+    </modules>
+
 </project>

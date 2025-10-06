@@ -10,7 +10,7 @@
   </parent>
 
   <groupId>edu.note</groupId>
-  <artifactId>spring-redis</artifactId>
+  <artifactId>redis</artifactId>
 
   <properties>
     <maven.compiler.source>8</maven.compiler.source>

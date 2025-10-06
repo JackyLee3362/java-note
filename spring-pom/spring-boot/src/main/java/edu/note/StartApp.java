@@ -1,4 +1,4 @@
-package note.spring;
+package edu.note;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

@@ -21,6 +21,7 @@
     <module>mybatis-plus</module>
     <module>druid</module>
     <module>c3p0</module>
+    <module>redis</module>
   </modules>
 
 </project>
