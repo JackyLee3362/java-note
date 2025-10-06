@@ -1,7 +1,7 @@
-package edu.note.spring.aop;
+package edu.note.spring.aop.aspect;
 
+import org.aspectj.lang.annotation.After;
 import org.aspectj.lang.annotation.Aspect;
-import org.aspectj.lang.annotation.Before;
 import org.aspectj.lang.annotation.Pointcut;
 import org.springframework.stereotype.Component;
 
@@ -12,14 +12,15 @@ import org.springframework.stereotype.Component;
 
 @Component
 @Aspect
-public class MyAdvice {
+public class MyAdviceAfter {
 
     @Pointcut("execution(void edu.note.spring.aop.BookDao.update())")
     private void pt() {
     }
 
-    @Before("pt()")
-    public void method() {
-        System.out.println("before:" + System.currentTimeMillis());
+    @After("pt()")
+    public void after() {
+        System.out.println("after advice ...");
     }
+
 }

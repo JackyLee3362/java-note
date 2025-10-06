@@ -6,7 +6,7 @@ package edu.note.spring.aop;
  */
 public interface BookDao {
 
-    void save();
+    int save();
 
     void update();
 

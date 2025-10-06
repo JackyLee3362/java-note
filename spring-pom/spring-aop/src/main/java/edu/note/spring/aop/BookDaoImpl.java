@@ -10,8 +10,9 @@ import org.springframework.stereotype.Component;
 public class BookDaoImpl implements BookDao {
 
     @Override
-    public void save() {
+    public int save() {
         System.out.println("bookDao saving...");
+        return 0;
     }
 
     @Override
