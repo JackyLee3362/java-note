@@ -18,8 +18,8 @@ public class AutoWireTest {
     @DisplayName("测试自动装配 - byType")
     void testAutowireByType() {
         // 获取 IOC 容器
-        ApplicationContext context = new ClassPathXmlApplicationContext("bean-autowire-by-type.xml");
-        HelloService bean = context.getBean(HelloService.class);
+        ApplicationContext ctx = new ClassPathXmlApplicationContext("bean-autowire-by-type.xml");
+        HelloService bean = ctx.getBean(HelloService.class);
         String hello = bean.hello("Bar");
         Assertions.assertEquals("Hello, Bar", hello);
     }
@@ -28,8 +28,8 @@ public class AutoWireTest {
     @DisplayName("测试自动装配 - byName")
     void testAutowireByName() {
         // 获取 IOC 容器
-        ApplicationContext context = new ClassPathXmlApplicationContext("bean-autowire-by-name.xml");
-        HelloService bean = context.getBean(HelloService.class);
+        ApplicationContext ctx = new ClassPathXmlApplicationContext("bean-autowire-by-name.xml");
+        HelloService bean = ctx.getBean(HelloService.class);
         String hello = bean.hello("Bar");
         Assertions.assertEquals("Hello, Bar", hello);
     }
@@ -38,8 +38,8 @@ public class AutoWireTest {
     @DisplayName("测试自动装配 - 集合")
     void testAutowireCollection() {
         // 获取 IOC 容器
-        ApplicationContext context = new ClassPathXmlApplicationContext("bean-autowire-collection.xml");
-        HelloService bean = context.getBean(HelloService.class);
+        ApplicationContext ctx = new ClassPathXmlApplicationContext("bean-autowire-collection.xml");
+        HelloService bean = ctx.getBean(HelloService.class);
         bean.hello("Bar");
     }
     

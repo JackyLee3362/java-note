@@ -20,14 +20,14 @@ public class BeanTest {
     @DisplayName("测试 bean 基础")
     void testIOC01() {
         // 获取 IOC 容器
-        ApplicationContext context = new ClassPathXmlApplicationContext("bean-ioc.xml");
+        ApplicationContext ctx = new ClassPathXmlApplicationContext("bean-ioc.xml");
         // 获取 bean 的三种方式
         // 方式 1
-        HelloDao dao1 = (HelloDao) context.getBean("helloDao");
+        HelloDao dao1 = (HelloDao) ctx.getBean("helloDao");
         // 方式 2
-        HelloDao dao2 = context.getBean(HelloDao.class);
+        HelloDao dao2 = ctx.getBean(HelloDao.class);
         // 方式 3
-        HelloDao dao3 = context.getBean("helloDao", HelloDao.class);
+        HelloDao dao3 = ctx.getBean("helloDao", HelloDao.class);
 
         // 测试他们完全相同
         Assertions.assertEquals(dao1, dao2);

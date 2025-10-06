@@ -1,13 +1,11 @@
-package edu.note.spring.anno;
+package edu.note.spring.context;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
-import edu.note.spring.HelloDao;
-import edu.note.spring.HelloService;
-import edu.note.spring.config.SpringConfigPropertySource;
+import edu.note.spring.context.config.SpringConfigPropertySource;
 
 /**
  * @author jackylee
@@ -18,10 +16,10 @@ public class ApplicationContextTest {
     @Test
     @DisplayName("测试 context 属性注入")
     void testPropertySource() {
-        ApplicationContext context = new AnnotationConfigApplicationContext(SpringConfigPropertySource.class);
-        HelloDao dao = context.getBean(HelloDao.class);
+        ApplicationContext ctx = new AnnotationConfigApplicationContext(SpringConfigPropertySource.class);
+        HelloDao dao = ctx.getBean(HelloDao.class);
         dao.save("foo");
-        HelloService service = context.getBean(HelloService.class);
+        HelloService service = ctx.getBean(HelloService.class);
         service.hello("bar");
     }
 

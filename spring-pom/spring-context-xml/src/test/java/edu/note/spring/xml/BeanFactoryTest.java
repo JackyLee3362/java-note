@@ -29,8 +29,8 @@ public class BeanFactoryTest {
         // - ApplicationContext是立即加载:容器加载的时候就会创建bean对象
         Resource resources = new ClassPathResource("bean-ioc.xml");
         BeanFactory bf = new XmlBeanFactory(resources);
-        HelloDao bean = bf.getBean(HelloDao.class);
-        bean.save("foo");
+        HelloDao dao = bf.getBean(HelloDao.class);
+        dao.save("foo");
         // - ApplicationContext要想成为延迟加载:只需要按照如下方式进行配置
         // <bean id=... class=... lazy-init="true"/>
     }

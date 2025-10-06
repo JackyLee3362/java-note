@@ -16,7 +16,7 @@ import edu.note.spring.context.HelloDao;
  * @date 2025-10-05 15:45
  */
 @Configuration
-@ComponentScan("edu.note.spring.anno")
+@ComponentScan("edu.note.spring.context")
 @PropertySource("jdbc.properties") // 配合 @Value("${name}") 使用
 public class SpringConfigThirdPkgWithRef {
 

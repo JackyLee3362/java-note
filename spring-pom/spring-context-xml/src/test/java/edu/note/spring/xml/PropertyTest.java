@@ -18,8 +18,8 @@ public class PropertyTest {
     @DisplayName("测试组件扫描")
     void testComponentScan() {
         // 获取 IOC 容器
-        ApplicationContext context = new ClassPathXmlApplicationContext("bean-property.xml");
-        HelloDataSource dataSource = context.getBean(HelloDataSource.class);
+        ApplicationContext ctx = new ClassPathXmlApplicationContext("bean-property.xml");
+        HelloDataSource dataSource = ctx.getBean(HelloDataSource.class);
         Assertions.assertEquals("root", dataSource.getUsername());
     }
 }

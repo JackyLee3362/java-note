@@ -10,7 +10,7 @@ import org.springframework.context.annotation.PropertySource;
  */
 
 @Configuration
-@ComponentScan("edu.note.spring.anno")
+@ComponentScan("edu.note.spring.context.anno")
 @PropertySource("jdbc.properties") // 配合 @Value("${name}") 使用
 // @PropertySource({"jdbc.properties","xxx.properties"})
 // @PropertySource({"*.properties"})

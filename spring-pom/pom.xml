@@ -9,7 +9,6 @@
   <version>1.0-SNAPSHOT</version>
   <packaging>pom</packaging>
   <modules>
-    <module>spring</module>
     <module>spring-aop</module>
     <module>spring-context-xml</module>
     <module>spring-context-anno</module>

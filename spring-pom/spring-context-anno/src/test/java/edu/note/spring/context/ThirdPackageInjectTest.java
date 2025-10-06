@@ -1,4 +1,4 @@
-package edu.note.spring.anno;
+package edu.note.spring.context;
 
 import javax.sql.DataSource;
 
@@ -8,10 +8,11 @@ import org.junit.jupiter.api.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
-import edu.note.spring.config.SpringConfigImport;
-import edu.note.spring.config.SpringConfigThirdPackage;
-import edu.note.spring.config.SpringConfigThirdPkgWithValue;
-import edu.note.spring.config.SpringConfigThirdPkgWithRef;
+import edu.note.spring.context.config.SpringConfigImport;
+import edu.note.spring.context.config.SpringConfigThirdPackage;
+import edu.note.spring.context.config.SpringConfigThirdPkgWithRef;
+import edu.note.spring.context.config.SpringConfigThirdPkgWithValue;
+
 
 /**
  * @author jackylee

@@ -8,7 +8,7 @@ import org.springframework.context.annotation.Configuration;
  * @date 2025-10-05 14:40
  */
 @Configuration
-@ComponentScan("edu.note.spring.anno")
+@ComponentScan("edu.note.spring.context")
 public class SpringConfigComponentScan {
     
 }
