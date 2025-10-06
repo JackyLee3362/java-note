@@ -6,9 +6,9 @@ import org.junit.jupiter.api.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-import edu.note.spring.HelloDao;
-import edu.note.spring.HelloService;
-import edu.note.spring.WorldDao;
+import edu.note.spring.context.HelloDao;
+import edu.note.spring.context.HelloService;
+import edu.note.spring.context.WorldDao;
 
 /**
  * @author jackylee

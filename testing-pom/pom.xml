@@ -19,6 +19,7 @@
     <module>junit5</module>
     <module>spock</module>
     <module>jacoco</module>
+    <module>junit4</module>
   </modules>
 
 </project>

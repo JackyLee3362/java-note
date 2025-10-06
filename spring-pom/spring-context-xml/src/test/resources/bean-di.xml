@@ -6,8 +6,8 @@
     <!-- name="helloDao"中`helloDao`的作用是让 Spring 的 IOC 容器在获取到名称后，将首字母大写，前面加 set
     找对应的`sethelloDao()`方法进行对象注入 -->
     <!-- ref="helloDao" 作用是让 Spring 能在 IOC 容器中找到 id 为`helloDao`的 Bean 对象给`helloService`进行注入 -->
-    <bean id="helloDao" class="edu.note.spring.HelloDaoImpl" />
-    <bean id="helloService" class="edu.note.spring.HelloServiceImpl">
+    <bean id="helloDao" class="edu.note.spring.context.HelloDaoImpl" />
+    <bean id="helloService" class="edu.note.spring.context.HelloServiceImpl">
         <property name="helloDao" ref="helloDao" />
     </bean>
 

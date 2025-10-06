@@ -7,7 +7,7 @@ import org.springframework.beans.factory.xml.XmlBeanFactory;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.core.io.Resource;
 
-import edu.note.spring.HelloDao;
+import edu.note.spring.context.HelloDao;
 
 /**
  * @author jackylee
@@ -27,7 +27,7 @@ public class BeanFactoryTest {
     void testIOC01() {
         // - BeanFactory是延迟加载:只有在获取bean对象的时候才会去创建
         // - ApplicationContext是立即加载:容器加载的时候就会创建bean对象
-        Resource resources = new ClassPathResource("");
+        Resource resources = new ClassPathResource("bean-ioc.xml");
         BeanFactory bf = new XmlBeanFactory(resources);
         HelloDao bean = bf.getBean(HelloDao.class);
         bean.save("foo");

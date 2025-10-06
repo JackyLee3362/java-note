@@ -5,8 +5,8 @@
 
     <!-- scope 默认是 singleton -->
     <!-- 多例 prototype -->
-    <bean id="helloDao" class="edu.note.spring.HelloDaoImpl" scope="singleton" />
-    <bean id="helloService" class="edu.note.spring.HelloServiceImpl"
+    <bean id="helloDao" class="edu.note.spring.context.HelloDaoImpl" scope="singleton" />
+    <bean id="helloService" class="edu.note.spring.context.HelloServiceImpl"
         scope="prototype">
         <property name="helloDao" ref="helloDao" />
     </bean>

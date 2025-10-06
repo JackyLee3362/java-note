@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-import edu.note.spring.datasource.HelloDataSource;
+import edu.note.spring.context.HelloDataSource;
 
 /**
  * @author jackylee
