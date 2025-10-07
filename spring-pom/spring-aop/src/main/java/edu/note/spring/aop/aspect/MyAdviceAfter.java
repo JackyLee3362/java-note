@@ -1,5 +1,8 @@
 package edu.note.spring.aop.aspect;
 
+import java.util.Arrays;
+
+import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.After;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Pointcut;
@@ -23,4 +26,10 @@ public class MyAdviceAfter {
         System.out.println("after advice ...");
     }
 
+    @After("pt()")
+    public void afterJoinPoint(JoinPoint jp) {
+        Object[] args = jp.getArgs();
+        System.out.println(Arrays.toString(args));
+        System.out.println("after advice joinPoint...");
+    }
 }

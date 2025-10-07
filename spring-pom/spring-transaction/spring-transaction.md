@@ -15,16 +15,7 @@ description:
 #### 6.1.1 相关概念介绍
 
 - 事务作用：在数据层保障一系列的数据库操作同成功同失败
-- Spring 事务作用：在数据层或**==业务层==**保障一系列的数据库操作同成功同失败
-
-数据层有事务我们可以理解，为什么业务层也需要处理事务呢?
-
-举个简单的例子，
-
-- 转账业务会有两次数据层的调用，一次是加钱一次是减钱
-- 把事务放在数据层，加钱和减钱就有两个事务
-- 没办法保证加钱和减钱同时成功或者同时失败
-- 这个时候就需要将事务放在业务层进行处理。
+- Spring 事务作用：在数据层或业务层保障一系列的数据库操作同成功同失败
 
 Spring 为了管理事务，提供了一个平台事务管理器`PlatformTransactionManager`
 
@@ -510,6 +501,7 @@ public class SpringConfig {
       ```
 
 - 出现这个问题的原因是，Spring 的事务只会对`Error异常`和`RuntimeException异常`及其子类进行事务回顾，其他的异常类型是不会回滚的，对应 IOException 不符合上述条件所以不回滚
+
   - 此时就可以使用 rollbackFor 属性来设置出现 IOException 异常不回滚
 
     ```java
@@ -530,6 +522,7 @@ public class SpringConfig {
 
     }
     ```
+
 - rollbackForClassName 等同于 rollbackFor,只不过属性为异常的类全名字符串
 
 - noRollbackForClassName 等同于 noRollbackFor，只不过属性为异常的类全名字符串
