@@ -13,7 +13,7 @@ description: 黑马程序员
 ### 1.1 什么是 AOP?
 
 - AOP(Aspect Oriented Programming)面向切面编程，一种编程范式，指导开发者如何组织程序结构。
-  - OOP(Object Oriented Programming)面向对象编程
+- OOP(Object Oriented Programming)面向对象编程
 
 我们都知道 OOP 是一种编程思想，那么 AOP 也是一种编程思想，编程思想主要的内容就是指导程序员该如何编写程序，所以它们两个是不同的`编程范式`。
 
@@ -26,50 +26,6 @@ description: 黑马程序员
 ### 1.3 AOP 核心概念
 
 为了能更好的理解 AOP 的相关概念，我们准备了一个环境，整个环境的内容我们暂时可以不用关注，最主要的类为:`BookDaoImpl`
-
-```java
-@Repository
-public class BookDaoImpl implements BookDao {
-    public void save() {
-        //记录程序当前执行执行（开始时间）
-        Long startTime = System.currentTimeMillis();
-        //业务执行万次
-        for (int i = 0;i<10000;i++) {
-            System.out.println("book dao save ...");
-        }
-        //记录程序当前执行时间（结束时间）
-        Long endTime = System.currentTimeMillis();
-        //计算时间差
-        Long totalTime = endTime-startTime;
-        //输出信息
-        System.out.println("执行万次消耗时间：" + totalTime + "ms");
-    }
-    public void update(){
-        System.out.println("book dao update ...");
-    }
-    public void delete(){
-        System.out.println("book dao delete ...");
-    }
-    public void select(){
-        System.out.println("book dao select ...");
-    }
-}
-```
-
-代码的内容相信大家都能够读懂，对于`save`方法中有计算万次执行消耗的时间。
-
-当在 App 类中从容器中获取 bookDao 对象后，分别执行其`save`,`delete`,`update`和`select`方法后会有如下的打印结果:
-
-![1630143927489](https://assets-1302294329.cos.ap-shanghai.myqcloud.com/2025/md/202505151021740.png)
-
-这个时候，我们就应该有些疑问?
-
-- 对于计算万次执行消耗的时间只有 save 方法有，为什么 delete 和 update 方法也会有呢?
-- delete 和 update 方法有，那什么 select 方法为什么又没有呢?
-
-这个案例中其实就使用了 Spring 的 AOP，在不惊动(改动)原有设计(代码)的前提下，想给谁添加功能就给谁添加。这个也就是 Spring 的理念：
-
-- 无入侵式/无侵入式
 
 说了这么多，Spring 到底是如何实现的呢?
 
@@ -91,38 +47,13 @@ public class BookDaoImpl implements BookDao {
   - 在 SpringAOP 中，理解为方法的执行
 - 切入点(Pointcut):匹配连接点的式子
   - 在 SpringAOP 中，一个切入点可以描述一个具体方法，也可也匹配多个方法
-    - 一个具体的方法:如 com.itheima.dao 包下的 BookDao 接口中的无形参无返回值的 save 方法
+    - 一个具体的方法:如 edu.note.dao 包下的 BookDao 接口中的无形参无返回值的 save 方法
     - 匹配多个方法:所有的 save 方法，所有的 get 开头的方法，所有以 Dao 结尾的接口中的任意方法，所有带有一个参数的方法
   - 连接点范围要比切入点范围大，是切入点的方法也一定是连接点，但是是连接点的方法就不一定要被增强，所以可能不是切入点。
 - 通知(Advice):在切入点处执行的操作，也就是共性功能
   - 在 SpringAOP 中，功能最终以方法的形式呈现
 - 通知类：定义通知的类
 - 切面(Aspect):描述通知与切入点的对应关系。
-
-**小结**
-
-这一节中主要讲解了 AOP 的概念与作用，以及 AOP 中的核心概念，学完以后大家需要能说出:
-
-- 什么是 AOP?
-- AOP 的作用是什么?
-- AOP 中核心概念分别指的是什么?
-  - 连接点
-  - 切入点
-  - 通知
-  - 通知类
-  - 切面
-
-## 2，AOP 入门案例
-
-- 1.导入坐标(pom.xml)
-- 2.制作连接点(原始操作，Dao 接口与实现类)
-- 3.制作共性功能(通知类与通知)
-- 4.定义切入点
-- 5.绑定切入点与通知关系(切面)
-
-### 2.4 AOP 实现步骤
-
-## 3，AOP 工作流程
 
 ### 3.1 AOP 工作流程
 
@@ -180,18 +111,6 @@ public class BookDaoImpl implements BookDao {
 SpringAOP 是在不改变原有设计(代码)的前提下对其进行增强的，它的底层采用的是代理模式实现的，所以要对原始对象进行增强，就需要对原始对象创建代理对象，在代理对象中的方法把通知(如:MyAdvice 中的 method 方法)内容加进去，就实现了增强,
 这就是我们所说的代理(Proxy)。
 
-**小结**
-
-通过这一节中，我们需要掌握的内容有：
-
-- 能说出 AOP 的工作流程
-- AOP 的核心概念
-  - 目标对象、连接点、切入点
-  - 通知类、通知
-  - 切面
-  - 代理
-- SpringAOP 的本质或者可以说底层实现是通过代理模式。
-
 ## 4，AOP 配置管理
 
 ### 4.1 AOP 切入点表达式 p34
@@ -213,16 +132,16 @@ SpringAOP 是在不改变原有设计(代码)的前提下对其进行增强的�
 
 ![1630156172790](https://assets-1302294329.cos.ap-shanghai.myqcloud.com/2025/md/202505151021751.png)
 
-描述方式一：执行 com.itheima.dao 包下的 BookDao 接口中的无参数 update 方法
+描述方式一：执行 edu.note.dao 包下的 BookDao 接口中的无参数 update 方法
 
 ```java
-execution(void com.itheima.dao.BookDao.update())
+execution(void edu.note.dao.BookDao.update())
 ```
 
-描述方式二：执行 com.itheima.dao.impl 包下的 BookDaoImpl 类中的无参数 update 方法
+描述方式二：执行 edu.note.dao.impl 包下的 BookDaoImpl 类中的无参数 update 方法
 
 ```java
-execution(void com.itheima.dao.impl.BookDaoImpl.update())
+execution(void edu.note.dao.impl.BookDaoImpl.update())
 ```
 
 因为调用接口方法的时候最终运行的还是其实现类的方法，所以上面两种描述方式都是可以的。
@@ -234,62 +153,52 @@ execution(void com.itheima.dao.impl.BookDaoImpl.update())
 对于这个格式，我们不需要硬记，通过一个例子，理解它:
 
 ```java
-execution(public User com.itheima.service.UserService.findById(int))
+execution(public User edu.note.service.UserService.findById(int))
 ```
 
 - execution：动作关键字，描述切入点的行为动作，例如 execution 表示执行到指定切入点
 - public: 访问修饰符,还可以是 public，private 等，可以省略
 - User：返回值，写返回值类型
-- com.itheima.service：包名，多级包使用点连接
+- edu.note.service：包名，多级包使用点连接
 - UserService:类/接口名称
 - findById：方法名
 - int: 参数，直接写参数的类型，多个类型用逗号隔开
 - 异常名：方法定义中抛出指定异常，可以省略
 
-切入点表达式就是要找到需要增强的方法，所以它就是对一个具体方法的描述，但是方法的定义会有很多，所以如果每一个方法对应一个切入点表达式，想想这块就会觉得将来编写起来会比较麻烦，有没有更简单的方式呢?
-
-就需要用到下面所学习的通配符。
-
 #### 4.1.2 通配符
 
-我们使用通配符描述切入点，主要的目的就是简化之前的配置，具体都有哪些通配符可以使用?
-
-- `*`:单个独立的任意符号，可以独立出现，也可以作为前缀或者后缀的匹配符出现
-
-  ```
-  execution（public * com.itheima.*.UserService.find*(*))
-  ```
-
-  匹配 com.itheima 包下的任意包中的 UserService 类或接口中所有 find 开头的带有一个参数的方法
-
-- `..`：多个连续的任意符号，可以独立出现，常用于简化包名与参数的书写
-
-  ```
-  execution（public User com..UserService.findById(..))
-  ```
-
-  匹配 com 包下的任意包中的 UserService 类或接口中所有名称为 findById 的方法
-
-- `+`：专用于匹配子类类型
-
-  ```
-  execution(* *..*Service+.*(..))
-  ```
-
-  这个使用率较低，描述子类的，咱们做 JavaEE 开发，继承机会就一次，使用都很慎重，所以很少用它。\*Service+，表示所有以 Service 结尾的接口的子类。
-
-接下来，我们把案例中使用到的切入点表达式来分析下:
-
-![1630163744963](https://assets-1302294329.cos.ap-shanghai.myqcloud.com/2025/md/202505151021752.png)
+`*`:单个独立的任意符号，可以独立出现，也可以作为前缀或者后缀的匹配符出现
 
 ```java
-execution(void com.itheima.dao.BookDao.update())
+execution(public * edu.note.*.UserService.find*(*))
+```
+
+匹配 edu.note 包下的任意包中的 UserService 类或接口中所有 find 开头的带有一个参数的方法
+
+`..`：多个连续的任意符号，可以独立出现，常用于简化包名与参数的书写
+
+```java
+execution(public User com..UserService.findById(..))
+```
+
+匹配 com 包下的任意包中的 UserService 类或接口中所有名称为 findById 的方法
+
+`+`：专用于匹配子类类型
+
+```java
+execution(* *..*Service+.*(..))
+```
+
+这个使用率较低，描述子类的，咱们做 JavaEE 开发，继承机会就一次，使用都很慎重，所以很少用它。`*Service+`，表示所有以 Service 结尾的接口的子类。
+
+```java
+execution(void edu.note.dao.BookDao.update())
 匹配接口，能匹配到
-execution(void com.itheima.dao.impl.BookDaoImpl.update())
+execution(void edu.note.dao.impl.BookDaoImpl.update())
 匹配实现类，能匹配到
-execution(* com.itheima.dao.impl.BookDaoImpl.update())
+execution(* edu.note.dao.impl.BookDaoImpl.update())
 返回值任意，能匹配到
-execution(* com.itheima.dao.impl.BookDaoImpl.update(*))
+execution(* edu.note.dao.impl.BookDaoImpl.update(*))
 返回值任意，但是update方法必须要有一个参数，无法匹配，要想匹配需要在update接口和实现类添加参数
 execution(void com.*.*.*.*.update())
 返回值为void,com包下的任意包三层包下的任意类的update方法，匹配到的是实现类，能匹配
@@ -305,9 +214,9 @@ execution(* *..*e(..))
 匹配项目中任意包任意类下只要以e结尾的方法，update和save方法能满足，能匹配
 execution(void com..*())
 返回值为void，com包下的任意包任意类任意方法，能匹配，*代表的是方法
-execution(* com.itheima.*.*Service.find*(..))
+execution(* edu.note.*.*Service.find*(..))
 将项目中所有业务层方法的以find开头的方法匹配
-execution(* com.itheima.*.*Service.save*(..))
+execution(* edu.note.*.*Service.save*(..))
 将项目中所有业务层方法的以save开头的方法匹配
 ```
 
@@ -357,144 +266,15 @@ execution(* com.itheima.*.*Service.save*(..))
 
 ![1630166147697](https://assets-1302294329.cos.ap-shanghai.myqcloud.com/2025/md/202505151021754.png)
 
-(1)前置通知，追加功能到方法执行前,类似于在代码 1 或者代码 2 添加内容
+1. 前置通知，追加功能到方法执行前,类似于在代码 1 或者代码 2 添加内容
+2. 后置通知,追加功能到方法执行后,不管方法执行的过程中有没有抛出异常都会执行，类似于在代码 5 添加内容
+3. 返回后通知,追加功能到方法执行后，只有方法正常执行结束后才进行,类似于在代码 3 添加内容，如果方法执行抛出异常，返回后通知将不会被添加
+4. 抛出异常后通知,追加功能到方法抛出异常后，只有方法执行出异常才进行,类似于在代码 4 添加内容，只有方法抛出异常后才会被添加
+5. 环绕通知,环绕通知功能比较强大，它可以追加功能到方法执行的前后，这也是比较常用的方式，它可以实现其他四种通知类型的功能，具体是如何实现的，需要我们往下学习。
 
-(2)后置通知,追加功能到方法执行后,不管方法执行的过程中有没有抛出异常都会执行，类似于在代码 5 添加内容
+### 通知类型总结
 
-(3)返回后通知,追加功能到方法执行后，只有方法正常执行结束后才进行,类似于在代码 3 添加内容，如果方法执行抛出异常，返回后通知将不会被添加
-
-(4)抛出异常后通知,追加功能到方法抛出异常后，只有方法执行出异常才进行,类似于在代码 4 添加内容，只有方法抛出异常后才会被添加
-
-(5)环绕通知,环绕通知功能比较强大，它可以追加功能到方法执行的前后，这也是比较常用的方式，它可以实现其他四种通知类型的功能，具体是如何实现的，需要我们往下学习。
-
-###### 注意事项
-
-(1)原始方法有返回值的处理
-
-- 修改 MyAdvice,对 BookDao 中的 select 方法添加环绕通知，
-
-```java
-@Component
-@Aspect
-public class MyAdvice {
-    @Pointcut("execution(void com.itheima.dao.BookDao.update())")
-    private void pt(){}
-
-    @Pointcut("execution(int com.itheima.dao.BookDao.select())")
-    private void pt2(){}
-
-    @Around("pt2()")
-    public void aroundSelect(ProceedingJoinPoint pjp) throws Throwable {
-        System.out.println("around before advice ...");
-        //表示对原始操作的调用
-        pjp.proceed();
-        System.out.println("around after advice ...");
-    }
-}
-```
-
-- 修改 App 类，调用 select 方法
-
-```java
-public class App {
-    public static void main(String[] args) {
-        ApplicationContext ctx = new AnnotationConfigApplicationContext(SpringConfig.class);
-        BookDao bookDao = ctx.getBean(BookDao.class);
-        int num = bookDao.select();
-        System.out.println(num);
-    }
-}
-```
-
-错误大概的意思是:`空的返回不匹配原始方法的int返回`
-
-- void 就是返回 null
-- 原始方法就是 BookDao 下的 select 方法
-
-所以如果我们使用环绕通知的话，要根据原始方法的返回值来设置环绕通知的返回值，具体解决方案为:
-
-```java
-@Component
-@Aspect
-public class MyAdvice {
-    @Pointcut("execution(void com.itheima.dao.BookDao.update())")
-    private void pt(){}
-
-    @Pointcut("execution(int com.itheima.dao.BookDao.select())")
-    private void pt2(){}
-
-    @Around("pt2()")
-    public Object aroundSelect(ProceedingJoinPoint pjp) throws Throwable {
-        System.out.println("around before advice ...");
-        //表示对原始操作的调用
-        Object ret = pjp.proceed();
-        System.out.println("around after advice ...");
-        return ret;
-    }
-}
-```
-
-**说明:**
-
-为什么返回的是 Object 而不是 int 的主要原因是 Object 类型更通用。
-
-在环绕通知中是可以对原始方法返回值就行修改的。
-
-##### 返回后通知
-
-```java
-@Component
-@Aspect
-public class MyAdvice {
-    @Pointcut("execution(void com.itheima.dao.BookDao.update())")
-    private void pt(){}
-
-    @Pointcut("execution(int com.itheima.dao.BookDao.select())")
-    private void pt2(){}
-
-    @AfterReturning("pt2()")
-    public void afterReturning() {
-        System.out.println("afterReturning advice ...");
-    }
-}
-```
-
-![1630169124446](https://assets-1302294329.cos.ap-shanghai.myqcloud.com/2025/md/202505151021761.png)
-
-**注意：**返回后通知是需要在原始方法`select`正常执行后才会被执行，如果`select()`方法执行的过程中出现了异常，那么返回后通知是不会被执行。后置通知是不管原始方法有没有抛出异常都会被执行。这个案例大家下去可以自己练习验证下。
-
-##### 异常后通知
-
-```java
-@Component
-@Aspect
-public class MyAdvice {
-    @Pointcut("execution(void com.itheima.dao.BookDao.update())")
-    private void pt(){}
-
-    @Pointcut("execution(int com.itheima.dao.BookDao.select())")
-    private void pt2(){}
-
-    @AfterReturning("pt2()")
-    public void afterThrowing() {
-        System.out.println("afterThrowing advice ...");
-    }
-}
-```
-
-![1630169357146](https://assets-1302294329.cos.ap-shanghai.myqcloud.com/2025/md/202505151021762.png)
-
-**注意：**异常后通知是需要原始方法抛出异常，可以在`select()`方法中添加一行代码`int i = 1/0`即可。如果没有抛异常，异常后通知将不会被执行。
-
-学习完这 5 种通知类型，我们来思考下环绕通知是如何实现其他通知类型的功能的?
-
-因为环绕通知是可以控制原始方法执行的，所以我们把增强的代码写在调用原始方法的不同位置就可以实现不同的通知类型的功能，如:
-
-![1630170090945](https://assets-1302294329.cos.ap-shanghai.myqcloud.com/2025/md/202505151021763.png)
-
-##### 通知类型总结
-
-###### 知识点 1：@After
+#### 知识点 1：@After
 
 | 名称 | @After                                                                     |
 | ---- | -------------------------------------------------------------------------- |
@@ -502,7 +282,7 @@ public class MyAdvice {
 | 位置 | 通知方法定义上方                                                           |
 | 作用 | 设置当前通知方法与切入点之间的绑定关系，当前通知方法在原始切入点方法后运行 |
 
-###### 知识点 2：@AfterReturning
+#### 知识点 2：@AfterReturning
 
 | 名称 | @AfterReturning                                                                      |
 | ---- | ------------------------------------------------------------------------------------ |
@@ -510,7 +290,7 @@ public class MyAdvice {
 | 位置 | 通知方法定义上方                                                                     |
 | 作用 | 设置当前通知方法与切入点之间绑定关系，当前通知方法在原始切入点方法正常执行完毕后执行 |
 
-###### 知识点 3：@AfterThrowing
+#### 知识点 3：@AfterThrowing
 
 | 名称 | @AfterThrowing                                                                       |
 | ---- | ------------------------------------------------------------------------------------ |
@@ -518,7 +298,7 @@ public class MyAdvice {
 | 位置 | 通知方法定义上方                                                                     |
 | 作用 | 设置当前通知方法与切入点之间绑定关系，当前通知方法在原始切入点方法运行抛出异常后执行 |
 
-###### 知识点 4：@Around
+#### 知识点 4：@Around
 
 | 名称 | @Around                                                                      |
 | ---- | ---------------------------------------------------------------------------- |
@@ -542,330 +322,14 @@ public class MyAdvice {
 
 #### 4.3.1 需求分析
 
-这个需求也比较简单，前面我们在介绍 AOP 的时候已经演示过:
-
-- 需求:任意业务层接口执行均可显示其执行效率（执行时长）
-
-这个案例的目的是查看每个业务层执行的时间，这样就可以监控出哪个业务比较耗时，将其查找出来方便优化。
-
-具体实现的思路:
-
-(1) 开始执行方法之前记录一个时间
-
-(2) 执行方法
-
-(3) 执行完方法之后记录一个时间
-
-(4) 用后一个时间减去前一个时间的差值，就是我们需要的结果。
-
-所以要在方法执行的前后添加业务，经过分析我们将采用`环绕通知`。
-
-**说明:**原始方法如果只执行一次，时间太快，两个时间差可能为 0，所以我们要执行万次来计算时间差。
-
-#### 4.3.2 环境准备
-
-- 创建一个 Maven 项目
-
-- pom.xml 添加 Spring 依赖
-
-  ```xml
-  <dependencies>
-      <dependency>
-        <groupId>org.springframework</groupId>
-        <artifactId>spring-context</artifactId>
-        <version>5.2.10.RELEASE</version>
-      </dependency>
-      <dependency>
-        <groupId>org.springframework</groupId>
-        <artifactId>spring-jdbc</artifactId>
-        <version>5.2.10.RELEASE</version>
-      </dependency>
-      <dependency>
-        <groupId>org.springframework</groupId>
-        <artifactId>spring-test</artifactId>
-        <version>5.2.10.RELEASE</version>
-      </dependency>
-      <dependency>
-        <groupId>org.aspectj</groupId>
-        <artifactId>aspectjweaver</artifactId>
-        <version>1.9.4</version>
-      </dependency>
-      <dependency>
-        <groupId>mysql</groupId>
-        <artifactId>mysql-connector-java</artifactId>
-        <version>5.1.47</version>
-      </dependency>
-      <dependency>
-        <groupId>com.alibaba</groupId>
-        <artifactId>druid</artifactId>
-        <version>1.1.16</version>
-      </dependency>
-      <dependency>
-        <groupId>org.mybatis</groupId>
-        <artifactId>mybatis</artifactId>
-        <version>3.5.6</version>
-      </dependency>
-      <dependency>
-        <groupId>org.mybatis</groupId>
-        <artifactId>mybatis-spring</artifactId>
-        <version>1.3.0</version>
-      </dependency>
-      <dependency>
-        <groupId>junit</groupId>
-        <artifactId>junit</artifactId>
-        <version>4.12</version>
-        <scope>test</scope>
-      </dependency>
-    </dependencies>
-  ```
-
-- 添加 AccountService、AccountServiceImpl、AccountDao 与 Account 类
-
-  ```java
-  public interface AccountService {
-      void save(Account account);
-      void delete(Integer id);
-      void update(Account account);
-      List<Account> findAll();
-      Account findById(Integer id);
-  }
-
-  @Service
-  public class AccountServiceImpl implements AccountService {
-
-      @Autowired
-      private AccountDao accountDao;
-
-      public void save(Account account) {
-          accountDao.save(account);
-      }
-
-      public void update(Account account){
-          accountDao.update(account);
-      }
-
-      public void delete(Integer id) {
-          accountDao.delete(id);
-      }
-
-      public Account findById(Integer id) {
-          return accountDao.findById(id);
-      }
-
-      public List<Account> findAll() {
-          return accountDao.findAll();
-      }
-  }
-  public interface AccountDao {
-
-      @Insert("insert into tbl_account(name,money)values(#{name},#{money})")
-      void save(Account account);
-
-      @Delete("delete from tbl_account where id = #{id} ")
-      void delete(Integer id);
-
-      @Update("update tbl_account set name = #{name} , money = #{money} where id = #{id} ")
-      void update(Account account);
-
-      @Select("select * from tbl_account")
-      List<Account> findAll();
-
-      @Select("select * from tbl_account where id = #{id} ")
-      Account findById(Integer id);
-  }
-
-  public class Account implements Serializable {
-
-      private Integer id;
-      private String name;
-      private Double money;
-      //setter..getter..toString方法省略
-  }
-  ```
-
-- resources 下提供一个 jdbc.properties
-
-  ```properties
-  jdbc.driver=com.mysql.jdbc.Driver
-  jdbc.url=jdbc:mysql://localhost:3306/spring_db?useSSL=false
-  jdbc.username=root
-  jdbc.password=root
-  ```
-
-- 创建相关配置类
-
-  ```java
-  //Spring配置类:SpringConfig
-  @Configuration
-  @ComponentScan("com.itheima")
-  @PropertySource("classpath:jdbc.properties")
-  @Import({JdbcConfig.class,MybatisConfig.class})
-  public class SpringConfig {
-  }
-  //JdbcConfig配置类
-  public class JdbcConfig {
-      @Value("${jdbc.driver}")
-      private String driver;
-      @Value("${jdbc.url}")
-      private String url;
-      @Value("${jdbc.username}")
-      private String userName;
-      @Value("${jdbc.password}")
-      private String password;
-
-      @Bean
-      public DataSource dataSource(){
-          DruidDataSource ds = new DruidDataSource();
-          ds.setDriverClassName(driver);
-          ds.setUrl(url);
-          ds.setUsername(userName);
-          ds.setPassword(password);
-          return ds;
-      }
-  }
-  //MybatisConfig配置类
-  public class MybatisConfig {
-
-      @Bean
-      public SqlSessionFactoryBean sqlSessionFactory(DataSource dataSource){
-          SqlSessionFactoryBean ssfb = new SqlSessionFactoryBean();
-          ssfb.setTypeAliasesPackage("com.itheima.domain");
-          ssfb.setDataSource(dataSource);
-          return ssfb;
-      }
-
-      @Bean
-      public MapperScannerConfigurer mapperScannerConfigurer(){
-          MapperScannerConfigurer msc = new MapperScannerConfigurer();
-          msc.setBasePackage("com.itheima.dao");
-          return msc;
-      }
-  }
-
-  ```
-
-- 编写 Spring 整合 Junit 的测试类
-
-  ```java
-  @RunWith(SpringJUnit4ClassRunner.class)
-  @ContextConfiguration(classes = SpringConfig.class)
-  public class AccountServiceTestCase {
-      @Autowired
-      private AccountService accountService;
-
-      @Test
-      void testFindById(){
-          Account ac = accountService.findById(2);
-      }
-
-      @Test
-      void testFindAll(){
-          List<Account> all = accountService.findAll();
-      }
-
-  }
-  ```
-
-最终创建好的项目结构如下:
-
-![1630214631112](https://assets-1302294329.cos.ap-shanghai.myqcloud.com/2025/md/202505151021764.png)
-
-#### 4.3.3 功能开发
-
-##### 步骤 1:开启 SpringAOP 的注解功能
-
-在 Spring 的主配置文件 SpringConfig 类中添加注解
-
-```java
-@EnableAspectJAutoProxy
-```
-
-##### 步骤 2:创建 AOP 的通知类
-
-- 该类要被 Spring 管理，需要添加@Component
-
-- 要标识该类是一个 AOP 的切面类，需要添加@Aspect
-- 配置切入点表达式，需要添加一个方法，并添加@Pointcut
+打印所有方法执行时间 + 签名
 
 ```java
 @Component
 @Aspect
 public class ProjectAdvice {
     //配置业务层的所有方法
-    @Pointcut("execution(* com.itheima.service.*Service.*(..))")
-    private void servicePt(){}
-
-    public void runSpeed(){
-
-    }
-}
-```
-
-##### 步骤 3:添加环绕通知
-
-在 runSpeed()方法上添加@Around
-
-```java
-@Component
-@Aspect
-public class ProjectAdvice {
-    //配置业务层的所有方法
-    @Pointcut("execution(* com.itheima.service.*Service.*(..))")
-    private void servicePt(){}
-    //@Around("ProjectAdvice.servicePt()") 可以简写为下面的方式
-    @Around("servicePt()")
-    public Object runSpeed(ProceedingJoinPoint pjp){
-        Object ret = pjp.proceed();
-        return ret;
-    }
-}
-```
-
-**注意:**目前并没有做任何增强
-
-##### 步骤 4:完成核心业务，记录万次执行的时间
-
-```java
-@Component
-@Aspect
-public class ProjectAdvice {
-    //配置业务层的所有方法
-    @Pointcut("execution(* com.itheima.service.*Service.*(..))")
-    private void servicePt(){}
-    //@Around("ProjectAdvice.servicePt()") 可以简写为下面的方式
-    @Around("servicePt()")
-    public void runSpeed(ProceedingJoinPoint pjp){
-
-        long start = System.currentTimeMillis();
-        for (int i = 0; i < 10000; i++) {
-           pjp.proceed();
-        }
-        long end = System.currentTimeMillis();
-        System.out.println("业务层接口万次执行时间: "+(end-start)+"ms");
-    }
-}
-```
-
-##### 步骤 5:运行单元测试类
-
-![1630215355776](https://assets-1302294329.cos.ap-shanghai.myqcloud.com/2025/md/202505151021765.png)
-
-**注意:**因为程序每次执行的时长是不一样的，所以运行多次最终的结果是不一样的。
-
-##### 步骤 6:程序优化
-
-目前程序所面临的问题是，多个方法一起执行测试的时候，控制台都打印的是:
-
-`业务层接口万次执行时间:xxxms`
-
-我们没有办法区分到底是哪个接口的哪个方法执行的具体时间，具体如何优化?
-
-```java
-@Component
-@Aspect
-public class ProjectAdvice {
-    //配置业务层的所有方法
-    @Pointcut("execution(* com.itheima.service.*Service.*(..))")
+    @Pointcut("execution(* edu.note.service.*Service.*(..))")
     private void servicePt(){}
     //@Around("ProjectAdvice.servicePt()") 可以简写为下面的方式
     @Around("servicePt()")
@@ -888,18 +352,6 @@ public class ProjectAdvice {
 ```
 
 ##### 步骤 7:运行单元测试类
-
-![1630215743444](https://assets-1302294329.cos.ap-shanghai.myqcloud.com/2025/md/202505151021766.png)
-
-==补充说明==
-
-当前测试的接口执行效率仅仅是一个理论值，并不是一次完整的执行过程。
-
-这块只是通过该案例把 AOP 的使用进行了学习，具体的实际值是有很多因素共同决定的。
-
-### 4.4 AOP 通知获取数据
-
-目前我们写 AOP 仅仅是在原始方法前后追加一些操作，接下来我们要说说 AOP 中数据相关的内容，我们将从`获取参数`、`获取返回值`和`获取异常`三个方面来研究切入点的相关信息。
 
 前面我们介绍通知类型的时候总共讲了五种，那么对于这五种类型都会有参数，返回值和异常吗?
 
@@ -952,70 +404,6 @@ public class ProjectAdvice {
   }
   ```
 
-- 创建 Spring 的配置类
-
-  ```java
-  @Configuration
-  @ComponentScan("com.itheima")
-  @EnableAspectJAutoProxy
-  public class SpringConfig {
-  }
-  ```
-
-- 编写通知类
-
-  ```java
-  @Component
-  @Aspect
-  public class MyAdvice {
-      @Pointcut("execution(* com.itheima.dao.BookDao.findName(..))")
-      private void pt(){}
-
-      @Before("pt()")
-      public void before() {
-          System.out.println("before advice ..." );
-      }
-
-      @After("pt()")
-      public void after() {
-          System.out.println("after advice ...");
-      }
-
-      @Around("pt()")
-      public Object around() throws Throwable{
-          Object ret = pjp.proceed();
-          return ret;
-      }
-      @AfterReturning("pt()")
-      public void afterReturning() {
-          System.out.println("afterReturning advice ...");
-      }
-
-
-      @AfterThrowing("pt()")
-      public void afterThrowing() {
-          System.out.println("afterThrowing advice ...");
-      }
-  }
-  ```
-
-- 编写 App 运行类
-
-  ```java
-  public class App {
-      public static void main(String[] args) {
-          ApplicationContext ctx = new AnnotationConfigApplicationContext(SpringConfig.class);
-          BookDao bookDao = ctx.getBean(BookDao.class);
-          String name = bookDao.findName(100);
-          System.out.println(name);
-      }
-  }
-  ```
-
-最终创建好的项目结构如下:
-
-![1630233154992](https://assets-1302294329.cos.ap-shanghai.myqcloud.com/2025/md/202505151021767.png)
-
 #### 4.4.2 获取参数
 
 ##### 非环绕通知获取方式
@@ -1026,16 +414,16 @@ public class ProjectAdvice {
 @Component
 @Aspect
 public class MyAdvice {
-    @Pointcut("execution(* com.itheima.dao.BookDao.findName(..))")
+    @Pointcut("execution(* edu.note.dao.BookDao.findName(..))")
     private void pt(){}
 
     @Before("pt()")
-    public void before(JoinPoint jp)
+    public void before(JoinPoint jp) {
         Object[] args = jp.getArgs();
         System.out.println(Arrays.toString(args));
         System.out.println("before advice ..." );
     }
-	//...其他的略
+    // ...
 }
 ```
 
@@ -1082,10 +470,6 @@ public class App {
 
 ![1630233548743](https://assets-1302294329.cos.ap-shanghai.myqcloud.com/2025/md/202505151021769.png)
 
-**说明:**
-
-使用 JoinPoint 的方式获取参数适用于`前置`、`后置`、`返回后`、`抛出异常后`通知。剩下的大家自行去验证。
-
 ##### 环绕通知获取方式
 
 环绕通知使用的是 ProceedingJoinPoint，因为 ProceedingJoinPoint 是 JoinPoint 类的子类，所以对于 ProceedingJoinPoint 类中应该也会有对应的`getArgs()`方法，我们去验证下:
@@ -1094,7 +478,7 @@ public class App {
 @Component
 @Aspect
 public class MyAdvice {
-    @Pointcut("execution(* com.itheima.dao.BookDao.findName(..))")
+    @Pointcut("execution(* edu.note.dao.BookDao.findName(..))")
     private void pt(){}
 
     @Around("pt()")
@@ -1124,26 +508,26 @@ public class MyAdvice {
 
   - 但是当需要修改原始方法的参数时，就只能采用带有参数的方法,如下:
 
-    ```java
-    @Component
-    @Aspect
-    public class MyAdvice {
-        @Pointcut("execution(* com.itheima.dao.BookDao.findName(..))")
-        private void pt(){}
+```java
+@Component
+@Aspect
+public class MyAdvice {
+    @Pointcut("execution(* edu.note.dao.BookDao.findName(..))")
+    private void pt(){}
 
-        @Around("pt()")
-        public Object around(ProceedingJoinPoint pjp) throws Throwable{
-            Object[] args = pjp.getArgs();
-            System.out.println(Arrays.toString(args));
-            args[0] = 666;
-            Object ret = pjp.proceed(args);
-            return ret;
-        }
-    	//其他的略
+    @Around("pt()")
+    public Object around(ProceedingJoinPoint pjp) throws Throwable{
+        Object[] args = pjp.getArgs();
+        System.out.println(Arrays.toString(args));
+        args[0] = 666;
+        Object ret = pjp.proceed(args);
+        return ret;
     }
-    ```
+  //其他的略
+}
+```
 
-    有了这个特性后，我们就可以在环绕通知中对原始方法的参数进行拦截过滤，避免由于参数的问题导致程序无法正确运行，保证代码的健壮性。
+有了这个特性后，我们就可以在环绕通知中对原始方法的参数进行拦截过滤，避免由于参数的问题导致程序无法正确运行，保证代码的健壮性。
 
 #### 4.4.3 获取返回值
 
@@ -1155,7 +539,7 @@ public class MyAdvice {
 @Component
 @Aspect
 public class MyAdvice {
-    @Pointcut("execution(* com.itheima.dao.BookDao.findName(..))")
+    @Pointcut("execution(* edu.note.dao.BookDao.findName(..))")
     private void pt(){}
 
     @Around("pt()")
@@ -1178,7 +562,7 @@ public class MyAdvice {
 @Component
 @Aspect
 public class MyAdvice {
-    @Pointcut("execution(* com.itheima.dao.BookDao.findName(..))")
+    @Pointcut("execution(* edu.note.dao.BookDao.findName(..))")
     private void pt(){}
 
     @AfterReturning(value = "pt()",returning = "ret")
@@ -1219,7 +603,7 @@ public class MyAdvice {
 @Component
 @Aspect
 public class MyAdvice {
-    @Pointcut("execution(* com.itheima.dao.BookDao.findName(..))")
+    @Pointcut("execution(* edu.note.dao.BookDao.findName(..))")
     private void pt(){}
 
     @Around("pt()")
@@ -1247,7 +631,7 @@ public class MyAdvice {
 @Component
 @Aspect
 public class MyAdvice {
-    @Pointcut("execution(* com.itheima.dao.BookDao.findName(..))")
+    @Pointcut("execution(* edu.note.dao.BookDao.findName(..))")
     private void pt(){}
 
     @AfterThrowing(value = "pt()",throwing = "t")
@@ -1330,100 +714,13 @@ public class BookDaoImpl implements BookDao {
 
 - 创建一个 Maven 项目
 
-- pom.xml 添加 Spring 依赖
-
-  ```xml
-  <dependencies>
-      <dependency>
-        <groupId>org.springframework</groupId>
-        <artifactId>spring-context</artifactId>
-        <version>5.2.10.RELEASE</version>
-      </dependency>
-      <dependency>
-        <groupId>org.aspectj</groupId>
-        <artifactId>aspectjweaver</artifactId>
-        <version>1.9.4</version>
-      </dependency>
-    </dependencies>
-  ```
-
-- 添加 ResourcesService，ResourcesServiceImpl,ResourcesDao 和 ResourcesDaoImpl 类
-
-  ```java
-  public interface ResourcesDao {
-      boolean readResources(String url, String password);
-  }
-  @Repository
-  public class ResourcesDaoImpl implements ResourcesDao {
-      public boolean readResources(String url, String password) {
-          //模拟校验
-          return password.equals("root");
-      }
-  }
-  public interface ResourcesService {
-      public boolean openURL(String url ,String password);
-  }
-  @Service
-  public class ResourcesServiceImpl implements ResourcesService {
-      @Autowired
-      private ResourcesDao resourcesDao;
-
-      public boolean openURL(String url, String password) {
-          return resourcesDao.readResources(url,password);
-      }
-  }
-
-  ```
-
-- 创建 Spring 的配置类
-
-  ```java
-  @Configuration
-  @ComponentScan("com.itheima")
-  public class SpringConfig {
-  }
-  ```
-
-- 编写 App 运行类
-
-  ```java
-  public class App {
-      public static void main(String[] args) {
-          ApplicationContext ctx = new AnnotationConfigApplicationContext(SpringConfig.class);
-          ResourcesService resourcesService = ctx.getBean(ResourcesService.class);
-          boolean flag = resourcesService.openURL("http://pan.baidu.com/haha", "root");
-          System.out.println(flag);
-      }
-  }
-  ```
-
-最终创建好的项目结构如下:
-
-![1630241681697](https://assets-1302294329.cos.ap-shanghai.myqcloud.com/2025/md/202505151021779.png)
-
-现在项目的效果是，当输入密码为"root"控制台打印为 true,如果密码改为"root "控制台打印的是 false
-
-需求是使用 AOP 将参数进行统一处理，不管输入的密码`root`前后包含多少个空格，最终控制台打印的都是 true。
-
-#### 4.5.3 具体实现
-
-##### 步骤 1:开启 SpringAOP 的注解功能
-
-```java
-@Configuration
-@ComponentScan("com.itheima")
-@EnableAspectJAutoProxy
-public class SpringConfig {
-}
-```
-
 ##### 步骤 2:编写通知类
 
 ```java
 @Component
 @Aspect
 public class DataAdvice {
-    @Pointcut("execution(boolean com.itheima.service.*Service.*(*,*))")
+    @Pointcut("execution(boolean edu.note.service.*Service.*(*,*))")
     private void servicePt(){}
 
 }
@@ -1435,7 +732,7 @@ public class DataAdvice {
 @Component
 @Aspect
 public class DataAdvice {
-    @Pointcut("execution(boolean com.itheima.service.*Service.*(*,*))")
+    @Pointcut("execution(boolean edu.note.service.*Service.*(*,*))")
     private void servicePt(){}
 
     @Around("DataAdvice.servicePt()")
@@ -1454,7 +751,7 @@ public class DataAdvice {
 @Component
 @Aspect
 public class DataAdvice {
-    @Pointcut("execution(boolean com.itheima.service.*Service.*(*,*))")
+    @Pointcut("execution(boolean edu.note.service.*Service.*(*,*))")
     private void servicePt(){}
 
     @Around("DataAdvice.servicePt()")
@@ -1476,35 +773,6 @@ public class DataAdvice {
 }
 ```
 
-##### 步骤 5:运行程序
-
-不管密码`root`前后是否加空格，最终控制台打印的都是 true
-
-##### 步骤 6:优化测试
-
-为了能更好的看出 AOP 已经生效，我们可以修改 ResourcesImpl 类，在方法中将密码的长度进行打印
-
-```java
-@Repository
-public class ResourcesDaoImpl implements ResourcesDao {
-    public boolean readResources(String url, String password) {
-        System.out.println(password.length());
-        //模拟校验
-        return password.equals("root");
-    }
-}
-```
-
-再次运行成功，就可以根据最终打印的长度来看看，字符串的空格有没有被去除掉。
-
-**注意：**
-
-![1630242491831](https://assets-1302294329.cos.ap-shanghai.myqcloud.com/2025/md/202505151021780.png)
-
-## 5，AOP 总结
-
-AOP 的知识就已经讲解完了，接下来对于 AOP 的知识进行一个总结:
-
 ### 5.1 AOP 的核心概念
 
 - 概念：AOP(Aspect Oriented Programming)面向切面编程，一种编程范式
@@ -1522,7 +790,7 @@ AOP 的知识就已经讲解完了，接下来对于 AOP 的知识进行一个�
 - 切入点表达式标准格式：动作关键字(访问修饰符 返回值 包名.类/接口名.方法名（参数）异常名)
 
   ```
-  execution(* com.itheima.service.*Service.*(..))
+  execution(* edu.note.service.*Service.*(..))
   ```
 
 - 切入点表达式描述通配符：

@@ -155,7 +155,7 @@ useSSL:关闭 MySQL 的 SSL 连接
     <properties resource="jdbc.properties"></properties>
     <!--别名扫描的包路径-->
     <typeAliases>
-        <package name="com.itheima.domain"/>
+        <package name="edu.note.domain"/>
     </typeAliases>
     <!--数据源-->
     <environments default="mysql">
@@ -171,7 +171,7 @@ useSSL:关闭 MySQL 的 SSL 连接
     </environments>
     <!--映射文件扫描包路径-->
     <mappers>
-        <package name="com.itheima.dao"></package>
+        <package name="edu.note.dao"></package>
     </mappers>
 </configuration>
 ```
@@ -263,7 +263,7 @@ Mybatis 的基础环境我们已经准备好了，接下来就得分析下在上
 //配置类注解
 @Configuration
 //包扫描，主要扫描的是项目中的AccountServiceImpl类
-@ComponentScan("com.itheima")
+@ComponentScan("edu.note")
 public class SpringConfig {
 }
 
@@ -300,7 +300,7 @@ public class JdbcConfig {
 
 ```java
 @Configuration
-@ComponentScan("com.itheima")
+@ComponentScan("edu.note")
 @PropertySource("classpath:jdbc.properties")
 @Import(JdbcConfig.class)
 public class SpringConfig {
@@ -317,7 +317,7 @@ public class MybatisConfig {
     public SqlSessionFactoryBean sqlSessionFactory(DataSource dataSource){
         SqlSessionFactoryBean ssfb = new SqlSessionFactoryBean();
         //设置模型类的别名扫描
-        ssfb.setTypeAliasesPackage("com.itheima.domain");
+        ssfb.setTypeAliasesPackage("edu.note.domain");
         //设置数据源
         ssfb.setDataSource(dataSource);
         return ssfb;
@@ -326,7 +326,7 @@ public class MybatisConfig {
     @Bean
     public MapperScannerConfigurer mapperScannerConfigurer(){
         MapperScannerConfigurer msc = new MapperScannerConfigurer();
-        msc.setBasePackage("com.itheima.dao");
+        msc.setBasePackage("edu.note.dao");
         return msc;
     }
 }
@@ -352,7 +352,7 @@ public class MybatisConfig {
 
 ```java
 @Configuration
-@ComponentScan("com.itheima")
+@ComponentScan("edu.note")
 @PropertySource("classpath:jdbc.properties")
 @Import({JdbcConfig.class,MybatisConfig.class})
 public class SpringConfig {

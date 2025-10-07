@@ -12,7 +12,7 @@ import org.springframework.stereotype.Service;
 public class MyController {
 
     @Bean
-    public User admin() {
+    User admin() {
         User myBean = new User();
         myBean.setName("Alice");
         myBean.setAge(18);

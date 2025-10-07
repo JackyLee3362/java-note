@@ -67,7 +67,7 @@ description:
 
 - 实体类 Brand
 
-  在 `com.itheima.pojo` 包下创建 Brand 实体类。
+  在 `edu.note.pojo` 包下创建 Brand 实体类。
 
   ```java
   public class Brand {
@@ -143,7 +143,7 @@ description:
 
 #### 1.2.1 编写接口方法
 
-在 `com.itheima.mapper` 包写创建名为 `BrandMapper` 的接口。并在该接口中定义 `List<Brand> selectAll()` 方法。
+在 `edu.note.mapper` 包写创建名为 `BrandMapper` 的接口。并在该接口中定义 `List<Brand> selectAll()` 方法。
 
 ```java
 public interface BrandMapper {
@@ -165,7 +165,7 @@ public interface BrandMapper {
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="com.itheima.mapper.BrandMapper">
+<mapper namespace="edu.note.mapper.BrandMapper">
     <select id="selectAll" resultType="brand">
         select *
         from tb_brand;
@@ -374,7 +374,7 @@ Brand selectById(int id);
 
 #### 1.3.3 编写测试方法
 
-在 `test/java` 下的 `com.itheima.mapper` 包下的 `MybatisTest类中` 定义测试方法
+在 `test/java` 下的 `edu.note.mapper` 包下的 `MybatisTest类中` 定义测试方法
 
 ```java
  @Test
@@ -520,7 +520,7 @@ mybatis 提供了两种参数占位符：
 
 #### 1.4.3 编写测试方法
 
-在 `test/java` 下的 `com.itheima.mapper` 包下的 `MybatisTest类中` 定义测试方法
+在 `test/java` 下的 `edu.note.mapper` 包下的 `MybatisTest类中` 定义测试方法
 
 ```java
 @Test
@@ -722,7 +722,7 @@ List<Brand> selectByConditionSingle(Brand brand);
 
 #### 1.5.3 编写测试方法
 
-在 `test/java` 下的 `com.itheima.mapper` 包下的 `MybatisTest类中` 定义测试方法
+在 `test/java` 下的 `edu.note.mapper` 包下的 `MybatisTest类中` 定义测试方法
 
 ```java
 @Test
@@ -807,7 +807,7 @@ void add(Brand brand);
 
 #### 1.6.3 编写测试方法
 
-在 `test/java` 下的 `com.itheima.mapper` 包下的 `MybatisTest类中` 定义测试方法
+在 `test/java` 下的 `edu.note.mapper` 包下的 `MybatisTest类中` 定义测试方法
 
 ```java
 @Test
@@ -936,7 +936,7 @@ void update(Brand brand);
 
 #### 1.7.3 编写测试方法
 
-在 `test/java` 下的 `com.itheima.mapper` 包下的 `MybatisTest类中` 定义测试方法
+在 `test/java` 下的 `edu.note.mapper` 包下的 `MybatisTest类中` 定义测试方法
 
 ```java
 @Test
@@ -1014,7 +1014,7 @@ void deleteById(int id);
 
 #### 1.8.3 编写测试方法
 
-在 `test/java` 下的 `com.itheima.mapper` 包下的 `MybatisTest类中` 定义测试方法
+在 `test/java` 下的 `edu.note.mapper` 包下的 `MybatisTest类中` 定义测试方法
 
 ```java
  @Test
@@ -1099,7 +1099,7 @@ void deleteByIds(int[] ids);
 
 #### 1.9.3 编写测试方法
 
-在 `test/java` 下的 `com.itheima.mapper` 包下的 `MybatisTest类中` 定义测试方法
+在 `test/java` 下的 `edu.note.mapper` 包下的 `MybatisTest类中` 定义测试方法
 
 ```java
 @Test

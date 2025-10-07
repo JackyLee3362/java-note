@@ -9,11 +9,11 @@ import lombok.extern.slf4j.Slf4j;
  * @author jackylee
  * @date 2025/7/23 17:02
  */
-@SpringBootApplication
 @Slf4j
-public class Main {
+@SpringBootApplication
+public class StartApp {
 
     public static void main(String[] args) {
-        SpringApplication.run(Main.class, args);
+        SpringApplication.run(StartApp.class, args);
     }
 }

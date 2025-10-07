@@ -25,43 +25,43 @@ public class MyAdviceTest {
         bookDao.update();
     }
 
-    // @Test
-    // @DisplayName("测试 AOP before")
-    // void testMyAdviceBefore() {
-    //     ApplicationContext ctx = new AnnotationConfigApplicationContext(SpringConfigBefore.class);
-    //     BookDao bookDao = ctx.getBean(BookDao.class);
-    //     bookDao.update();
-    // }
+    @Test
+    @DisplayName("测试 AOP before")
+    void testMyAdviceBefore() {
+        ApplicationContext ctx = new AnnotationConfigApplicationContext(SpringConfigBefore.class);
+        BookDao bookDao = ctx.getBean(BookDao.class);
+        bookDao.update();
+    }
 
-    // @Test
-    // @DisplayName("测试 AOP around void")
-    // void testMyAdviceAroundVoid() {
-    //     ApplicationContext ctx = new AnnotationConfigApplicationContext(SpringConfigAroundVoid.class);
-    //     BookDao bookDao = ctx.getBean(BookDao.class);
-    //     bookDao.update();
-    // }
+    @Test
+    @DisplayName("测试 AOP around void")
+    void testMyAdviceAroundVoid() {
+        ApplicationContext ctx = new AnnotationConfigApplicationContext(SpringConfigAroundVoid.class);
+        BookDao bookDao = ctx.getBean(BookDao.class);
+        bookDao.update();
+    }
 
-    // @Test
-    // @DisplayName("测试 AOP around obj")
-    // void testMyAdviceAroundObj() {
-    //     ApplicationContext ctx = new AnnotationConfigApplicationContext(SpringConfigAroundObj.class);
-    //     BookDao bookDao = ctx.getBean(BookDao.class);
-    //     bookDao.update();
-    // }
+    @Test
+    @DisplayName("测试 AOP around obj")
+    void testMyAdviceAroundObj() {
+        ApplicationContext ctx = new AnnotationConfigApplicationContext(SpringConfigAroundObj.class);
+        BookDao bookDao = ctx.getBean(BookDao.class);
+        bookDao.update();
+    }
 
-    // @Test
-    // @DisplayName("测试 AOP after return")
-    // void testMyAdviceAfterReturn() {
-    //     ApplicationContext ctx = new AnnotationConfigApplicationContext(SpringConfigAfterReturning.class);
-    //     BookDao bookDao = ctx.getBean(BookDao.class);
-    //     bookDao.update();
-    // }
+    @Test
+    @DisplayName("测试 AOP after return")
+    void testMyAdviceAfterReturn() {
+        ApplicationContext ctx = new AnnotationConfigApplicationContext(SpringConfigAfterReturning.class);
+        BookDao bookDao = ctx.getBean(BookDao.class);
+        bookDao.update();
+    }
 
-    // @Test
-    // @DisplayName("测试 AOP after throw")
-    // void testMyAdviceAfterThrow() {
-    //     ApplicationContext ctx = new AnnotationConfigApplicationContext(SpringConfigAfterThrowing.class);
-    //     BookDao bookDao = ctx.getBean(BookDao.class);
-    //     bookDao.update();
-    // }
+    @Test
+    @DisplayName("测试 AOP after throw")
+    void testMyAdviceAfterThrow() {
+        ApplicationContext ctx = new AnnotationConfigApplicationContext(SpringConfigAfterThrowing.class);
+        BookDao bookDao = ctx.getBean(BookDao.class);
+        bookDao.update();
+    }
 }
