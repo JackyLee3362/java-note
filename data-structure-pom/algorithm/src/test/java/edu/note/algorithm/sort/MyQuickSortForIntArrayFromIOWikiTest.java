@@ -1,4 +1,4 @@
-package edu.algorithm.sort;
+package edu.note.algorithm.sort;
 
 import java.util.Arrays;
 
@@ -15,7 +15,7 @@ public class MyQuickSortForIntArrayFromIOWikiTest {
     }
 
     @Test
-    void testFindKthNumber(){
+    void testFindKthNumber() {
         MyQuickSortForIntArrayFromIOWiki qs = new MyQuickSortForIntArrayFromIOWiki();
         int[] a1 = { 8, 4, 5, 6, 9, 3, 2, 7, 1, 0 };
         qs.sort(a1);

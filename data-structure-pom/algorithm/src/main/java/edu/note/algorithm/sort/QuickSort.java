@@ -1,6 +1,6 @@
-package edu.algorithm.sort;
+package edu.note.algorithm.sort;
 
-import static edu.algorithm.sort.SortUtils.*;
+import static edu.note.algorithm.sort.SortUtils.*;
 
 /**
  * 快速排序

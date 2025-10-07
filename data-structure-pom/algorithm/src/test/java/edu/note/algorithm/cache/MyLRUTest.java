@@ -1,6 +1,8 @@
-package edu.algorithm.cache;
+package edu.note.algorithm.cache;
 
 import org.junit.jupiter.api.Test;
+
+import edu.note.algorithm.cache.MyLRU;
 
 class MyLRUTest {
     @Test

@@ -1,4 +1,4 @@
-package edu.algorithm.sort;
+package edu.note.algorithm.sort;
 
 import java.util.Arrays;
 

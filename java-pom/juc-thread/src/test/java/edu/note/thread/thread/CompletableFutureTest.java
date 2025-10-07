@@ -5,6 +5,7 @@ import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutionException;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.RepeatedTest;
 import org.junit.jupiter.api.Test;
 
@@ -44,5 +45,25 @@ public class CompletableFutureTest {
         }).thenApply(r -> r * 10).exceptionally((e) -> 0);
 
         Assertions.assertEquals(0, taskFailed.get());
+    }
+
+    @Test
+    @DisplayName("")
+    void test0() {
+
+        CompletableFuture<Integer> future = CompletableFuture.supplyAsync(() -> 1);
+        future.thenRunAsync(() -> {
+            log.info(Thread.currentThread().getName());
+            log.info("Done");
+        });
+        future.thenAcceptAsync(result -> {
+            log.info(Thread.currentThread().getName());
+            log.info("{}", result);
+        });
+        try {
+            Thread.sleep(2000);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }

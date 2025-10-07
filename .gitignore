@@ -1,6 +1,6 @@
 # custom directory
 **/tmp/*
-backup
+bak
 
 .idea
 .vscode

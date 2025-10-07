@@ -1,4 +1,4 @@
-package edu.algorithm.cache;
+package edu.note.algorithm.cache;
 
 import java.util.HashMap;
 

@@ -1,4 +1,4 @@
-package edu.algorithm.math;
+package edu.note.algorithm.math;
 
 /**
  * https://oi-wiki.org/math/binary-exponentiation/

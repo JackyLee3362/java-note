@@ -1,4 +1,4 @@
-package edu.algorithm.graphs;
+package edu.note.algorithm.graphs;
 
 import java.util.Arrays;
 

@@ -1,4 +1,4 @@
-package edu.algorithm.sort;
+package edu.note.algorithm.sort;
 
 /**
  * 找到数组中第 k 大的数
