@@ -31,7 +31,7 @@ public class CustomClassLoaderTest {
     @Test
     void test2() {
         try {
-            Class<?> clazz2 = customClassLoader.loadClass("com.jackylee.classLoader.Person2");
+            Class<?> clazz2 = customClassLoader.loadClass("com.example.classLoader.Person2");
         } catch (Exception e) {
             log.error(e.getMessage());
         }

@@ -23,7 +23,7 @@ final class SortUtils {
     /**
      * 比较两个元素，看看第一个元素是否小于第二个元素
      *
-     * @param firstElement     要比较的第一个元素
+     * @param firstElement  要比较的第一个元素
      * @param secondElement 要比较的第二个元素
      * @return true 如果第一个元素小于第二个元素，否则 false
      */
@@ -34,7 +34,7 @@ final class SortUtils {
     /**
      * 比较两个元素，看看【第一个元素】是否大于【第二个元素】
      *
-     * @param firstElement     要比较的第一个元素
+     * @param firstElement  要比较的第一个元素
      * @param secondElement 要比较的第二个元素
      * @return true 如果第一个元素大于第二个元素，否则 false
      */
@@ -45,7 +45,7 @@ final class SortUtils {
     /**
      * 比较两个元素，看【第一个元素】是否大于等于【第二个元素】
      *
-     * @param firstElement     要比较的第一个元素
+     * @param firstElement  要比较的第一个元素
      * @param secondElement 要比较的第二个元素
      * @return true 如果第一个元素大于或等于第二个元素，
      *         否则为假

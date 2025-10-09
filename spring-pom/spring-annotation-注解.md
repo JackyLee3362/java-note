@@ -315,7 +315,7 @@ public class Demo{
     // 抽取公共的切入点表达式
     // private: 只能在当前类中用
     // public : 其他外部切面类也可以使用
-    @Pointcut("execution(* com.jacky.service.*.*(..))")
+    @Pointcut("execution(* com.example.service.*.*(..))")
     private void pt() {
     }
 
@@ -359,9 +359,9 @@ class Demo{
 
 ## SpringBean 中的条件注解
 
-比如存在"com.jacky.Student"才会加入 IOC 容器中
+比如存在"com.example.Student"才会加入 IOC 容器中
 
-@ConditionalOnClass(name="com.jacky.Student")
+@ConditionalOnClass(name="com.example.Student")
 
 ---
 

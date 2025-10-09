@@ -22,6 +22,7 @@
     <module>druid</module>
     <module>c3p0</module>
     <module>redis</module>
+    <module>mybatis-spring</module>
   </modules>
 
 </project>
