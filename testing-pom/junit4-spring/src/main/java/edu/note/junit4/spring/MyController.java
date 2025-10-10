@@ -1,4 +1,4 @@
-package edu.note.junit4;
+package edu.note.junit4.spring;
 
 import lombok.Data;
 import org.springframework.context.annotation.Bean;

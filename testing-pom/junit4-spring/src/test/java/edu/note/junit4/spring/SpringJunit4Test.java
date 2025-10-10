@@ -1,14 +1,14 @@
-package edu.note.junit4;
+package edu.note.junit4.spring;
 
 import javax.annotation.Resource;
-
-import edu.note.junit4.MyController.User;
 
 import org.junit.Assert;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.context.ApplicationContext;
+
+import edu.note.junit4.spring.MyController.User;
 
 /**
  * @author jackylee

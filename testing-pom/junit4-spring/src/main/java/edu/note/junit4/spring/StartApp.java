@@ -1,4 +1,4 @@
-package edu.note.junit4;
+package edu.note.junit4.spring;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

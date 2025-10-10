@@ -20,6 +20,8 @@
     <module>spock</module>
     <module>jacoco</module>
     <module>junit4</module>
+    <module>junit4-spring</module>
+    <module>junit5-spring</module>
   </modules>
 
 </project>
