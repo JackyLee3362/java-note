@@ -120,4 +120,5 @@ def "测试类"(){
 
 ## 参考文献
 
-[Spock 单元测试框架介绍以及在美团优选的实践](https://tech.meituan.com/2021/08/06/spock-practice-in-meituan.html)
+- [6. Test Guide — groovys 1.0.0 文档](https://groovys.readthedocs.io/zh/latest/GettingStarted/Testing-guide.html)
+- [另类 Springboot 集成单元测试：Groovy 脚本测试、零重启、零等待 🗣️ 什么是 Springboot 集成 - 掘金](https://juejin.cn/post/7208085491244793916)
