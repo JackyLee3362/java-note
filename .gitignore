@@ -1,6 +1,7 @@
 # custom directory
 **/tmp/*
 bak
+data
 
 .idea
 .vscode

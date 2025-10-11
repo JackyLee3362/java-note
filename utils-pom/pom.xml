@@ -22,6 +22,7 @@
     <module>hutool</module>
     <module>commonio</module>
     <module>camel</module>
+    <module>commons-lang3</module>
   </modules>
 
 </project>

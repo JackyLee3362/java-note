@@ -26,6 +26,7 @@
     <module>juc</module>
     <module>juc-lock</module>
     <module>juc-thread</module>
+    <module>jms</module>
   </modules>
 
 </project>

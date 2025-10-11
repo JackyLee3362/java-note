@@ -22,8 +22,8 @@ description:
 
 ## java 循环
 
-- stream().forEach 
-- forEach 
+- stream().forEach
+- forEach
 - 异步 forEach
 - 普通 for 循环
 - 增强 for 循环
