@@ -5,22 +5,19 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>edu.note</groupId>
-    <artifactId>web-pom</artifactId>
+    <artifactId>bak-pom</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>pom</packaging>
 
     <properties>
         <maven.compiler.source>8</maven.compiler.source>
         <maven.compiler.target>8</maven.compiler.target>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
     <modules>
-        <module>jwt</module>
-        <module>rest-template</module>
-        <module>tomcat </module>
-        <module>mvc</module>
-        <!-- <module>netty</module> -->
+        <module>demo-backend</module>
+        <module>java-learning</module>
     </modules>
+
 
 </project>

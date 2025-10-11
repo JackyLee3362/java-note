@@ -20,6 +20,7 @@
     <module>spring-starter</module>
     <module>spring-transaction</module>
     <module>spring-boot</module>
+    <module>spring-web</module>
   </modules>
 
   <properties>

@@ -28,6 +28,8 @@
     <module>logging-pom</module>
     <module>db-pom</module>
     <module>web-pom</module>
+    <module>jvm-pom</module>
+    <module>bak-pom</module>
   </modules>
 
 </project>
