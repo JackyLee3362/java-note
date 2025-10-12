@@ -1,12 +1,18 @@
-package com.jacky.boot;
+package edu.note.spring.web;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+/**
+ * @author jackylee
+ * @date 2025-10-10 21:53
+ */
+
 @SpringBootApplication
-public class MainApplication {
+public class StartApp {
+
     public static void main(String[] args) {
-        SpringApplication.run(MainApplication.class);
+        SpringApplication.run(StartApp.class, args);
     }
 
 }

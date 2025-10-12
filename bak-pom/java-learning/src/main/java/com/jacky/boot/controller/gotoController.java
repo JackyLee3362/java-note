@@ -11,7 +11,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 @Controller
-public class gotoController {
+public class GotoController {
     @GetMapping("/goto")
     public String gotoPage(HttpServletRequest request) {
         request.setAttribute("msg", "good job!");
@@ -22,17 +22,16 @@ public class gotoController {
     @ResponseBody
     @GetMapping("/success")
     public Map receiveGoto(
-            @RequestAttribute("msg") String msg
-    ) {
+            @RequestAttribute("msg") String msg) {
         Map<String, String> map = new HashMap<String, String>();
         map.put("msg", msg);
         return map;
     }
 
     @GetMapping("thymeleaf")
-    public String got(Model model){
+    public String got(Model model) {
         model.addAttribute("msg", "hello, thymeleaf!");
-//        model.addAttribute("web","http://www.jackylee.cn");
+        // model.addAttribute("web","http://www.jackylee.cn");
 
         return "page";
     }

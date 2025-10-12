@@ -1,4 +1,4 @@
-package com.example.demo.interceptor;
+package edu.note.spring.web;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.servlet.HandlerInterceptor;
@@ -12,6 +12,7 @@ import javax.servlet.http.HttpSession;
 public class LoginInterceptor implements HandlerInterceptor {
     /**
      * 目标方法执行之前
+     * 
      * @param request
      * @param response
      * @param handler
@@ -19,28 +20,35 @@ public class LoginInterceptor implements HandlerInterceptor {
      * @throws Exception
      */
     @Override
-    public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
+    public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
+            throws Exception {
         // 登录检查逻辑
+        if (true) {
+            return true;
+        }
         String requestURI = request.getRequestURI();
-        log.info("经过拦截器，请求路径是{}",requestURI);
+        log.info("经过拦截器，请求路径是{}", requestURI);
 
         HttpSession session = request.getSession();
         Object loginUser = session.getAttribute("loginUser");
-        if(request.getRequestURI().equals("/tools/sudoku")) return true;
+        if (request.getRequestURI().equals("/tools/sudoku"))
+            return true;
         // 如果不为空则放行
-        if(loginUser != null) return true;
-        //否则拦截
-//        session.setAttribute("msg","请先登录");
-//        response.sendRedirect("/");
-        request.setAttribute("msg","请先登录");
-        request.getRequestDispatcher("/").forward(request,response);
+        if (loginUser != null)
+            return true;
+        // 否则拦截
+        // session.setAttribute("msg","请先登录");
+        // response.sendRedirect("/");
+        request.setAttribute("msg", "请先登录");
+        request.getRequestDispatcher("/").forward(request, response);
 
         return false;
-//        return HandlerInterceptor.super.preHandle(request, response, handler);
+        // return HandlerInterceptor.super.preHandle(request, response, handler);
     }
 
     /**
      * 目标方法执行完成以后
+     * 
      * @param request
      * @param response
      * @param handler
@@ -48,12 +56,14 @@ public class LoginInterceptor implements HandlerInterceptor {
      * @throws Exception
      */
     @Override
-    public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler, ModelAndView modelAndView) throws Exception {
+    public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler,
+            ModelAndView modelAndView) throws Exception {
         HandlerInterceptor.super.postHandle(request, response, handler, modelAndView);
     }
 
     /**
      * 页面渲染以后
+     * 
      * @param request
      * @param response
      * @param handler
@@ -61,7 +71,8 @@ public class LoginInterceptor implements HandlerInterceptor {
      * @throws Exception
      */
     @Override
-    public void afterCompletion(HttpServletRequest request, HttpServletResponse response, Object handler, Exception ex) throws Exception {
+    public void afterCompletion(HttpServletRequest request, HttpServletResponse response, Object handler, Exception ex)
+            throws Exception {
         HandlerInterceptor.super.afterCompletion(request, response, handler, ex);
     }
 }

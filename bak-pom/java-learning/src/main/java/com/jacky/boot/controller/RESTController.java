@@ -7,7 +7,8 @@ import java.util.List;
 import java.util.Map;
 
 @RestController
-public class RESTController extends gotoController {
+public class RESTController extends GotoController {
+
     @GetMapping("/cars/sell")
     public Map matrixTest(
             @MatrixVariable("price") Integer price,
@@ -50,26 +51,5 @@ public class RESTController extends gotoController {
         Map<String, String> map = new HashMap<>();
         map.put("content", content);
         return map;
-    }
-
-    // @RequestMapping("/user", method = RequestMethod.GET)
-    @GetMapping("/user")
-    public String getUser() {
-        return "get method";
-    }
-
-    @PostMapping("/user")
-    public String getPost() {
-        return "post method";
-    }
-
-    @DeleteMapping("/user")
-    public String deletePost() {
-        return "delete method";
-    }
-
-    @PutMapping("/user")
-    public String putPost() {
-        return "put method";
     }
 }

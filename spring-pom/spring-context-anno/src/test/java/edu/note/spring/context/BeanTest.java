@@ -16,6 +16,16 @@ import edu.note.spring.context.config.SpringConfigLifeCycle;
 public class BeanTest {
 
     @Test
+    @DisplayName("获取所有组件")
+    void testComponentAll() {
+        // 获取 IOC 容器
+        ApplicationContext ctx = new ClassPathXmlApplicationContext("bean-component-scan.xml");
+        for (String name : ctx.getBeanDefinitionNames()) {
+            System.out.println(name);
+        }
+    }
+
+    @Test
     @DisplayName("测试组件扫描")
     void testComponentScan() {
         // 获取 IOC 容器

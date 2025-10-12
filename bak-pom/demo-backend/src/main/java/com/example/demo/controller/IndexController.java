@@ -12,29 +12,29 @@ import javax.servlet.http.HttpSession;
 @Controller
 public class IndexController {
 
-    @GetMapping(value={"/", "/login"})
-    public String loginPage(){
-
+    @GetMapping(value = { "/", "/login" })
+    public String loginPage() {
         return "login";
     }
+
     @PostMapping("/login")
-    public String main(User user, HttpSession session, Model model){
-        if(StringUtils.hasLength(user.getUserName()) && user.getPassword().equals("123")){
-            session.setAttribute("loginUser",user);
+    public String main(User user, HttpSession session, Model model) {
+        if (StringUtils.hasLength(user.getUserName()) && user.getPassword().equals("123")) {
+            session.setAttribute("loginUser", user);
             return "redirect:/main.html";
         }
-        model.addAttribute("msg","Username or password error");
+        model.addAttribute("msg", "Username or password error");
         return "login";
     }
 
     @GetMapping("/main.html")
-    public String mainPage(HttpSession session, Model model){
+    public String mainPage(HttpSession session, Model model) {
         // 使用拦截器之后，这段就可以注释了
-//        if(session.getAttribute("loginUser") != null){
-//            return "main";
-//        }
-//        model.addAttribute("msg", "please login first!");
-//        return "login";
+        // if(session.getAttribute("loginUser") != null){
+        // return "main";
+        // }
+        // model.addAttribute("msg", "please login first!");
+        // return "login";
         return "main";
     }
 }

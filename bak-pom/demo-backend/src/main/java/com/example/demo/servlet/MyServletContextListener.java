@@ -12,12 +12,12 @@ public class MyServletContextListener implements ServletContextListener {
     @Override
     public void contextInitialized(ServletContextEvent sce) {
         log.info("MyServletContextListener is working");
-//        ServletContextListener.super.contextInitialized(sce);
+        // ServletContextListener.super.contextInitialized(sce);
     }
 
     @Override
     public void contextDestroyed(ServletContextEvent sce) {
         log.info("MyServletContextListener is destoried");
-//        ServletContextListener.super.contextDestroyed(sce);
+        // ServletContextListener.super.contextDestroyed(sce);
     }
 }

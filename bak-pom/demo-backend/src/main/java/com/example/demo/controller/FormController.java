@@ -15,32 +15,32 @@ import java.io.IOException;
 @Slf4j
 public class FormController {
     @GetMapping("/form_layouts")
-    public String form_layout(){
+    public String form_layout() {
         return "/form/form_layouts";
     }
 
     @PostMapping("/upload")
     public String upload(@RequestParam("email") String email,
-                         @RequestParam("username") String username,
-                         @RequestPart("single-image") MultipartFile headerimg,
-                         @RequestPart("photos") MultipartFile[] photos
-                         // 也可以写成 List<MultipartFile>
-                         ) throws IOException {
+            @RequestParam("username") String username,
+            @RequestPart("single-image") MultipartFile headerimg,
+            @RequestPart("photos") MultipartFile[] photos
+    // 也可以写成 List<MultipartFile>
+    ) throws IOException {
         log.info("上传的信息：email={},username={},image={},photos={}",
-                email,username,headerimg.getSize(),photos.length);
+                email, username, headerimg.getSize(), photos.length);
         // 先判断是否为空
-        if(!headerimg.isEmpty()){
-           // 存到目标服务器
+        if (!headerimg.isEmpty()) {
+            // 存到目标服务器
             String originalFilename = headerimg.getOriginalFilename();
-           headerimg.transferTo(new File("D:\\"+originalFilename));
+            headerimg.transferTo(new File("D:\\" + originalFilename));
         }
-        if(photos.length > 0){
-            for(MultipartFile photo : photos){
-                if(!photo.isEmpty())
-                    photo.transferTo(new File("D:\\"+photo.getOriginalFilename()));
+        if (photos.length > 0) {
+            for (MultipartFile photo : photos) {
+                if (!photo.isEmpty())
+                    photo.transferTo(new File("D:\\" + photo.getOriginalFilename()));
                 // 在配置文件中加入下面的配置可以限制文件大小
-//  spring.servlet.multipart.max-file-size = 10MB
-//  spring.servlet.multipart.max-request-size = 100MB
+                // spring.servlet.multipart.max-file-size = 10MB
+                // spring.servlet.multipart.max-request-size = 100MB
             }
         }
         return "main";
