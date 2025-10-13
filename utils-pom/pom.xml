@@ -21,8 +21,9 @@
     <module>mybatis</module>
     <module>hutool</module>
     <module>commonio</module>
-    <module>camel</module>
     <module>commons-lang3</module>
+    <module>camel2</module>
+    <module>camel3</module>
   </modules>
 
 </project>

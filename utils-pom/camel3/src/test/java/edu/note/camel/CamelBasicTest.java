@@ -18,7 +18,7 @@ import org.junit.jupiter.api.Test;
 public class CamelBasicTest extends CamelTestSupport {
 
     @Test
-    // @DisplayName("基础")
+    @DisplayName("基础")
     void test01() {
         NotifyBuilder notify = new NotifyBuilder(context).whenCompleted(1).create();
         assertTrue(notify.matches(20, TimeUnit.SECONDS), "1 message should be completed");
@@ -35,6 +35,7 @@ public class CamelBasicTest extends CamelTestSupport {
             }
         };
         return router;
+
     }
 
 }

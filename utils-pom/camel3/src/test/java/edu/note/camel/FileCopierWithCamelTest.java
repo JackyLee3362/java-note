@@ -25,6 +25,7 @@ public class FileCopierWithCamelTest {
             public void configure() {
                 // noop=true 表示是复制，false 为移动
                 from("file:data/inbox?noop=true")
+                        .log("文件传输成功")
                         .to("file:data/outbox"); // (1) 将文件从inbox路由到outbox
             }
         });
