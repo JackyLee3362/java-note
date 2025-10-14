@@ -1,4 +1,4 @@
-package edu.note.camel;
+package edu.note.camel.endpoint;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
@@ -15,7 +15,7 @@ import org.junit.jupiter.api.Test;
  * @author jackylee
  * @date 2025-10-11 17:47
  */
-public class CamelBasicTest extends CamelTestSupport {
+public class TimerToLogTest extends CamelTestSupport {
 
     @Test
     @DisplayName("基础")
@@ -30,7 +30,7 @@ public class CamelBasicTest extends CamelTestSupport {
             @Override
             public void configure() {
                 // timer 是定时器组件, foo 是定时器名称
-                from("timer:foo")
+                from("timer:foo?period=1000")
                         .log("Hello Camel");
             }
         };

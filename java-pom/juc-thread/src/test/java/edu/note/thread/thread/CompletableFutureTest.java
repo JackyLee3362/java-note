@@ -17,12 +17,14 @@ import org.junit.jupiter.api.Test;
 public class CompletableFutureTest {
 
     @Test
-    void test01() throws ExecutionException, InterruptedException {
+    @DisplayName("已处理的 completeFuture")
+    void testBasic01() throws ExecutionException, InterruptedException {
         CompletableFuture<Integer> future = CompletableFuture.completedFuture(100);
         Assertions.assertEquals(100, future.get());
     }
 
     @Test
+    @DisplayName("测试 supplyAsync")
     void test02() throws ExecutionException, InterruptedException {
         CompletableFuture<Integer> future = CompletableFuture.supplyAsync(() -> {
             log.info("当前线程：{}", Thread.currentThread().getId());
@@ -48,9 +50,16 @@ public class CompletableFutureTest {
     }
 
     @Test
-    @DisplayName("")
-    void test0() {
+    @DisplayName("处理链")
+    void testChain01() {
+        CompletableFuture.supplyAsync(() -> "Hello,World").thenApply(result -> {
+            return result.toUpperCase();
+        }).thenAccept(System.out::println);
+    }
 
+    @Test
+    @DisplayName("异步处理链")
+    void testAsyncChain01() {
         CompletableFuture<Integer> future = CompletableFuture.supplyAsync(() -> 1);
         future.thenRunAsync(() -> {
             log.info(Thread.currentThread().getName());
@@ -65,5 +74,11 @@ public class CompletableFutureTest {
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    @Test
+    @DisplayName("测试 join 和 get")
+    void test05() {
+        // join 和 get 的区别 TODO
     }
 }

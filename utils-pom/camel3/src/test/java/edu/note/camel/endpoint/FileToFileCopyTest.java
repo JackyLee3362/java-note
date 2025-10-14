@@ -1,4 +1,4 @@
-package edu.note.camel;
+package edu.note.camel.endpoint;
 
 import org.apache.camel.CamelContext;
 import org.apache.camel.builder.RouteBuilder;
@@ -13,7 +13,7 @@ import lombok.extern.slf4j.Slf4j;
  * @date 2025-10-11 16:21
  */
 @Slf4j
-public class FileCopierWithCamelTest {
+public class FileToFileCopyTest {
 
     @Test
     @DisplayName("测试")
