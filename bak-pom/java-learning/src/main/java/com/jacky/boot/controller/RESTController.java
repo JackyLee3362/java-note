@@ -10,7 +10,7 @@ import java.util.Map;
 public class RESTController extends GotoController {
 
     @GetMapping("/cars/sell")
-    public Map matrixTest(
+    public Map<?, ?> matrixTest(
             @MatrixVariable("price") Integer price,
             @MatrixVariable("brand") List<String> brand) {
         Map<String, Object> map = new HashMap<>();

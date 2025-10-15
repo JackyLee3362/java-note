@@ -27,7 +27,7 @@
     <module>juc-lock</module>
     <module>juc-thread</module>
     <module>jms</module>
-    <module>java-web</module>
+    <module>java-socket</module>
   </modules>
 
 </project>

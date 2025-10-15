@@ -10,7 +10,7 @@
     </parent>
 
     <groupId>edu.note</groupId>
-    <artifactId>java-web</artifactId>
+    <artifactId>java-socket</artifactId>
     <version>1.0-SNAPSHOT</version>
 
     <properties>
