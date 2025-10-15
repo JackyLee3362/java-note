@@ -3,8 +3,8 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-    <bean id="helloDao" class="edu.note.spring.context.HelloDaoImpl" />
-    <bean id="helloService" class="edu.note.spring.context.HelloServiceImpl">
+    <bean id="helloDao" class="edu.note.spring.bean.xml.HelloDaoImpl" />
+    <bean id="helloService" class="edu.note.spring.bean.xml.HelloServiceImpl">
         <!-- name 必须与构造器参数名中保持一致 -->
         <constructor-arg name="helloDao" ref="helloDao" />
         <!-- 简单参数 -->

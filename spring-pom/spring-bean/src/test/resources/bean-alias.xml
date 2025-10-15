@@ -5,8 +5,8 @@
 
     <!-- 别名: name=xxx,使用 空格/逗号/分号 分隔 -->
     <!-- ref 一般使用 id(建议)，也可以使用 name -->
-    <bean id="helloDao" name="dao helloDao" class="edu.note.spring.context.HelloDaoImpl" />
-    <bean id="helloService" name="service,helloService" class="edu.note.spring.context.HelloServiceImpl">
+    <bean id="helloDao" name="dao helloDao" class="edu.note.spring.bean.xml.HelloDaoImpl" />
+    <bean id="helloService" name="service,helloService" class="edu.note.spring.bean.xml.HelloServiceImpl">
         <property name="helloDao" ref="helloDao" />
     </bean>
 
