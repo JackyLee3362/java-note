@@ -11,8 +11,8 @@
 
   <modules>
     <module>spring-aop</module>
-    <module>spring-context-xml</module>
-    <module>spring-context-anno</module>
+    <module>spring-bean</module>
+    <module>spring-context</module>
     <module>spring-mq</module>
     <module>spring-redis</module>
     <module>spring-rest-template</module>
