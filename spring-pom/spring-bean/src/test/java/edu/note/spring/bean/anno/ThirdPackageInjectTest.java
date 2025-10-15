@@ -42,7 +42,6 @@ public class ThirdPackageInjectTest {
         ApplicationContext ctx = new AnnotationConfigApplicationContext(SpringConfigThirdPkgWithRef.class);
         DataSource ds2 = ctx.getBean(DataSource.class);
         Assertions.assertNotNull(ds2);
-
     }
 
     @Test

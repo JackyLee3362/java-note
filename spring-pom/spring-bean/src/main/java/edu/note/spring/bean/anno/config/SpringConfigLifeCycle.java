@@ -8,7 +8,7 @@ import org.springframework.context.annotation.Configuration;
  * @date 2025-10-05 15:03
  */
 @Configuration
-@ComponentScan("edu.note.spring.context")
+@ComponentScan("edu.note.spring.bean.anno")
 public class SpringConfigLifeCycle {
     
 }

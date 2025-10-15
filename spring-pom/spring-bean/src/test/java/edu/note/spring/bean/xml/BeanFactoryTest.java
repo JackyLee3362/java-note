@@ -7,8 +7,6 @@ import org.springframework.beans.factory.xml.XmlBeanFactory;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.core.io.Resource;
 
-import edu.note.spring.bean.xml.HelloDao;
-
 /**
  * @author jackylee
  * @date 2025-09-30 14:49

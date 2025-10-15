@@ -6,8 +6,6 @@ import org.junit.jupiter.api.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-import edu.note.spring.bean.xml.HelloService;
-
 /**
  * @author jackylee
  * @date 2025-10-05 11:48

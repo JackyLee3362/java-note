@@ -6,8 +6,6 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-import edu.note.spring.bean.anno.HelloDao;
-import edu.note.spring.bean.anno.HelloService;
 import edu.note.spring.bean.anno.config.SpringConfigComponentScan;
 import edu.note.spring.bean.anno.config.SpringConfigLifeCycle;
 

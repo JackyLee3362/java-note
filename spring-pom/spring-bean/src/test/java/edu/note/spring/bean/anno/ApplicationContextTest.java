@@ -5,8 +5,6 @@ import org.junit.jupiter.api.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
-import edu.note.spring.bean.anno.HelloDao;
-import edu.note.spring.bean.anno.HelloService;
 import edu.note.spring.bean.anno.config.SpringConfigPropertySource;
 
 /**
