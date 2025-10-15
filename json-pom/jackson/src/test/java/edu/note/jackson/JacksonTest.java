@@ -13,7 +13,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 // https://juejin.cn/post/6844904166809157639
-public class TestJackson {
+public class JacksonTest {
     static ObjectMapper objectMapper = new ObjectMapper();
 
     @Test

@@ -11,8 +11,8 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
-public class Person {
+public class User {
 
     private String name;
-    private int age;
+    private Integer age;
 }

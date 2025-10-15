@@ -11,7 +11,7 @@
     </parent>
 
     <groupId>edu.note</groupId>
-    <artifactId>spring-web</artifactId>
+    <artifactId>spring-web-controller</artifactId>
     <version>1.0-SNAPSHOT</version>
 
     <properties>
@@ -45,6 +45,9 @@
             <groupId>ch.qos.logback</groupId>
             <artifactId>logback-classic</artifactId>
         </dependency>
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-core</artifactId>
+        </dependency>
     </dependencies>
-
 </project>
