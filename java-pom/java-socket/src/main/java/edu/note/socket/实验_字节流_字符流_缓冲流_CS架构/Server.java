@@ -20,9 +20,9 @@ public class Server {
         //        可以接收OutputStream
         //        可以接收OutStreamWriter
         //        可以接收BufferedReader
-        while ((b = is.read()) != -1) {
-            System.out.print((char) b);
-        }
+        // while ((b = is.read()) != -1) {
+        //     System.out.print((char) b);
+        // }
         // // 实验2：用InputStreamReader接收
         //        可以接收OutputStream
         //        可以接收OutStreamWriter
@@ -34,9 +34,9 @@ public class Server {
         //        可以接收OutputStream
         //        可以接收OutStreamWriter
         //        可以接收BufferedReader
-        // while ((s = br.readLine())!=null){
-        //     System.out.println(s);
-        // }
+        while ((s = br.readLine())!=null){
+            System.out.println(s);
+        }
         socket.close(); // 为什么没有这段代码会报错？
         ss.close();
     }

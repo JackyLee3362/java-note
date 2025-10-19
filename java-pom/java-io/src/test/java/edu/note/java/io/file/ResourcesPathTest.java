@@ -1,8 +1,10 @@
 package edu.note.java.io.file;
 
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertNull;
+
 import java.io.InputStream;
 import java.net.URL;
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -20,10 +22,10 @@ public class ResourcesPathTest {
     void testClassLoaderPath() {
         URL res = classLoader.getResource(".");
         // 测试 Resource 路径
-        Assertions.assertNotNull(res); // file:/path/to/test-classes/
+        System.out.println(res);
+        assertNotNull(res); // file:/path/to/test-classes/
         URL root = classLoader.getResource("/");
-        System.out.println(root); // null
-        Assertions.assertNull(root);
+        assertNull(root);
     }
 
     @Test
@@ -32,9 +34,10 @@ public class ResourcesPathTest {
         URL res = clazz.getResource(".");
         // 测试 Resource 路径
         System.out.println(res);
-        Assertions.assertNotNull(res);
+        assertNotNull(res);
         URL res2 = clazz.getResource("/");
         System.out.println(res2);
+        assertNotNull(res2);
     }
 
     @Test
@@ -42,6 +45,7 @@ public class ResourcesPathTest {
     void testGetResourceFile() {
         // 测试 Resource 中是否有 a.txt 文件
         InputStream inputStream = classLoader.getResourceAsStream("a.txt");
-        Assertions.assertNotNull(inputStream);
+        assertNotNull(inputStream);
+        // todo: 如何获取 outputStream
     }
 }
