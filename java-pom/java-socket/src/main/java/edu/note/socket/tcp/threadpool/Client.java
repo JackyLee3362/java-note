@@ -1,4 +1,4 @@
-package edu.note.socket.a12_多线程_线程池;
+package edu.note.socket.tcp.threadpool;
 
 
 import java.io.*;
