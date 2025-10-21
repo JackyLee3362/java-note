@@ -16,9 +16,9 @@ import spock.lang.Specification
  */
 @RunWith(PowerMockRunner.class)
 @PowerMockRunnerDelegate(Sputnik.class)
-@PrepareForTest([NumberUtil.class])
+@PrepareForTest([Calculator.class])
 // 限制静态方法初始化，因为可能会导致【静态代码块】执行
-@SuppressStaticInitializationFor("edu.note.spock.NumberUtil")
+@SuppressStaticInitializationFor("edu.note.spock.Calculator")
 class IT03StaticMethodSpockSpec extends Specification {
 
     def userDao = Mock(UserDao.class)
@@ -26,7 +26,7 @@ class IT03StaticMethodSpockSpec extends Specification {
 
     void setup() {
         // Mock 静态类
-        PowerMockito.mockStatic(NumberUtil.class)
+        PowerMockito.mockStatic(Calculator.class)
     }
 
     def "静态方法测试"() {
@@ -38,7 +38,7 @@ class IT03StaticMethodSpockSpec extends Specification {
         userDao.getUserById(_ as Integer) >>> [user1, user2]
 
         and :"mock 静态方法返回的信息"
-        PowerMockito.when(NumberUtil.isOdd(Mockito.any())).thenReturn(true)
+        PowerMockito.when(Calculator.isOdd(Mockito.any())).thenReturn(true)
 
         when: "执行测试方法"
         def res1 = userService.isOddAgeUser(1)
@@ -48,6 +48,6 @@ class IT03StaticMethodSpockSpec extends Specification {
         res1 == true
         res2 == true
         // 静态方法调用验证
-        PowerMockito.verifyStatic(NumberUtil.class, Mockito.times(2))
+        PowerMockito.verifyStatic(Calculator.class, Mockito.times(2))
     }
 }

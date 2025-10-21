@@ -16,8 +16,8 @@ import org.spockframework.runtime.Sputnik
  */
 @RunWith(PowerMockRunner.class)
 @PowerMockRunnerDelegate(Sputnik.class)
-@PrepareForTest([NumberUtil.class])
-@SuppressStaticInitializationFor("note.spock.NumberUtil")
+@PrepareForTest([Calculator.class])
+@SuppressStaticInitializationFor("note.spock.Calculator")
 class IT03StaticMethodTableSpockSpec extends Specification {
 
     def userDao = Mock(UserDao.class)
@@ -25,7 +25,7 @@ class IT03StaticMethodTableSpockSpec extends Specification {
 
     void setup() {
         // Mock 静态类
-        PowerMockito.mockStatic(NumberUtil.class)
+        PowerMockito.mockStatic(Calculator.class)
     }
 
     def "静态方法测试"() {
@@ -37,7 +37,7 @@ class IT03StaticMethodTableSpockSpec extends Specification {
         userDao.getUserById(_ as Integer) >>> [user1, user2]
 
         and: "mock 静态方法返回的信息"
-        PowerMockito.when(NumberUtil.isOdd(Mockito.any())).thenReturn(flag)
+        PowerMockito.when(Calculator.isOdd(Mockito.any())).thenReturn(flag)
 
         expect: "执行测试方法"
         userService.isOddAgeUser(1) == res

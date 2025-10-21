@@ -4,7 +4,14 @@ package edu.note.spock;
  * @author jackylee
  * @date 2025/7/1 15:28
  */
-public class NumberUtil {
+public class Calculator {
+
+    public Integer add(Integer n1, Integer n2) {
+        if (n1 == null || n2 == null) {
+            throw new IllegalArgumentException("不能为 null");
+        }
+        return n1 + n2;
+    }
 
 
     public static boolean isOdd(Integer num) {
@@ -22,7 +29,7 @@ public class NumberUtil {
     }
 
     public static String getNumberStr(Integer num) {
-        if (NumberUtil.isOdd(num)) {
+        if (Calculator.isOdd(num)) {
             return "Odd";
         } else {
             return "Even";

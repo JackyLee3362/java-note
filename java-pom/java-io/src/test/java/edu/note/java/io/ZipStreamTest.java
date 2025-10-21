@@ -1,6 +1,5 @@
-package edu.note.java.io.io;
+package edu.note.java.io;
 
-import edu.note.java.io.BaseIOTest;
 import edu.note.java.io.file.ZipUtil;
 import java.io.File;
 import java.io.FileOutputStream;

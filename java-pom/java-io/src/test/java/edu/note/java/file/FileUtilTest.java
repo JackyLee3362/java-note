@@ -1,6 +1,8 @@
-package edu.note.java.io.file;
+package edu.note.java.file;
 
 import edu.note.java.io.BaseIOTest;
+import edu.note.java.io.file.FileUtil;
+
 import java.io.File;
 import java.io.IOException;
 import java.util.Arrays;

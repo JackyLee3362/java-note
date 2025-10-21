@@ -1,4 +1,4 @@
-package edu.note.java.io.file;
+package edu.note.java.file;
 
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertNull;

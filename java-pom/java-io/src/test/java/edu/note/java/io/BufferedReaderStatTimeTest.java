@@ -1,6 +1,5 @@
-package edu.note.java.io.io;
+package edu.note.java.io;
 
-import edu.note.java.io.BaseIOTest;
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
 import java.io.File;

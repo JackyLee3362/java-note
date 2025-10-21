@@ -1,4 +1,4 @@
-package edu.note.java.io.file;
+package edu.note.java.file;
 
 import edu.note.java.io.BaseIOTest;
 import java.io.File;

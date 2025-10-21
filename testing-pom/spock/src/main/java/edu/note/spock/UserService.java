@@ -19,7 +19,7 @@ public class UserService {
 
     public Boolean isOddAgeUser(Integer idNumber) {
         UserPO user = getUserInfo(idNumber);
-        return NumberUtil.isOdd(user.getAge());
+        return Calculator.isOdd(user.getAge());
     }
 
 

@@ -1,4 +1,4 @@
-package edu.note.socket.tcp.thread;
+package edu.note.java.socket.tcp.thread;
 
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
@@ -10,6 +10,10 @@ import java.io.OutputStreamWriter;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.UUID;
+import java.util.concurrent.ArrayBlockingQueue;
+import java.util.concurrent.Executors;
+import java.util.concurrent.ThreadPoolExecutor;
+import java.util.concurrent.TimeUnit;
 
 /**
  * TODO: 需要手动创建 io/server 和 io/client 文件夹
@@ -25,6 +29,17 @@ public class Server {
         // 服务器：接收客户端上传的文件，上传完毕之后给出反馈。
         res = Server.class.getClassLoader().getResource(".").getPath();
 
+        // 创建线程池对象
+        ThreadPoolExecutor pool = new ThreadPoolExecutor(
+                3, // 核心线程数量
+                16, // 线程池总大小
+                60, // 空闲时间
+                TimeUnit.SECONDS, // 空闲时间（单位）
+                new ArrayBlockingQueue<>(2), // 队列
+                Executors.defaultThreadFactory(), // 线程工厂，让线程池如何创建线程对象
+                new ThreadPoolExecutor.AbortPolicy()// 阻塞队列
+        );
+
         // 1.创建对象并绑定端口
         try (ServerSocket server = new ServerSocket(10005);) {
             while (true) {
@@ -33,7 +48,8 @@ public class Server {
 
                 // 开启一条线程
                 // 一个用户就对应服务端的一条线程
-                new Thread(new MyRunnable(socket)).start();
+                // new Thread(new MyRunnable(socket)).start();
+                pool.submit(new MyRunnable(socket));
             }
         }
 

@@ -13,7 +13,7 @@ class IT01TableSpockSpec extends Specification {
     def "test 是否是奇数"() {
 
         expect: "when + then 的组合"
-        NumberUtil.isOdd(number) == result
+        Calculator.isOdd(number) == result
         where: "表格方式测试不同的分支逻辑"
         number || result
         123    || true
@@ -24,7 +24,7 @@ class IT01TableSpockSpec extends Specification {
     def "test 是否是奇数 - 2"() {
 
         when:
-        def response = NumberUtil.isOdd(num)
+        def response = Calculator.isOdd(num)
 
 
         then: "when + then 的组合"
@@ -38,7 +38,7 @@ class IT01TableSpockSpec extends Specification {
     @Unroll
     def "test 是否是奇数 - 3"() {
         when:
-        def response = NumberUtil.isOdd(num)
+        def response = Calculator.isOdd(num)
 
 
         then: "when + then 的组合"
