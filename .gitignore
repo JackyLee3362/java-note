@@ -1,4 +1,5 @@
 # custom directory
+**/demo-backend/src/main/resources/*
 **/tmp/*
 bak
 data

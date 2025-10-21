@@ -1,12 +1,18 @@
 package edu.note.spring.bean.anno;
 
+import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.NoSuchBeanDefinitionException;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.stereotype.Service;
 
 import edu.note.spring.bean.anno.config.SpringConfigComponentScan;
+import edu.note.spring.bean.anno.config.SpringConfigComponentScanFilter;
 import edu.note.spring.bean.anno.config.SpringConfigLifeCycle;
 
 /**
@@ -54,5 +60,16 @@ public class BeanTest {
         HelloDao dao = ctx.getBean(HelloDao.class);
         dao.save("foo");
         ctx.close();
+    }
+
+    @Test
+    @DisplayName("测试排除部分 Bean 后无法获取")
+    void testFilterComponent() {
+        AnnotationConfigApplicationContext ctx = new AnnotationConfigApplicationContext(
+                SpringConfigComponentScanFilter.class);
+        assertThrows(NoSuchBeanDefinitionException.class, () -> {
+            ctx.getBean(Service.class);
+        });
+
     }
 }

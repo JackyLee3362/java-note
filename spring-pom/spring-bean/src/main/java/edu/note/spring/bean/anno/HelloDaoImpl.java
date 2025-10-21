@@ -1,12 +1,13 @@
 package edu.note.spring.bean.anno;
 
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
 
 /**
  * @author jackylee
  * @date 2025-09-30 13:55
  */
-@Component
+// @Component
+@Repository
 public class HelloDaoImpl implements HelloDao {
 
     @Override

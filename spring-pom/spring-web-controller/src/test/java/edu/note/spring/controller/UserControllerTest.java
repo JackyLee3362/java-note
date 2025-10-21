@@ -25,7 +25,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
  * @author jackylee
  * @date 2025-10-14 16:50
  */
-@WebMvcTest(UserController.class)
+@WebMvcTest(UserRestController.class)
 public class UserControllerTest {
 
     @Resource
