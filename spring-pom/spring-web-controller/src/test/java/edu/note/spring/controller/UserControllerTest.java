@@ -34,7 +34,7 @@ public class UserControllerTest {
     private final static ObjectMapper objectMapper = new ObjectMapper();
 
     @Test
-    @DisplayName("测试 UserGet")
+    @DisplayName("测试基础")
     void testGet() throws Exception {
         MockHttpServletRequestBuilder request = get("/user/list");
         MvcResult mockResult = mockMvc.perform(request).andReturn();
@@ -55,11 +55,10 @@ public class UserControllerTest {
     }
 
     @Test
-    @DisplayName("测试 RequestParam")
+    @DisplayName("测试 RequestBody")
     void testRequestBody() throws Exception {
         User newUser = new User(1, "Foo", 100);
-        String content = objectMapper.writeValueAsString(newUser);
-        MockHttpServletRequestBuilder request = post("/user/insert").content(content)
+        MockHttpServletRequestBuilder request = post("/user/insert").content(objectMapper.writeValueAsString(newUser))
                 .contentType(MediaType.APPLICATION_JSON);
         MvcResult mockResult = mockMvc.perform(request).andReturn();
         // 获取结果
@@ -72,6 +71,18 @@ public class UserControllerTest {
     @DisplayName("测试 PathVariable")
     void testPathVariable() throws Exception {
         MockHttpServletRequestBuilder request = delete("/user/delete/1");
+        MvcResult mockResult = mockMvc.perform(request).andReturn();
+        // 获取结果
+        String string = mockResult.getResponse().getContentAsString();
+        Boolean bool = objectMapper.readValue(string, Boolean.class);
+        assertTrue(bool);
+    }
+
+    @Test
+    @DisplayName("测试 RequestHeader")
+    void testRequestHeader() throws Exception {
+        MockHttpServletRequestBuilder request = get("/user/header")
+                .header("Accept-Encoding", "gzip, deflate");
         MvcResult mockResult = mockMvc.perform(request).andReturn();
         // 获取结果
         String string = mockResult.getResponse().getContentAsString();

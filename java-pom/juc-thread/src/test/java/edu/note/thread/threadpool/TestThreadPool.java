@@ -1,8 +1,8 @@
-package edu.note.threadpool;
-
-import lombok.extern.slf4j.Slf4j;
+package edu.note.thread.threadpool;
 
 import java.util.concurrent.TimeUnit;
+
+import lombok.extern.slf4j.Slf4j;
 
 @Slf4j(topic = "c.TestThreadPool")
 public class TestThreadPool {

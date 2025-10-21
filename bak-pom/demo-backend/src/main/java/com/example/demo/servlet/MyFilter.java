@@ -1,10 +1,16 @@
 package com.example.demo.servlet;
 
-import lombok.extern.slf4j.Slf4j;
-
-import javax.servlet.*;
-import javax.servlet.annotation.WebFilter;
 import java.io.IOException;
+
+import javax.servlet.Filter;
+import javax.servlet.FilterChain;
+import javax.servlet.FilterConfig;
+import javax.servlet.ServletException;
+import javax.servlet.ServletRequest;
+import javax.servlet.ServletResponse;
+import javax.servlet.annotation.WebFilter;
+
+import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 @WebFilter(urlPatterns = { "/css/*", "/image/*", "/font/*", "/js/*" }) // 单个*是Filter写法，双个**是Spring写法

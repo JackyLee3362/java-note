@@ -1,14 +1,19 @@
-package edu.note.web;
+package edu.note.web.servlet;
 
-import lombok.extern.slf4j.Slf4j;
-
-import javax.servlet.ServletException;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.net.InetAddress;
 import java.net.ServerSocket;
 import java.net.Socket;
-import java.util.concurrent.*;
+import java.util.concurrent.ArrayBlockingQueue;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.RejectedExecutionException;
+import java.util.concurrent.ThreadPoolExecutor;
+import java.util.concurrent.TimeUnit;
+
+import javax.servlet.ServletException;
+
+import lombok.extern.slf4j.Slf4j;
 
 @Slf4j(topic = "c.Jerrymouse")
 public class Jerrymouse {

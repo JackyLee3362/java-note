@@ -1,4 +1,4 @@
-package edu.note.web;
+package edu.note.web.servlet;
 
 import javax.servlet.ServletOutputStream;
 import javax.servlet.WriteListener;
