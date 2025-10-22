@@ -23,16 +23,11 @@ public class LoginInterceptor implements HandlerInterceptor {
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
             throws Exception {
         // 登录检查逻辑
-        if (true) {
-            return true;
-        }
-        String requestURI = request.getRequestURI();
-        log.info("经过拦截器，请求路径是{}", requestURI);
+        String url = request.getRequestURI();
+        log.info("经过拦截器，请求路径是{}", url);
 
         HttpSession session = request.getSession();
         Object loginUser = session.getAttribute("loginUser");
-        if (request.getRequestURI().equals("/tools/sudoku"))
-            return true;
         // 如果不为空则放行
         if (loginUser != null)
             return true;
@@ -58,6 +53,7 @@ public class LoginInterceptor implements HandlerInterceptor {
     @Override
     public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler,
             ModelAndView modelAndView) throws Exception {
+        log.info("目标方法执行完成");
         HandlerInterceptor.super.postHandle(request, response, handler, modelAndView);
     }
 
@@ -73,6 +69,7 @@ public class LoginInterceptor implements HandlerInterceptor {
     @Override
     public void afterCompletion(HttpServletRequest request, HttpServletResponse response, Object handler, Exception ex)
             throws Exception {
+        log.info("页面渲染完成");
         HandlerInterceptor.super.afterCompletion(request, response, handler, ex);
     }
 }

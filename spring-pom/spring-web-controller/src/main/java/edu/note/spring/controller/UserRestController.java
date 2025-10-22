@@ -24,6 +24,8 @@ import lombok.extern.slf4j.Slf4j;
 @RequestMapping("/user")
 public class UserRestController {
 
+
+    // @RequestMapping("/list", method = RequestMethod.GET)
     @GetMapping("/list")
     public List<User> getUserList() {
         List<User> list = new ArrayList<>();

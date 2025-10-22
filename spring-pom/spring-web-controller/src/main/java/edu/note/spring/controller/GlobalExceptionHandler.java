@@ -1,8 +1,5 @@
 package edu.note.spring.controller;
 
-import java.util.HashMap;
-import java.util.Map;
-
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.web.bind.annotation.ControllerAdvice;
@@ -25,7 +22,7 @@ public class GlobalExceptionHandler {
      * 系统异常处理，比如：404,500
      *
      * @param req 请求
-     * @param ex 错误
+     * @param ex  错误
      * @return
      */
     @ExceptionHandler(value = Exception.class)

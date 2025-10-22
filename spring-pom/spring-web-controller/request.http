@@ -1,0 +1,10 @@
+GET /admin/heart?param=1 HTTP/1.1
+Host: {{host}}
+
+### 
+GET /user/list HTTP/1.1
+Host: {{host}}
+
+### 测试 Global 
+GET /login/ HTTP/1.1
+Host: {{host}}
