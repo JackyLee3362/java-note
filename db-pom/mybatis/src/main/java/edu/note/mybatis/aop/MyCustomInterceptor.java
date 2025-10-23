@@ -1,6 +1,5 @@
 package edu.note.mybatis.aop;
 
-import java.sql.Connection;
 import java.sql.Statement;
 import java.util.Properties;
 import org.apache.ibatis.executor.statement.StatementHandler;

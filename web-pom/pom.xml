@@ -18,7 +18,6 @@
     <modules>
         <module>jwt</module>
         <module>rest-template</module>
-        <module>spring-mvc</module>
         <module>servlet</module>
         <module>jetty</module>
         <module>netty</module>

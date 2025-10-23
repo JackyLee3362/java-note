@@ -1,4 +1,4 @@
-package edu.note.spring.mvc;
+package edu.note.spring.config;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
@@ -10,8 +10,6 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
  */
 @Configuration
 @EnableWebMvc
-public class SpringMvcConfig implements WebMvcConfigurer{
-    
-    
-    
+public class SpringMvcConfig implements WebMvcConfigurer {
+
 }

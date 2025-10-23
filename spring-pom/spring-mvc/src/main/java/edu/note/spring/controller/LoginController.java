@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/login")
 public class LoginController {
 
-    @GetMapping("/")
+    @GetMapping(value={"/"})
     public Boolean login(Long userId) throws Exception {
         throw new Exception("未实现异常");
     }

@@ -1,4 +1,4 @@
-package edu.note.spring.web;
+package edu.note.spring.interceptor;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.servlet.HandlerInterceptor;

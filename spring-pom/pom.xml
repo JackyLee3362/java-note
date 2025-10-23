@@ -21,7 +21,7 @@
     <module>spring-transaction</module>
     <module>spring-boot</module>
     <module>spring-web</module>
-    <module>spring-web-controller</module>
+    <module>spring-mvc</module>
     <module>spring-test</module>
   </modules>
 
