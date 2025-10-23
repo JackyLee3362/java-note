@@ -1,11 +1,15 @@
-package edu.note.spring.interceptor;
+package edu.note.spring;
 
 import org.springframework.context.annotation.Configuration;
+import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
+import edu.note.spring.interceptor.LoginInterceptor;
+
 @Configuration
-public class AdminWebConfig implements WebMvcConfigurer {
+@EnableWebMvc
+public class SpringMvcConfig implements WebMvcConfigurer {
 
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
@@ -13,7 +17,7 @@ public class AdminWebConfig implements WebMvcConfigurer {
                 .addPathPatterns("/**")
                 .excludePathPatterns(
                         "/",
-                        "/login",
+                        "/login/**",
                         "/css/**",
                         "/fonts/**",
                         "/images/**",

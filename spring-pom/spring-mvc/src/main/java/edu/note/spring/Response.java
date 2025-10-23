@@ -1,4 +1,4 @@
-package edu.note.spring.controller;
+package edu.note.spring;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

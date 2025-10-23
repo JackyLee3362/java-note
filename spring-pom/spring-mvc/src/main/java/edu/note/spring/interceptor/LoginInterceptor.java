@@ -12,17 +12,14 @@ import javax.servlet.http.HttpSession;
 public class LoginInterceptor implements HandlerInterceptor {
     /**
      * 目标方法执行之前
-     * 
-     * @param request
-     * @param response
-     * @param handler
-     * @return
-     * @throws Exception
      */
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
             throws Exception {
         // 登录检查逻辑
+        if(true){
+            return true;
+        }
         String url = request.getRequestURI();
         log.info("经过拦截器，请求路径是{}", url);
 
@@ -35,7 +32,7 @@ public class LoginInterceptor implements HandlerInterceptor {
         // session.setAttribute("msg","请先登录");
         // response.sendRedirect("/");
         request.setAttribute("msg", "请先登录");
-        request.getRequestDispatcher("/").forward(request, response);
+        request.getRequestDispatcher("/login").forward(request, response);
 
         return false;
         // return HandlerInterceptor.super.preHandle(request, response, handler);

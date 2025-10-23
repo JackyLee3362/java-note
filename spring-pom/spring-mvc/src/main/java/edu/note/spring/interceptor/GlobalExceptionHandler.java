@@ -1,4 +1,4 @@
-package edu.note.spring.controller;
+package edu.note.spring.interceptor;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import edu.note.spring.Response;
 import lombok.extern.slf4j.Slf4j;
 
 /**

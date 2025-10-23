@@ -21,6 +21,8 @@ import org.springframework.test.web.servlet.request.MockHttpServletRequestBuilde
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+import edu.note.spring.User;
+
 /**
  * @author jackylee
  * @date 2025-10-14 16:50
