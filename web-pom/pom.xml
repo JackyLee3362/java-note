@@ -19,7 +19,6 @@
         <module>jwt</module>
         <module>rest-template</module>
         <module>servlet</module>
-        <module>jetty</module>
         <module>netty</module>
         <!-- <module>netty</module> -->
     </modules>
