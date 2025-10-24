@@ -9,3 +9,7 @@ Host: {{host}}
 ### 测试 Global 
 GET /login/ HTTP/1.1
 Host: {{host}}
+
+### 测试
+GET /user/matrix/1/api/123456;name=alice;age=12 HTTP/1.1
+Host: {{host}}

@@ -18,7 +18,7 @@ public class LoginInterceptor implements HandlerInterceptor {
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
             throws Exception {
         // 登录检查逻辑
-        if(true){
+        if (true) {
             return true;
         }
         String url = request.getRequestURI();

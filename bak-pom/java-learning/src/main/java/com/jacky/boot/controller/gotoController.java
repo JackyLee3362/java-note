@@ -21,7 +21,7 @@ public class GotoController {
 
     @ResponseBody
     @GetMapping("/success")
-    public Map receiveGoto(
+    public Map<?, ?> receiveGoto(
             @RequestAttribute("msg") String msg) {
         Map<String, String> map = new HashMap<String, String>();
         map.put("msg", msg);
@@ -32,7 +32,6 @@ public class GotoController {
     public String got(Model model) {
         model.addAttribute("msg", "hello, thymeleaf!");
         // model.addAttribute("web","http://www.jackylee.cn");
-
         return "page";
     }
 }

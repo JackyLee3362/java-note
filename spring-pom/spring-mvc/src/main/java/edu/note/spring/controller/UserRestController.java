@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.MatrixVariable;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -13,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import edu.note.spring.Response;
 import edu.note.spring.User;
 import lombok.extern.slf4j.Slf4j;
 
@@ -25,7 +27,6 @@ import lombok.extern.slf4j.Slf4j;
 @RequestMapping("/user")
 public class UserRestController {
 
-
     // @RequestMapping("/list", method = RequestMethod.GET)
     @GetMapping("/list")
     public List<User> getUserList() {
@@ -35,12 +36,12 @@ public class UserRestController {
         return list;
     }
 
-    @GetMapping("/info")
+    @GetMapping("/get")
     public User getUserById(@RequestParam Integer id) {
         return new User(id, "Foo", 12);
     }
 
-    @PostMapping("/insert")
+    @PostMapping("/post")
     public User insertUser(@RequestBody User user) {
         return user;
     }
@@ -53,10 +54,21 @@ public class UserRestController {
     @GetMapping("/header")
     public Boolean getHeader(
             @RequestHeader("Accept-Encoding") String encoding
-            // @RequestHeader("Keep-Alive") Long keepAlive
-            ) {
+    // @RequestHeader("Keep-Alive") Long keepAlive
+    ) {
         log.info("Accept-Encoding={}", encoding);
         return true;
+    }
+
+    @GetMapping("/matrix/{depId}/api/{userId}")
+    public String getMatrix(
+            // @PathVariable Integer depId, // 可以不接收
+            @PathVariable Integer userId,
+            @MatrixVariable String name,
+            @MatrixVariable Integer age
+
+    ) {
+        return "hello" + ",userId=" + userId.toString() + ",name=" + name + ",age=" + age.toString();
     }
 
 }
