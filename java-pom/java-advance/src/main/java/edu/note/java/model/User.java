@@ -1,7 +1,5 @@
 package edu.note.java.model;
 
-import javax.annotation.PostConstruct;
-
 import lombok.Data;
 import lombok.NoArgsConstructor;
 

@@ -1,8 +1,5 @@
 package edu.note.java.random;
 
-import java.util.Random;
-import java.util.concurrent.ThreadLocalRandom;
-
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 

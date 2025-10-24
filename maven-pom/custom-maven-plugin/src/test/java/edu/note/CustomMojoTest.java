@@ -1,6 +1,5 @@
 package edu.note;
 
-import java.io.File;
 import org.apache.maven.plugin.testing.AbstractMojoTestCase;
 
 /**

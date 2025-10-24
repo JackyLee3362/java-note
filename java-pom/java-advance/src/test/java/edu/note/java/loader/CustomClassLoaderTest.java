@@ -1,10 +1,10 @@
 package edu.note.java.loader;
 
 import java.util.Objects;
-import lombok.extern.slf4j.Slf4j;
+
 import org.junit.jupiter.api.Test;
 
-import edu.note.java.loader.CustomClassLoader;
+import lombok.extern.slf4j.Slf4j;
 
 /**
  * @author jackylee
