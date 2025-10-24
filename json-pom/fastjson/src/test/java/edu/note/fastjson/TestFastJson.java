@@ -1,15 +1,18 @@
 package edu.note.fastjson;
 
-import com.alibaba.fastjson.JSONArray;
-import com.alibaba.fastjson.JSONObject;
+import static org.junit.jupiter.api.Assertions.assertInstanceOf;
+
+import java.io.ByteArrayOutputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.io.ByteArrayOutputStream;
 import java.io.InputStream;
 import java.util.List;
 import java.util.Map;
-import org.junit.jupiter.api.Assertions;
+
 import org.junit.jupiter.api.Test;
+
+import com.alibaba.fastjson.JSONArray;
+import com.alibaba.fastjson.JSONObject;
 
 /**
  * @author jackylee
@@ -35,12 +38,12 @@ public class TestFastJson {
             JSONObject jsonObject = JSONObject.parseObject(json);
             System.out.println(jsonObject);
             System.out.println(jsonObject != null);
-            Assertions.assertInstanceOf(JSONObject.class, jsonObject);
-            Assertions.assertInstanceOf(Map.class, jsonObject);
-            Assertions.assertInstanceOf(JSONObject.class, jsonObject.get("address"));
-            Assertions.assertInstanceOf(Map.class, jsonObject.get("address"));
-            Assertions.assertInstanceOf(JSONArray.class, jsonObject.get("scores"));
-            Assertions.assertInstanceOf(List.class, jsonObject.get("scores"));
+            assertInstanceOf(JSONObject.class, jsonObject);
+            assertInstanceOf(Map.class, jsonObject);
+            assertInstanceOf(JSONObject.class, jsonObject.get("address"));
+            assertInstanceOf(Map.class, jsonObject.get("address"));
+            assertInstanceOf(JSONArray.class, jsonObject.get("scores"));
+            assertInstanceOf(List.class, jsonObject.get("scores"));
         }
     }
 }

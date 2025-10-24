@@ -1,8 +1,10 @@
 package edu.note.thread.thread;
 
-import lombok.extern.slf4j.Slf4j;
-import org.junit.jupiter.api.Assertions;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 import org.junit.jupiter.api.RepeatedTest;
+
+import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 public class ListThreadTest {
@@ -26,7 +28,7 @@ public class ListThreadTest {
         t1.start();
         t2.start();
         log.debug("list size is {}", util.list.size());
-        Assertions.assertEquals(0, util.list.size());
+        assertEquals(0, util.list.size());
         t1.join();
         t2.join();
     }

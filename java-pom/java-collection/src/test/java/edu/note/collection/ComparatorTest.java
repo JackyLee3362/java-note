@@ -1,10 +1,12 @@
 package edu.note.collection;
 
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
-import org.junit.jupiter.api.Assertions;
+
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -22,7 +24,7 @@ public class ComparatorTest {
         // 2. 0  : 说明顺序应该保持不变
         // 3. 正数: 说明o2该在前面
         Comparator<Integer> comparator = (o1, o2) -> o2 - o1;
-        Assertions.assertEquals(2, comparator.compare(1, 2));
+        assertEquals(2, comparator.compare(1, 2));
     }
 
     @Test
@@ -32,9 +34,9 @@ public class ComparatorTest {
         list.add(1);
         list.add(3);
         list.add(2);
-        Assertions.assertEquals("[1, 3, 2]", list.toString());
+        assertEquals("[1, 3, 2]", list.toString());
         list.sort((o1, o2) -> o2 - o1);
-        Assertions.assertEquals("[3, 2, 1]", list.toString());
+        assertEquals("[3, 2, 1]", list.toString());
     }
 
 }

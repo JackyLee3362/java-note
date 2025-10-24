@@ -1,8 +1,10 @@
 package edu.note.java.reflect;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 import java.lang.reflect.Method;
 import java.lang.reflect.Modifier;
-import org.junit.jupiter.api.Assertions;
+
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -38,14 +40,14 @@ public class IT05_GetMethods {
     @DisplayName("获取本类 public +父类 public 方法")
     void test01() {
         Method[] methods = clazz.getMethods();
-        Assertions.assertEquals(11, methods.length);
+        assertEquals(11, methods.length);
     }
 
     @Test
     @DisplayName("获取本类 all + 父类 public 方法")
     void test02() {
         Method[] methods = clazz.getDeclaredMethods();
-        Assertions.assertEquals(2, methods.length);
+        assertEquals(2, methods.length);
     }
 
     @Test
@@ -54,20 +56,20 @@ public class IT05_GetMethods {
         Method m = clazz.getDeclaredMethod("eat", String.class);
 
         // 获取方法的修饰符
-        Assertions.assertEquals(Modifier.PUBLIC, m.getModifiers());
+        assertEquals(Modifier.PUBLIC, m.getModifiers());
 
         // 获取方法的名字
-        Assertions.assertEquals("eat", m.getName());
+        assertEquals("eat", m.getName());
 
         // 获取方法的形参
-        Assertions.assertEquals(String.class, m.getParameters()[0].getType());
+        assertEquals(String.class, m.getParameters()[0].getType());
 
         // 获取方法的抛出的异常
-        Assertions.assertEquals(Exception.class, m.getExceptionTypes()[0]);
+        assertEquals(Exception.class, m.getExceptionTypes()[0]);
 
         // 方法运行
         Student s = new Student("Foo");
-        Assertions.assertEquals("Bar", (String) m.invoke(s, "Bar"));
+        assertEquals("Bar", (String) m.invoke(s, "Bar"));
 
     }
 }

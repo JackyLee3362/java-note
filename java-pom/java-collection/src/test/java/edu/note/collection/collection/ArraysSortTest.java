@@ -1,8 +1,10 @@
 package edu.note.collection.collection;
 
+import static org.junit.jupiter.api.Assertions.assertArrayEquals;
+
 import java.util.Arrays;
 import java.util.Comparator;
-import org.junit.jupiter.api.Assertions;
+
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -24,9 +26,9 @@ public class ArraysSortTest {
     @DisplayName("匿名内部类排序")
     void test01() {
         Arrays.sort(arr);
-        Assertions.assertArrayEquals(arr, sorted);
+        assertArrayEquals(arr, sorted);
         Arrays.sort(arr, (o1, o2) -> o2 - o1);
-        Assertions.assertArrayEquals(arr, reversed);
+        assertArrayEquals(arr, reversed);
     }
 
     @Test
@@ -42,20 +44,20 @@ public class ArraysSortTest {
         // 把这个方法当做抽象方法的方法体
 
         Arrays.sort(arr, ArraysSortTest::subtraction);
-        Assertions.assertArrayEquals(arr, reversed);
+        assertArrayEquals(arr, reversed);
     }
 
     @Test
     @DisplayName("方法引用")
     void test03() {
         Arrays.sort(arr, Comparator.comparingInt(o -> o));
-        Assertions.assertArrayEquals(arr, sorted);
+        assertArrayEquals(arr, sorted);
 
         Arrays.sort(arr, Comparator.comparingInt(o -> -o));
-        Assertions.assertArrayEquals(arr, sorted);
+        assertArrayEquals(arr, sorted);
 
         Arrays.sort(arr, Integer::compare);
-        Assertions.assertArrayEquals(arr, sorted);
+        assertArrayEquals(arr, sorted);
     }
 
     // 可以是Java已经写好的，也可以是一些第三方的工具类

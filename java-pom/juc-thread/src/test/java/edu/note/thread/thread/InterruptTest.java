@@ -1,9 +1,12 @@
 package edu.note.thread.thread;
 
-import lombok.extern.slf4j.Slf4j;
-import org.junit.jupiter.api.Assertions;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+
+import lombok.extern.slf4j.Slf4j;
 
 @Slf4j(topic = "c.InterruptTest")
 public class InterruptTest {
@@ -11,13 +14,13 @@ public class InterruptTest {
     @Test
     void test01(){
         // 打断自身
-        Assertions.assertFalse(Thread.currentThread().isInterrupted());
+        assertFalse(Thread.currentThread().isInterrupted());
         Thread.currentThread().interrupt();
         // 不清除打断标记
-        Assertions.assertTrue(Thread.currentThread().isInterrupted());
+        assertTrue(Thread.currentThread().isInterrupted());
         // 清除打断标记
-        Assertions.assertTrue(Thread.interrupted());
-        Assertions.assertFalse(Thread.currentThread().isInterrupted());
+        assertTrue(Thread.interrupted());
+        assertFalse(Thread.currentThread().isInterrupted());
 
     }
 
@@ -36,15 +39,15 @@ public class InterruptTest {
                 Thread.sleep(10000);
             } catch (InterruptedException e) {
                 log.info("被打断");
-                Assertions.assertFalse(Thread.currentThread().isInterrupted());
+                assertFalse(Thread.currentThread().isInterrupted());
             }
             log.info("结束");
         });
         t1.start();
         t1.interrupt();
         // Sleeper.sleep(0.2);
-        // Assertions.assertEquals(State.TERMINATED, t1.getState());
-        // Assertions.assertFalse(t1.isAlive());
+        // assertEquals(State.TERMINATED, t1.getState());
+        // assertFalse(t1.isAlive());
         t1.join();
     }
 
@@ -68,8 +71,8 @@ public class InterruptTest {
         t1.start();
         t1.interrupt();
         // Sleeper.sleep(0.2);
-        // Assertions.assertEquals(State.TERMINATED, t1.getState());
-        // Assertions.assertFalse(t1.isAlive());
+        // assertEquals(State.TERMINATED, t1.getState());
+        // assertFalse(t1.isAlive());
         t1.join();
     }
 

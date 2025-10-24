@@ -1,5 +1,7 @@
 package edu.note.mybatis.config;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 import java.io.IOException;
 import java.io.Reader;
 import java.util.Properties;
@@ -8,7 +10,6 @@ import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.Configuration;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -30,7 +31,7 @@ public class PropertyTest {
         SqlSessionFactory factory = new SqlSessionFactoryBuilder().build(reader, prop);
         // 获取配置
         Configuration config = factory.getConfiguration();
-        Assertions.assertEquals("org.h2.Driver", config.getVariables().getProperty("driver"));
+        assertEquals("org.h2.Driver", config.getVariables().getProperty("driver"));
     }
 
     @Test
@@ -41,7 +42,7 @@ public class PropertyTest {
         SqlSessionFactory factory = new SqlSessionFactoryBuilder().build(reader);
         // 获取配置
         Configuration config = factory.getConfiguration();
-        Assertions.assertEquals("org.h2.Driver", config.getVariables().getProperty("driver"));
+        assertEquals("org.h2.Driver", config.getVariables().getProperty("driver"));
     }
 
     @Test

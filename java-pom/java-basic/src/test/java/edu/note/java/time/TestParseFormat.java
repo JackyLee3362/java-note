@@ -1,5 +1,7 @@
 package edu.note.java.time;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.Instant;
@@ -11,11 +13,10 @@ import java.time.format.DateTimeFormatter;
 import java.time.temporal.TemporalAccessor;
 import java.util.Date;
 
-import lombok.extern.slf4j.Slf4j;
-
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+
+import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 @SuppressWarnings("deprecation")
@@ -28,8 +29,8 @@ public class TestParseFormat {
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 
         Date date = sdf.parse("1951-04-21");
-        Assertions.assertEquals(new Date(1951 - 1900, 4 - 1, 21), date);
-        Assertions.assertEquals("1951-04-21", sdf.format(date));
+        assertEquals(new Date(1951 - 1900, 4 - 1, 21), date);
+        assertEquals("1951-04-21", sdf.format(date));
 
     }
 
@@ -37,8 +38,8 @@ public class TestParseFormat {
     void test02() {
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd");
         LocalDate date = dtf.parse("2018-10-01", LocalDate::from);
-        Assertions.assertEquals(LocalDate.of(2018, 10, 1), date);
-        Assertions.assertEquals(LocalDate.of(2018, 10, 1), date);
+        assertEquals(LocalDate.of(2018, 10, 1), date);
+        assertEquals(LocalDate.of(2018, 10, 1), date);
     }
 
     @Test
@@ -59,7 +60,7 @@ public class TestParseFormat {
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         Date date = sdf.parse(str);
         // 3.打印结果
-        Assertions.assertEquals(1699672271000L, date.getTime()); // 1699672271000
+        assertEquals(1699672271000L, date.getTime()); // 1699672271000
 
     }
 
@@ -75,7 +76,7 @@ public class TestParseFormat {
         // 3.格式化
         SimpleDateFormat sdf2 = new SimpleDateFormat("yyyy/MM/dd");
         String result = sdf2.format(date);
-        Assertions.assertEquals(0, result);
+        assertEquals(0, result);
     }
 
     @Test
@@ -108,9 +109,9 @@ public class TestParseFormat {
 
         // 4.判断
         if (orderTime >= startTime && orderTime <= endTime) {
-            Assertions.assertEquals(0, "参加秒杀活动成功");
+            assertEquals(0, "参加秒杀活动成功");
         } else {
-            Assertions.assertEquals(0, "参加秒杀活动失败");
+            assertEquals(0, "参加秒杀活动失败");
         }
 
     }
@@ -121,7 +122,7 @@ public class TestParseFormat {
         for (int i = 0; i < 10; i++) {
             new Thread(() -> {
                 TemporalAccessor parse = stf.parse("1951-04-21");
-                Assertions.assertEquals(0, parse);
+                assertEquals(0, parse);
             }).start();
         }
     }
@@ -133,9 +134,9 @@ public class TestParseFormat {
             new Thread(() -> {
                 synchronized (sdf) {
                     try {
-                        Assertions.assertEquals(0, sdf.parse("1951-04-21"));
+                        assertEquals(0, sdf.parse("1951-04-21"));
                     } catch (Exception e) {
-                        Assertions.assertEquals(0, e);
+                        assertEquals(0, e);
                     }
                 }
             }).start();
@@ -157,7 +158,7 @@ public class TestParseFormat {
         DateTimeFormatter dtf1 = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm;ss EE a");
 
         // 3. 格式化
-        Assertions.assertEquals(0, dtf1.format(time));
+        assertEquals(0, dtf1.format(time));
 
         // 4. 解析
         String dateTimeString = "2023-11-21 13:33:23";
@@ -167,6 +168,6 @@ public class TestParseFormat {
         LocalDateTime dateTime = LocalDateTime.parse(dateTimeString, formatter);
 
         // 输出解析后的 LocalDateTime 对象
-        Assertions.assertEquals(0, dateTime);
+        assertEquals(0, dateTime);
     }
 }

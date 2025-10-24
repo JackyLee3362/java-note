@@ -1,13 +1,15 @@
 package edu.note.collection.map;
 
-import java.util.Iterator;
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
 
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.Map;
 import java.util.function.BiConsumer;
+
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
 
 public class HashMapTest {
 
@@ -17,7 +19,7 @@ public class HashMapTest {
 
         // 创建
         HashMap<Integer/* id */, String/* 省份 */> map = new HashMap<>();
-        Assertions.assertNull(map.get(1));
+        assertNull(map.get(1));
         // 添加
         map.put(1, "浙江");
         map.put(2, "江苏");
@@ -46,7 +48,7 @@ public class HashMapTest {
     void testNullToConstructor() {
 
         HashMap<String, String> map = new HashMap<>(null);
-        Assertions.assertEquals(0, map.size());
+        assertEquals(0, map.size());
 
     }
 

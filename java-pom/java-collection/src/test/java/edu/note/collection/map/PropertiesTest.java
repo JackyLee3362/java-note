@@ -1,10 +1,12 @@
 package edu.note.collection.map;
 
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;
-import org.junit.jupiter.api.Assertions;
+
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -22,7 +24,7 @@ public class PropertiesTest {
         Properties prop = new Properties();
         prop.setProperty("name", "alice");
         prop.setProperty("age", "18");
-        Assertions.assertEquals("alice", prop.getProperty("name"));
+        assertEquals("alice", prop.getProperty("name"));
     }
 
     @Test
@@ -34,7 +36,7 @@ public class PropertiesTest {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        Assertions.assertEquals("root", prop.getProperty("database.username"));
+        assertEquals("root", prop.getProperty("database.username"));
     }
 
 }

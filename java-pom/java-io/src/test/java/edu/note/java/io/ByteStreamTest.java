@@ -1,11 +1,13 @@
 package edu.note.java.io;
 
-import com.sun.xml.internal.messaging.saaj.util.ByteInputStream;
-import com.sun.xml.internal.messaging.saaj.util.ByteOutputStream;
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.Disabled;
+import static org.junit.jupiter.api.Assertions.assertArrayEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+
+import com.sun.xml.internal.messaging.saaj.util.ByteInputStream;
+import com.sun.xml.internal.messaging.saaj.util.ByteOutputStream;
 
 /**
  * @author jackylee
@@ -22,20 +24,20 @@ public class ByteStreamTest {
 
         // 构造函数 1
         bis = new ByteInputStream();
-        Assertions.assertEquals(-1, bis.read());
+        assertEquals(-1, bis.read());
 
         // 构造函数 2
         bis = new ByteInputStream(bytes, 2);
-        Assertions.assertEquals('a', bis.read());
-        Assertions.assertEquals('b', bis.read());
-        Assertions.assertEquals(-1, bis.read());
-        Assertions.assertArrayEquals(bytes, bis.getBytes());
+        assertEquals('a', bis.read());
+        assertEquals('b', bis.read());
+        assertEquals(-1, bis.read());
+        assertArrayEquals(bytes, bis.getBytes());
 
         // 构造函数 3
         bis = new ByteInputStream(bytes, 1, 2);
-        Assertions.assertEquals('b', bis.read());
-        Assertions.assertEquals('c', bis.read());
-        Assertions.assertEquals(-1, bis.read());
+        assertEquals('b', bis.read());
+        assertEquals('c', bis.read());
+        assertEquals(-1, bis.read());
 
     }
 
@@ -46,7 +48,7 @@ public class ByteStreamTest {
         // 默认长度是 1024
         ByteOutputStream bout = new ByteOutputStream();
         bout.write(bytes);
-        Assertions.assertEquals(1024, bout.getBytes().length);
+        assertEquals(1024, bout.getBytes().length);
         bout.close();
     }
 

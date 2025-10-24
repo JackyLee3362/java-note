@@ -1,5 +1,9 @@
 package edu.note.mybatis.mapper;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertNull;
+
 import java.io.IOException;
 import java.io.Reader;
 import java.io.StringReader;
@@ -14,7 +18,6 @@ import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 import org.h2.tools.RunScript;
 import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
@@ -63,11 +66,11 @@ public class UserMapperManipulateTest {
     void testInsertUser() {
         User user = new User(null, "Alice", "SH");
         Integer insertSuccess = userMapper.insertUser(user);
-        Assertions.assertEquals(insertSuccess, 1, "插入数据成功");
-        Assertions.assertEquals(4, user.getId(), "插入返回值是 4");
+        assertEquals(insertSuccess, 1, "插入数据成功");
+        assertEquals(4, user.getId(), "插入返回值是 4");
         User queryUser = userMapper.selectById(4);
-        Assertions.assertNotNull(queryUser);
-        Assertions.assertEquals("Alice", queryUser.getName());
+        assertNotNull(queryUser);
+        assertEquals("Alice", queryUser.getName());
     }
 
     @Test
@@ -80,19 +83,19 @@ public class UserMapperManipulateTest {
         users.add(u2);
 
         Integer insertSuccess = userMapper.insertBatch(users);
-        Assertions.assertEquals(insertSuccess, 2, "插入 2 条数据成功");
-        Assertions.assertEquals(4, u1.getId(), "插入返回值是 4");
-        Assertions.assertEquals(5, u2.getId(), "插入返回值是 5");
+        assertEquals(insertSuccess, 2, "插入 2 条数据成功");
+        assertEquals(4, u1.getId(), "插入返回值是 4");
+        assertEquals(5, u2.getId(), "插入返回值是 5");
     }
 
     @Test
     @DisplayName("参数插入")
     void testInsertUserByParam() {
         Integer insertSuccess = userMapper.insertUserByParam("Alice", "SH");
-        Assertions.assertEquals(insertSuccess, 1, "插入数据成功");
+        assertEquals(insertSuccess, 1, "插入数据成功");
         User queryUser = userMapper.selectById(4);
-        Assertions.assertNotNull(queryUser);
-        Assertions.assertEquals("Alice", queryUser.getName());
+        assertNotNull(queryUser);
+        assertEquals("Alice", queryUser.getName());
 
     }
 
@@ -102,7 +105,7 @@ public class UserMapperManipulateTest {
         User user = new User(1, "Foo Bar", "GZ");
         userMapper.updateUser(user);
         User selectUser = userMapper.selectById(1);
-        Assertions.assertEquals("GZ", selectUser.getCity());
+        assertEquals("GZ", selectUser.getCity());
 
     }
 
@@ -111,6 +114,6 @@ public class UserMapperManipulateTest {
     void testDeleteUser() {
         userMapper.deleteUser(2);
         User user = userMapper.selectById(2);
-        Assertions.assertNull(user);
+        assertNull(user);
     }
 }

@@ -1,6 +1,7 @@
 package edu.note.java.reflect;
 
-import org.junit.jupiter.api.Assertions;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 import org.junit.jupiter.api.Test;
 
 /**
@@ -28,7 +29,7 @@ public class IT02_GetClassObject {
         Student s = new Student("Foo");
         Class<? extends Student> clazz3 = s.getClass();
 
-        Assertions.assertEquals(clazz1, clazz2);
-        Assertions.assertEquals(clazz2, clazz3);
+        assertEquals(clazz1, clazz2);
+        assertEquals(clazz2, clazz3);
     }
 }

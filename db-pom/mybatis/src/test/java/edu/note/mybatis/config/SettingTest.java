@@ -1,5 +1,7 @@
 package edu.note.mybatis.config;
 
+import static org.junit.jupiter.api.Assertions.assertFalse;
+
 import java.io.IOException;
 import java.io.Reader;
 
@@ -7,7 +9,6 @@ import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.Configuration;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -24,7 +25,7 @@ public class SettingTest {
     void test01() {
         Configuration config = new Configuration();
         config.setCacheEnabled(false);
-        Assertions.assertFalse(config.isCacheEnabled());
+        assertFalse(config.isCacheEnabled());
     }
 
     @Test
@@ -33,7 +34,7 @@ public class SettingTest {
         Reader reader = Resources.getResourceAsReader("config/mybatis-config-settings.xml");
         SqlSessionFactory factory = new SqlSessionFactoryBuilder().build(reader);
         Configuration config = factory.getConfiguration();
-        Assertions.assertFalse(config.isCacheEnabled());
+        assertFalse(config.isCacheEnabled());
     }
 
 }

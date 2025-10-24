@@ -1,11 +1,14 @@
 package edu.note.thread.thread;
 
-import edu.note.thread.util.Sleeper;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 import java.lang.Thread.State;
-import lombok.extern.slf4j.Slf4j;
-import org.junit.jupiter.api.Assertions;
+
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+
+import edu.note.thread.util.Sleeper;
+import lombok.extern.slf4j.Slf4j;
 
 /**
  * @author jackylee
@@ -19,7 +22,7 @@ public class ThreadStatusTest {
     void testNew() {
         Thread t = new Thread(() -> {
         });
-        Assertions.assertEquals(State.NEW, t.getState());
+        assertEquals(State.NEW, t.getState());
         log.debug("状态是 {}", t.getState());
     }
 
@@ -31,7 +34,7 @@ public class ThreadStatusTest {
             }
         });
         t.start();
-        Assertions.assertEquals(State.RUNNABLE, t.getState());
+        assertEquals(State.RUNNABLE, t.getState());
         log.debug("状态是 {}", t.getState());
     }
 
@@ -46,7 +49,7 @@ public class ThreadStatusTest {
         synchronized (ThreadStatusTest.class) {
             t1.start();
             Sleeper.sleep(0.1);
-            Assertions.assertEquals(State.BLOCKED, t1.getState());
+            assertEquals(State.BLOCKED, t1.getState());
             log.debug("状态是 {}", t1.getState());
         }
     }
@@ -68,7 +71,7 @@ public class ThreadStatusTest {
         }, "t2");
         t2.start();
         Sleeper.sleep(0.2);
-        Assertions.assertEquals(State.WAITING, t2.getState());
+        assertEquals(State.WAITING, t2.getState());
         log.debug("状态是 {}", t2.getState());
     }
 
@@ -86,7 +89,7 @@ public class ThreadStatusTest {
 
         t.start();
         Sleeper.sleep(0.1);
-        Assertions.assertEquals(State.TIMED_WAITING, t.getState());
+        assertEquals(State.TIMED_WAITING, t.getState());
         log.debug("状态是 {}", t.getState());
     }
 
@@ -98,7 +101,7 @@ public class ThreadStatusTest {
         t.start();
 
         Sleeper.sleep(0.5);
-        Assertions.assertEquals(State.TERMINATED, t.getState());
+        assertEquals(State.TERMINATED, t.getState());
         log.debug("状态是 {}", t.getState());
     }
 

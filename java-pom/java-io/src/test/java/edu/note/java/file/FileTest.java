@@ -1,14 +1,20 @@
 package edu.note.java.file;
 
-import edu.note.java.io.BaseIOTest;
-import edu.note.java.io.file.FileUtil;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertInstanceOf;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.io.File;
 import java.io.IOException;
 import java.util.Arrays;
-import org.junit.jupiter.api.Assertions;
+
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+
+import edu.note.java.io.BaseIOTest;
+import edu.note.java.io.file.FileUtil;
 
 public class FileTest extends BaseIOTest {
 
@@ -16,23 +22,23 @@ public class FileTest extends BaseIOTest {
     @DisplayName("文件属性")
     void test01() {
         File f1 = new File("README.md");
-        Assertions.assertFalse(f1.exists());
+        assertFalse(f1.exists());
 
         // 获取文件还是目录
-        Assertions.assertFalse(f1.isFile());
-        Assertions.assertFalse(f1.isDirectory());
+        assertFalse(f1.isFile());
+        assertFalse(f1.isDirectory());
 
         // 获取可读可写可执行权限
-        Assertions.assertFalse(f1.canRead());
-        Assertions.assertFalse(f1.canWrite());
-        Assertions.assertFalse(f1.canExecute());
+        assertFalse(f1.canRead());
+        assertFalse(f1.canWrite());
+        assertFalse(f1.canExecute());
         // 获取名字
-        Assertions.assertEquals("README.md", f1.getName());
+        assertEquals("README.md", f1.getName());
         // 获取路径
-        Assertions.assertInstanceOf(String.class, f1.getPath());
-        Assertions.assertInstanceOf(String.class, f1.getAbsolutePath());
+        assertInstanceOf(String.class, f1.getPath());
+        assertInstanceOf(String.class, f1.getAbsolutePath());
         // 最后修改时间
-        Assertions.assertInstanceOf(Long.class, f1.lastModified());
+        assertInstanceOf(Long.class, f1.lastModified());
 
     }
 
@@ -40,7 +46,7 @@ public class FileTest extends BaseIOTest {
     @DisplayName("列出可用的文件系统根")
     void test02() {
         File[] arr = File.listRoots();
-        Assertions.assertNotNull(arr);
+        assertNotNull(arr);
     }
 
     @Test
@@ -50,15 +56,15 @@ public class FileTest extends BaseIOTest {
 
         // 遍历（非递归）
         String[] arr = dir.list();
-        Assertions.assertNotNull(arr);
+        assertNotNull(arr);
 
         // 过滤
         String[] arr3 = dir.list((dir_, name) -> new File(dir_, name).isFile() && name.endsWith(".md"));
-        Assertions.assertNotNull(arr3);
+        assertNotNull(arr3);
 
         // 遍历（非递归）
         File[] files = dir.listFiles();
-        Assertions.assertNotNull(files);
+        assertNotNull(files);
         // 过滤
         File[] arr1 = dir.listFiles(pathname -> pathname.isFile() && pathname.getName().endsWith(".md"));
         System.out.println(Arrays.toString(arr1));
@@ -72,17 +78,17 @@ public class FileTest extends BaseIOTest {
     void test04() throws IOException {
         File dir = new File(resource, "file");
         File f1 = new File(dir, "CREATE.md");
-        Assertions.assertTrue(f1.createNewFile());
-        Assertions.assertTrue(f1.delete());
+        assertTrue(f1.createNewFile());
+        assertTrue(f1.delete());
 
         // mkdir
         // 1：windows当中路径是唯一的，如果当前路径已经存在，则创建失败，返回false
         // 2：mkdir方法只能创建单级文件夹，无法创建多级文件夹。
         // public boolean mkdir() 创建单级文件夹
         File d1 = new File(dir, "temp-dir");
-        Assertions.assertTrue(d1.mkdir());
+        assertTrue(d1.mkdir());
         // 删除文件、空文件夹
-        Assertions.assertTrue(d1.delete());
+        assertTrue(d1.delete());
     }
 
     @Test
@@ -94,8 +100,8 @@ public class FileTest extends BaseIOTest {
         // mkdirs 创建多级文件夹（递归创建）
         // 源码阅读（其实就是递归调用 mkdir）
         File d2 = new File(dir, "d03/sub");
-        Assertions.assertTrue(d2.mkdirs());
-        Assertions.assertTrue(d2.delete());
+        assertTrue(d2.mkdirs());
+        assertTrue(d2.delete());
     }
 
     // d2
@@ -115,9 +121,9 @@ public class FileTest extends BaseIOTest {
         f2.createNewFile();
         f3.createNewFile();
 
-        Assertions.assertTrue(d2.exists());
+        assertTrue(d2.exists());
         // FileUtil.recursiveDelete(f3);
         FileUtil.recursiveDelete(d2);
-        Assertions.assertFalse(d2.exists());
+        assertFalse(d2.exists());
     }
 }

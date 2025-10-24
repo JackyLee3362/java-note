@@ -1,8 +1,9 @@
 package edu.note.spring.bean.xml;
 
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+
 import javax.sql.DataSource;
 
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.context.ApplicationContext;
@@ -19,7 +20,7 @@ public class ThirdPackageInjectTest {
         // 获取 IOC 容器
         ApplicationContext ctx = new ClassPathXmlApplicationContext("bean-druid.xml");
         DataSource bean = ctx.getBean(DataSource.class);
-        Assertions.assertNotNull(bean);
+        assertNotNull(bean);
     }
 
     @Test
@@ -27,6 +28,6 @@ public class ThirdPackageInjectTest {
     void testC3p0() {
         ApplicationContext ctx = new ClassPathXmlApplicationContext("bean-c3p0.xml");
         DataSource bean = ctx.getBean(DataSource.class);
-        Assertions.assertNotNull(bean);
+        assertNotNull(bean);
     }
 }

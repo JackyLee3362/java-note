@@ -1,13 +1,16 @@
 package edu.note.thread.thread;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 import java.util.Random;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutionException;
-import lombok.extern.slf4j.Slf4j;
-import org.junit.jupiter.api.Assertions;
+
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.RepeatedTest;
 import org.junit.jupiter.api.Test;
+
+import lombok.extern.slf4j.Slf4j;
 
 /**
  * @author jackylee
@@ -20,7 +23,7 @@ public class CompletableFutureTest {
     @DisplayName("已处理的 completeFuture")
     void testBasic01() throws ExecutionException, InterruptedException {
         CompletableFuture<Integer> future = CompletableFuture.completedFuture(100);
-        Assertions.assertEquals(100, future.get());
+        assertEquals(100, future.get());
     }
 
     @Test
@@ -30,7 +33,7 @@ public class CompletableFutureTest {
             log.info("当前线程：{}", Thread.currentThread().getId());
             return 100;
         });
-        Assertions.assertEquals(100, future.get());
+        assertEquals(100, future.get());
     }
 
     // @Test
@@ -46,7 +49,7 @@ public class CompletableFutureTest {
             // throw new RuntimeException("task failed");
         }).thenApply(r -> r * 10).exceptionally((e) -> 0);
 
-        Assertions.assertEquals(0, taskFailed.get());
+        assertEquals(0, taskFailed.get());
     }
 
     @Test

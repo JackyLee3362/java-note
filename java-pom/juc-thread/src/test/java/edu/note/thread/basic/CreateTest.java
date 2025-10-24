@@ -1,11 +1,14 @@
 package edu.note.thread.basic;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.FutureTask;
-import lombok.extern.slf4j.Slf4j;
-import org.junit.jupiter.api.Assertions;
+
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+
+import lombok.extern.slf4j.Slf4j;
 
 /**
  * @description: 如何创建线程
@@ -48,6 +51,6 @@ public class CreateTest {
         t.start();
         // 获取返回值
         t.join();
-        Assertions.assertEquals(101, task.get());
+        assertEquals(101, task.get());
     }
 }

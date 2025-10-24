@@ -1,8 +1,10 @@
 package edu.note.java.reflect;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 import java.lang.reflect.Field;
 import java.lang.reflect.Modifier;
-import org.junit.jupiter.api.Assertions;
+
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -29,7 +31,7 @@ public class IT04_GetParams {
     @DisplayName("获取成员变量")
     void test01() {
         Field[] fields = clazz.getDeclaredFields();
-        Assertions.assertEquals(4, fields.length);
+        assertEquals(4, fields.length);
     }
 
     @Test
@@ -38,25 +40,25 @@ public class IT04_GetParams {
 
         // 获取单个的成员变量
         Field name = clazz.getDeclaredField("name");
-        Assertions.assertEquals(name.getName(), "name");
+        assertEquals(name.getName(), "name");
         // 获取权限修饰符
         int modifiers = name.getModifiers();
-        Assertions.assertEquals(modifiers, Modifier.PRIVATE);
+        assertEquals(modifiers, Modifier.PRIVATE);
         // 获取成员变量的名字
 
         // 获取成员变量的数据类型
         Class<?> type = name.getType();
-        Assertions.assertEquals(type, String.class);
+        assertEquals(type, String.class);
 
         // 获取成员变量记录的值
         Student s = new Student("Foo");
         name.setAccessible(true);
         String value = (String) name.get(s);
-        Assertions.assertEquals(value, "Foo");
+        assertEquals(value, "Foo");
 
         // 修改对象里面记录的值
         name.set(s, "Bar");
-        Assertions.assertEquals(s.getName(), "Bar");
+        assertEquals(s.getName(), "Bar");
 
     }
 

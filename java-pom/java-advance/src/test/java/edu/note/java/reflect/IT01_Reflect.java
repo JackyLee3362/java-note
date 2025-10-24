@@ -1,7 +1,9 @@
 package edu.note.java.reflect;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 import java.lang.reflect.Method;
-import org.junit.jupiter.api.Assertions;
+
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -27,7 +29,7 @@ public class IT01_Reflect {
         method.invoke(obj, "jacky");
         Student stu = (Student) obj;
         // 断言
-        Assertions.assertEquals("jacky", stu.getName());
+        assertEquals("jacky", stu.getName());
     }
 
 }

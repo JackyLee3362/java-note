@@ -1,6 +1,9 @@
 package com.example.demo;
 
-import lombok.extern.slf4j.Slf4j;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.List;
+
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -9,9 +12,7 @@ import org.springframework.jdbc.core.RowMapper;
 
 import com.example.demo.bean.Students;
 
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.List;
+import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 @SpringBootTest

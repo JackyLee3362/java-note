@@ -1,5 +1,7 @@
 package edu.note.mybatis.config;
 
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
 import java.io.IOException;
 import java.io.Reader;
 import java.util.Collection;
@@ -10,7 +12,6 @@ import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 import org.apache.ibatis.type.TypeHandler;
 import org.apache.ibatis.type.TypeHandlerRegistry;
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -31,7 +32,7 @@ public class TypeHandlerTest {
         registry.register(ExampleTypeHandler.class);
         Collection<TypeHandler<?>> typeHandlers = registry.getTypeHandlers();
         // 集合中一定有 ExampleTypeHanlder
-        Assertions.assertTrue(typeHandlers.stream().anyMatch(o -> o instanceof ExampleTypeHandler));
+        assertTrue(typeHandlers.stream().anyMatch(o -> o instanceof ExampleTypeHandler));
     }
 
     @Test
@@ -43,7 +44,7 @@ public class TypeHandlerTest {
         TypeHandlerRegistry registry = config.getTypeHandlerRegistry();
         Collection<TypeHandler<?>> typeHandlers = registry.getTypeHandlers();
         // 集合中一定有 ExampleTypeHanlder
-        Assertions.assertTrue(typeHandlers.stream().anyMatch(o -> o instanceof ExampleTypeHandler));
+        assertTrue(typeHandlers.stream().anyMatch(o -> o instanceof ExampleTypeHandler));
     }
 
     @Test
@@ -54,9 +55,9 @@ public class TypeHandlerTest {
         registry.register(User.class, UserTypeHandler.class);
         Collection<TypeHandler<?>> typeHandlers = registry.getTypeHandlers();
         // 集合中一定有 UserTypeHandler
-        Assertions.assertTrue(typeHandlers.stream().anyMatch(o -> o instanceof UserTypeHandler));
-        // Assertions.assertTrue(registry.hasTypeHandler(User.class));
-        Assertions.assertTrue(registry.hasTypeHandler(User.class));
+        assertTrue(typeHandlers.stream().anyMatch(o -> o instanceof UserTypeHandler));
+        // assertTrue(registry.hasTypeHandler(User.class));
+        assertTrue(registry.hasTypeHandler(User.class));
     }
 
     @Test
@@ -67,8 +68,8 @@ public class TypeHandlerTest {
         registry.register(User.class, GenericTypeHandler.class);
         Collection<TypeHandler<?>> typeHandlers = registry.getTypeHandlers();
         // 集合中一定有 UserTypeHandler
-        Assertions.assertTrue(typeHandlers.stream().anyMatch(o -> o instanceof GenericTypeHandler));
-        // Assertions.assertTrue(registry.hasTypeHandler(User.class));
-        Assertions.assertTrue(registry.hasTypeHandler(User.class));
+        assertTrue(typeHandlers.stream().anyMatch(o -> o instanceof GenericTypeHandler));
+        // assertTrue(registry.hasTypeHandler(User.class));
+        assertTrue(registry.hasTypeHandler(User.class));
     }
 }

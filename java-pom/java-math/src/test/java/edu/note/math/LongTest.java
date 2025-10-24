@@ -1,9 +1,10 @@
 package edu.note.math;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import org.junit.jupiter.api.Assertions;
+
 import org.junit.jupiter.api.Test;
 
 /**
@@ -17,7 +18,7 @@ public class LongTest {
         long d = 1000_0086_6406L;
         long a = 100_0086_6406L;
         String string = "53" + "250924" + String.valueOf(d).substring(1);
-        Assertions.assertEquals(19, string.length());
+        assertEquals(19, string.length());
         String yyMMdd = LocalDate.now().format(DateTimeFormatter.ofPattern("yyMMdd"));
         System.out.println(yyMMdd);
     }

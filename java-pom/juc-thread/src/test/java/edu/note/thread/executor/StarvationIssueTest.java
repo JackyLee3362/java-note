@@ -1,16 +1,16 @@
 package edu.note.thread.executor;
 
-import edu.note.thread.util.Sleeper;
-import java.util.concurrent.TimeUnit;
-import lombok.extern.slf4j.Slf4j;
-
 import java.util.Random;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
+
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+
+import edu.note.thread.util.Sleeper;
+import lombok.extern.slf4j.Slf4j;
 
 // https://www.cnblogs.com/heliusKing/p/12288226.html
 @Slf4j(topic = "c.StarvationIssueTest")

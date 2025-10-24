@@ -1,27 +1,29 @@
 package edu.note.mybatis.mapper;
 
-import edu.note.mybatis.aop.MyCustomInterceptor;
-import edu.note.mybatis.model.Account;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 import java.io.IOException;
 import java.io.Reader;
 import java.io.StringReader;
 import java.sql.Connection;
 import java.sql.SQLException;
+
 import org.apache.ibatis.builder.xml.XMLMapperBuilder;
 import org.apache.ibatis.datasource.pooled.PooledDataSource;
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.mapping.Environment;
 import org.apache.ibatis.session.Configuration;
+import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 import org.apache.ibatis.transaction.jdbc.JdbcTransactionFactory;
 import org.h2.tools.RunScript;
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
-import org.apache.ibatis.session.SqlSession;
+import edu.note.mybatis.aop.MyCustomInterceptor;
+import edu.note.mybatis.model.Account;
 
 /**
  * @author jackylee
@@ -75,8 +77,8 @@ public class AccountMapperTest {
         Account account = new Account(1, "mock account", "mock password");
         accountMapper.insertAccount(account);
         Account account1 = accountMapper.selectById(1);
-        Assertions.assertNotNull(account);
-        Assertions.assertEquals(account1, account);
+        assertNotNull(account);
+        assertEquals(account1, account);
     }
 
 }

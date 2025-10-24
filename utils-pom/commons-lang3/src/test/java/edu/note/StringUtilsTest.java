@@ -1,7 +1,8 @@
 package edu.note;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 import org.apache.commons.lang3.StringUtils;
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -23,8 +24,8 @@ public class StringUtilsTest {
     @Test
     @DisplayName("测试")
     void test01() {
-        Assertions.assertEquals("138****1111", desensitize("13812341111"));
-        Assertions.assertEquals("138*****1111", desensitize("138123451111"));
+        assertEquals("138****1111", desensitize("13812341111"));
+        assertEquals("138*****1111", desensitize("138123451111"));
     }
 
 }

@@ -1,6 +1,7 @@
 package edu.note.java.syntax;
 
-import org.junit.jupiter.api.Assertions;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -11,8 +12,8 @@ public class HashCodeTest {
     void test01() {
 
         // 哈希碰撞
-        Assertions.assertEquals(96354, "abc".hashCode());
-        Assertions.assertEquals(96354, "acD".hashCode());
+        assertEquals(96354, "abc".hashCode());
+        assertEquals(96354, "acD".hashCode());
 
     }
 }

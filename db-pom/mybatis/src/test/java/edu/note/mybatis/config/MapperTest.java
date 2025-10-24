@@ -1,5 +1,8 @@
 package edu.note.mybatis.config;
 
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
 import java.io.IOException;
 import java.io.Reader;
 
@@ -8,7 +11,6 @@ import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.Configuration;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -24,9 +26,9 @@ public class MapperTest {
     @DisplayName("映射器 - 代码配置")
     void test01() throws IOException {
         Configuration config = new Configuration();
-        Assertions.assertFalse(config.hasMapper(UserMapper.class));
+        assertFalse(config.hasMapper(UserMapper.class));
         config.addMapper(UserMapper.class);
-        Assertions.assertTrue(config.hasMapper(UserMapper.class));
+        assertTrue(config.hasMapper(UserMapper.class));
     }
 
     @Test
@@ -35,7 +37,7 @@ public class MapperTest {
         Configuration config = new Configuration();
         Reader mapperReader = Resources.getResourceAsReader("mapper/UserMapper.xml");
         new XMLMapperBuilder(mapperReader, config, "UserMapper.xml", config.getSqlFragments()).parse();
-        Assertions.assertTrue(config.hasMapper(UserMapper.class));
+        assertTrue(config.hasMapper(UserMapper.class));
     }
 
     @Test
@@ -44,6 +46,6 @@ public class MapperTest {
         Reader reader = Resources.getResourceAsReader("config/mybatis-config-mapper.xml");
         SqlSessionFactory factory = new SqlSessionFactoryBuilder().build(reader);
         Configuration config = factory.getConfiguration();
-        Assertions.assertTrue(config.hasMapper(UserMapper.class));
+        assertTrue(config.hasMapper(UserMapper.class));
     }
 }

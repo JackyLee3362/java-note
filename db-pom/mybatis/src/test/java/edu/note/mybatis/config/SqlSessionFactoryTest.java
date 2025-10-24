@@ -1,5 +1,7 @@
 package edu.note.mybatis.config;
 
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+
 import java.io.IOException;
 import java.io.Reader;
 
@@ -7,7 +9,6 @@ import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.Configuration;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -22,7 +23,7 @@ public class SqlSessionFactoryTest {
     void test01() {
         Configuration configuration = new Configuration();
         SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(configuration);
-        Assertions.assertNotNull(sqlSessionFactory);
+        assertNotNull(sqlSessionFactory);
     }
 
     @Test
@@ -30,7 +31,7 @@ public class SqlSessionFactoryTest {
     void test02() throws IOException {
         Reader reader = Resources.getResourceAsReader("config/mybatis-config.xml");
         SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(reader);
-        Assertions.assertNotNull(sqlSessionFactory);
+        assertNotNull(sqlSessionFactory);
     }
 
 }

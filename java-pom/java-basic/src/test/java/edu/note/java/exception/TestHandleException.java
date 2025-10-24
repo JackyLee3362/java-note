@@ -1,6 +1,7 @@
 package edu.note.java.exception;
 
-import org.junit.jupiter.api.Assertions;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 import org.junit.jupiter.api.Test;
 
 public class TestHandleException {
@@ -24,10 +25,10 @@ public class TestHandleException {
         } catch (ArrayIndexOutOfBoundsException e) {
 
             // Index 10 out of bounds for length 6
-            Assertions.assertEquals("Index 10 out of bounds for length 6", e.getMessage());
+            assertEquals("Index 10 out of bounds for length 6", e.getMessage());
 
             // java.lang.ArrayIndexOutOfBoundsException: Index 10 out of bounds for length
-            Assertions.assertEquals("java.lang.ArrayIndexOutOfBoundsException: 10", e.toString());
+            assertEquals("java.lang.ArrayIndexOutOfBoundsException: 10", e.toString());
 
             e.printStackTrace();
 

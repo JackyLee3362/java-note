@@ -1,8 +1,10 @@
 package edu.note.java.io;
 
+import static org.junit.jupiter.api.Assertions.assertInstanceOf;
+
 import java.io.File;
 import java.util.Objects;
-import org.junit.jupiter.api.Assertions;
+
 import org.junit.jupiter.api.Test;
 
 /**
@@ -18,7 +20,7 @@ public class BaseIOTest {
 
     @Test
     void testBasic() {
-        Assertions.assertInstanceOf(String.class, resource);
+        assertInstanceOf(String.class, resource);
     }
 
 }

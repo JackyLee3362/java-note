@@ -1,15 +1,16 @@
 package edu.note.collection.list;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
 import java.util.ListIterator;
-import org.junit.jupiter.api.Assertions;
+
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-
-import java.util.ArrayList;
 
 public class ArrayListTest {
 
@@ -27,15 +28,15 @@ public class ArrayListTest {
 
         // E remove(int index) 删除指定索引处的元素，返回被删除的元素
         String remove = list.remove(0);
-        Assertions.assertEquals("aaa", remove);
+        assertEquals("aaa", remove);
 
         // E set(int index,E element) 修改指定索引处的元素，返回被修改的元素
         String result = list.set(0, "ddd");
-        Assertions.assertEquals("bbb", result);
+        assertEquals("bbb", result);
 
         // E get(int index) 返回指定索引处的元素
         String s = list.get(0);
-        Assertions.assertEquals("ddd", s);
+        assertEquals("ddd", s);
 
     }
 
@@ -94,7 +95,7 @@ public class ArrayListTest {
                 its.add("qqq");
             }
         }
-        Assertions.assertEquals(4, list.size());
+        assertEquals(4, list.size());
 
     }
 

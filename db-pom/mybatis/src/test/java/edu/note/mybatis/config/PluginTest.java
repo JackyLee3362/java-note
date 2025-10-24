@@ -1,8 +1,9 @@
 package edu.note.mybatis.config;
 
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
 import org.apache.ibatis.plugin.Interceptor;
 import org.apache.ibatis.session.Configuration;
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -29,6 +30,6 @@ public class PluginTest {
         Configuration config = new Configuration();
         Interceptor interceptor = new ExamplePlugin();
         config.addInterceptor(interceptor);
-        Assertions.assertTrue(config.getInterceptors().stream().allMatch(o -> o instanceof ExamplePlugin));
+        assertTrue(config.getInterceptors().stream().allMatch(o -> o instanceof ExamplePlugin));
     }
 }

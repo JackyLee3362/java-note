@@ -1,7 +1,6 @@
 package edu.note.web.servlet2;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 
 import javax.servlet.Servlet;
 import javax.servlet.ServletConfig;

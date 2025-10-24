@@ -1,17 +1,18 @@
 package edu.note.util.concurrent.lock;
 
-import edu.note.thread.util.Sleeper;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 import java.util.concurrent.Callable;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
-import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
-import lombok.extern.slf4j.Slf4j;
-import org.junit.jupiter.api.Assertions;
+
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+
+import lombok.extern.slf4j.Slf4j;
 
 /**
  * @desc: 写锁+读锁+乐观读锁
@@ -38,7 +39,7 @@ public class StampedLockTest {
         }
         pool.shutdown();
         pool.awaitTermination(10, TimeUnit.MINUTES);
-        Assertions.assertEquals(10000, dataContainer.getData());
+        assertEquals(10000, dataContainer.getData());
     }
 
     @Test
@@ -52,7 +53,7 @@ public class StampedLockTest {
         }
         pool.shutdown();
         pool.awaitTermination(10, TimeUnit.MINUTES);
-        Assertions.assertEquals(10010, dataContainer.getData());
+        assertEquals(10010, dataContainer.getData());
     }
 
     @Test

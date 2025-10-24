@@ -1,9 +1,11 @@
 package edu.note.collection.list;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+
 import java.util.Collections;
 import java.util.List;
 
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -18,14 +20,14 @@ public class SingletonListTest {
     void test_singleton_list() {
         List<String> list = Collections.singletonList("a");
         // 只能有一个元素
-        Assertions.assertEquals(1, list.size());
-        Assertions.assertEquals("a", list.get(0));
+        assertEquals(1, list.size());
+        assertEquals("a", list.get(0));
         // 无法删除
-        Assertions.assertThrows(UnsupportedOperationException.class, () -> list.remove(0));
+        assertThrows(UnsupportedOperationException.class, () -> list.remove(0));
         // 无法修改
-        Assertions.assertThrows(UnsupportedOperationException.class, () -> list.set(0, "b"));
+        assertThrows(UnsupportedOperationException.class, () -> list.set(0, "b"));
         // 无法新增
-        Assertions.assertThrows(UnsupportedOperationException.class, () -> list.add("b"));
+        assertThrows(UnsupportedOperationException.class, () -> list.add("b"));
     }
 
 }

@@ -1,11 +1,13 @@
 package edu.note.thread.basic;
 
-import edu.note.thread.util.Sleeper;
-import lombok.extern.slf4j.Slf4j;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+
+import edu.note.thread.util.Sleeper;
+import lombok.extern.slf4j.Slf4j;
 
 @Slf4j(topic = "c.JoinTest")
 public class JoinTest {
@@ -40,9 +42,9 @@ public class JoinTest {
         t1.join(3000);
         long end = System.currentTimeMillis();
 
-        Assertions.assertEquals(10, r1);
-        Assertions.assertEquals(0, r2);
-        Assertions.assertEquals(0, r0);
+        assertEquals(10, r1);
+        assertEquals(0, r2);
+        assertEquals(0, r0);
 
         log.debug("r1={} r2={} cost: {}", r1, r2, end - start);
     }
@@ -71,9 +73,9 @@ public class JoinTest {
         t1.join();
         log.debug("t1 join end");
         long end = System.currentTimeMillis();
-        Assertions.assertEquals(10, r1);
-        Assertions.assertEquals(20, r2);
-        Assertions.assertEquals(0, r0);
+        assertEquals(10, r1);
+        assertEquals(20, r2);
+        assertEquals(0, r0);
         log.debug("r1: {} r2: {} cost: {}", r1, r2, end - start);
     }
 
@@ -94,9 +96,9 @@ public class JoinTest {
         t1.start();
         t1.join();
 
-        Assertions.assertEquals(10, r0);
-        Assertions.assertEquals(0, r1);
-        Assertions.assertEquals(0, r2);
+        assertEquals(10, r0);
+        assertEquals(0, r1);
+        assertEquals(0, r2);
         log.debug("结果为:{}", r0);
         log.debug("结束");
     }

@@ -1,5 +1,7 @@
 package edu.note.mybatis.config;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 import java.io.IOException;
 import java.io.Reader;
 
@@ -8,7 +10,6 @@ import org.apache.ibatis.session.Configuration;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 import org.apache.ibatis.type.TypeAliasRegistry;
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -26,7 +27,7 @@ public class TypeAliasTest {
         TypeAliasRegistry registry = config.getTypeAliasRegistry();
         registry.registerAlias("user", User.class);
         Class<?> clazz = registry.getTypeAliases().get("user");
-        Assertions.assertEquals("edu.note.mybatis.model.User", clazz.getName());
+        assertEquals("edu.note.mybatis.model.User", clazz.getName());
     }
 
     @Test
@@ -37,7 +38,7 @@ public class TypeAliasTest {
         Configuration config = factory.getConfiguration();
         TypeAliasRegistry registry = config.getTypeAliasRegistry();
         Class<?> clazz = registry.getTypeAliases().get("user");
-        Assertions.assertEquals("edu.note.mybatis.model.User", clazz.getName());
+        assertEquals("edu.note.mybatis.model.User", clazz.getName());
     }
 
     @Test
@@ -47,7 +48,7 @@ public class TypeAliasTest {
         TypeAliasRegistry registry = config.getTypeAliasRegistry();
         registry.registerAliases("edu.note.mybatis.model");
         Class<?> clazz = registry.getTypeAliases().get("user");
-        Assertions.assertEquals("edu.note.mybatis.model.User", clazz.getName());
+        assertEquals("edu.note.mybatis.model.User", clazz.getName());
     }
 
     @Test
@@ -58,7 +59,7 @@ public class TypeAliasTest {
         Configuration config = factory.getConfiguration();
         TypeAliasRegistry registry = config.getTypeAliasRegistry();
         Class<?> clazz = registry.getTypeAliases().get("user");
-        Assertions.assertEquals("edu.note.mybatis.model.User", clazz.getName());
+        assertEquals("edu.note.mybatis.model.User", clazz.getName());
     }
 
 }

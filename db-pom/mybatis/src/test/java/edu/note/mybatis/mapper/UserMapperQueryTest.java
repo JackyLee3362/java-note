@@ -1,6 +1,7 @@
 package edu.note.mybatis.mapper;
 
-import edu.note.mybatis.model.User;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 import java.io.IOException;
 import java.io.Reader;
@@ -10,14 +11,15 @@ import java.sql.SQLException;
 import java.util.List;
 
 import org.apache.ibatis.io.Resources;
+import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 import org.h2.tools.RunScript;
-import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.DisplayName;
-import org.apache.ibatis.session.SqlSession;
+import org.junit.jupiter.api.Test;
+
+import edu.note.mybatis.model.User;
 
 /**
  * @author jackylee
@@ -48,34 +50,34 @@ public class UserMapperQueryTest {
     @DisplayName("根据 id 查询")
     void testSelectById() {
         User user = userMapper.selectById(1);
-        Assertions.assertNotNull(user);
-        Assertions.assertEquals("Foo", user.getName());
+        assertNotNull(user);
+        assertEquals("Foo", user.getName());
     }
 
     @Test
     @DisplayName("根据 name 查询")
     void testSelectByName() {
         User user = userMapper.selectByName("Foo");
-        Assertions.assertNotNull(user);
-        Assertions.assertEquals("Foo", user.getName());
+        assertNotNull(user);
+        assertEquals("Foo", user.getName());
     }
 
     @Test
     @DisplayName("根据 List 查询")
     void testList() {
         List<User> users = userMapper.list();
-        Assertions.assertNotNull(users);
-        Assertions.assertEquals("Foo", users.get(0).getName());
-        Assertions.assertEquals("Bar", users.get(1).getName());
+        assertNotNull(users);
+        assertEquals("Foo", users.get(0).getName());
+        assertEquals("Bar", users.get(1).getName());
     }
 
     @Test
     @DisplayName("根据 listAnno 查询")
     void testListByAnno() {
         List<User> users = userMapper.listByAnno();
-        Assertions.assertNotNull(users);
-        Assertions.assertEquals("Foo", users.get(0).getName());
-        Assertions.assertEquals("Bar", users.get(1).getName());
+        assertNotNull(users);
+        assertEquals("Foo", users.get(0).getName());
+        assertEquals("Bar", users.get(1).getName());
     }
 
 }

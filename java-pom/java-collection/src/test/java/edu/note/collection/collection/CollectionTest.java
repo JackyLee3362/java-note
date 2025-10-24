@@ -1,9 +1,12 @@
 package edu.note.collection.collection;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
 import java.util.ArrayList;
 import java.util.Collection;
 
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -29,26 +32,26 @@ public class CollectionTest {
 
         // 2.清空
         coll.clear();
-        Assertions.assertEquals(new ArrayList<String>(), coll);
+        assertEquals(new ArrayList<String>(), coll);
 
         // 3.删除
         // 因为Collection里面定义的是共性的方法，所以此时不能通过索引进行删除。只能通过元素的对象进行删除。
         // 返回值，删除成功返回true，删除失败返回false
         // 如果要删除的元素不存在，就会删除失败
-        Assertions.assertFalse(coll.remove("aaa"));
+        assertFalse(coll.remove("aaa"));
 
         // 4.判断是否包含某元素
         // 底层是依赖equals方法进行判断是否存在的
         // 如果集合中存储的是自定义对象，也想通过contains方法来判断是否包含，那么在javabean类中，【一定】要重写equals方法。
         boolean result1 = coll.contains("bbb");
-        Assertions.assertFalse(result1);
+        assertFalse(result1);
 
         // 5.判断集合是否为空
         boolean result2 = coll.isEmpty();
-        Assertions.assertTrue(result2);
+        assertTrue(result2);
 
         // 6.获取集合的长度
-        Assertions.assertEquals(0, coll.size());
+        assertEquals(0, coll.size());
 
     }
 }

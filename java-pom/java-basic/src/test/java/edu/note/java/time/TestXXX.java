@@ -1,11 +1,13 @@
 package edu.note.java.time;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
 import java.time.Instant;
 import java.time.ZoneId;
 import java.util.Calendar;
 import java.util.Date;
 
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -21,23 +23,23 @@ public class TestXXX {
 
         // 创建对象表示一个指定的时间
         Date origin = new Date(0L);
-        Assertions.assertEquals("Thu Jan 01 08:00:00 CST 1970", origin.toString());
+        assertEquals("Thu Jan 01 08:00:00 CST 1970", origin.toString());
 
         // setTime 修改时间
         // 1000毫秒=1秒
         origin.setTime(1000L);
-        Assertions.assertEquals("Thu Jan 01 08:00:01 CST 1970", origin.toString());
+        assertEquals("Thu Jan 01 08:00:01 CST 1970", origin.toString());
 
         // getTime获取当前时间的毫秒值
-        Assertions.assertEquals(1000, origin.getTime());
+        assertEquals(1000, origin.getTime());
 
         // 变成 Instant
         origin.toInstant();
 
         // 比较大小
-        Assertions.assertTrue(current.after(origin));
-        Assertions.assertTrue(origin.equals(origin));
-        Assertions.assertTrue(origin.before(current));
+        assertTrue(current.after(origin));
+        assertTrue(origin.equals(origin));
+        assertTrue(origin.before(current));
 
     }
 
@@ -46,11 +48,11 @@ public class TestXXX {
         Date date = new Date();
         // UTC 时间
         Instant instant = date.toInstant();
-        Assertions.assertEquals(0, instant);
+        assertEquals(0, instant);
         // 当地时间
         Instant localInstant = instant.atZone(ZoneId.systemDefault()).toInstant();
-        Assertions.assertEquals(0, ZoneId.systemDefault());
-        Assertions.assertEquals(0, localInstant);
+        assertEquals(0, ZoneId.systemDefault());
+        assertEquals(0, localInstant);
     }
 
     @Test
@@ -60,11 +62,11 @@ public class TestXXX {
         // 注意，无法 new
         Calendar.getInstance();
         // 月份范围 0-11
-        Assertions.assertEquals(0, Calendar.JANUARY);
-        Assertions.assertEquals(11, Calendar.DECEMBER);
+        assertEquals(0, Calendar.JANUARY);
+        assertEquals(11, Calendar.DECEMBER);
         // 星期范围 1-7
-        Assertions.assertEquals(1, Calendar.SUNDAY);
-        Assertions.assertEquals(7, Calendar.SATURDAY);
+        assertEquals(1, Calendar.SUNDAY);
+        assertEquals(7, Calendar.SATURDAY);
     }
 
     @Test
@@ -75,7 +77,7 @@ public class TestXXX {
 
         // 2.修改一下日历代表的时间
         calendar.setTime(new Date(1000));
-        // Assertions.assertEquals("Thu Jan 01 08:00:01 CST 1970", calendar.getTime());
+        // assertEquals("Thu Jan 01 08:00:01 CST 1970", calendar.getTime());
 
         // public void set(int field, int value) 修改日历的某个字段信息
         calendar.set(Calendar.YEAR, 2023);
@@ -83,14 +85,14 @@ public class TestXXX {
         calendar.set(Calendar.DAY_OF_MONTH, 10);
 
         // public int get(int field) 取日期中的某个字段信息
-        Assertions.assertEquals(2023, calendar.get(Calendar.YEAR));
-        Assertions.assertEquals(8, calendar.get(Calendar.MONTH));
-        Assertions.assertEquals(10, calendar.get(Calendar.DAY_OF_MONTH));
-        Assertions.assertEquals(1, calendar.get(Calendar.DAY_OF_WEEK));
+        assertEquals(2023, calendar.get(Calendar.YEAR));
+        assertEquals(8, calendar.get(Calendar.MONTH));
+        assertEquals(10, calendar.get(Calendar.DAY_OF_MONTH));
+        assertEquals(1, calendar.get(Calendar.DAY_OF_WEEK));
 
         // public void add(int field, int amount) 为某个字段增加/减少指定的值
         calendar.add(Calendar.MONTH, -1);
-        Assertions.assertEquals(7, calendar.get(Calendar.MONTH));
+        assertEquals(7, calendar.get(Calendar.MONTH));
     }
 
     @Test
@@ -106,7 +108,7 @@ public class TestXXX {
         c.add(Calendar.DAY_OF_MONTH, -1);
         // 看当前的时间是28号还是29号?
         int day = c.get(Calendar.DAY_OF_MONTH);
-        Assertions.assertEquals(0, day);
+        assertEquals(0, day);
 
     }
 }

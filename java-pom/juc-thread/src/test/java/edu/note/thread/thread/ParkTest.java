@@ -1,13 +1,17 @@
 package edu.note.thread.thread;
 
 
-import edu.note.thread.util.Sleeper;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
 import java.util.concurrent.locks.LockSupport;
-import lombok.extern.slf4j.Slf4j;
-import org.junit.jupiter.api.Assertions;
+
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.RepeatedTest;
 import org.junit.jupiter.api.Test;
+
+import edu.note.thread.util.Sleeper;
+import lombok.extern.slf4j.Slf4j;
 
 @Slf4j(topic = "c.ParkTest")
 public class ParkTest {
@@ -41,12 +45,12 @@ public class ParkTest {
         t1.start();
 
         Sleeper.sleep(0.2);
-        Assertions.assertFalse(t1.isInterrupted(), "park 后, 打断标记为 false");
+        assertFalse(t1.isInterrupted(), "park 后, 打断标记为 false");
         t1.interrupt();
-        Assertions.assertTrue(t1.isInterrupted(), "打断 park, 打断标记为 true");
+        assertTrue(t1.isInterrupted(), "打断 park, 打断标记为 true");
         // Sleeper.sleep(0.2);
-        // Assertions.assertEquals(State.TERMINATED, t1.getState());
-        // Assertions.assertFalse(t1.isAlive());
+        // assertEquals(State.TERMINATED, t1.getState());
+        // assertFalse(t1.isAlive());
     }
 
     /**
@@ -62,7 +66,7 @@ public class ParkTest {
 
         Sleeper.sleep(0.5);
         LockSupport.unpark(t1);
-        Assertions.assertFalse(t1.isInterrupted(), "取消 park, 打断标记为 false");
+        assertFalse(t1.isInterrupted(), "取消 park, 打断标记为 false");
 
         log.info("结束");
     }

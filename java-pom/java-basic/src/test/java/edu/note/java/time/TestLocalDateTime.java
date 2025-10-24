@@ -1,5 +1,7 @@
 package edu.note.java.time;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 import java.sql.Date;
 import java.time.DayOfWeek;
 import java.time.LocalDate;
@@ -10,7 +12,6 @@ import java.time.MonthDay;
 import java.time.ZoneId;
 import java.time.ZoneOffset;
 
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -44,22 +45,22 @@ public class TestLocalDateTime {
     void test02() {
         LocalDate date = LocalDate.of(2023, 4, 5);
         // 年
-        Assertions.assertEquals(2023, date.getYear());
+        assertEquals(2023, date.getYear());
         // 月
-        Assertions.assertEquals(Month.APRIL, date.getMonth());
-        Assertions.assertEquals(4, date.getMonthValue());
+        assertEquals(Month.APRIL, date.getMonth());
+        assertEquals(4, date.getMonthValue());
         // 日
-        Assertions.assertEquals(5, date.getDayOfMonth());
-        Assertions.assertEquals(95, date.getDayOfYear());
-        Assertions.assertEquals(DayOfWeek.WEDNESDAY, date.getDayOfWeek());
+        assertEquals(5, date.getDayOfMonth());
+        assertEquals(95, date.getDayOfYear());
+        assertEquals(DayOfWeek.WEDNESDAY, date.getDayOfWeek());
         // 月日
-        Assertions.assertEquals(MonthDay.of(4, 5), MonthDay.from(date));
+        assertEquals(MonthDay.of(4, 5), MonthDay.from(date));
 
         // 判断
         // 平年闰年
-        Assertions.assertEquals(false, date.isLeapYear());
-        Assertions.assertEquals(false, date.isAfter(date));
-        Assertions.assertEquals(false, date.isBefore(date));
+        assertEquals(false, date.isLeapYear());
+        assertEquals(false, date.isAfter(date));
+        assertEquals(false, date.isBefore(date));
     }
 
     // 获取本地时间的日历对象。(包含 时分秒)
@@ -83,22 +84,22 @@ public class TestLocalDateTime {
     @DisplayName("获取当地时间")
     void test04() {
         LocalTime nowTime = LocalTime.of(14, 12, 33, 222);
-        Assertions.assertEquals(14, nowTime.getHour());
-        Assertions.assertEquals(12, nowTime.getMinute());
-        Assertions.assertEquals(33, nowTime.getSecond());
-        Assertions.assertEquals(222, nowTime.getNano());
+        assertEquals(14, nowTime.getHour());
+        assertEquals(12, nowTime.getMinute());
+        assertEquals(33, nowTime.getSecond());
+        assertEquals(222, nowTime.getNano());
 
         LocalTime mTime = LocalTime.of(8, 20, 30, 150);
 
         // is系列的方法
-        Assertions.assertEquals(true, nowTime.isBefore(mTime));
-        Assertions.assertEquals(false, nowTime.isAfter(mTime));
+        assertEquals(true, nowTime.isBefore(mTime));
+        assertEquals(false, nowTime.isAfter(mTime));
 
         // with系列的方法，只能修改时、分、秒
-        Assertions.assertEquals(0, nowTime.withHour(10));
+        assertEquals(0, nowTime.withHour(10));
 
         // plus系列的方法，只能修改时、分、秒
-        Assertions.assertEquals(0, nowTime.plusHours(10));
+        assertEquals(0, nowTime.plusHours(10));
 
     }
 

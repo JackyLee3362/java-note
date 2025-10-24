@@ -1,6 +1,8 @@
 package edu.note.java.loader;
 
-import org.junit.jupiter.api.Assertions;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
+
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -13,7 +15,7 @@ public class ClassLoaderTest {
         // 负责加载当前应用 classpath 下的所有 jar 包和类
         ClassLoader appClassLoader = ClassLoader.getSystemClassLoader();
         ClassLoader classLoader = ClassLoaderTest.class.getClassLoader();
-        Assertions.assertEquals(appClassLoader, classLoader);
+        assertEquals(appClassLoader, classLoader);
 
         // 扩展类加载器 / 平台类加载器(JDK 9 之后)
         // 主要负责加载 %JRE_HOME%/lib/ext 目录下的 jar 包和类
@@ -26,7 +28,7 @@ public class ClassLoaderTest {
         // 以及被 -Xbootclasspath 参数指定的路径下的所有类。
         ClassLoader bootstrapClassLoader = extendClassLoader.getParent();
         System.out.println("启动类加载器" + bootstrapClassLoader);
-        Assertions.assertNull(bootstrapClassLoader);
+        assertNull(bootstrapClassLoader);
     }
 
 }

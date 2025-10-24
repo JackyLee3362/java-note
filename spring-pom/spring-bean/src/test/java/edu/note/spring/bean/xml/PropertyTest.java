@@ -1,6 +1,7 @@
 package edu.note.spring.bean.xml;
 
-import org.junit.jupiter.api.Assertions;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.context.ApplicationContext;
@@ -18,6 +19,6 @@ public class PropertyTest {
         // 获取 IOC 容器
         ApplicationContext ctx = new ClassPathXmlApplicationContext("bean-property.xml");
         HelloDataSource dataSource = ctx.getBean(HelloDataSource.class);
-        Assertions.assertEquals("root", dataSource.getUsername());
+        assertEquals("root", dataSource.getUsername());
     }
 }

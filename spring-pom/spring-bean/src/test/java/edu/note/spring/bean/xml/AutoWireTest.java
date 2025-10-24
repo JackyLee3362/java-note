@@ -1,6 +1,7 @@
 package edu.note.spring.bean.xml;
 
-import org.junit.jupiter.api.Assertions;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.context.ApplicationContext;
@@ -19,7 +20,7 @@ public class AutoWireTest {
         ApplicationContext ctx = new ClassPathXmlApplicationContext("bean-autowire-by-type.xml");
         HelloService bean = ctx.getBean(HelloService.class);
         String hello = bean.hello("Bar");
-        Assertions.assertEquals("Hello, Bar", hello);
+        assertEquals("Hello, Bar", hello);
     }
 
     @Test
@@ -29,7 +30,7 @@ public class AutoWireTest {
         ApplicationContext ctx = new ClassPathXmlApplicationContext("bean-autowire-by-name.xml");
         HelloService bean = ctx.getBean(HelloService.class);
         String hello = bean.hello("Bar");
-        Assertions.assertEquals("Hello, Bar", hello);
+        assertEquals("Hello, Bar", hello);
     }
 
     @Test

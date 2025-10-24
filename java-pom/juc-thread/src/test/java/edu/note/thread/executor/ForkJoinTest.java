@@ -1,9 +1,12 @@
 package edu.note.thread.executor;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 import java.util.concurrent.ForkJoinPool;
-import lombok.extern.slf4j.Slf4j;
-import org.junit.jupiter.api.Assertions;
+
 import org.junit.jupiter.api.Test;
+
+import lombok.extern.slf4j.Slf4j;
 
 @Slf4j(topic = "c.ForkJoinTest")
 public class ForkJoinTest {
@@ -18,7 +21,7 @@ public class ForkJoinTest {
         ForkJoinPool pool = new ForkJoinPool(4);
         Integer res = pool.invoke(new MyTask1(5));
         pool.shutdown();
-        Assertions.assertEquals(15, res);
+        assertEquals(15, res);
     }
 
     @Test
@@ -26,7 +29,7 @@ public class ForkJoinTest {
         ForkJoinPool pool = new ForkJoinPool(4);
         Integer res = pool.invoke(new MyTask2(5, 10));
         pool.shutdown();
-        Assertions.assertEquals(45, res);
+        assertEquals(45, res);
     }
 
     @Test
@@ -35,7 +38,7 @@ public class ForkJoinTest {
         // System.out.println(pool.invoke(new MyTask1(5)));
         Integer res = pool.invoke(new MyTask3(5, 10));
         pool.shutdown();
-        Assertions.assertEquals(45, res);
+        assertEquals(45, res);
 
     }
 }

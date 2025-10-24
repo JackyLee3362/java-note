@@ -1,8 +1,10 @@
 package edu.note.java.annotation;
 
-import edu.note.java.model.Student;
-import org.junit.jupiter.api.Assertions;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 import org.junit.jupiter.api.Test;
+
+import edu.note.java.model.Student;
 
 /**
  * @author jackylee
@@ -14,7 +16,7 @@ public class PostConstructTest {
     void testPostConstruct() {
         Student student = new Student();
         // TODO 是不是只能配合 Spring 完成
-        Assertions.assertEquals("default", student.getName());
+        assertEquals("default", student.getName());
     }
 
 }

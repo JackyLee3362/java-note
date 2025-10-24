@@ -1,5 +1,8 @@
 package edu.note.mybatis.config;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+
 import java.io.IOException;
 import java.io.Reader;
 import java.sql.Connection;
@@ -11,7 +14,6 @@ import org.apache.ibatis.mapping.DatabaseIdProvider;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -33,7 +35,7 @@ public class DatabaseIdProviderTest {
         dataSource.setPassword("");
 
         String databaseId = databaseIdProvider.getDatabaseId(dataSource);
-        Assertions.assertEquals("H2", databaseId);
+        assertEquals("H2", databaseId);
     }
 
     @Test
@@ -46,8 +48,8 @@ public class DatabaseIdProviderTest {
             String databaseId = connection.getMetaData().getDatabaseProductName();
             // 获取版本
             String databaseProductVersion = connection.getMetaData().getDatabaseProductVersion();
-            Assertions.assertEquals("H2", databaseId);
-            Assertions.assertNotNull(databaseProductVersion);
+            assertEquals("H2", databaseId);
+            assertNotNull(databaseProductVersion);
         } catch (Exception e) {
             throw new RuntimeException(e);
         }

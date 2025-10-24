@@ -1,14 +1,16 @@
 package edu.note.collection.set;
 
-import java.util.Collections;
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
+import java.util.Collections;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Set;
 import java.util.TreeSet;
+
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
 
 public class HashSetTest {
 
@@ -19,9 +21,9 @@ public class HashSetTest {
         Set<String> set = new HashSet<>();
 
         // 添加成功返回 true
-        Assertions.assertTrue(set.add("aaa"));
+        assertTrue(set.add("aaa"));
         // 添加失败返回 false
-        Assertions.assertFalse(set.add("aaa"));
+        assertFalse(set.add("aaa"));
         set.add("bb");
         set.add("ccc");
 

@@ -1,6 +1,9 @@
 package edu.note.spring.bean.xml;
 
-import org.junit.jupiter.api.Assertions;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.context.ApplicationContext;
@@ -26,11 +29,11 @@ public class BeanTest {
         HelloDao dao3 = ctx.getBean("helloDao", HelloDao.class);
 
         // 测试他们完全相同
-        Assertions.assertEquals(dao1, dao2);
-        Assertions.assertEquals(dao2, dao3);
+        assertEquals(dao1, dao2);
+        assertEquals(dao2, dao3);
 
         Boolean save = dao1.save("Foo");
-        Assertions.assertTrue(save);
+        assertTrue(save);
     }
 
     @Test
@@ -39,7 +42,7 @@ public class BeanTest {
         // 该方法主要兼容以前老方法，了解即可
         ApplicationContext context = new ClassPathXmlApplicationContext("bean-factory-method.xml");
         HelloDao dao = context.getBean(HelloDao.class);
-        Assertions.assertTrue(dao.save("Foo"));
+        assertTrue(dao.save("Foo"));
     }
 
     @Test
@@ -47,7 +50,7 @@ public class BeanTest {
     void testFactoryBean() {
         ApplicationContext context = new ClassPathXmlApplicationContext("bean-factory-bean.xml");
         HelloDao dao = context.getBean(HelloDao.class);
-        Assertions.assertTrue(dao.save("Foo"));
+        assertTrue(dao.save("Foo"));
     }
 
     @Test
@@ -56,7 +59,7 @@ public class BeanTest {
         // 该方法主要用作整合第三方类
         ApplicationContext context = new ClassPathXmlApplicationContext("bean-factory-impl.xml");
         HelloDao dao = context.getBean(HelloDao.class);
-        Assertions.assertTrue(dao.save("Foo"));
+        assertTrue(dao.save("Foo"));
     }
 
     @Test
@@ -66,7 +69,7 @@ public class BeanTest {
         ApplicationContext context = new ClassPathXmlApplicationContext("bean-di.xml");
         HelloService service = context.getBean(HelloService.class);
         String hello = service.hello("Foo");
-        Assertions.assertEquals("Hello, Foo", hello);
+        assertEquals("Hello, Foo", hello);
     }
 
     @Test
@@ -76,7 +79,7 @@ public class BeanTest {
         ApplicationContext context = new ClassPathXmlApplicationContext("bean-alias.xml");
         HelloService service = (HelloService) context.getBean("service");
         String hello = service.hello("Foo");
-        Assertions.assertEquals("Hello, Foo", hello);
+        assertEquals("Hello, Foo", hello);
     }
 
     @Test
@@ -86,11 +89,11 @@ public class BeanTest {
         ApplicationContext context = new ClassPathXmlApplicationContext("bean-scope.xml");
         HelloDao dao1 = context.getBean(HelloDao.class);
         HelloDao dao2 = context.getBean(HelloDao.class);
-        Assertions.assertEquals(dao1, dao2);
+        assertEquals(dao1, dao2);
 
         HelloService service1 = context.getBean(HelloService.class);
         HelloService service2 = context.getBean(HelloService.class);
-        Assertions.assertNotEquals(service1, service2);
+        assertNotEquals(service1, service2);
     }
 
     @Test
@@ -120,6 +123,6 @@ public class BeanTest {
         HelloService bean = context.getBean(HelloService.class);
         String hello = bean.hello("Bar");
         ;
-        Assertions.assertEquals("Hello, Bar", hello);
+        assertEquals("Hello, Bar", hello);
     }
 }

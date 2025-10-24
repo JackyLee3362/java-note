@@ -1,11 +1,12 @@
 package edu.note.collection.map;
 
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.util.LinkedHashMap;
 import java.util.Map;
+
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
 
 public class LinkedHashMapTest {
     @Test
@@ -29,8 +30,8 @@ public class LinkedHashMapTest {
         hm.put(3, "福建");
         hm.put(4, "山东");
 
-        Assertions.assertEquals(4, hm.size());
-        Assertions.assertEquals("江苏", hm.get(1));
+        assertEquals(4, hm.size());
+        assertEquals("江苏", hm.get(1));
 
     }
 }

@@ -1,13 +1,18 @@
 package edu.note.java.file;
 
-import edu.note.java.io.BaseIOTest;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import org.junit.jupiter.api.Assertions;
+
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+
+import edu.note.java.io.BaseIOTest;
 
 /**
  * @author jackylee
@@ -82,7 +87,7 @@ public class FileInputStreamTest extends BaseIOTest {
         byte[] bytes = { 97, 98, 99, 100, 101 };
         fos.write(bytes, 1, 2);
         fos.close();
-        Assertions.assertEquals(5, f1.length());
+        assertEquals(5, f1.length());
     }
 
     @Test
@@ -90,9 +95,9 @@ public class FileInputStreamTest extends BaseIOTest {
     void test_write_02() throws IOException {
         FileOutputStream fos = new FileOutputStream(f1);
         fos.write(97);
-        Assertions.assertFalse(f1.delete());
+        assertFalse(f1.delete());
         fos.close();
-        Assertions.assertTrue(f1.delete());
+        assertTrue(f1.delete());
     }
 
     @Test

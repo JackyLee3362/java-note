@@ -1,8 +1,9 @@
 package edu.note.spring.bean.anno;
 
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+
 import javax.sql.DataSource;
 
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.context.ApplicationContext;
@@ -24,7 +25,7 @@ public class ThirdPackageInjectTest {
     void testThirdPackage() {
         ApplicationContext ctx = new AnnotationConfigApplicationContext(SpringConfigThirdPackage.class);
         DataSource ds = ctx.getBean(DataSource.class);
-        Assertions.assertNotNull(ds);
+        assertNotNull(ds);
     }
 
     @Test
@@ -33,7 +34,7 @@ public class ThirdPackageInjectTest {
         // 使用配置文件
         ApplicationContext ctx = new AnnotationConfigApplicationContext(SpringConfigThirdPkgWithValue.class);
         DataSource ds = ctx.getBean(DataSource.class);
-        Assertions.assertNotNull(ds);
+        assertNotNull(ds);
     }
 
     @Test
@@ -41,7 +42,7 @@ public class ThirdPackageInjectTest {
     void testThirdPackageWithRef() {
         ApplicationContext ctx = new AnnotationConfigApplicationContext(SpringConfigThirdPkgWithRef.class);
         DataSource ds2 = ctx.getBean(DataSource.class);
-        Assertions.assertNotNull(ds2);
+        assertNotNull(ds2);
     }
 
     @Test
@@ -49,7 +50,7 @@ public class ThirdPackageInjectTest {
     void testImport() {
         ApplicationContext ctx = new AnnotationConfigApplicationContext(SpringConfigImport.class);
         DataSource ds1 = ctx.getBean(DataSource.class);
-        Assertions.assertNotNull(ds1);
+        assertNotNull(ds1);
     }
 
 }

@@ -6,8 +6,6 @@ import org.apache.camel.impl.DefaultCamelContext;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-import edu.note.camel.MyCustomComponent;
-
 /**
  * @author jackylee
  * @date 2025-10-14 12:40

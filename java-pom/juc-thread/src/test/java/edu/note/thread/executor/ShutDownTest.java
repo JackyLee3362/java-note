@@ -1,14 +1,18 @@
 package edu.note.thread.executor;
 
-import edu.note.thread.util.Sleeper;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
 import java.util.List;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
-import lombok.extern.slf4j.Slf4j;
-import org.junit.jupiter.api.Assertions;
+
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+
+import edu.note.thread.util.Sleeper;
+import lombok.extern.slf4j.Slf4j;
 
 @Slf4j(topic = "c.ShutDownTest")
 public class ShutDownTest {
@@ -43,7 +47,7 @@ public class ShutDownTest {
         pool.shutdown();
         // 一般和 shutdown 配置，最长等待时间
         boolean b = pool.awaitTermination(5, TimeUnit.SECONDS);
-        Assertions.assertTrue(b);
+        assertTrue(b);
     }
 
     @Test
@@ -60,7 +64,7 @@ public class ShutDownTest {
         pool.shutdown();
         // 一般和 shutdown 配置，最长等待时间
         boolean b = pool.awaitTermination(2, TimeUnit.SECONDS);
-        Assertions.assertFalse(b);
+        assertFalse(b);
     }
 
     @Test

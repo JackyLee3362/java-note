@@ -1,6 +1,7 @@
 package edu.note.java.syntax;
 
-import org.junit.jupiter.api.Assertions;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 import org.junit.jupiter.api.Test;
 
 /**
@@ -57,9 +58,9 @@ public class TryCatchFinallyTest {
 
     @Test
     void test01() {
-        Assertions.assertEquals(Integer.MIN_VALUE, catchOuterReturn(0));
-        Assertions.assertEquals(Integer.MAX_VALUE, catchFinalReturn(0));
-        Assertions.assertEquals(Integer.MAX_VALUE, tryCatchFinalReturn(1));
+        assertEquals(Integer.MIN_VALUE, catchOuterReturn(0));
+        assertEquals(Integer.MAX_VALUE, catchFinalReturn(0));
+        assertEquals(Integer.MAX_VALUE, tryCatchFinalReturn(1));
         // 结论，不管多少return，finally块都会执行
     }
 

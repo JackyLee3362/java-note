@@ -1,6 +1,7 @@
 package edu.note.java.syntax;
 
-import org.junit.jupiter.api.Assertions;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 import org.junit.jupiter.api.Test;
 
 public class FinalTest {
@@ -31,10 +32,10 @@ public class FinalTest {
 
     @Test
     void test02() {
-        Assertions.assertEquals(10, FinalTest.A);
-        Assertions.assertEquals(32768, FinalTest.B);
-        Assertions.assertEquals(20, new FinalTest().a);
-        Assertions.assertEquals(Integer.MAX_VALUE, new FinalTest().b);
+        assertEquals(10, FinalTest.A);
+        assertEquals(32768, FinalTest.B);
+        assertEquals(20, new FinalTest().a);
+        assertEquals(Integer.MAX_VALUE, new FinalTest().b);
         // new TestFinal().test();
     }
 

@@ -1,7 +1,8 @@
 package edu.note.mybatis.config;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 import org.apache.ibatis.session.Configuration;
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -17,7 +18,7 @@ public class ObjectFactoryTest {
         Configuration config = new Configuration();
         ExampleObjectFactory exampleObjectFactory = new ExampleObjectFactory();
         config.setObjectFactory(exampleObjectFactory);
-        Assertions.assertEquals(exampleObjectFactory, config.getObjectFactory());
+        assertEquals(exampleObjectFactory, config.getObjectFactory());
     }
 
 }

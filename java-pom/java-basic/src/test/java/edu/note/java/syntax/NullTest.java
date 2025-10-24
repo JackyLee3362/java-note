@@ -1,6 +1,7 @@
 package edu.note.java.syntax;
 
-import org.junit.jupiter.api.Assertions;
+import static org.junit.jupiter.api.Assertions.assertNull;
+
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -13,7 +14,7 @@ public class NullTest {
     @Test
     @DisplayName("测试 Null")
     void test01() {
-        Assertions.assertNull(null);
+        assertNull(null);
     }
 
 }
