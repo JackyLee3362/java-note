@@ -13,8 +13,8 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class User {
 
-    private Integer id;
-    private String username;
+    private String name;
     private Integer age;
+    private Address address;
 
 }

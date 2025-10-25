@@ -7,7 +7,6 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import edu.note.spring.Response;
 import lombok.extern.slf4j.Slf4j;
 
 /**
@@ -28,7 +27,7 @@ public class GlobalExceptionHandler {
      */
     @ExceptionHandler(value = Exception.class)
     @ResponseBody
-    public Response defaultErrorHandler(HttpServletRequest req, Throwable ex) {
-        return Response.fail(null, "Global Error");
+    public String defaultErrorHandler(HttpServletRequest req, Throwable ex) {
+        return "Global fail...";
     }
 }

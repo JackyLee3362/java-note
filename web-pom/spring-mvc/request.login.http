@@ -1,0 +1,33 @@
+### 测试参数接收
+GET /mvc/register?name=foo&password=123 HTTP/1.1
+Host: {{host}}
+
+### 测试使用实体类
+GET /mvc/address?city=sh&country=cn HTTP/1.1
+Host: {{host}}
+
+### 测试使用嵌套实体类
+GET /mvc/user-address?name=foo&age=123&address.city=shanghai&address.country=cn HTTP/1.1
+Host: {{host}}
+
+### 
+POST /mvc/body HTTP/1.1
+Host: {{host}}
+
+name=foo
+
+### 测试 路径参数
+GET /mvc/path/123 HTTP/1.1
+Host: {{host}}
+
+### 测试 路径参数
+GET /mvc/like?like=foo&like=bar HTTP/1.1
+Host: {{host}}
+
+### 测试 HEADER
+GET /mvc/header HTTP/1.1
+Host: {{host}}
+
+### 测试 Matrix
+GET /mvc/matrix/123;age=12 HTTP/1.1
+Host: {{host}}

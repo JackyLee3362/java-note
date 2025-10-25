@@ -1,5 +1,6 @@
-package edu.note.spring;
+package edu.note.spring.config;
 
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
@@ -9,6 +10,7 @@ import edu.note.spring.interceptor.LoginInterceptor;
 
 @Configuration
 @EnableWebMvc
+@ComponentScan("edu.note")
 public class SpringMvcConfig implements WebMvcConfigurer {
 
     @Override
