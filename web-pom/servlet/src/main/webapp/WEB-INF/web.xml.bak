@@ -7,7 +7,7 @@
     <display-name>Archetype Created Web Application</display-name>
     <servlet>
         <servlet-name>UserSelect</servlet-name>
-        <servlet-class>edu.note.web.servlet2.UserSelectServlet</servlet-class>
+        <servlet-class>edu.note.web.servlet.UserSelectServlet</servlet-class>
         <load-on-startup>-5</load-on-startup>
         <!-- 0或正数表示启动时创建 -->
         <!-- 负数表示访问时创建 -->

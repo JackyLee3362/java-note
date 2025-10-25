@@ -1,4 +1,4 @@
-package edu.note.web.servlet;
+package edu.note.web.jerrymouse;
 
 import javax.servlet.ServletOutputStream;
 import javax.servlet.WriteListener;

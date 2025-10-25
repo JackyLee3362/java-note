@@ -1,4 +1,4 @@
-package edu.note.web.servlet2;
+package edu.note.web.servlet;
 
 import java.io.IOException;
 

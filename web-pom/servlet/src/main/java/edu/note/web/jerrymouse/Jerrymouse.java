@@ -1,4 +1,4 @@
-package edu.note.web.servlet;
+package edu.note.web.jerrymouse;
 
 import java.io.IOException;
 import java.io.OutputStream;
@@ -17,18 +17,21 @@ import lombok.extern.slf4j.Slf4j;
 
 @Slf4j(topic = "c.Jerrymouse")
 public class Jerrymouse {
+    public static void main(String[] args) {
+        new Jerrymouse().start();
+    }
+
     private final ExecutorService executorService = new ThreadPoolExecutor(
             8,
             16,
             60,
             TimeUnit.SECONDS,
-            new ArrayBlockingQueue<>(10)
-    );
+            new ArrayBlockingQueue<>(10));
     final static String UTF8 = "utf-8";
     final static byte[] LINE_BYTES = System.getProperty("line.separator").getBytes();
 
     public void start() {
-        try (ServerSocket ss = new ServerSocket(80,50, InetAddress.getByName("127.0.0.1"))) {
+        try (ServerSocket ss = new ServerSocket(80, 50, InetAddress.getByName("127.0.0.1"))) {
             while (!executorService.isShutdown()) {
                 try {
                     Socket socket = ss.accept();
@@ -64,10 +67,10 @@ public class Jerrymouse {
         RequestImpl request = new RequestImpl(socket);
         ResponseImpl response = new ResponseImpl(socket);
         String requestURI = request.getRequestURI();
-        if(requestURI == null) {
+        if (requestURI == null) {
             return;
         }
-        if(requestURI.equals("/")) {
+        if (requestURI.equals("/")) {
             index(response.getOutputStream());
         } else {
             _404(response.getOutputStream());
@@ -104,7 +107,4 @@ public class Jerrymouse {
         out.flush();
     }
 
-    public static void main(String[] args) {
-        new Jerrymouse().start();
-    }
 }

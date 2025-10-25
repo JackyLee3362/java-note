@@ -6,5 +6,16 @@ GET /servlet/user HTTP/1.1
 Host: localhost:8080
 
 ###
-GET /servlet/user/http?name=foo HTTP/1.1
+POST /servlet/login?name=foo HTTP/1.1
 Host: localhost:8080
+
+username=bar
+password=123你
+
+### JerryMouse
+GET / HTTP/1.1
+Host: localhost:80
+
+### JerryMouse
+GET /foo HTTP/1.1
+Host: localhost:80

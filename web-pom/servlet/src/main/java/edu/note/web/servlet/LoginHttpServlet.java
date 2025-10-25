@@ -1,5 +1,6 @@
-package edu.note.web.servlet2;
+package edu.note.web.servlet;
 
+import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.PrintWriter;
 
@@ -16,8 +17,8 @@ import lombok.extern.slf4j.Slf4j;
  * @date 2025-10-24 22:01
  */
 @Slf4j
-@WebServlet("/user/http")
-public class UserHttpServlet extends HttpServlet {
+@WebServlet("/login")
+public class LoginHttpServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -39,11 +40,22 @@ public class UserHttpServlet extends HttpServlet {
         log.info("获取协议和版本号 {}", req.getProtocol());
         // 获取客户端 IP 地址
         log.info("获取客户端 IP 地址 {}", req.getRemoteAddr());
-        
-        // 获取请求头
+
+        // 2.获取请求头
         // 接收请求参数
         log.info("获取请求头", req.getHeaderNames());
-        // 2. 产生响应
+
+        // 3.其他功能
+        // - 获取请求参数通用方式
+        log.info("获取请求参数 {}", req.getParameter("name"));
+        // - 请求转发 (只能转发当前服务器内部资源)
+        // req.getRequestDispatcher(待转发路径).forward(req, resp);
+        // - 共享数据
+        // req.setAttribute 存储数据用于共享
+        // - 获取 ServletContext
+        
+
+        // 4. 产生响应
         resp.setContentType("text/json;charset=utf-8");
         PrintWriter pw = resp.getWriter();
         pw.write("{\"module\": \"servlet select\"}");
@@ -51,10 +63,18 @@ public class UserHttpServlet extends HttpServlet {
     }
 
     @Override
-    protected void doPut(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        // 3.获取请求体
+        // 如果带中文，需要设置编码
+        req.setCharacterEncoding("utf-8");
+
         // 获取流
         // getReader 处理字符输入流
         // getInputStream 获取字节输入流
-        this.doGet(req, resp);
+        BufferedReader reader = req.getReader();
+        String line = null;
+        while ((line = reader.readLine()) != null) {
+            System.out.println(line);
+        }
     }
 }
