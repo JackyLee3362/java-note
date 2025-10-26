@@ -19,8 +19,8 @@ import lombok.extern.slf4j.Slf4j;
  * @date 2025-10-23 22:55
  */
 @Slf4j
-@WebServlet("/user")
-public class UserSelectServlet implements Servlet {
+@WebServlet("/test")
+public class TestServlet implements Servlet {
 
     @Override
     public ServletConfig getServletConfig() {
@@ -37,20 +37,20 @@ public class UserSelectServlet implements Servlet {
     @Override
     public void init(ServletConfig arg0) throws ServletException {
         // 只会在创建时执行
-        System.out.println("init servlet...");
+        log.info("test:init servlet...");
         return;
     }
 
     @Override
     public void service(ServletRequest arg0, ServletResponse arg1) throws ServletException, IOException {
         // 每次服务时都执行
-        System.out.println("hello, servlet");
+        log.info("test:hello, servlet");
     }
 
     @Override
     public void destroy() {
         // 服务器正常关闭时执行，执行一次
-        System.out.println("destory servlet...");
+        log.info("test:destory servlet...");
         return;
     }
 

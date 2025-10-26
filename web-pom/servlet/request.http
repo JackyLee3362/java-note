@@ -1,21 +1,15 @@
+### 测试应用根页面
 GET /servlet HTTP/1.1
-Host: localhost:8080
+Host: {{host}} 
 
-### 
-GET /servlet/user HTTP/1.1
-Host: localhost:8080
+### 测试
+GET /servlet/test HTTP/1.1
+Host: {{host}} 
 
 ###
-POST /servlet/login?name=foo HTTP/1.1
-Host: localhost:8080
-
-username=bar
-password=123你
+GET /servlet/hello?name=foo你 HTTP/1.1
+Host: {{host}} 
 
 ### JerryMouse
 GET / HTTP/1.1
-Host: localhost:80
-
-### JerryMouse
-GET /foo HTTP/1.1
-Host: localhost:80
+Host: {{host}} 

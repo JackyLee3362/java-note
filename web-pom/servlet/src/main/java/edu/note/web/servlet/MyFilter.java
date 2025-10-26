@@ -17,7 +17,6 @@ import lombok.extern.slf4j.Slf4j;
 public class MyFilter implements Filter {
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {
-
         log.info("MyFilter 初始化完成");
         // Filter.super.init(filterConfig);
     }

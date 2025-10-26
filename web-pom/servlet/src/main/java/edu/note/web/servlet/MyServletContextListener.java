@@ -12,13 +12,13 @@ import javax.servlet.annotation.WebListener;
 public class MyServletContextListener implements ServletContextListener {
     @Override
     public void contextInitialized(ServletContextEvent sce) {
-        log.info("MyServletContextListener is working");
+        log.info("MyServletContextListener 初始化...");
         // ServletContextListener.super.contextInitialized(sce);
     }
 
     @Override
     public void contextDestroyed(ServletContextEvent sce) {
-        log.info("MyServletContextListener is destoried");
+        log.info("MyServletContextListener 已销毁");
         // ServletContextListener.super.contextDestroyed(sce);
     }
 }
