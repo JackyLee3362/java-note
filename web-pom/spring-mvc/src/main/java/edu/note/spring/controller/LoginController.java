@@ -24,13 +24,13 @@ import edu.note.spring.User;
 @RequestMapping(produces = "text/plain; charset=utf-8")
 public class LoginController {
 
-    @GetMapping({ "/", "/index" })
-    public String login(Long userId) throws Exception {
+    @GetMapping({ "/loginPage"})
+    public String login() throws Exception {
         return "page/loginPage";
     }
 
     @ResponseBody
-    @GetMapping("/register")
+    @RequestMapping("/register")
     public String register(@RequestParam("name") String username, String password) {
         System.out.println("name=" + username);
         System.out.println("password=" + password);

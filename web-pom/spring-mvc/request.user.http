@@ -3,14 +3,39 @@
 GET /mvc/user HTTP/1.1
 Host: {{host}}
 
+### 测试 body 接收 list
+POST /mvc/user/list HTTP/1.1
+Host: {{host}}
+Content-Type: application/json
+
+["foo", "bar"]
+
+### 测试插入
 POST /mvc/user/insert HTTP/1.1
 Host: {{host}}
+Content-Type: application/json
 
 {
     "name": "foo",
     "age": 12,
+    "birthday": "2001-07-03",
     "address": {
         "country": "cn",
         "city": "beijing"
     }
 }
+
+### 
+POST /mvc/user/date2?startDate=1990/01/01 HTTP/1.1
+Host: {{host}}
+
+### 
+POST /mvc/user/date?startDate=1990/01/01&endDate=2020-01-02 HTTP/1.1
+Host: {{host}}
+
+### 测试
+POST /mvc/user/date HTTP/1.1
+Host: {{host}}
+Content-Type: application/x-www-form-urlencoded
+
+startDate=1999/01/01&endDate=2001-01-01

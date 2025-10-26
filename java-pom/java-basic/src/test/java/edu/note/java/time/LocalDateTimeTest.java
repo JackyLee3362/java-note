@@ -16,7 +16,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 // 完全是在本地解析的，不涉及时区
-public class TestLocalDateTime {
+public class LocalDateTimeTest {
 
     @Test
     @DisplayName("构造器")

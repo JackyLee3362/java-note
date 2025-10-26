@@ -1,5 +1,7 @@
 package edu.note.spring;
 
+import java.sql.Date;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -15,6 +17,7 @@ public class User {
 
     private String name;
     private Integer age;
+    private Date birthday;
     private Address address;
 
 }

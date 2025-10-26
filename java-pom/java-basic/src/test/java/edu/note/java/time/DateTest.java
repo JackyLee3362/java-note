@@ -13,7 +13,7 @@ import org.junit.jupiter.api.Test;
 
 // 不建议用的过期方法
 @Deprecated
-public class TestXXX {
+public class DateTest {
     @Test
     @DisplayName("jdk7 - Date 对象")
     void test01() {
