@@ -1,13 +1,18 @@
-package edu.note;
+package edu.note.spring;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+/**
+ * @author jackylee
+ * @date 2025-10-10 21:53
+ */
+
 @SpringBootApplication
-public class SpringDemo1Application {
+public class StartApp {
 
     public static void main(String[] args) {
-        SpringApplication.run(SpringDemo1Application.class, args);
+        SpringApplication.run(StartApp.class, args);
     }
 
 }

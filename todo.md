@@ -10,6 +10,8 @@ description:
 
 ## springboot 是如何启动 tomcat 的
 
+- [SpringBoot内置tomcat启动过程及原理 - 京东云开发者 - 博客园](https://www.cnblogs.com/Jcloud/p/16968444.html)
+
 ## controller 的 view 文件是如何写的
 
 ## 问题 2: handlerInterceptorAdapter 和 Filter 的顺序

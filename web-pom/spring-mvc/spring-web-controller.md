@@ -10,7 +10,7 @@ description:
 
 ## 执行顺序
 
-1. 
+1.
 
 ```ascii
 ┌─────────────────────────────────────────────┐
@@ -31,5 +31,13 @@ description:
 ```
 
 - [Spring Boot Test 的详细使用教程 - gongchengship - 博客园](https://www.cnblogs.com/gongchengship/p/18540901)
+
+## junit4 测试参考
+
+```java
+@RunWith(SpringJUnit4ClassRunner.class)
+@ContextConfiguration(classes = SpringConfig.class)
+class 测试类
+```
 
 ## 参考资料

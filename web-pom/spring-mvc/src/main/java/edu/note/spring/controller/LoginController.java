@@ -13,9 +13,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import edu.note.spring.Address;
-import edu.note.spring.User;
-
 /**
  * @author jackylee
  * @date 2025-10-21 12:23
@@ -24,31 +21,19 @@ import edu.note.spring.User;
 @RequestMapping(produces = "text/plain; charset=utf-8")
 public class LoginController {
 
-    @GetMapping({ "/loginPage"})
+    // 需要配置 thymeleaf 才可以
+    @GetMapping("/loginPage")
     public String login() throws Exception {
         return "page/loginPage";
     }
 
-    @ResponseBody
+    // @ResponseBody
     @RequestMapping("/register")
     public String register(@RequestParam("name") String username, String password) {
         System.out.println("name=" + username);
         System.out.println("password=" + password);
-        return "registering..." + ":name=" + username + ",password=" + password;
-    }
-
-    @ResponseBody
-    @GetMapping("/address")
-    public String address(Address address) {
-        System.out.println("address=" + address);
-        return address.toString();
-    }
-
-    @ResponseBody
-    @GetMapping("/user-address")
-    public String user(User user) {
-        System.out.println("user=" + user);
-        return user.toString();
+        // return "registering..." + ":name=" + username + ",password=" + password;
+        return "page/loginPage";
     }
 
     @ResponseBody

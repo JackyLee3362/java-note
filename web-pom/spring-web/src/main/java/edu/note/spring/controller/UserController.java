@@ -4,12 +4,14 @@ import java.util.Date;
 import java.util.List;
 
 import org.springframework.format.annotation.DateTimeFormat;
-import org.springframework.http.converter.HttpMessageConverter;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import edu.note.spring.Address;
 import edu.note.spring.User;
 
 /**
@@ -45,6 +47,20 @@ public class UserController {
     public String date(Date startDate,
             @DateTimeFormat(pattern = "yyyy-MM-dd") Date endDate) {
         return startDate.toString() + "," + endDate.toString();
+    }
+
+    @ResponseBody
+    @GetMapping("/address")
+    public String address(Address address) {
+        System.out.println("address=" + address);
+        return address.toString();
+    }
+
+    @ResponseBody
+    @GetMapping("/user-address")
+    public String user(User user) {
+        System.out.println("user=" + user);
+        return user.toString();
     }
 
 }

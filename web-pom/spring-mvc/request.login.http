@@ -1,5 +1,5 @@
 ### 测试参数接收
-GET /mvc/ HTTP/1.1
+GET /mvc/loginPage HTTP/1.1
 Host: {{host}}
 
 ### 测试参数接收

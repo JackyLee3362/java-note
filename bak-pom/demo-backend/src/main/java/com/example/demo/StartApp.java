@@ -6,10 +6,10 @@ import org.springframework.boot.web.servlet.ServletComponentScan;
 
 @ServletComponentScan(basePackages = "com.example.demo")
 @SpringBootApplication
-public class BackendApplication {
+public class StartApp {
 
 	public static void main(String[] args) {
-		SpringApplication.run(BackendApplication.class, args);
+		SpringApplication.run(StartApp.class, args);
 	}
 
 }

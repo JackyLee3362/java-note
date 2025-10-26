@@ -10,7 +10,8 @@ import edu.note.spring.interceptor.LoginInterceptor;
 
 @Configuration
 @EnableWebMvc
-@ComponentScan("edu.note")
+@ComponentScan("edu.note.spring")
+// @EnableTransactionManagement
 public class SpringMvcConfig implements WebMvcConfigurer {
 
     @Override

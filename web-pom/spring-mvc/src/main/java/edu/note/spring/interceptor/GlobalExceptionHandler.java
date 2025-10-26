@@ -2,10 +2,10 @@ package edu.note.spring.interceptor;
 
 import javax.servlet.http.HttpServletRequest;
 
-import org.springframework.web.bind.annotation.ControllerAdvice;
+import org.omg.CORBA.SystemException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.RestControllerAdvice;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -15,7 +15,8 @@ import lombok.extern.slf4j.Slf4j;
  */
 
 @Slf4j
-@ControllerAdvice(annotations = { RestController.class })
+@RestControllerAdvice
+// 同上 @ControllerAdvice(annotations = { RestController.class })
 public class GlobalExceptionHandler {
 
     /**
@@ -25,9 +26,19 @@ public class GlobalExceptionHandler {
      * @param ex  错误
      * @return
      */
-    @ExceptionHandler(value = Exception.class)
+    @ExceptionHandler(Exception.class)
     @ResponseBody
-    public String defaultErrorHandler(HttpServletRequest req, Throwable ex) {
-        return "Global fail...";
+    public String doException(HttpServletRequest req, Throwable ex) {
+        return "unknown fail...";
     }
+
+    @ExceptionHandler(SystemException.class)
+    public String doSystemException(SystemException ex) {
+        return "System fail...";
+    }
+
+    // @ExceptionHandler(BusinessException.class)
+    // public String doBusinessException(BusinessException ex) {
+    // return "Business fail...";
+    // }
 }

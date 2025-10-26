@@ -1,12 +1,7 @@
-package edu.note.spring.web;
+package edu.note;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-
-/**
- * @author jackylee
- * @date 2025-10-10 21:53
- */
 
 @SpringBootApplication
 public class StartApp {

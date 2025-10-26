@@ -1,4 +1,6 @@
-package edu.note.spring.web;
+package edu.note.spring;
+
+import java.util.Date;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -9,11 +11,13 @@ import lombok.NoArgsConstructor;
  * @date 2025-10-11 20:11
  */
 @Data
-@AllArgsConstructor
 @NoArgsConstructor
+@AllArgsConstructor
 public class User {
 
-    private String username;
+    private String name;
     private Integer age;
+    private Date birthday;
+    private Address address;
 
 }

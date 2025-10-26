@@ -21,4 +21,11 @@ public class JdbcConfig {
         ds.setPassword("root");
         return ds;
     }
+
+    // @Bean
+    // public PlatformTransactionManager transactionManager(DataSource dataSource) {
+    // DataSourceTransactionManager ds = new DataSourceTransactionManager();
+    // ds.setDataSource(dataSource);
+    // return ds;
+    // }
 }
