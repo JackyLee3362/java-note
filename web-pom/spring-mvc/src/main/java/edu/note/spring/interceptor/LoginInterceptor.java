@@ -14,15 +14,12 @@ import lombok.extern.slf4j.Slf4j;
 @Component
 public class LoginInterceptor implements HandlerInterceptor {
     /**
-     * 目标方法执行之前
+     * 目标方法执行之前拦截
      */
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
             throws Exception {
         // 登录检查逻辑
-        if (true) {
-            return true;
-        }
         String url = request.getRequestURI();
         log.info("经过拦截器，请求路径是{}", url);
 
@@ -35,8 +32,8 @@ public class LoginInterceptor implements HandlerInterceptor {
         // session.setAttribute("msg","请先登录");
         // response.sendRedirect("/");
         request.setAttribute("msg", "请先登录");
-        request.getRequestDispatcher("/login").forward(request, response);
-
+        request.getRequestDispatcher("/login")
+                .forward(request, response);
         return false;
         // return HandlerInterceptor.super.preHandle(request, response, handler);
     }
@@ -54,6 +51,8 @@ public class LoginInterceptor implements HandlerInterceptor {
     public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler,
             ModelAndView modelAndView) throws Exception {
         log.info("目标方法执行完成");
+        log.info("handler({}): {}", handler.getClass(), handler);
+        log.info("ModelAndView: {}", modelAndView);
         HandlerInterceptor.super.postHandle(request, response, handler, modelAndView);
     }
 
@@ -70,6 +69,7 @@ public class LoginInterceptor implements HandlerInterceptor {
     public void afterCompletion(HttpServletRequest request, HttpServletResponse response, Object handler, Exception ex)
             throws Exception {
         log.info("页面渲染完成");
+        log.info("handler({}): {}", handler.getClass(), handler);
         HandlerInterceptor.super.afterCompletion(request, response, handler, ex);
     }
 }

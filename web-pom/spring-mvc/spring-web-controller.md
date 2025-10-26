@@ -10,7 +10,16 @@ description:
 
 ## 执行顺序
 
-1.
+- 有张图不错[【Spring MVC 系列】静态资源处理_springmvc静态资源处理-CSDN博客](https://blog.csdn.net/zzuhkp/article/details/121604937)
+
+嵌套关系
+
+- tomcat
+  - servlet
+    - web app
+      - foo-controller
+      - bar-controller
+      - ...
 
 ```ascii
 ┌─────────────────────────────────────────────┐

@@ -1,48 +1,53 @@
-### 测试参数接收
-GET /mvc/loginPage HTTP/1.1
+### 测试拦截器
+GET /mvc/page/404.html HTTP/1.1
 Host: {{host}}
 
 ### 测试参数接收
-GET /mvc/register?name=foo&password=123 HTTP/1.1
+GET /mvc/login HTTP/1.1
 Host: {{host}}
 
 ### 测试参数接收
-POST /mvc/register?name=foo&password=123 HTTP/1.1
+GET /mvc/login/register?name=foo&password=123 HTTP/1.1
+Host: {{host}}
+
+### 测试参数接收
+POST /mvc/login/register?name=foo&password=123 HTTP/1.1
 Host: {{host}}
 
 ### 测试表单参数接收
-POST /mvc/register HTTP/1.1
+POST /mvc/login/register HTTP/1.1
 Host: {{host}}
 Content-Type: application/x-www-form-urlencoded
 
 name=foo&password=123
 
-### 测试使用实体类
-GET /mvc/address?city=sh&country=cn HTTP/1.1
-Host: {{host}}
-
-### 测试使用嵌套实体类
-GET /mvc/user-address?name=foo&age=123&address.city=shanghai&address.country=cn HTTP/1.1
-Host: {{host}}
-
 ### 
-POST /mvc/body HTTP/1.1
+POST /mvc/login/body HTTP/1.1
 Host: {{host}}
 
 name=foo
 
 ### 测试 路径参数
-GET /mvc/path/123 HTTP/1.1
+GET /mvc/login/path/123 HTTP/1.1
 Host: {{host}}
 
 ### 测试 路径参数
-GET /mvc/like?like=foo&like=bar HTTP/1.1
+GET /mvc/login/like?like=foo&like=bar HTTP/1.1
 Host: {{host}}
 
 ### 测试 HEADER
-GET /mvc/header HTTP/1.1
+GET /mvc/login/header HTTP/1.1
 Host: {{host}}
 
 ### 测试 Matrix
-GET /mvc/matrix/123;age=12 HTTP/1.1
+GET /mvc/login/matrix/123;age=12 HTTP/1.1
 Host: {{host}}
+
+### 测试拦截
+GET /mvc/foo/bar HTTP/1.1
+Host: {{host}}
+
+### 测试静态资源
+GET /mvc/pages/404.html HTTP/1.1
+Host: {{host}}
+

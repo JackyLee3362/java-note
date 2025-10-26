@@ -18,22 +18,22 @@ import org.springframework.web.bind.annotation.ResponseBody;
  * @date 2025-10-21 12:23
  */
 @Controller
-@RequestMapping(produces = "text/plain; charset=utf-8")
+@RequestMapping(value = "/login", produces = "text/plain; charset=utf-8")
 public class LoginController {
 
     // 需要配置 thymeleaf 才可以
-    @GetMapping("/loginPage")
+    @ResponseBody
+    @GetMapping({ "", "/" })
     public String login() throws Exception {
-        return "page/loginPage";
+        return "please login first...";
     }
 
-    // @ResponseBody
+    @ResponseBody
     @RequestMapping("/register")
     public String register(@RequestParam("name") String username, String password) {
         System.out.println("name=" + username);
         System.out.println("password=" + password);
-        // return "registering..." + ":name=" + username + ",password=" + password;
-        return "page/loginPage";
+        return "registering..." + ":name=" + username + ",password=" + password;
     }
 
     @ResponseBody
