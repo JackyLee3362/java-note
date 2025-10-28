@@ -22,7 +22,6 @@
         <module>netty</module>
         <module>spring-mvc</module>
         <module>spring-web</module>
-        <module>spring-web-controller</module>
     </modules>
 
 </project>

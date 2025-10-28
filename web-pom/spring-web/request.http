@@ -1,3 +1,4 @@
+### 
 GET /js/hello.js HTTP/1.1
 Host: {{host}}
 
@@ -7,4 +8,8 @@ Host: {{host}}
 
 ### 
 GET /login/ HTTP/1.1
+Host: {{host}}
+
+### 
+GET /user/address/cn/city/shanghai HTTP/1.1
 Host: {{host}}

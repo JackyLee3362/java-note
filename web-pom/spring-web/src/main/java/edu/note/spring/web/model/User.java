@@ -1,4 +1,4 @@
-package edu.note.spring;
+package edu.note.spring.web.model;
 
 import java.util.Date;
 

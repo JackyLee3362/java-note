@@ -22,8 +22,9 @@ public class IT01Introduction {
 
     @Test
     void testRootLogger() {
-        Logger logger = LoggerFactory.getLogger(Logger.ROOT_LOGGER_NAME);
-        logger.info("I'm root logger");
+        Logger log = LoggerFactory.getLogger(Logger.ROOT_LOGGER_NAME);
+        log.info("I'm root logger");
+        log.warn("warning");
     }
 
 }
