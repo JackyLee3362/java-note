@@ -22,6 +22,7 @@ public class LogbackConfigAnnoInitializer {
                 String logConfigPath = Paths.get(resource.toURI()).toFile().getAbsolutePath();
                 // TODO 可能在更高版本存在，需要调整版本
                 // System.setProperty(ClassicConstants.CONFIG_FILE_PROPERTY, logConfigPath);
+                System.setProperty("logback.configurationFile", logConfigPath);
             } catch (Exception e) {
                 System.out.println(e.getMessage());
             }

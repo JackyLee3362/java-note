@@ -14,22 +14,22 @@ public class MyCustomeTest {
     @Test
     @DisplayName("测试")
     void test01() throws Exception {
-        CamelContext context = new DefaultCamelContext();
+        try (CamelContext context = new DefaultCamelContext()) {
+            context.addComponent("myCustom", new MyCustomComponent());
+            context.addRoutes(new RouteBuilder() {
+                @Override
+                public void configure() throws Exception {
+                    from("myCustom:foo")
+                            .to("log:myCustomLog?level=INFO");
+                }
+            });
 
-        context.addComponent("myCustom", new MyCustomComponent());
-        context.addRoutes(new RouteBuilder() {
-            @Override
-            public void configure() throws Exception {
-                from("myCustom:foo")
-                        .to("log:myCustomLog?level=INFO");
-            }
-        });
+            // 启动 Camel 上下文
+            context.start();
 
-        // 启动 Camel 上下文
-        context.start();
-
-        // 允许一段时间处理消息然后关闭上下文
-        Thread.sleep(2000);
-        context.stop();
+            // 允许一段时间处理消息然后关闭上下文
+            Thread.sleep(2000);
+            context.stop();
+        }
     }
 }
