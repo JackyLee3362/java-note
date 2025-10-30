@@ -16,9 +16,9 @@
   </properties>
 
   <modules>
-    <module>java-service-provider</module>
-    <module>java-service-provider-interface</module>
-    <module>java-spi-demo</module>
+    <module>spi-mylog-impl</module>
+    <module>spi-mylog-interface</module>
+    <module>spi-mylog-demo</module>
   </modules>
 
 </project>

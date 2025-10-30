@@ -1,8 +1,18 @@
-# SPI Demo
+---
+type: basic-note
+title: java-spi
+author: JackyLee
+create_date: 2025-10-30
+update_date:
+tags:
+description:
+---
 
 ## 介绍
 
-SPI 即 Service Provider Interface ，即 「服务提供者」 需要去实现的接口，[Java SPI 机制详解 | JavaGuide](https://javaguide.cn/java/basis/spi.html#service-provider-interface)
+SPI 即 Service Provider Interface ，即 「服务提供者」 需要去实现的接口
+
+- [Java SPI 机制详解 | JavaGuide](https://javaguide.cn/java/basis/spi.html#service-provider-interface)
 
 ## 如何运行
 
