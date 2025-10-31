@@ -1,9 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<configuration
-  xmlns="http://ch.qos.logback/xml/ns/logback"
-  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://ch.qos.logback/xml/ns/logback logback.xsd"
->
+<configuration>
   <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
 
     <encoder>
@@ -26,11 +22,11 @@
       <appender-ref ref="STDOUT"/>
   </logger>-->
 
-  <logger name="c" level="debug" additivity="false">
+  <!-- <logger name="c" level="debug" additivity="false">
     <appender-ref ref="STDOUT"/>
-  </logger>
+  </logger> -->
 
-  <root level="ERROR">
+  <root level="DEBUG">
     <appender-ref ref="STDOUT"/>
   </root>
 </configuration>

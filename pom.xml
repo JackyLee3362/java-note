@@ -30,6 +30,7 @@
     <module>web-pom</module>
     <module>jvm-pom</module>
     <module>bak-pom</module>
+    <module>mq-pom</module>
   </modules>
 
 </project>

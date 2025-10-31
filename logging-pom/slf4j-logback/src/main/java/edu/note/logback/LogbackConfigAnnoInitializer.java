@@ -7,8 +7,8 @@ import java.util.Objects;
 public class LogbackConfigAnnoInitializer {
 
     public static void initialize(Class<?> clazz) {
-        if (clazz.isAnnotationPresent(ConfigFile.class)) {
-            ConfigFile configFile = clazz.getAnnotation(ConfigFile.class);
+        if (clazz.isAnnotationPresent(SetLogbackConfigFile.class)) {
+            SetLogbackConfigFile configFile = clazz.getAnnotation(SetLogbackConfigFile.class);
             String fileName = configFile.value();
             if (Objects.isNull(fileName) || fileName.isEmpty()) {
                 fileName = clazz.getSimpleName() + ".xml";

@@ -3,6 +3,7 @@
 **/tmp/*
 bak
 data
+**/*.log
 **/.*
 
 .idea

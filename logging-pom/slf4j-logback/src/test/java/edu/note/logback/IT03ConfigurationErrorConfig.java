@@ -9,7 +9,7 @@ import org.slf4j.LoggerFactory;
  * @author jackylee
  * @date 2024/11/28 下午10:09
  */
-@ConfigFile
+@SetLogbackConfigFile
 public class IT03ConfigurationErrorConfig {
 
     static {

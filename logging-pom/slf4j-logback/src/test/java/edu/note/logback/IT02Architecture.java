@@ -9,7 +9,7 @@ import org.slf4j.LoggerFactory;
  * @date 2024/11/28 下午9:59
  */
 
-@ConfigFile
+@SetLogbackConfigFile("日志配置文件.xml")
 public class IT02Architecture {
 
     static {
