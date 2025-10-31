@@ -1,0 +1,28 @@
+<configuration>
+  <!--<statusListener class="ch.qos.logback.core.status.OnConsoleStatusListener"/>-->
+  <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+    <encoder>
+      <pattern>%d{yyyy-MM-dd HH:mm:ss} 测试 %highlight(%-5level) [%thread] %-5level %logger{36} -
+        %msg%n
+      </pattern>
+    </encoder>
+  </appender>
+
+  <!--<logger name="org.springframework.security.web.FilterChainProxy" level="DEBUG" additivity="false">
+      <appender-ref ref="STDOUT"/>
+  </logger>
+  <logger name="org.springframework.security.web.access.intercept.FilterSecurityInterceptor" level="DEBUG" additivity="false">
+      <appender-ref ref="STDOUT"/>
+  </logger>-->
+
+  <!--<logger name="org.springframework.security.web" level="DEBUG" additivity="false">
+      <appender-ref ref="STDOUT"/>
+  </logger>-->
+
+  <!-- <logger name="c" level="debug" additivity="false">
+    <appender-ref ref="STDOUT"/>
+  </logger> -->
+  <root level="INFO">
+    <appender-ref ref="CONSOLE2"/>
+  </root>
+</configuration>

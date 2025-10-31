@@ -12,7 +12,7 @@ import edu.note.logback.SetLogbackConfigFile;
  * @date 2024/11/28 下午9:59
  */
 
-@SetLogbackConfigFile("日志配置文件.xml")
+@SetLogbackConfigFile()
 public class IT02Architecture {
 
     static {

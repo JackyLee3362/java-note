@@ -45,6 +45,19 @@ TRACE < DEBUG < INFO < WARN < ERROR < OFF
 
 - [Java 日志框架：logback 详解 - 五月的仓颉 - 博客园](https://www.cnblogs.com/xrq730/p/8628945.html)
 
+## 格式相关
+
+- %date：日期，默认格式 yyyy-MM-dd hhh:mm:ss,SSS 默认使用本机时区，通过 %d{yyyy-MM-dd hhh:mm:ss,SSS} 来自定义
+- %-5level：5 个占位符的日志级别，例如" info"、"error"
+- %thread : 输出日志的线程
+- %class : 输出日志的类的完全限定名，效率低
+- %method : 输出日志的方法名
+- %line : 输出日志的行号，效率低
+- %msg : 日志消息内容
+- %n : 换行
+
+- [Chapter 6: Layouts](https://logback.qos.ch/manual/layouts.html#logger)
+
 ## FAQ
 
 ### Failed to load class
@@ -62,3 +75,6 @@ SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further detail
 logback 1.5.x 是需要 Java 11 的，不支持 Java8
 
 ## 参考资料
+
+- [logback.xml 配置文件详解 - 景岳 - 博客园](https://www.cnblogs.com/xxoome/p/8479164.html)
+- [Logback 配置样例这篇文章主要提供一个 xml 格式的 Logback 配置文件参考，详细技术细节参考 Java 日 - 掘金](https://juejin.cn/post/6844904036580196359)
