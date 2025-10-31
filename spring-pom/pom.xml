@@ -13,10 +13,6 @@
     <module>spring-aop</module>
     <module>spring-bean</module>
     <module>spring-context</module>
-    <module>spring-mq</module>
-    <module>spring-redis</module>
-    <module>spring-rest-template</module>
-    <module>spring-task</module>
     <module>spring-starter</module>
     <module>spring-transaction</module>
     <module>spring-boot</module>

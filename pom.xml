@@ -31,6 +31,7 @@
     <module>jvm-pom</module>
     <module>bak-pom</module>
     <module>mq-pom</module>
+    <module>task-pom</module>
   </modules>
 
 </project>
