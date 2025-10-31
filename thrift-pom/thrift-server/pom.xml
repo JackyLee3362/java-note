@@ -18,7 +18,12 @@
 
     <dependency>
       <groupId>edu.note</groupId>
-      <artifactId>thrift-anno-sdk</artifactId>
+      <artifactId>thrift-sdk-anno</artifactId>
+      <version>1.0-SNAPSHOT</version>
+    </dependency>
+    <dependency>
+      <groupId>edu.note</groupId>
+      <artifactId>thrift-sdk-compile</artifactId>
       <version>1.0-SNAPSHOT</version>
     </dependency>
 
@@ -51,6 +56,11 @@
       <groupId>ch.qos.logback</groupId>
       <artifactId>logback-classic</artifactId>
       <version>1.2.12</version>
+    </dependency>
+    <dependency>
+      <groupId>org.projectlombok</groupId>
+      <artifactId>lombok</artifactId>
+      <version>1.18.28</version>
     </dependency>
 
   </dependencies>

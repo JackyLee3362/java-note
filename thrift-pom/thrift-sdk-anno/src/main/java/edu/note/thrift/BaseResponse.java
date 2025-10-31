@@ -20,7 +20,7 @@ public class BaseResponse {
     private Integer code;
     private String message;
     private String data;
-
+    
     @ThriftField(1)
     public Integer getCode() {
         return code;

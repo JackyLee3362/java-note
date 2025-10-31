@@ -16,7 +16,8 @@
   </properties>
 
   <modules>
-    <module>thrift-anno-sdk</module>
+    <module>thrift-sdk-anno</module>
+    <module>thrift-sdk-compile</module>
     <module>thrift-client</module>
     <module>thrift-server</module>
   </modules>

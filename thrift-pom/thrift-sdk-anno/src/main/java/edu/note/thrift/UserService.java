@@ -1,9 +1,7 @@
-package edu.note.thirft.anno.server;
+package edu.note.thrift;
 
 import com.facebook.swift.service.ThriftMethod;
 import com.facebook.swift.service.ThriftService;
-
-import edu.note.thrift.BaseResponse;
 
 /**
  * @author jackylee
