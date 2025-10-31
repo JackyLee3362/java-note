@@ -26,6 +26,9 @@ TRACE < DEBUG < INFO < WARN < ERROR < OFF
 1. 获取过滤链决策 Get the filter chain decision
 2. 应用基本选择规则
 3. 创建日志事件 Create a LoggingEvent object
+4. 调用 Appenders Invoking appenders
+5. 格式化输出 Formatting the output
+6. 发送日志事件 Sending out the LoggingEvent
 
 ## logback 加载过程
 

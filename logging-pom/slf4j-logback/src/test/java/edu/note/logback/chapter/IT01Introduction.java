@@ -1,4 +1,4 @@
-package edu.note.logback;
+package edu.note.logback.chapter;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;

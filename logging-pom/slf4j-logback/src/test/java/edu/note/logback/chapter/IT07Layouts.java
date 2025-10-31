@@ -1,9 +1,9 @@
-package edu.note.logback;
+package edu.note.logback.chapter;
 
 /**
  * @author jackylee
  * @date 2024/11/28 下午10:05
  */
-public class IT05Encoders {
+public class IT07Layouts {
 
 }

@@ -1,9 +1,12 @@
-package edu.note.logback;
+package edu.note.logback.chapter;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import edu.note.logback.LogbackConfigAnnoInitializer;
+import edu.note.logback.SetLogbackConfigFile;
 
 /**
  * @author jackylee

@@ -1,4 +1,4 @@
-package edu.note.logback;
+package edu.note.logback.chapter;
 
 import ch.qos.logback.classic.LoggerContext;
 // import ch.qos.logback.core.util.StatusPrinter2;
