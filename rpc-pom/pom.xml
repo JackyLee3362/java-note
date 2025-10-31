@@ -5,7 +5,7 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>edu.note</groupId>
-  <artifactId>java-note</artifactId>
+  <artifactId>thrift-pom</artifactId>
   <version>1.0-SNAPSHOT</version>
   <packaging>pom</packaging>
 
@@ -16,20 +16,7 @@
   </properties>
 
   <modules>
-    <module>testing-pom</module>
-    <module>spring-pom</module>
-    <module>rpc-pom</module>
-    <module>maven-pom</module>
-    <module>utils-pom</module>
-    <module>java-pom</module>
-    <module>data-structure-pom</module>
-    <module>groovy-pom</module>
-    <module>json-pom</module>
-    <module>logging-pom</module>
-    <module>db-pom</module>
-    <module>web-pom</module>
-    <module>jvm-pom</module>
-    <module>bak-pom</module>
+    <module>thrift</module>
   </modules>
 
 </project>
