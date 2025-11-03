@@ -3,7 +3,7 @@ title: groovy 基础
 tags:
   - 编程
   - groovy/基础
-created_time: 2024-10-08
+create_time: 2024-10-08
 ---
 
 ## 依赖

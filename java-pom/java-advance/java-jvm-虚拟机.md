@@ -1,8 +1,8 @@
 ---
 type: basic-note
 title: java-jvm-虚拟机
-created_time: 2025-03-14
-modified_time:
+create_time: 2025-03-14
+update_time:
 tags:
 description:
 ---
