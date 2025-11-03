@@ -18,7 +18,6 @@
   <modules>
     <module>freemarker</module>
     <module>mapstruct</module>
-    <module>mybatis</module>
     <module>hutool</module>
     <module>commonio</module>
     <module>commons-lang3</module>

@@ -7,9 +7,8 @@ package edu.note.spock;
 public interface UserDao {
 
     // 即使不加 static final 修饰，接口中的变量默认也是静态、final 的
-    static final UserPO ADMIN = new UserPO(0, "Admin", 0);
+    static final User ADMIN = new User(0, "Admin", 0);
 
-    UserPO getUserById(Integer id);
-
+    User selectById(Integer id);
 
 }

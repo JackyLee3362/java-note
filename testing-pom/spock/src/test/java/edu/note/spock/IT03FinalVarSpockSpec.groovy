@@ -5,6 +5,8 @@ import spock.lang.Specification
 import spock.lang.Unroll
 
 /**
+ * 静态方法测试
+ *
  * @author jackylee
  * @date 2025/7/1 16:19
  */
@@ -13,7 +15,7 @@ class IT03FinalVarSpockSpec extends Specification {
     @Unroll
     def "final 变量测试"() {
         given: "final 变量"
-        def mockAdmin = Mock(UserPO.class)
+        def mockAdmin = Mock(User.class)
         Whitebox.setInternalState(UserDao.class, "ADMIN", mockAdmin)
         mockAdmin.getAge() >> 18
 
@@ -22,7 +24,6 @@ class IT03FinalVarSpockSpec extends Specification {
 
         then: "验证结果"
         age == 18
-
     }
 
 }

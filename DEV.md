@@ -8,6 +8,54 @@ tags:
 description:
 ---
 
+## 常用配置项
+
+```xml
+
+<config>
+  <!--常用继承-->
+  <dependency>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-parent</artifactId>
+    <version>2.7.18</version>
+  </dependency>
+  
+  <!--版本管理-->
+  <dependencyManagement>
+    <dependencies>
+      <dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-dependencies</artifactId>
+        <version>2.7.18</version>
+      </dependency>
+    </dependencies>
+  </dependencyManagement>
+
+  <!--常用日志-->
+  <dependency>
+    <groupId>ch.qos.logback</groupId>
+    <artifactId>logback-classic</artifactId>
+    <version>1.5.13</version>
+  </dependency>
+
+  <!--常用测试-->
+  <dependency>
+    <groupId>org.junit.jupiter</groupId>
+    <artifactId>junit-jupiter</artifactId>
+    <version>5.12.2</version>
+    <scope>test</scope>
+  </dependency>
+
+  <!--常用工具-->
+  <dependency>
+    <groupId>org.projectlombok</groupId>
+    <artifactId>lombok</artifactId>
+    <version>1.18.28</version>
+    <scope>provided</scope>
+  </dependency>
+</config>
+```
+
 ## VSCode 开发
 
 `Java: Configure Java Runtime`

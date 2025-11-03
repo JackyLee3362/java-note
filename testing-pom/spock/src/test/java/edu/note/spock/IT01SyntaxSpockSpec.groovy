@@ -11,12 +11,12 @@ class IT01SyntaxSpockSpec extends Specification {
 
     // mock 的类必须是接口类
     def userDao = Mock(UserDao)
-    def userService = new UserService(userDao)
+    def userService = new UserServiceImpl(userDao)
 
     def "test Mock 测试"() {
         given: "准备数据"
-        def user1 = new UserPO(1, "张三", 18)
-        def user2 = new UserPO(2, "李四", 20)
+        def user1 = new User(1, "张三", 18)
+        def user2 = new User(2, "李四", 20)
 
         and: "mock 方法"
         // 语法 1: 普通语法
@@ -25,7 +25,7 @@ class IT01SyntaxSpockSpec extends Specification {
         // 语法 2
         // userDao.getUserById(_ as Integer) >> user1 >> user2
         // 语法 3
-        userDao.getUserById(_ as Integer) >>> [user1, user2]
+        userDao.selectById(_ as Integer) >>> [user1, user2]
         // 语法 4: 列表语法
         // userDao.getUserById(_) >>> [[user1, user2],[user3, user4],[user5, user6]]
         // userDao.getUserById(_) >> [user1, user2] >> [user3, user4] >> [user5, user6]
@@ -37,7 +37,7 @@ class IT01SyntaxSpockSpec extends Specification {
         // 语法 6: 如果希望根据不同的参数返回不同的结果
         // userDao.getUserById(1) >> user1
         // userDao.getUserById(2) >> user2
-        // userDao.getUserById(_) >> new UserPO(3, "王五", 25)
+        // userDao.getUserById(_) >> new User(3, "王五", 25)
         // userDao.getUserById(_) >> { args -> args[0] > 0 ? user1 : user2 } // 使用闭包
 
 

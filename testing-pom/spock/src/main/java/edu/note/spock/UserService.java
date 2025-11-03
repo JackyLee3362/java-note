@@ -2,25 +2,13 @@ package edu.note.spock;
 
 /**
  * @author jackylee
- * @date 2025/7/1 14:29
+ * @date 2025/11/3 14:54
  */
-public class UserService {
+public interface UserService {
 
-    private static final UserDao staticuserDao = null;
-    private final UserDao userDao;
+    String getServiceInfo();
 
-    public UserService(UserDao userDao) {
-        this.userDao = userDao;
-    }
+    User getUserInfo(Integer idNumber);
 
-    public UserPO getUserInfo(Integer idNumber) {
-        return userDao.getUserById(idNumber);
-    }
-
-    public Boolean isOddAgeUser(Integer idNumber) {
-        UserPO user = getUserInfo(idNumber);
-        return Calculator.isOdd(user.getAge());
-    }
-
-
+    Boolean isOddAgeUser(Integer idNumber);
 }

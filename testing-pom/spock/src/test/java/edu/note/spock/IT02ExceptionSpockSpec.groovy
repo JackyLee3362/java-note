@@ -8,22 +8,7 @@ import spock.lang.Specification
  */
 class IT02ExceptionSpockSpec extends Specification {
 
-    def "test 异常"() {
-        when: "执行异常"
-        Calculator.isOdd(num);
-        then: "验证"
-        def exception = thrown(expectedException)
-        exception.getCode() == expectedCode
-        exception.getMessage() == expectedMessage
-
-        where: "测试数据"
-        num  || expectedException | expectedCode | expectedMessage
-        null || BaseException     | 300          | "num must not be null"
-        -1   || BaseException     | 400          | "num must be positive"
-
-    }
-
-    def "test 异常2"() {
+    def "test 预期抛出异常"() {
         given: "准备"
         def calculator = Mock(Calculator)
         // 闭包无法写在 where 中
@@ -36,5 +21,22 @@ class IT02ExceptionSpockSpec extends Specification {
         thrown(IllegalArgumentException)
 
     }
+
+    def "test 预期抛出异常 - unroll"() {
+        when: "执行异常"
+        Calculator.isOdd(num);
+
+        then: "验证"
+        def exception = thrown(expectedException)
+        exception.getCode() == expectedCode
+        exception.getMessage() == expectedMessage
+
+        where: "测试数据"
+        num  || expectedException | expectedCode | expectedMessage
+        null || BaseException     | 300          | "num must not be null"
+        -1   || BaseException     | 400          | "num must be positive"
+
+    }
+
 
 }

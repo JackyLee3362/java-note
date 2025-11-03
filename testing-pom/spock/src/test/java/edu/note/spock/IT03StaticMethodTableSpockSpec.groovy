@@ -21,7 +21,7 @@ import org.spockframework.runtime.Sputnik
 class IT03StaticMethodTableSpockSpec extends Specification {
 
     def userDao = Mock(UserDao.class)
-    def userService = new UserService(userDao)
+    def userService = new UserServiceImpl(userDao)
 
     void setup() {
         // Mock 静态类
@@ -30,11 +30,11 @@ class IT03StaticMethodTableSpockSpec extends Specification {
 
     def "静态方法测试"() {
         given: "创建对象"
-        def user1 = new UserPO(1, "张三", 18)
-        def user2 = new UserPO(2, "李四", 20)
+        def user1 = new User(1, "张三", 18)
+        def user2 = new User(2, "李四", 20)
 
         and: "mock 掉接口返回的信息"
-        userDao.getUserById(_ as Integer) >>> [user1, user2]
+        userDao.selectById(_ as Integer) >>> [user1, user2]
 
         and: "mock 静态方法返回的信息"
         PowerMockito.when(Calculator.isOdd(Mockito.any())).thenReturn(flag)

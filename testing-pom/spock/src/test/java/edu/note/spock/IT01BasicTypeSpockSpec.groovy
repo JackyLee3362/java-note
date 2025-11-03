@@ -7,6 +7,7 @@ import spock.lang.Specification
  * @date 2025/7/14 10:10
  */
 class IT01BasicTypeSpockSpec extends Specification  {
+
     def "test Mock 测试"() {
         given: "准备数据"
         def list = [1, 2, 3]
