@@ -2,8 +2,8 @@
 type: basic-note
 title: ISSUE
 author: JackyLee
-create_date: 2025-08-29
-update_date:
+create_time: 2025-08-29
+update_time:
 tags:
 description:
 ---

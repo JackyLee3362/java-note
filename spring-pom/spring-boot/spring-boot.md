@@ -2,8 +2,8 @@
 type: basic-note
 title: 2023-05-20-黑马-SpringBoot
 author: JackyLee
-create_date: 2025-10-05
-update_date:
+create_time: 2025-10-05
+update_time:
 tags:
 description:
 ---

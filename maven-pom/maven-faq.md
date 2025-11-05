@@ -2,8 +2,8 @@
 type: basic-note
 title: maven-faq
 author: JackyLee
-create_date: 2025-10-12
-update_date:
+create_time: 2025-10-12
+update_time:
 tags:
 description:
 ---

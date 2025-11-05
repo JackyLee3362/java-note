@@ -2,8 +2,8 @@
 type: basic-note
 title: todo
 author: JackyLee
-create_date: 2025-10-20
-update_date:
+create_time: 2025-10-20
+update_time:
 tags:
 description:
 ---

@@ -2,8 +2,8 @@
 type: basic-note
 title: logback
 author: JackyLee
-create_date: 2025-10-31
-update_date:
+create_time: 2025-10-31
+update_time:
 tags:
 description:
 ---

@@ -2,8 +2,8 @@
 type: basic-note
 title: 2023-05-21-day-05-Mybatis
 author: JackyLee
-create_date: 2023-05-21
-update_date:
+create_time: 2023-05-21
+update_time:
 tags:
 description:
 ---

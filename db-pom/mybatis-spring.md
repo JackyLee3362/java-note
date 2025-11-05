@@ -1,9 +1,9 @@
 ---
 type: basic-note
-title: Mybatis-spring 
+title: Mybatis-spring
 author: JackyLee
-create_date: 2025-10-05
-update_date:
+create_time: 2025-10-05
+update_time:
 tags:
 description:
 ---
@@ -383,5 +383,5 @@ public class App2 {
 
 支持 Spring 与 Mybatis 的整合就已经完成了，其中主要用到的两个类分别是:
 
-- ==SqlSessionFactoryBean==
-- ==MapperScannerConfigurer==
+- SqlSessionFactoryBean
+- MapperScannerConfigurer

@@ -2,8 +2,8 @@
 type: basic-note
 title: ssm
 author: JackyLee
-create_date: 2025-09-30
-update_date:
+create_time: 2025-09-30
+update_time:
 tags:
 description: 黑马程序员
 ---

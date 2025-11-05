@@ -1,31 +1,25 @@
 ---
 type: basic-note
-title: 2023-05-23-Mybatis框架
+title: Mybatis
 author: JackyLee
-create_date: 2023-05-23
-update_date:
+create_time: 2023-05-23
+update_time:
 tags:
 description:
 ---
 
-
-
-## 参考资料
-
-# Mybatis
-
-application.yml配置
+application.yml 配置
 
 ```yml
 server:
-    port: 8080
+  port: 8080
 
 spring:
-    datasource:
-            url: jdbc:mysql://localhost:3306/test
-            username: root
-            password: jackylee1997
-            driver-class-name: com.mysql.cj.jdbc.Driver
+  datasource:
+    url: jdbc:mysql://localhost:3306/test
+    username: root
+    password: jackylee1997
+    driver-class-name: com.mysql.cj.jdbc.Driver
 # 查看mybatis日志
 mybatis:
   configuration:
@@ -118,7 +112,7 @@ class MybatisDemoApplicationTests {
         User user = userMapper.getById(3003);
         System.out.println(user);
     }
-    
+
     @Test
     void testSelectUsers(){
         List<User> list = userMapper.filterByAge("a", 100, 200);
@@ -129,11 +123,11 @@ class MybatisDemoApplicationTests {
 
 ## 使用配置文件
 
-- XML映射文件的名称与Mapper接口名称一致，并且将XML映射文件和Mapper接口放置在相同包下（同包同名）
-- XML映射文件的namespace属性为Mappper接口全限定名一致
-- XML映射文件中的SQL语句的id与Mapper接口中的方法名一致，并保持返回类型一致
+- XML 映射文件的名称与 Mapper 接口名称一致，并且将 XML 映射文件和 Mapper 接口放置在相同包下（同包同名）
+- XML 映射文件的 namespace 属性为 Mappper 接口全限定名一致
+- XML 映射文件中的 SQL 语句的 id 与 Mapper 接口中的方法名一致，并保持返回类型一致
 
-## 单独开发Mybatis配置文件
+## 单独开发 Mybatis 配置文件
 
 SqlMapConfig.xml
 
@@ -192,7 +186,7 @@ public class AppForAnnotation {
 }
 ```
 
-## Spring集合Mybatis
+## Spring 集合 Mybatis
 
 SpringConfig
 

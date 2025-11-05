@@ -2,13 +2,13 @@
 type: basic-note
 title: servlet-tomcat
 author: JackyLee
-create_date: 2025-10-23
-update_date:
+create_time: 2025-10-23
+update_time:
 tags:
 description:
 ---
 
-## webservlet 注解
+## web-servlet 注解
 
 可以写 `/user` 或者 `/user/hello` 或者 `/user/*` 甚至 `/*`
 
@@ -16,7 +16,7 @@ description:
 
 ## servlet 体系结构
 
-- Servelt 接口
+- Servlet 接口
 - GenericServlet 抽象类
 - HttpServlet 抽象类
 
@@ -34,7 +34,7 @@ description:
 
 1. 通过 `localhost:8080` 找到 tomcat 主机
 2. tomcat 从 webapp 中寻找 servlet.war 包下寻找 web.xml
-3. 从 web.xml 解析并从 servelt-mapping 中寻找 `/user`，并找到 servlet-name
+3. 从 web.xml 解析并从 servlet-mapping 中寻找 `/user`，并找到 servlet-name
 4. 根据 servlet-name 寻找全类名的字节码并加载进内存 (Class.forName(...))
 5. 调用该类的 service 方法
 6. tomcat 将 request 和 response 对象传给 service 方法, 并调用该方法

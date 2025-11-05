@@ -2,8 +2,8 @@
 type: basic-note
 title: spring-web-controller
 author: JackyLee
-create_date: 2025-10-14
-update_date:
+create_time: 2025-10-14
+update_time:
 tags:
 description:
 ---

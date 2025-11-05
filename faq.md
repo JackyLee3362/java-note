@@ -2,8 +2,8 @@
 type: basic-note
 title: faq
 author: JackyLee
-create_date: 2025-11-03
-update_date:
+create_time: 2025-11-03
+update_time:
 tags:
 description:
 ---

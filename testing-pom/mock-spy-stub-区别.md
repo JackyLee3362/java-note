@@ -2,8 +2,8 @@
 type: basic-note
 title: mock-spy-stub-区别
 author: JackyLee
-create_date: 2025-11-03
-update_date:
+create_time: 2025-11-03
+update_time:
 tags:
 description: 主要讲述 Mock Spy 和 Stub 的主要区别
 ---
