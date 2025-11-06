@@ -17,10 +17,12 @@ import org.junit.jupiter.api.Test;
 import edu.note.mybatis.mapper.UserMapper;
 
 /**
+ * 映射器配置
+ *
  * @author jackylee
  * @date 2025-09-29 14:28
  */
-public class MapperTest {
+public class MapperConfigTest {
 
     @Test
     @DisplayName("映射器 - 代码配置")

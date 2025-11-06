@@ -18,8 +18,8 @@ public class ProxyTest {
     void test() {
 
         // 1. 获取代理的对象
-        UserImpl bigStar = new UserImpl("Alice");
-        User proxy = UserProxy.createProxy(bigStar);
+        ActionImpl action = new ActionImpl("Alice");
+        IAction proxy = ActionProxy.createProxy(action);
 
         // 2. 调用 register 的方法
         String result = proxy.register("User0001");

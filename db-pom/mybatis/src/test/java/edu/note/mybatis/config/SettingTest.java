@@ -13,6 +13,8 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 /**
+ * 配置文件
+ *
  * @author jackylee
  * @date 2025/9/28 16:40
  * @desc xml 文件中的设置

@@ -12,6 +12,7 @@ import edu.note.mybatis.model.User;
  * @date 2025/9/25 11:59
  */
 public interface UserMapper {
+
     User selectById(int id);
 
     @Select("SELECT * FROM user WHERE name = #{name}")

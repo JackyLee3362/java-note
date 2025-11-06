@@ -15,11 +15,10 @@ import org.apache.ibatis.mapping.DatabaseIdProvider;
 public class ExampleDatabaseIdProvider implements DatabaseIdProvider {
 
     private String getDatabaseProductName(DataSource dataSource) throws SQLException {
-        try (Connection con = dataSource.getConnection()) {
-            DatabaseMetaData metaData = con.getMetaData();
+        try (Connection conn = dataSource.getConnection()) {
+            DatabaseMetaData metaData = conn.getMetaData();
             return metaData.getDatabaseProductName();
         }
-
     }
 
     @Override

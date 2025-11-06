@@ -8,6 +8,8 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 /**
+ * 插件配置
+ *
  * @author jackylee
  * @date 2025/9/28 16:40
  */

@@ -13,6 +13,8 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 /**
+ * sqlSessionFactory 配置
+ *
  * @author jackylee
  * @date 2025/9/25 13:37
  */

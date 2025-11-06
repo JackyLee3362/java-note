@@ -1,6 +1,6 @@
 ---
 type: basic-note
-title: 2023-05-21-day-05-Mybatis
+title: day-05-Mybatis
 author: JackyLee
 create_time: 2023-05-21
 update_time:
@@ -10,14 +10,10 @@ description:
 
 ## Mybatis 练习
 
-**目标**
-
 > - 能够使用映射配置文件实现 CRUD 操作
 > - 能够使用注解实现 CRUD 操作
 
-## 1，配置文件实现 CRUD
-
-![image-20210729111159534](https://assets-1302294329.cos.ap-shanghai.myqcloud.com/2025/md/202505150240462.png)
+## 1 配置文件实现 CRUD
 
 如上图所示产品原型，里面包含了品牌数据的 `查询` 、`按条件查询`、`添加`、`删除`、`批量删除`、`修改` 等功能，而这些功能其实就是对数据库表中的数据进行 CRUD 操作。接下来我们就使用 Mybatis 完成品牌数据的增删改查操作。以下是我们要完成功能列表：
 
@@ -92,54 +88,18 @@ description:
 
   测试代码需要在 `test/java` 目录下创建包及测试用例。项目结构如下：
 
-  <img src="https://assets-1302294329.cos.ap-shanghai.myqcloud.com/2025/md/202505150240463.png" alt="image-20210729112907106" style="zoom:80%;" />
-
 - 安装 MyBatisX 插件
 
   - MybatisX 是一款基于 IDEA 的快速开发插件，为效率而生。
-
   - 主要功能
 
     - XML 映射配置文件 和 接口方法 间相互跳转
     - 根据接口方法生成 statement
-
-  - 安装方式
-
-    点击 `file` ，选择 `settings` ，就能看到如下图所示界面
-
-    <img src="https://assets-1302294329.cos.ap-shanghai.myqcloud.com/2025/md/202505150240464.png" alt="image-20210729113304743" style="zoom:80%;" />
-
-    > 注意：安装完毕后需要重启 IDEA
+      > 注意：安装完毕后需要重启 IDEA
 
   - 插件效果
 
-    <img src="https://assets-1302294329.cos.ap-shanghai.myqcloud.com/2025/md/202505150240465.png" alt="image-20210729164450524" style="zoom:70%;" />
-
-    红色头绳的表示映射配置文件，蓝色头绳的表示 mapper 接口。在 mapper 接口点击红色头绳的小鸟图标会自动跳转到对应的映射配置文件，在映射配置文件中点击蓝色头绳的小鸟图标会自动跳转到对应的 mapper 接口。也可以在 mapper 接口中定义方法，自动生成映射配置文件中的 `statement` ，如图所示
-
-    ![image-20210729165337223](https://assets-1302294329.cos.ap-shanghai.myqcloud.com/2025/md/202505150240466.png)
-
 ### 1.2 查询所有数据
-
-<img src="https://assets-1302294329.cos.ap-shanghai.myqcloud.com/2025/md/202505150240467.png" alt="image-20210729165724838" style="zoom:80%;" />
-
-如上图所示就页面上展示的数据，而这些数据需要从数据库进行查询。接下来我们就来讲查询所有数据功能，而实现该功能我们分以下步骤进行实现：
-
-- 编写接口方法：Mapper 接口
-
-  - 参数：无
-
-    查询所有数据功能是不需要根据任何条件进行查询的，所以此方法不需要参数。
-
-    <img src="https://assets-1302294329.cos.ap-shanghai.myqcloud.com/2025/md/202505150240468.png" alt="image-20210729171208737" style="zoom:80%;" />
-
-  - 结果：List<Brand>
-
-    我们会将查询出来的每一条数据封装成一个 `Brand` 对象，而多条数据封装多个 `Brand` 对象，需要将这些对象封装到 List 集合中返回。
-
-    <img src="https://assets-1302294329.cos.ap-shanghai.myqcloud.com/2025/md/202505150240469.png" alt="image-20210729171146911" style="zoom:80%;" />
-
-  - 执行方法、测试
 
 #### 1.2.1 编写接口方法
 
@@ -157,7 +117,7 @@ public interface BrandMapper {
 
 #### 1.2.2 编写 SQL 语句
 
-在 `reources` 下创建 `com/itheima/mapper` 目录结构，并在该目录下创建名为 `BrandMapper.xml` 的映射配置文件
+在 `resources` 下创建 `com/itheima/mapper` 目录结构，并在该目录下创建名为 `BrandMapper.xml` 的映射配置文件
 
 ```xml
 <?xml version="1.0" encoding="UTF-8" ?>

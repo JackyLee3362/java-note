@@ -14,6 +14,8 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 /**
+ * 属性配置
+ *
  * @author jackylee
  * @date 2025/9/26 14:04
  */

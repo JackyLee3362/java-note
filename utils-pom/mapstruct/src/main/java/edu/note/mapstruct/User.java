@@ -1,6 +1,6 @@
 package edu.note.mapstruct;
 
-import java.util.Date;
+import java.time.LocalDateTime;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -14,12 +14,13 @@ import lombok.NoArgsConstructor;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class UserPO {
+public class User {
 
     private Long id;
     private String name;
     private Integer age;
-    private Date createTime;
-    private Date updateTime;
+    private String device;
+    private LocalDateTime createTime;
+    private LocalDateTime updateTime;
 
 }
