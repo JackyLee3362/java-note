@@ -7,13 +7,15 @@ import java.util.concurrent.locks.ReentrantLock;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j(topic = "c.TestTimeout")
-public class TestTimeout {
+public class ReentrantTimeoutDemo {
+    static ReentrantLock lock = new ReentrantLock();
+
     public static void main(String[] args) {
         test1();
     }
 
     private static void test1() {
-        ReentrantLock lock = new ReentrantLock();
+
         Thread t1 = new Thread(() -> {
             log.debug("启动...");
             try {
@@ -42,7 +44,7 @@ public class TestTimeout {
     }
 
     private static void test2() {
-        ReentrantLock lock = new ReentrantLock();
+
         Thread t1 = new Thread(() -> {
             log.debug("启动...");
             if (!lock.tryLock()) {

@@ -7,7 +7,6 @@ public class Sleeper {
 
     final static Random random = new Random();
 
-
     /**
      * @param second
      * @author: Jacky Lee
@@ -41,7 +40,6 @@ public class Sleeper {
         } catch (InterruptedException e) {
             // ...
         }
-
 
     }
 }

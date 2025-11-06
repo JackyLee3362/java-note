@@ -4,8 +4,15 @@ import lombok.extern.slf4j.Slf4j;
 
 import java.util.concurrent.locks.ReentrantLock;
 
+/**
+ * ReentranctLock 特点就是可重入
+ * Re Entry Lock
+ *
+ * @author jackylee
+ * @date 2025-11-06 09:38
+ */
 @Slf4j(topic = "c.TestReentrant")
-public class TestReentrant {
+public class ReentrantDemo {
     static ReentrantLock lock = new ReentrantLock();
 
     public static void main(String[] args) {
@@ -15,7 +22,7 @@ public class TestReentrant {
     public static void method1() {
         lock.lock();
         try {
-            log.debug("execute method1");
+            log.debug("执行方法 1");
             method2();
         } finally {
             lock.unlock();
@@ -25,7 +32,7 @@ public class TestReentrant {
     public static void method2() {
         lock.lock();
         try {
-            log.debug("execute method2");
+            log.debug("执行方法 2");
             method3();
         } finally {
             lock.unlock();
@@ -35,7 +42,7 @@ public class TestReentrant {
     public static void method3() {
         lock.lock();
         try {
-            log.debug("execute method3");
+            log.debug("执行方法 3");
         } finally {
             lock.unlock();
         }

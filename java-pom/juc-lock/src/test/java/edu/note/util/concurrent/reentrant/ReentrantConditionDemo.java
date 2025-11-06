@@ -6,26 +6,35 @@ import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.ReentrantLock;
 import lombok.extern.slf4j.Slf4j;
 
-@Slf4j(topic = "c.TestCondition")
-public class TestCondition {
+@Slf4j(topic = "c.ReentrantConditionDemo")
+public class ReentrantConditionDemo {
+
+    // 重入锁，保护临界区
     static ReentrantLock lock = new ReentrantLock();
-    static Condition waitCigaretteQueue = lock.newCondition();
-    static Condition waitBreakfastQueue = lock.newCondition();
-    static volatile boolean hasCigarette = false;
-    static volatile boolean hasBreakfast = false;
+
+    static Condition condition1 = lock.newCondition();
+    static Condition condition2 = lock.newCondition();
+
+    // 控制条件是否被满足，确保多线程可见性
+    static volatile boolean hasObj1 = false;
+    static volatile boolean hasObj2 = false;
 
     public static void main(String[] args) {
         new Thread(() -> {
             try {
+                // 获得锁
                 lock.lock();
-                while (!hasCigarette) {
+                // 如果条件 1 没有满足
+                while (!hasObj1) {
                     try {
-                        waitCigaretteQueue.await();
+                        // 释放可重入锁，线程挂在相应条件队列上
+                        condition1.await();
                     } catch (InterruptedException e) {
                         log.error(e.getMessage());
                     }
                 }
-                log.debug("等到了它的烟");
+                // 条件 1 满足
+                log.debug("条件 1 满足");
             } finally {
                 lock.unlock();
             }
@@ -34,42 +43,42 @@ public class TestCondition {
         new Thread(() -> {
             try {
                 lock.lock();
-                while (!hasBreakfast) {
+                while (!hasObj2) {
                     try {
-                        waitBreakfastQueue.await();
+                        condition2.await();
                     } catch (InterruptedException e) {
                         log.error(e.getMessage());
                     }
                 }
-                log.debug("等到了它的早餐");
+                log.debug("条件 2");
             } finally {
                 lock.unlock();
             }
         }).start();
 
         sleep(1);
-        sendBreakfast();
+        sendObj2();
         sleep(1);
-        sendCigarette();
+        sendObj1();
     }
 
-    private static void sendCigarette() {
+    private static void sendObj1() {
         lock.lock();
         try {
-            log.debug("送烟来了");
-            hasCigarette = true;
-            waitCigaretteQueue.signal();
+            log.debug("满足条件 1");
+            hasObj1 = true;
+            condition1.signal();
         } finally {
             lock.unlock();
         }
     }
 
-    private static void sendBreakfast() {
+    private static void sendObj2() {
         lock.lock();
         try {
-            log.debug("送早餐来了");
-            hasBreakfast = true;
-            waitBreakfastQueue.signal();
+            log.debug("满足条件 2");
+            hasObj2 = true;
+            condition2.signal();
         } finally {
             lock.unlock();
         }
