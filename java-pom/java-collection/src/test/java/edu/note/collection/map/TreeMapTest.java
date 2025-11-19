@@ -4,6 +4,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import java.util.Comparator;
+import java.util.HashMap;
 import java.util.Map;
 import java.util.TreeMap;
 
@@ -31,7 +32,20 @@ public class TreeMapTest {
         map.put(1, "广州");
 
         System.out.println(map);
+    }
+    
+    @Test
+    @DisplayName("测试")
+    void test02() {
+        Map<String, String> hashMap = new HashMap<>();
+        Map<String, String> treeMap = new TreeMap<>();
+        hashMap.put("a", "A");
+        hashMap.put("b", "B");
 
-
+        treeMap.put("a", "A");
+        treeMap.put("b", "B");
+        
+        System.out.println(hashMap);
+        System.out.println(treeMap);
     }
 }

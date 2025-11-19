@@ -6,6 +6,12 @@ tags:
 create_time: 2024-10-08
 ---
 
+## 压制可见性警告
+
+```java
+@SuppressWarnings("GroovyAccessibility")
+```
+
 ## 依赖
 
 ```xml
