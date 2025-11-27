@@ -47,6 +47,12 @@
       <artifactId>jackson-datatype-jsr310</artifactId>
       <version>${jackson.version}</version>
     </dependency>
+  <!--常用日志-->
+  <dependency>
+    <groupId>ch.qos.logback</groupId>
+    <artifactId>logback-classic</artifactId>
+    <version>1.5.13</version>
+  </dependency>
   </dependencies>
 
 </project>

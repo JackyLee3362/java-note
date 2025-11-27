@@ -18,6 +18,7 @@
   <modules>
     <module>jackson</module>
     <module>fastjson</module>
+    <module>json-unit</module>
   </modules>
 
 

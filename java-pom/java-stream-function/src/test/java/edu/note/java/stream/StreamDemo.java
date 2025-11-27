@@ -1,25 +1,35 @@
 package edu.note.java.stream;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
-import java.util.Arrays;
+
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
 
 class StreamDemo {
 
-  public static void test1() {
+  @Test
+  @DisplayName("测试")
+  void test01() {
     List<Integer> list = new ArrayList<>();
-    for (int i = 0; i < 10; i++)
+    for (int i = 1; i <= 10; i++)
       list.add(i);
 
     int res = list.stream().reduce(0, (a, b) -> a + b);
     int res2 = list.stream().reduce(0, Integer::sum);
-    System.out.println(res);
-    System.out.println(res2);
+    assertEquals(res, 55);
+    assertEquals(res2, 55);
   }
 
-  public static void test2() {
+  @Test
+  @DisplayName("测试")
+  void test02() {
+
     // 如何将数组转化为stream
     int[] a = { 1, 2, 3 };
     // Stream<Integer> stream = Arrays.stream(a); // 这个是不行的
@@ -30,7 +40,10 @@ class StreamDemo {
     System.out.println(sum_a);
   }
 
-  public static void test3() {
+  @Test
+  @DisplayName("测试")
+  void test03() {
+
     String s = "123 456 789";
     String[] split = s.split(" ");
     Stream<String> stream = Arrays.stream(split);
@@ -39,14 +52,13 @@ class StreamDemo {
     stream.forEach(System.out::println);
   }
 
-  public static void test4() {
+  @Test
+  @DisplayName("测试")
+  void test04() {
+
     int[] a = { 4, 1, 2, 3, 5 };
     IntStream stream = Arrays.stream(a).filter(x -> x > 2);
     stream.forEach(System.out::println);
-  }
-
-  public static void main(String[] args) {
-    test4();
   }
 
 }

@@ -37,7 +37,7 @@ class IT03StaticMethodSpockSpec extends Specification {
         and: "mock 掉接口返回的信息"
         userDao.selectById(_ as Integer) >>> [user1, user2]
 
-        and :"mock 静态方法返回的信息"
+        and: "mock 静态方法返回的信息"
         PowerMockito.when(Calculator.isOdd(Mockito.any())).thenReturn(true)
 
         when: "执行测试方法"
