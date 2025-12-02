@@ -19,7 +19,7 @@ description:
     <artifactId>spring-boot-starter-parent</artifactId>
     <version>2.7.18</version>
   </dependency>
-  
+
   <!--版本管理-->
   <dependencyManagement>
     <dependencies>
@@ -35,7 +35,7 @@ description:
   <dependency>
     <groupId>ch.qos.logback</groupId>
     <artifactId>logback-classic</artifactId>
-    <version>1.5.13</version>
+    <version>1.3.15</version>
   </dependency>
 
   <!--常用测试-->

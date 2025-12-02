@@ -17,22 +17,22 @@ public class StreamBasicTest {
     public static final List<String> list = Arrays.asList("aaa", "bbb", "aa");
 
     @Test
-    @DisplayName("基础操作")
+    @DisplayName("流遍历")
     void test01() {
         // 遍历
         list.forEach(System.out::println);
-        // 统计
+        // 过滤 + 计数
         long count = list.stream().filter(s -> s.startsWith("a")).count();
         assertEquals(2, count);
-        // toArray
+        // 转为列表
         String[] arr = list.toArray(new String[10]);
         System.out.println(Arrays.toString(arr));
     }
 
     @Test
-    @DisplayName("过滤")
+    @DisplayName("流过滤")
     void testFilter() {
-        // filter 过滤
+        // 过滤
         list.stream().filter(s -> s.startsWith("a")).forEach(System.out::println);
 
         list.stream()
@@ -42,6 +42,7 @@ public class StreamBasicTest {
     }
 
     @Test
+    @DisplayName("流 -> 列表")
     void testStreamToList() {
         List<String> list = Arrays.asList("1", "2", "3", "4", "5");
         // List<Integer> collect =
