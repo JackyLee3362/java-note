@@ -4,7 +4,6 @@ import java.time.LocalDateTime;
 
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
-import org.mapstruct.Mappings;
 import org.mapstruct.factory.Mappers;
 
 /**
@@ -16,14 +15,14 @@ public interface BasicConverter {
 
     BasicConverter INSTANCE = Mappers.getMapper(BasicConverter.class);
 
-    UserDTO toUserDTO(User userPO);
+    Target toUserDTO(Source userPO);
 
-    // 可以抱一层 @Mappers ，但是推荐多个 @Mapping
+    // 可以包一层 @Mappers ，但是推荐多个 @Mapping
     @Mapping(target = "id", source = "userId")
     @Mapping(target = "name", source = "firstName")
     // @Mapping(target = "device", defaultValue = "website")
     // @Mapping(target = "createTime", defaultExpression = "java(getNow())")
-    User toUser(UserDTO userDTO);
+    Source toUser(Target userDTO);
 
     default LocalDateTime getNow() {
         return LocalDateTime.now();

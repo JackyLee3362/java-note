@@ -14,7 +14,7 @@ import net.javacrumbs.jsonunit.core.Option;
  * @author jackylee
  * @date 2025-11-28 12:51
  */
-public class IT01_JsonUnitCoreTest {
+public class IT01_CoreTest {
     @Test
     @DisplayName("测试 json 相等")
     void test01() {
@@ -24,5 +24,13 @@ public class IT01_JsonUnitCoreTest {
                 Configuration.empty().when(Option.IGNORING_ARRAY_ORDER));
     }
 
+    @Test
+    @DisplayName("测试 json 相等")
+    void test02() {
+        // JsonAssert.assertJsonEquals("\"foo\":123,\"userId\":1", "{\"bar\":[2,3,3,1,4],\"userId\":1}",
+        //         Configuration.empty().when(Option.IGNORING_EXTRA_FIELDS));
+        JsonAssert.assertJsonEquals("\"userId\":1", "{\"userId\":1,\"bar\":[2,3,3,1,4]}",
+                Configuration.empty().when(Option.IGNORING_EXTRA_FIELDS));
+    }
 
 }

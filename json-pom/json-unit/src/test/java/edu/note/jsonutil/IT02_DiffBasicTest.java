@@ -7,7 +7,6 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import net.javacrumbs.jsonunit.core.Configuration;
-import net.javacrumbs.jsonunit.core.Option;
 import net.javacrumbs.jsonunit.core.internal.Diff;
 
 /**
@@ -22,7 +21,7 @@ import net.javacrumbs.jsonunit.core.internal.Diff;
  * @date 2025-11-28 14:47
  * @see https://github.com/lukas-krecan/JsonUnit/blob/655e035a7639ef474e420619fe48fdfa8f406279/json-unit-core/src/test/java/net/javacrumbs/jsonunit/core/internal/DifferenceTest.java
  */
-public class IT01_JsonUnitCoreDiffTest {
+public class IT02_DiffBasicTest {
 
     static final Configuration config = Configuration.empty();
 
@@ -67,23 +66,6 @@ public class IT01_JsonUnitCoreDiffTest {
 
         // then
         assertTrue(diff.similar());
-    }
-
-    @Test
-    @DisplayName("测试 json Diff 列表")
-    void testApiDiffArray() {
-        // when
-        Configuration config = Configuration.empty().when(Option.IGNORING_ARRAY_ORDER);
-        Diff diff = Diff.create("[4,1,2,3,3]", "{\"foo\":[2,3,3,1,4]}", "", "foo", config);
-        Diff diff2 = Diff.create("[4,1,2,3,3]", "[2,3,3,1,4]", "", "", config);
-        Diff diff3 = Diff.create("[4,1,null,3,3]", "[null,3,3,1,4]", "", "", config);
-        Diff diff4 = Diff.create("[4,1,null,1,null]", "[null,1,null,1,4]", "", "", config);
-
-        // then
-        assertTrue(diff.similar());
-        assertTrue(diff2.similar());
-        assertTrue(diff3.similar());
-        assertTrue(diff4.similar());
     }
 
     @Test

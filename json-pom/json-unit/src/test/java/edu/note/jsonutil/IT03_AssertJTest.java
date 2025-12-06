@@ -11,7 +11,7 @@ import net.javacrumbs.jsonunit.core.Option;
  * @author jackylee
  * @date 2025-11-27 17:04
  */
-public class IT02_JsonUnitAssertJTest {
+public class IT03_AssertJTest {
 
     @Test
     @DisplayName("测试 Assert Json")
