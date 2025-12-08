@@ -17,6 +17,7 @@
     <module>spring-transaction</module>
     <module>spring-boot</module>
     <module>spring-test</module>
+    <module>spring-util</module>
   </modules>
 
   <properties>
