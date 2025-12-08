@@ -23,6 +23,7 @@
     <module>c3p0</module>
     <module>redis</module>
     <module>mybatis-spring</module>
+    <module>mybatis-plugin</module>
   </modules>
 
 </project>

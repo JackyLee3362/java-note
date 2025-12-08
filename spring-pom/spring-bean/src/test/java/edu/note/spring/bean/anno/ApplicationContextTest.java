@@ -21,6 +21,7 @@ public class ApplicationContextTest {
         dao.save("foo");
         HelloService service = ctx.getBean(HelloService.class);
         service.hello("bar");
+
     }
 
 }

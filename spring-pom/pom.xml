@@ -18,6 +18,7 @@
     <module>spring-boot</module>
     <module>spring-test</module>
     <module>spring-util</module>
+    <module>spring-boot-db</module>
   </modules>
 
   <properties>
