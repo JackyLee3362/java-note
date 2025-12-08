@@ -9,5 +9,6 @@ public class StartAppTranscation {
     public static void main(String[] args) {
         AnnotationConfigApplicationContext ctx = new AnnotationConfigApplicationContext(SpringConfig.class);
         log.info("启动成功");
+        ctx.close();
     }
 }

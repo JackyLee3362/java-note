@@ -7,6 +7,8 @@
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
         <version>2.7.18</version>
+        <!-- <relativePath /> 表示不在本地文件系统查找父 pom，只依靠 Maven 仓库中的父项目坐标进行继承。 -->
+        <relativePath />
     </parent>
 
     <groupId>edu.note</groupId>
@@ -22,6 +24,19 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter</artifactId>
+        </dependency>
+
+        <!--mybatis起步依赖-->
+        <dependency>
+            <groupId>org.mybatis.spring.boot</groupId>
+            <artifactId>mybatis-spring-boot-starter</artifactId>
+            <version>2.2.2</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>druid</artifactId>
+            <version>1.1.18</version>
         </dependency>
         <dependency>
             <groupId>org.projectlombok</groupId>

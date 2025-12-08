@@ -1,0 +1,24 @@
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/test_db?useSSL=false&serverTimezone=Asia/Shanghai&allowPublicKeyRetrieval=true
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: ${MYSQL_USER:root}
+    password: ${MYSQL_PASSWORD:password}
+
+mybatis-plus:
+  # Mapper.xml 文件路径（如果使用 XML 编写复杂 SQL）
+  mapper-locations: classpath:mapper/*.xml
+  # 实体类别名包路径（简化 XML 中类名引用）
+  type-aliases-package: edu.note.entity
+  configuration:
+    # 开启驼峰命名自动转换（数据库字段下划线 -> Java 驼峰）
+    map-underscore-to-camel-case: true
+    # 打印 SQL（开发环境开启，生产环境关闭）
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  global-config:
+    db-config:
+      # 全局逻辑删除字段名（统一逻辑删除字段，如 is_deleted）
+      logic-delete-field: isDeleted
+      # 逻辑删除：1=已删除，0=未删除
+      logic-delete-value: 1
+      logic-not-delete-value: 0
