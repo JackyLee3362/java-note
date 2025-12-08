@@ -1,4 +1,4 @@
-package edu.note.mapstruct;
+package edu.note.mapstruct.dictmapping;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -13,11 +13,8 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class Target {
 
-    private Long userId;
-    private String firstName;
-    private String lastName;
-    private Integer age;
-    private String email;
-    private String address;
+    private Long id;
+    private String host;
+    private String port;
 
 }

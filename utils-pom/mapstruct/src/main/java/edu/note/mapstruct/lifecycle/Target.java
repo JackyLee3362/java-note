@@ -1,26 +1,23 @@
-package edu.note.mapstruct;
+package edu.note.mapstruct.lifecycle;
 
 import java.time.LocalDateTime;
+
 import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 /**
  * @author jackylee
- * @date 2025/7/1 17:09
+ * @date 2025/7/1 17:11
  */
 @Data
-@Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class Source {
+public class Target {
 
-    private Long id;
+    private Long userId;
     private String name;
     private Integer age;
-    private String device;
     private LocalDateTime createTime;
-    private LocalDateTime updateTime;
 
 }
