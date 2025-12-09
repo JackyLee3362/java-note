@@ -1,5 +1,8 @@
 package edu.note.hutool;
 
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
+
 /**
  * @author jackylee
  * @date 2025/9/26 10:20
@@ -8,48 +11,50 @@ package edu.note.hutool;
 
 // todo
 public class HuToolTest {
-    public static void main(String[] args) {
+  @Test
+  @DisplayName("测试")
+  void test0f() {
     /*
-        ! 网址[[ https://hutool.cn/docs/#/ ]]
-        ! api文档 [[ https://apidoc.gitee.com/dromara/hutool/ ]]
-        FileUtil类:
-                file：根据参数创建一个file对象
-                touch：根据参数创建文件
+     * FileUtil类:
+     * file：根据参数创建一个file对象
+     * touch：根据参数创建文件
+     * 
+     * writeLines：把集合中的数据写出到文件中，覆盖模式。
+     * appendLines：把集合中的数据写出到文件中，续写模式。
+     * readLines：指定字符编码，把文件中的数据，读到集合中。
+     * readUtf8Lines：按照UTF-8的形式，把文件中的数据，读到集合中
+     * 
+     * copy：拷贝文件或者文件夹
+     */
 
-                writeLines：把集合中的数据写出到文件中，覆盖模式。
-                appendLines：把集合中的数据写出到文件中，续写模式。
-                readLines：指定字符编码，把文件中的数据，读到集合中。
-                readUtf8Lines：按照UTF-8的形式，把文件中的数据，读到集合中
+    /*
+     * File file1 = FileUtil.file("D:\\", "aaa", "bbb", "a.txt");
+     * System.out.println(file1);//D:\aaa\bbb\a.txt
+     * 
+     * File touch = FileUtil.touch(file1);
+     * System.out.println(touch);
+     * 
+     * 
+     * ArrayList<String> list = new ArrayList<>();
+     * list.add("aaa");
+     * list.add("aaa");
+     * list.add("aaa");
+     * 
+     * File file2 = FileUtil.writeLines(list, "D:\\a.txt", "UTF-8");
+     * System.out.println(file2);
+     */
 
-                copy：拷贝文件或者文件夹
-    */
+    /*
+     * ArrayList<String> list = new ArrayList<>();
+     * list.add("aaa");
+     * list.add("aaa");
+     * list.add("aaa");
+     * File file3 = FileUtil.appendLines(list, "D:\\a.txt", "UTF-8");
+     * System.out.println(file3);
+     */
 
-       /* File file1 = FileUtil.file("D:\\", "aaa", "bbb", "a.txt");
-        System.out.println(file1);//D:\aaa\bbb\a.txt
+    // List<String> list = FileUtil.readLines("D:\\a.txt", "UTF-8");
+    // System.out.println(list);
 
-        File touch = FileUtil.touch(file1);
-        System.out.println(touch);
-
-
-        ArrayList<String> list = new ArrayList<>();
-        list.add("aaa");
-        list.add("aaa");
-        list.add("aaa");
-
-        File file2 = FileUtil.writeLines(list, "D:\\a.txt", "UTF-8");
-        System.out.println(file2);*/
-
-      /*  ArrayList<String> list = new ArrayList<>();
-        list.add("aaa");
-        list.add("aaa");
-        list.add("aaa");
-        File file3 = FileUtil.appendLines(list, "D:\\a.txt", "UTF-8");
-        System.out.println(file3);*/
-
-
-        // List<String> list = FileUtil.readLines("D:\\a.txt", "UTF-8");
-        // System.out.println(list);
-
-
-    }
+  }
 }

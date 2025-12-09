@@ -25,5 +25,13 @@ public class Target {
     private LocalDate birthday;
     private LocalDateTime createTime;
     private LocalDateTime updateTime;
+    private UserType userType;
+
+    static enum UserType {
+        ADMIN,
+        CUSTOMER,
+        GUEST,
+        UNKNOWN
+    }
 
 }

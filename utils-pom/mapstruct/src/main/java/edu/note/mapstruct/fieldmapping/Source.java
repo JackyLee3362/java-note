@@ -3,10 +3,6 @@ package edu.note.mapstruct.fieldmapping;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 
-import org.mapstruct.AfterMapping;
-import org.mapstruct.BeforeMapping;
-import org.mapstruct.MappingTarget;
-
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -29,5 +25,6 @@ public class Source {
     private Integer age;
     private LocalDate birthday;
     private LocalDateTime createTime;
+    private String userType;
 
 }

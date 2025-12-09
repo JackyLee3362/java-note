@@ -14,6 +14,7 @@ description:
 - Mappings
 - Mapping
 - Named
+- BeforeMapping
 - AfterMapping
 
 ## 官方 Example

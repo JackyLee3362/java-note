@@ -7,6 +7,8 @@ import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.factory.Mappers;
 
+import edu.note.mapstruct.fieldmapping.Target.UserType;
+
 /**
  * @author jackylee
  * @date 2025/7/1 17:14
@@ -30,6 +32,18 @@ public interface FieldConverter {
 
     default LocalDateTime getNow() {
         return LocalDateTime.now();
+    }
+
+    default UserType convertUserType(String userType) {
+        // 自定义转换逻辑
+        if ("ADMIN".equalsIgnoreCase(userType)) {
+            return UserType.ADMIN;
+        } else if ("USER".equalsIgnoreCase(userType)) {
+            return UserType.CUSTOMER;
+        } else if ("GUEST".equalsIgnoreCase(userType)) {
+            return UserType.GUEST;
+        }
+        return UserType.GUEST;
     }
 
 }

@@ -32,6 +32,7 @@ public class FieldConverterTest {
         assertEquals(target.getAge(), 12);
         assertEquals(target.getName(), "Foo");
         assertNotNull(target.getCreateTime());
+        assertNull(target.getUserType());
     }
 
     @Test
