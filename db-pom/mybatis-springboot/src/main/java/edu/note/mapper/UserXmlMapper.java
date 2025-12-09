@@ -2,7 +2,7 @@ package edu.note.mapper;
 
 import org.apache.ibatis.annotations.Mapper;
 
-import edu.note.domain.MyUser;
+import edu.note.domain.User;
 
 /**
  * @author jackylee
@@ -11,7 +11,7 @@ import edu.note.domain.MyUser;
 @Mapper
 public interface UserXmlMapper {
 
-    MyUser selectById(Integer id);
+    User selectById(Integer id);
 
-    int insertUser(MyUser user);
+    int insertUser(User user);
 }

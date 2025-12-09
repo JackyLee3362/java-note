@@ -2,7 +2,7 @@ package edu.note.mapper;
 
 import org.apache.ibatis.annotations.*;
 
-import edu.note.domain.MyUser;
+import edu.note.domain.User;
 
 import java.util.List;
 
@@ -16,10 +16,10 @@ public interface UserAnnoMapper {
     // 3. 配置文件开启 mybatis 的自动驼峰命名开关(推荐):
     // mybatis.configuration.map-underscore-to-camel-case=true
     @Select("SELECT id, name, age FROM user WHERE id = #{id}")
-    MyUser selectById(Integer id);
+    User selectById(Integer id);
 
     @Select("SELECT * FROM user LIMIT 10")
-    List<MyUser> list();
+    List<User> list();
 
     @Delete("DELETE FROM user WHERE id = #{id}")
     int deleteUser(Integer id);
@@ -27,16 +27,16 @@ public interface UserAnnoMapper {
     // 会自动生成主键值，然后赋给user对象的id属性
     @Options(keyProperty = "id", useGeneratedKeys = true)
     @Insert("INSERT INTO user(name, age) VALUES (#{name}, #{age})")
-    void insertUser(MyUser user);
+    void insertUser(User user);
 
     @Update("UPDATE user SET name=#{name}, age=#{age} WHERE id = #{id}")
-    void updateUser(MyUser user);
+    void updateUser(User user);
 
 
     // @Select("SELECT * FROM user WHERE name LIKE '${name}%' AND age BETWEEN
     // #{minAge} AND #{maxAge}")
     @Select("SELECT * FROM user WHERE name LIKE concat(#{name}, '%') AND age BETWEEN #{minAge} AND #{maxAge}")
-    List<MyUser> filterByAge(String name, Integer minAge, Integer maxAge);
+    List<User> filterByAge(String name, Integer minAge, Integer maxAge);
     // 这里不能用'#{name}%'，因为预编译后会变成'?%'，但是?是不能出现在引号里的
     // SELECT * FROM user WHERE name LIKE concat(#{name}, '%') ...
 }

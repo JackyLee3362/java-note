@@ -9,9 +9,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationListener;
 import org.springframework.context.event.ContextRefreshedEvent;
 
-import edu.note.domain.MyUser;
-import edu.note.generate.domain.User;
-import edu.note.generate.mapper.UserMapper;
+import edu.note.domain.User;
 import edu.note.mapper.UserAnnoMapper;
 import edu.note.mapper.UserXmlMapper;
 import lombok.extern.slf4j.Slf4j;
@@ -19,7 +17,7 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 @SpringBootApplication
 @MapperScans({ @MapperScan("edu.note.mapper"), // 手动写的 mapper
-        @MapperScan("edu.note.generate.mapper") // 对生成的 mapper 扫描
+// @MapperScan("edu.note.generate.mapper") // 如果生成 mapper 需要对其包扫描
 })
 
 public class StartApp implements ApplicationListener<ContextRefreshedEvent> {
@@ -34,17 +32,12 @@ public class StartApp implements ApplicationListener<ContextRefreshedEvent> {
     @Resource
     private UserXmlMapper userXmlMapper;
 
-    @Resource
-    private UserMapper userMapper;
-
     @Override
     public void onApplicationEvent(ContextRefreshedEvent event) {
-        MyUser user = userAnnoMapper.selectById(1);
+        User user = userAnnoMapper.selectById(1);
         log.info("userAnnoMapper 执行: {}", user);
-        MyUser user2 = userXmlMapper.selectById(1);
+        User user2 = userXmlMapper.selectById(1);
         log.info("userXmlMapper 执行: {}", user2);
-        User user3 = userMapper.selectByPrimaryKey(1L);
-        log.info("userMapper 执行: {}", user3);
 
     }
 
