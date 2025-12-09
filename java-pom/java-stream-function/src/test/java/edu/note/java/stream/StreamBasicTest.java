@@ -86,6 +86,6 @@ public class StreamBasicTest {
         Map<String, Integer> map = list.stream()
             .collect(Collectors.toMap(s -> s, String::length, (s1, s2) -> s1));
         assertEquals(3, map.size());
-
     }
+
 }

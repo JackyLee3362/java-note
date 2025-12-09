@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="edu.note.mapper.UserXmlMapper">
+    <sql id="Base_Column_List"> id, name, age</sql>
+
+    <!-- 这里的 #{userId} 和方法中的参数无关 -->
+    <select id="selectById" parameterType="int" resultType="edu.note.domain.MyUser"> SELECT <include
+            refid="Base_Column_List" /> FROM user WHERE id = #{userId} </select>
+
+    <select id="list" resultType="edu.note.domain.MyUser"> SELECT <include
+            refid="Base_Column_List" /> FROM user </select>
+
+    <!-- 如果不加 @Param 的话，可以使用 #{arg0},#{arg1} -->
+    <!-- <insert id="insertUser" useGeneratedKeys="true" keyProperty="id"> INSERT INTO user (name, age)
+        VALUES (#{name}, #{city}) </insert>
+
+    <insert id="insertUserByParam" parameterType="edu.note.mybatis.model.User"> INSERT INTO user
+        (name, city) VALUES (#{name}, #{city}) </insert> -->
+
+    <!-- <insert id="insertBatch" useGeneratedKeys="true" keyProperty="id"> INSERT INTO user (name, age)
+        VALUES <foreach collection="list" item="item" separator=","> (#{item.name}, #{item.city}) </foreach>
+    </insert>
+
+    <update id="updateUser"> UPDATE user SET name=#{name}, city=#{city} WHERE id=#{id}</update>
+
+    <delete id="deleteUser"> DELETE FROM user WHERE id=#{id} </delete> -->
+</mapper>

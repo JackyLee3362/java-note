@@ -25,12 +25,19 @@ public class IT02_DiffWithOption {
         Diff diff2 = Diff.create("[4,1,2,3,3]", "[2,3,3,1,4]", "", "", config);
         Diff diff3 = Diff.create("[4,1,null,3,3]", "[null,3,3,1,4]", "", "", config);
         Diff diff4 = Diff.create("[4,1,null,1,null]", "[null,1,null,1,4]", "", "", config);
+        // and: 嵌套数组(无视顺序)
+        Diff diff5 = Diff.create("[[1,2],[3,4]]", "[[4,3],[1,2]]", "", "", config);
+        // and: 复杂嵌套
+        Diff diff6 = Diff.create("[[1,2],6,[3,4],{\"foo\":[7,8,9]}]", "[[4,3],{\"foo\":[8,9,7]},6,[1,2]]", "", "",
+                config);
 
         // then
         assertTrue(diff.similar());
         assertTrue(diff2.similar());
         assertTrue(diff3.similar());
         assertTrue(diff4.similar());
+        assertTrue(diff5.similar());
+        assertTrue(diff6.similar());
     }
 
     @Test
@@ -56,6 +63,5 @@ public class IT02_DiffWithOption {
         // then
         assertTrue(diff.similar());
     }
-
 
 }

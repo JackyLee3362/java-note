@@ -2,9 +2,6 @@ package edu.note.jsonutil;
 
 import static org.junit.jupiter.api.Assertions.assertFalse;
 
-import org.hamcrest.CustomMatcher;
-import org.hamcrest.Description;
-import org.hamcrest.Matcher;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 

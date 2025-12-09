@@ -8,6 +8,16 @@ tags:
 description:
 ---
 
+## 使用插件生成
+
+```sh
+mvn mybatis-generator:generate
+```
+
+- [mybatis generator 生成带 Lombok 注解和数据库注释的实体主要流程 重写一个生成实体的方法 然后编译之 - 掘金](https://juejin.cn/post/6958692982363160607)
+
+## 参考文献
+
 - [00 开篇词 领略 MyBatis 设计思维，突破持久化技术瓶颈](https://learn.lianglianglee.com/%e4%b8%93%e6%a0%8f/%e6%b7%b1%e5%85%a5%e5%89%96%e6%9e%90%20MyBatis%20%e6%a0%b8%e5%bf%83%e5%8e%9f%e7%90%86-%e5%ae%8c/00%20%e5%bc%80%e7%af%87%e8%af%8d%20%20%e9%a2%86%e7%95%a5%20MyBatis%20%e8%ae%be%e8%ae%a1%e6%80%9d%e7%bb%b4%ef%bc%8c%e7%aa%81%e7%a0%b4%e6%8c%81%e4%b9%85%e5%8c%96%e6%8a%80%e6%9c%af%e7%93%b6%e9%a2%88.md)
 - [Mybatis3 详解（一）----Mybatis 的介绍 - 唐浩荣 - 博客园](https://www.cnblogs.com/tanghaorong/p/13856465.html)
 - [homejim/mybatis-examples: mybatis 使用示例](https://github.com/homejim/mybatis-examples)

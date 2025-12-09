@@ -6,11 +6,12 @@ import org.mybatis.spring.SqlSessionFactoryBean;
 import org.mybatis.spring.mapper.MapperScannerConfigurer;
 import org.springframework.context.annotation.Bean;
 
+// 非 springboot 项目中使用 mybatis 需要配置该类
 public class MyBatisConfig {
     @Bean
     public SqlSessionFactoryBean sqlSessionFactory(DataSource dataSource){
         SqlSessionFactoryBean ssfb = new SqlSessionFactoryBean();
-        ssfb.setTypeAliasesPackage("com.jakcylee.domain");
+        ssfb.setTypeAliasesPackage("edu.note.domain");
         ssfb.setDataSource(dataSource);
         return ssfb;
     }
@@ -18,7 +19,7 @@ public class MyBatisConfig {
     @Bean
     public MapperScannerConfigurer mapperScannerConfigurer(){
         MapperScannerConfigurer msc = new MapperScannerConfigurer();
-        msc.setBasePackage("com.jackylee.dao");
+        msc.setBasePackage("edu.note.mapper");
         return msc;
     }
 }

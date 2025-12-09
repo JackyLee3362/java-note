@@ -2,12 +2,13 @@ package edu.note.java.stream;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 import java.util.Set;
-import java.util.stream.Collector;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -17,7 +18,6 @@ import org.junit.jupiter.api.Test;
 public class StreamCollectorsTest {
 
     public static final List<String> list = Arrays.asList("a", "b", "c", "a");
-
 
     @Test
     @DisplayName("转换为list")
@@ -40,16 +40,34 @@ public class StreamCollectorsTest {
     void testMapping() {
         List<String> list = Stream.of("a", "b", "c").map(String::toUpperCase).collect(Collectors.toList());
         assertEquals(Arrays.asList("A", "B", "C"), list);
-        List<String> list2 = Stream.of("a", "b", "c").map(String::toUpperCase).collect(Collectors.toList());
     }
 
     @Test
     @DisplayName("Collectors.groupingBy")
     void testGroupingBy() {
         Map<Integer, List<String>> map = Stream.of("alice", "bob", "cindy").collect(Collectors.groupingBy(
-            String::length));
-        Stream.of(1,2,3).collect(Collectors.toList());
+                String::length));
+        Stream.of(1, 2, 3).collect(Collectors.toList());
         assertEquals(2, map.get(5).size());
+    }
+
+    @Test
+    @DisplayName("测试 Optional")
+    void testOptional() {
+        List<String> list = Arrays.asList(null, "Foo");
+        String s = list.stream()
+                .filter(Objects::nonNull)
+                .findFirst()
+                .orElse(null);
+        assertEquals("Foo", s);
+        List<String> list2 = new ArrayList<>();
+        list2.add(null);
+        list2.add(null);
+        String s2 = list2.stream()
+                .filter(Objects::nonNull)
+                .findFirst()
+                .orElse(null);
+        assertEquals(null, s2);
     }
 
 }
