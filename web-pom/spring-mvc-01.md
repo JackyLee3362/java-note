@@ -8,7 +8,7 @@ tags:
 description:
 ---
 
-## SpringMVC_day01
+## SpringMVC day01
 
 主要内容
 
@@ -40,7 +40,7 @@ SSM 整合是把咱们所学习的 SpringMVC+SpringMybatis 整合在一起来完
 3. 能够根据实际业务建立前后端开发通信协议并进行实现
 4. 基于 SSM 整合技术开发任意业务模块功能
 
-## 1，SpringMVC 概述
+## 1 SpringMVC 概述
 
 三层架构
 
@@ -163,37 +163,16 @@ public class UserController {
 将 web.xml 删除，换成 ServletContainersInitConfig
 
 ```java
-public class ServletContainersInitConfig extends AbstractDispatcherServletInitializer {
-    //加载springmvc配置类
-    protected WebApplicationContext createServletApplicationContext() {
-        //初始化WebApplicationContext对象
-        AnnotationConfigWebApplicationContext ctx = new AnnotationConfigWebApplicationContext();
-        //加载指定配置类
-        ctx.register(SpringMvcConfig.class);
-        return ctx;
-    }
-
-    //设置由springmvc控制器处理的请求映射路径
-    protected String[] getServletMappings() {
-        return new String[]{"/"};
-    }
-
-    //加载spring配置类
-    protected WebApplicationContext createRootApplicationContext() {
-        return null;
-    }
-}
+public class ServletContainersInitConfig extends AbstractDispatcherServletInitializer {}
 ```
 
-#### 步骤 7:配置 Tomcat 环境
+#### 步骤 7:配置 Tomcat 环境 + 启动运行项目
 
-![1630430302683](https://assets-1302294329.cos.ap-shanghai.myqcloud.com/2025/md/202505151019940.png)
+```sh
+mvn tomcat7:run
+```
 
-#### 步骤 8:启动运行项目
-
-![1630430345246](https://assets-1302294329.cos.ap-shanghai.myqcloud.com/2025/md/202505151019941.png)
-
-#### 步骤 9:浏览器访问
+#### 步骤 8:浏览器访问
 
 浏览器输入`http://localhost/save`进行访问，会报如下错误:
 
@@ -258,42 +237,6 @@ public class UserController {
   - createRootApplicationContext 方法，如果创建 Servlet 容器时需要加载非 SpringMVC 对应的 bean,使用当前方法进行，使用方式和 createServletApplicationContext 相同。
   - createServletApplicationContext 用来加载 SpringMVC 环境
   - createRootApplicationContext 用来加载 Spring 环境
-
-### 知识点 1：@Controller
-
-| 名称 | @Controller                      |
-| ---- | -------------------------------- |
-| 类型 | 类注解                           |
-| 位置 | SpringMVC 控制器类定义上方       |
-| 作用 | 设定 SpringMVC 的核心控制器 bean |
-
-### 知识点 2：@RequestMapping
-
-| 名称     | @RequestMapping                  |
-| -------- | -------------------------------- |
-| 类型     | 类注解或方法注解                 |
-| 位置     | SpringMVC 控制器类或方法定义上方 |
-| 作用     | 设置当前控制器方法请求访问路径   |
-| 相关属性 | value(默认)，请求访问路径        |
-
-### 知识点 3：@ResponseBody
-
-| 名称 | @ResponseBody                                    |
-| ---- | ------------------------------------------------ |
-| 类型 | 类注解或方法注解                                 |
-| 位置 | SpringMVC 控制器类或方法定义上方                 |
-| 作用 | 设置当前控制器方法响应内容为当前返回值，无需解析 |
-
-### 2.3 入门案例总结
-
-- 一次性工作
-  - 创建工程，设置服务器，加载工程
-  - 导入坐标
-  - 创建 web 容器启动类，加载 SpringMVC 配置，并设置 SpringMVC 请求拦截路径
-  - SpringMVC 核心配置类（设置配置类，扫描 controller 包，加载 Controller 控制器 bean）
-- 多次工作
-  - 定义处理请求的控制器类
-  - 定义处理请求的控制器方法，并配置映射路径（@RequestMapping）与返回 json 数据（@ResponseBody）
 
 ### 2.4 工作流程解析
 
@@ -651,63 +594,9 @@ public class ServletContainersInitConfig extends AbstractAnnotationConfigDispatc
 }
 ```
 
-### 知识点 1：@ComponentScan
-
-| 名称     | @ComponentScan                                                                                                                                       |
-| -------- | ---------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 类型     | 类注解                                                                                                                                               |
-| 位置     | 类定义上方                                                                                                                                           |
-| 作用     | 设置 spring 配置类扫描路径，用于加载使用注解格式定义的 bean                                                                                          |
-| 相关属性 | excludeFilters:排除扫描路径中加载的 bean,需要指定类别(type)和具体项(classes)<br/>includeFilters:加载指定的 bean，需要指定类别(type)和具体项(classes) |
-
-## 3，PostMan 工具的使用
-
-### 3.1 PostMan 简介
-
-代码编写完后，我们要想测试，只需要打开浏览器直接输入地址发送请求即可。发送的是`GET`请求可以直接使用浏览器，但是如果要发送的是`POST`请求呢?
-
-如果要求发送的是 post 请求，我们就得准备页面在页面上准备 form 表单，测试起来比较麻烦。所以我们就需要借助一些第三方工具，如 PostMan.
-
-- PostMan 是一款功能强大的网页调试与发送网页 HTTP 请求的 Chrome 插件。![1630463382386](https://assets-1302294329.cos.ap-shanghai.myqcloud.com/2025/md/202505151019954.png)
-- 作用：常用于进行接口测试
-
-- 特征
-  - 简单
-  - 实用
-  - 美观
-  - 大方
-
-### 3.2 PostMan 安装
-
-双击`资料\Postman-win64-8.3.1-Setup.exe`即可自动安装，
-
-安装完成后，如果需要注册，可以按照提示进行注册，如果底部有跳过测试的链接也可以点击跳过注册
-
-![1630463816424](https://assets-1302294329.cos.ap-shanghai.myqcloud.com/2025/md/202505151019955.png)
-
-看到如下界面，就说明已经安装成功。
-
-![1630463887711](https://assets-1302294329.cos.ap-shanghai.myqcloud.com/2025/md/202505151019956.png)
-
-### 3.3 PostMan 使用
-
-#### 3.3.1 创建 WorkSpace 工作空间
-
-![](https://assets-1302294329.cos.ap-shanghai.myqcloud.com/2025/md/202505151019957.png)
-
-#### 3.3.2 发送请求
-
-![1630464489898](https://assets-1302294329.cos.ap-shanghai.myqcloud.com/2025/md/202505151019958.png)
-
-#### 3.3.3 保存当前请求
-
-![1630464783034](https://assets-1302294329.cos.ap-shanghai.myqcloud.com/2025/md/202505151019959.png)
-
-**注意:**第一次请求需要创建一个新的目录，后面就不需要创建新目录，直接保存到已经创建好的目录即可。
-
 ## 4，请求与响应
 
-前面我们已经完成了入门案例相关的知识学习，接来了我们就需要针对 SpringMVC 相关的知识点进行系统的学习，之前我们提到过，SpringMVC 是 web 层的框架，主要的作用是接收请求、接收数据、响应结果，所以这一章节是学习 SpringMVC 的==重点==内容，我们主要会讲解四部分内容:
+前面我们已经完成了入门案例相关的知识学习，接来了我们就需要针对 SpringMVC 相关的知识点进行系统的学习，之前我们提到过，SpringMVC 是 web 层的框架，主要的作用是接收请求、接收数据、响应结果，所以这一章节是学习 SpringMVC 的重点内容，我们主要会讲解四部分内容:
 
 - 请求映射路径
 - 请求参数

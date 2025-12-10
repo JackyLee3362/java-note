@@ -8,6 +8,11 @@ tags:
 description:
 ---
 
+## 嵌入式 tomcat
+
+- [Maven 项目+内嵌 tomcat+Servlet - 极客子羽 - 博客园](https://www.cnblogs.com/kendoziyu/p/embedded-tomcat-servlet.html)
+- [嵌入式 Tomcat 使用 - 不安分的黑娃 - 博客园](https://www.cnblogs.com/lihw-study/p/17281721.html)
+
 ## web-servlet 注解
 
 可以写 `/user` 或者 `/user/hello` 或者 `/user/*` 甚至 `/*`

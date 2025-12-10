@@ -2,8 +2,9 @@
 GET / HTTP/1.1
 Host: {{host}} 
 
-GET /servlet HTTP/1.1
-Host: {{host}} 
+###
+GET /hello HTTP/1.1
+Host: {{host}}
 
 ### 测试
 GET /servlet/user HTTP/1.1

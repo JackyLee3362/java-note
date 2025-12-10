@@ -23,6 +23,8 @@
     <module>commons-lang3</module>
     <module>camel2</module>
     <module>camel3</module>
+    <module>jwt</module>
+    <module>rest-template</module>
   </modules>
 
 </project>

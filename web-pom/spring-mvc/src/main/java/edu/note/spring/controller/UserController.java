@@ -9,12 +9,12 @@ import org.springframework.web.bind.annotation.RestController;
  * @date 2025-10-26 22:56
  */
 @RestController
-@RequestMapping("/foo")
-public class FooController {
+@RequestMapping("/user")
+public class UserController {
 
-    @GetMapping("/bar")
-    public String foo() {
-        return "should be intercept...";
+    @GetMapping("/list")
+    public String getAllUsers() {
+        return "all users";
     }
 
 }
