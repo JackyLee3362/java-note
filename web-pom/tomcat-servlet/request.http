@@ -1,9 +1,12 @@
 ### 测试应用根页面
+GET / HTTP/1.1
+Host: {{host}} 
+
 GET /servlet HTTP/1.1
 Host: {{host}} 
 
 ### 测试
-GET /servlet/test HTTP/1.1
+GET /servlet/user HTTP/1.1
 Host: {{host}} 
 
 ###

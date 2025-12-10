@@ -21,7 +21,7 @@ description:
 
 SpringMVC 是隶属于 Spring 框架的一部分，主要是用来进行 Web 开发，是对 Servlet 进行了封装。
 
-对于 SpringMVC 我们主要学习如下内容:
+对于 SpringMVC 需要掌握的内容
 
 - SpringMVC 简介
 - 请求与响应
@@ -31,40 +31,34 @@ SpringMVC 是隶属于 Spring 框架的一部分，主要是用来进行 Web 开
 
 SpringMVC 是处于 Web 层的框架，所以其主要的作用就是用来接收前端发过来的请求和数据然后经过处理并将处理的结果响应给前端，所以如何处理请求和响应是 SpringMVC 中非常重要的一块内容。
 
-REST 是一种软件架构风格，可以降低开发的复杂性，提高系统的可伸缩性，后期的应用也是非常广泛。
-
-SSM 整合是把咱们所学习的 SpringMVC+Spring+Mybatis 整合在一起来完成业务开发，是对我们所学习这三个框架的一个综合应用。
+SSM 整合是把咱们所学习的 SpringMVC+SpringMybatis 整合在一起来完成业务开发，是对我们所学习这三个框架的一个综合应用。
 
 对于 SpringMVC 的学习，最终要达成的目标:
 
-1. ==掌握基于 SpringMVC 获取请求参数和响应 json 数据操作==
-2. ==熟练应用基于 REST 风格的请求路径设置与参数传递==
+1. 掌握基于 SpringMVC 获取请求参数和响应 json 数据操作
+2. 熟练应用基于 REST 风格的请求路径设置与参数传递
 3. 能够根据实际业务建立前后端开发通信协议并进行实现
-4. ==基于 SSM 整合技术开发任意业务模块功能==
+4. 基于 SSM 整合技术开发任意业务模块功能
 
 ## 1，SpringMVC 概述
-
-学习 SpringMVC 我们先来回顾下现在 web 程序是如何做的，咱们现在 web 程序大都基于三层架构来实现。
 
 三层架构
 
 ![1630427303762](https://assets-1302294329.cos.ap-shanghai.myqcloud.com/2025/md/202505151019936.png)
 
-- 浏览器发送一个请求给后端服务器，后端服务器现在是使用 Servlet 来接收请求和数据
-
+- 浏览器发送请求给后端，后端使用 Servlet 来接收请求
 - 如果所有的处理都交给 Servlet 来处理的话，所有的东西都耦合在一起，对后期的维护和扩展极为不利
 
-- 将后端服务器 Servlet 拆分成三层，分别是`web`、`service`和`dao`
-  - web 层主要由 servlet 来处理，负责页面请求和数据的收集以及响应结果给前端
+- 将后端服务器 Servlet 拆分成三层，分别是 web、service 和 dao
+- web 层主要由 servlet 来处理，负责页面请求和数据的收集以及响应结果给前端
   - service 层主要负责业务逻辑的处理
   - dao 层主要负责数据的增删改查操作
-- servlet 处理请求和数据的时候，存在的问题是一个 servlet 只能处理一个请求
-- 针对 web 层进行了优化，采用了 MVC 设计模式，将其设计为`controller`、`view`和`Model`
+  - servlet 处理请求和数据的时候，存在的问题是一个 servlet 只能处理一个请求
+- 针对 web 层进行了优化，采用了 MVC 设计模式，将其设计为 controller、view 和 model
   - controller 负责请求和数据的接收，接收后将其转发给 service 进行业务处理
   - service 根据需要会调用 dao 对数据进行增删改查
-  - dao 把数据处理完后将结果交给 service,service 再交给 controller
-  - controller 根据需求组装成 Model 和 View,Model 和 View 组合起来生成页面转发给前端浏览器
-  - 这样做的好处就是 controller 可以处理多个请求，并对请求进行分发，执行不同的业务操作。
+  - controller 根据需求组装成 Model 和 View, Model 和 View 组合起来生成页面转发给前端
+- 这样做的好处就是 controller 可以处理多个请求，并对请求进行分发，执行不同的业务操作。
 
 随着互联网的发展，上面的模式因为是同步调用，性能慢慢的跟不是需求，所以异步调用慢慢的走到了前台，是现在比较流行的一种处理方式。
 
@@ -72,112 +66,68 @@ SSM 整合是把咱们所学习的 SpringMVC+Spring+Mybatis 整合在一起来�
 
 - 因为是异步调用，所以后端不需要返回 view 视图，将其去除
 - 前端如果通过异步调用的方式进行交互，后台就需要将返回的数据转换成 json 格式进行返回
-- SpringMVC==主要==负责的就是
+- SpringMVC 主要负责的就是
   - controller 如何接收请求和数据
   - 如何将请求和数据转发给业务层
   - 如何将响应数据转换成 json 发回到前端
-
-介绍了这么多，对 SpringMVC 进行一个定义
-
 - SpringMVC 是一种基于 Java 实现 MVC 模型的轻量级 Web 框架
 
-- 优点
+优点
 
-  - 使用简单、开发便捷(相比于 Servlet)
-  - 灵活性强
+- 使用简单、开发便捷(相比于 Servlet)
+- 灵活性强
 
-  这里所说的优点，就需要我们在使用的过程中慢慢体会。
+## 2 SpringMVC 入门案例
 
-## 2，SpringMVC 入门案例
+faq: Servlet 是如何进行开发的?
 
-因为 SpringMVC 是一个 Web 框架，将来是要替换 Servlet,所以先来回顾下以前 Servlet 是如何进行开发的?
+1. 创建 web 工程(Maven 结构)
+2. 设置 tomcat 服务器，加载 web 工程(使用 tomcat 插件)
+3. 导入包 (Servlet)
+4. 定义处理请求的功能类(UserServlet)
+5. 设置请求映射(配置映射关系)
 
-1.创建 web 工程(Maven 结构)
+faq: SpringMVC 是如何进行开发的?
 
-2.设置 tomcat 服务器，加载 web 工程(tomcat 插件)
-
-3.导入坐标(Servlet)
-
-4.定义处理请求的功能类(UserServlet)
-
-5.设置请求映射(配置映射关系)
-
-SpringMVC 的制作过程和上述流程几乎是一致的，具体的实现流程是什么?
-
-1.创建 web 工程(Maven 结构)
-
-2.设置 tomcat 服务器，加载 web 工程(tomcat 插件)
-
-3.导入坐标(==SpringMVC==+Servlet)
-
-4.定义处理请求的功能类(==UserController==)
-
-5.==设置请求映射(配置映射关系)==
-
-6.==将 SpringMVC 设定加载到 Tomcat 容器中==
-
-### 2.1 需求分析
-
-### 2.2 案例制作
-
-#### 步骤 1:创建 Maven 项目
-
-打开 IDEA,创建一个新的 web 项目
-
-![1630428920116](https://assets-1302294329.cos.ap-shanghai.myqcloud.com/2025/md/202505151019938.png)
-
-#### 步骤 2:补全目录结构
-
-因为使用骨架创建的项目结构不完整，需要手动补全
-
-![1630429288339](https://assets-1302294329.cos.ap-shanghai.myqcloud.com/2025/md/202505151019939.png)
+1. 创建 web 工程(Maven 结构)
+2. 设置 tomcat 服务器，加载 web 工程(tomcat 插件)
+3. 导入坐标(SpringMVC Servlet)
+4. 定义处理请求的功能类(UserController)
+5. 设置请求映射(配置映射关系)
+6. 将 SpringMVC 设定加载到 Tomcat 容器中
 
 #### 步骤 3:导入 jar 包
 
 将 pom.xml 中多余的内容删除掉，再添加 SpringMVC 需要的依赖
 
-```java
-<?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-  <modelVersion>4.0.0</modelVersion>
-  <groupId>com.itheima</groupId>
-  <artifactId>springmvc_01_quickstart</artifactId>
-  <version>1.0-SNAPSHOT</version>
-  <packaging>war</packaging>
+```xml
+<!-- spring mvc 依赖 -->
+<dependency>
+  <groupId>javax.servlet</groupId>
+  <artifactId>javax.servlet-api</artifactId>
+  <version>3.1.0</version>
+  <scope>provided</scope>
+</dependency>
+<dependency>
+  <groupId>org.springframework</groupId>
+  <artifactId>spring-webmvc</artifactId>
+  <version>5.2.10.RELEASE</version>
+</dependency>
 
-  <dependencies>
-    <dependency>
-      <groupId>javax.servlet</groupId>
-      <artifactId>javax.servlet-api</artifactId>
-      <version>3.1.0</version>
-      <scope>provided</scope>
-    </dependency>
-    <dependency>
-      <groupId>org.springframework</groupId>
-      <artifactId>spring-webmvc</artifactId>
-      <version>5.2.10.RELEASE</version>
-    </dependency>
-  </dependencies>
-
-  <build>
-    <plugins>
-      <plugin>
-        <groupId>org.apache.tomcat.maven</groupId>
-        <artifactId>tomcat7-maven-plugin</artifactId>
-        <version>2.1</version>
-        <configuration>
-          <port>80</port>
-          <path>/</path>
-        </configuration>
-      </plugin>
-    </plugins>
-  </build>
-</project>
+<!-- plugin 插件 -->
+<plugin>
+  <groupId>org.apache.tomcat.maven</groupId>
+  <artifactId>tomcat7-maven-plugin</artifactId>
+  <version>2.1</version>
+  <configuration>
+    <port>80</port>
+    <path>/</path>
+  </configuration>
+</plugin>
 
 ```
 
-**说明:**servlet 的坐标为什么需要添加`<scope>provided</scope>`?
+faq: servlet 的坐标为什么需要添加`<scope>provided</scope>`?
 
 - scope 是 maven 中 jar 包依赖作用范围的描述，
 - 如果不设置默认是`compile`在在编译、运行、测试时均有效

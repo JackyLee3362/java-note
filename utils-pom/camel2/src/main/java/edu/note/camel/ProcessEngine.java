@@ -23,7 +23,6 @@ public class ProcessEngine {
     private static final ProducerTemplate PRODUCER_TEMPLATE;
 
     static {
-        // CAMEL_CONTEXT = (CamelContext) SpringBeanUtil.getBean(CamelContext.class);
         CAMEL_CONTEXT = new DefaultCamelContext();
         DefaultErrorHandlerBuilder defaultErrorHandlerBuilder = new DefaultErrorHandlerBuilder();
         RedeliveryPolicy redeliveryPolicy = new RedeliveryPolicy();

@@ -7,6 +7,17 @@ tags:
 description:
 ---
 
+## Version
+
+- Camel 2.25.4: Java8
+- Camel 3.0.0: Java8 + Java11
+- Camel 3.14.7: Java8 + Java11
+- Camel 3.15.0: Java11
+- Camel 3.16.0: Java11
+- Camel 3.17.0+: Java11 + Java17
+
+- [Releases - Apache Camel](https://camel.apache.org/releases/)
+
 ## Camel
 
 一般来说一个应用里面会有一个 CamelContext 对象。

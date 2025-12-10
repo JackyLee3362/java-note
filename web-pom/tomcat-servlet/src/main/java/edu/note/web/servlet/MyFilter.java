@@ -13,7 +13,8 @@ import javax.servlet.annotation.WebFilter;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
-@WebFilter(urlPatterns = { "/css/*", "/image/*", "/font/*", "/js/*" }) // 单个*是Filter写法，双个**是Spring写法
+// 单个*是Filter写法，双个**是Spring写法
+@WebFilter(urlPatterns = { "/css/*", "/image/*", "/font/*", "/js/*" })
 public class MyFilter implements Filter {
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {

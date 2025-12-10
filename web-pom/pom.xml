@@ -18,7 +18,7 @@
     <modules>
         <module>jwt</module>
         <module>rest-template</module>
-        <module>servlet</module>
+        <module>tomcat-servlet</module>
         <module>netty</module>
         <module>spring-mvc</module>
         <module>spring-web</module>
