@@ -139,3 +139,13 @@ public class AppMybatisSpring {
     }
 }
 ```
+
+
+## 参考资料
+
+- [辣椒炒肉 - 通过 MyBatis 拦截器实现完整 SQL 打印：从原理到实战 - 知乎](https://zhuanlan.zhihu.com/p/1923860725945861775)
+
+  - 概要: None
+  - 点赞: 11
+
+- [MyBatis 的好帮手-MybatisX 你是否碰见过这样的情况：Dao/Mapper 层无法一键跳转到对应 Xml 中 - 掘金](https://juejin.cn/post/7262721189647925308)

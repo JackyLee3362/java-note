@@ -54,3 +54,11 @@ tomcat 负责创建对象并调用方法
 - [Servlet 入门 - Java 教程 - 廖雪峰的官方网站](https://liaoxuefeng.com/books/java/web/servlet-basic/index.html)
 
 ## 参考资料
+
+- [江小北 - tomcat 源码为啥不采用 netty 处理并发？ - 知乎](https://www.zhihu.com/question/53498767/answer/3507988674)
+  - 概要: 行，兄弟，这个问题有点意思。其实 Tomcat 选择不用 Netty 而用 JDK NIO 处理并发请求，是有它的一套道理的。咱们得从多个角度来分析这个问题： 1. 历史原因首先，得说说历史背景。Tomcat 是个老牌子了，从上世纪 90 年代就有了。当初设计的时候，Netty 还没出现呢，那时候大家都用 JDK 自带的 API 来处理网络编程。Tomcat 在发展过程中，一直是基于 JDK NIO 的，后来随着 Java 版本的升级，JDK NIO 也不断改进，Tomcat 的架构也逐渐稳定下来。改变这…
+  - 点赞: 207
+
+- [江小北 - 为什么在 netty 的眼里 jdk 的许多实现都不是非常高效? - 知乎](https://www.zhihu.com/question/269619656/answer/3508007258)
+  - 概要: 作为一个在 Java 领域摸爬滚打了十年的老兵，我来聊聊为什么 Netty 觉得 JDK 的很多实现不够高效。其实，这主要是因为两者的设计目标和使用场景不同。 JDK 追求的是通用性，而 Netty 则专注于高并发和网络通信。我们可以通过几个具体的例子来看看它们在实现上的区别。 1. ThreadLocal 实现 JDK 的 ThreadLocal 采用的是非波拉契散列法和开放寻址。这种设计可以保证在大多数情况下，数据在内存中的分布更均匀，减少了碰撞的可能性。但在高并发场…
+  - 点赞: 466
