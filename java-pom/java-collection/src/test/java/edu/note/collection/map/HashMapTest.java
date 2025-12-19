@@ -5,6 +5,7 @@ import static org.junit.jupiter.api.Assertions.assertNull;
 
 import java.util.HashMap;
 import java.util.Iterator;
+import java.util.List;
 import java.util.Map;
 import java.util.function.BiConsumer;
 
@@ -158,4 +159,23 @@ public class HashMapTest {
         // map.put("bbb", "222");
 
     }
+
+    @Test
+    @DisplayName("测试 ComputeIfAbsent")
+    void test10() {
+        Map<Integer, String> map = new HashMap<>();
+        map.put(1, "one");
+        map.put(2, "two");
+
+        // key 3 不存在，添加 key 3，value 为 "three"
+        String value3 = map.computeIfAbsent(3, k -> "three");
+        assertEquals("three", value3);
+        assertEquals("three", map.get(3));
+
+        // key 2 已存在，返回现有的 value，不进行修改
+        String value2 = map.computeIfAbsent(2, k -> "TWO");
+        assertEquals("two", value2);
+        assertEquals("two", map.get(2));
+    }
+
 }

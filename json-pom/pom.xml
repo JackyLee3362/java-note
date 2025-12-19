@@ -19,6 +19,7 @@
     <module>jackson</module>
     <module>fastjson</module>
     <module>json-unit</module>
+    <module>gson</module>
   </modules>
 
 
