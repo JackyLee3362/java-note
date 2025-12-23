@@ -14,42 +14,41 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
  * @date 2025-10-05 12:15
  */
 @SuppressWarnings("resource")
-public class BeanTest {
+public class IT02_BeanTest {
 
     @Test
     @DisplayName("测试 bean 基础")
-    void testIOC01() {
-        // 获取 IOC 容器
-        ApplicationContext ctx = new ClassPathXmlApplicationContext("bean-ioc.xml");
-        // 获取 bean 的三种方式
-        // 方式 1
+    void test02_01_IOC() {
+        // given: 获取 IOC 容器
+        ApplicationContext ctx = new ClassPathXmlApplicationContext("02.1-bean-ioc.xml");
+
+        // when: 获取 bean 的三种方式
+        // 方式 1: by name
         HelloDao dao1 = (HelloDao) ctx.getBean("helloDao");
-        // 方式 2
+        // 方式 2: by type
         HelloDao dao2 = ctx.getBean(HelloDao.class);
-        // 方式 3
+        // 方式 3: by name 和 type
         HelloDao dao3 = ctx.getBean("helloDao", HelloDao.class);
 
-        // 测试他们完全相同
+        // then: 断言
+        assertTrue(dao1.save("Foo"));
         assertEquals(dao1, dao2);
         assertEquals(dao2, dao3);
-
-        Boolean save = dao1.save("Foo");
-        assertTrue(save);
     }
 
     @Test
     @DisplayName("静态工厂实例化")
-    void testStaticFactoryMethod() {
+    void test02_2_StaticFactoryMethod() {
         // 该方法主要兼容以前老方法，了解即可
-        ApplicationContext context = new ClassPathXmlApplicationContext("bean-factory-method.xml");
+        ApplicationContext context = new ClassPathXmlApplicationContext("02.2-bean-static-factory.xml");
         HelloDao dao = context.getBean(HelloDao.class);
         assertTrue(dao.save("Foo"));
     }
 
     @Test
     @DisplayName("工厂实例化")
-    void testFactoryBean() {
-        ApplicationContext context = new ClassPathXmlApplicationContext("bean-factory-bean.xml");
+    void test02_03_FactoryBean() {
+        ApplicationContext context = new ClassPathXmlApplicationContext("02.3-bean-factory-bean.xml");
         HelloDao dao = context.getBean(HelloDao.class);
         assertTrue(dao.save("Foo"));
     }
