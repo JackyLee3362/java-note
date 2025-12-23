@@ -11,6 +11,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
  * @author jackylee
  * @date 2025-10-05 11:48
  */
+@SuppressWarnings("resource")
 public class AutoWireTest {
 
     @Test
@@ -19,8 +20,8 @@ public class AutoWireTest {
         // 获取 IOC 容器
         ApplicationContext ctx = new ClassPathXmlApplicationContext("bean-autowire-by-type.xml");
         HelloService bean = ctx.getBean(HelloService.class);
-        String hello = bean.hello("Bar");
-        assertEquals("Hello, Bar", hello);
+        String res = bean.hello("Bar");
+        assertEquals("Hello, Bar", res);
     }
 
     @Test
@@ -29,8 +30,8 @@ public class AutoWireTest {
         // 获取 IOC 容器
         ApplicationContext ctx = new ClassPathXmlApplicationContext("bean-autowire-by-name.xml");
         HelloService bean = ctx.getBean(HelloService.class);
-        String hello = bean.hello("Bar");
-        assertEquals("Hello, Bar", hello);
+        String res = bean.hello("Bar");
+        assertEquals("Hello, Bar", res);
     }
 
     @Test
@@ -38,9 +39,8 @@ public class AutoWireTest {
     void testAutowireCollection() {
         // 获取 IOC 容器
         ApplicationContext ctx = new ClassPathXmlApplicationContext("bean-autowire-collection.xml");
-        HelloService bean = ctx.getBean(HelloService.class);
-        bean.hello("Bar");
+        HelloService res = ctx.getBean(HelloService.class);
+        res.hello("Bar");
     }
-    
-    
+
 }

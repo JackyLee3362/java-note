@@ -13,6 +13,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
  * @author jackylee
  * @date 2025-10-05 12:15
  */
+@SuppressWarnings("resource")
 public class BeanTest {
 
     @Test

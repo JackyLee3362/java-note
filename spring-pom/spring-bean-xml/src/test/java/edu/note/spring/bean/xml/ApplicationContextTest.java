@@ -8,7 +8,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 /**
  * @author jackylee
  * @date 2025-09-30 14:03
- * @desc 获取 bean 
+ * @desc 获取 bean
  */
 public class ApplicationContextTest {
 
