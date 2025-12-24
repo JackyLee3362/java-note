@@ -5,11 +5,11 @@ import org.junit.jupiter.api.Test;
 
 /*
  * 需求：
- * 外面的人想要大明星唱一首歌
+ * 想要增强 IAction 接口的实现类 ActionImpl 的功能，比如在注册时打印日志，浏览时统计时间等
  * 1. 获取代理的对象
- * 代理对象 = StarProxy.createProxy(大明星的对象);
- * 2. 再调用代理的唱歌方法
- * 代理对象.唱歌的方法("只因你太美");
+ * 代理对象 = ActionProxy.createProxy(action);
+ * 2. 再调用接口的方法
+ * 代理对象.代理方法(...);
  */
 public class ProxyTest {
 

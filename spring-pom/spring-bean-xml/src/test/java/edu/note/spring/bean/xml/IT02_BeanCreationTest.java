@@ -14,13 +14,13 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
  * @date 2025-10-05 12:15
  */
 @SuppressWarnings("resource")
-public class IT02_BeanTest {
+public class IT02_BeanCreationTest {
 
     @Test
     @DisplayName("测试 bean 基础")
-    void test02_01_IOC() {
+    void test2_1_IOC() {
         // given: 获取 IOC 容器
-        ApplicationContext ctx = new ClassPathXmlApplicationContext("02.1-bean-ioc.xml");
+        ApplicationContext ctx = new ClassPathXmlApplicationContext("2.1-bean-ioc.xml");
 
         // when: 获取 bean 的三种方式
         // 方式 1: by name
@@ -38,9 +38,9 @@ public class IT02_BeanTest {
 
     @Test
     @DisplayName("静态工厂实例化")
-    void test02_2_StaticFactoryMethod() {
+    void test2_2_StaticFactoryMethod() {
         // 该方法主要兼容以前老方法，了解即可
-        ApplicationContext context = new ClassPathXmlApplicationContext("02.2-bean-static-factory.xml");
+        ApplicationContext context = new ClassPathXmlApplicationContext("2.2-bean-static-factory.xml");
         HelloDao dao = context.getBean(HelloDao.class);
         assertTrue(dao.save("Foo"));
     }
@@ -48,35 +48,27 @@ public class IT02_BeanTest {
     @Test
     @DisplayName("工厂实例化")
     void test02_03_FactoryBean() {
-        ApplicationContext context = new ClassPathXmlApplicationContext("02.3-bean-factory-bean.xml");
+        ApplicationContext context = new ClassPathXmlApplicationContext("2.3-bean-factory-bean.xml");
         HelloDao dao = context.getBean(HelloDao.class);
         assertTrue(dao.save("Foo"));
     }
 
     @Test
-    @DisplayName("工厂 Bean 实现类")
-    void testFactoryBeanImpl() {
+    @DisplayName("实现 FactoryBean 接口创建 Bean")
+    void test02_04_FactoryBeanImpl() {
         // 该方法主要用作整合第三方类
-        ApplicationContext context = new ClassPathXmlApplicationContext("bean-factory-impl.xml");
+        // 通过实现 FactoryBean 接口，来创建复杂对象
+        ApplicationContext context = new ClassPathXmlApplicationContext("2.4-bean-factory-impl.xml");
         HelloDao dao = context.getBean(HelloDao.class);
         assertTrue(dao.save("Foo"));
     }
 
-    @Test
-    @DisplayName("测试 DI")
-    void testDI01() {
-        // 获取 IOC 容器
-        ApplicationContext context = new ClassPathXmlApplicationContext("bean-di.xml");
-        HelloService service = context.getBean(HelloService.class);
-        String hello = service.hello("Foo");
-        assertEquals("Hello, Foo", hello);
-    }
 
     @Test
     @DisplayName("测试别名")
     void testBeanAlias() {
         // 获取 IOC 容器
-        ApplicationContext context = new ClassPathXmlApplicationContext("bean-alias.xml");
+        ApplicationContext context = new ClassPathXmlApplicationContext("2.5-bean-alias.xml");
         HelloService service = (HelloService) context.getBean("service");
         String hello = service.hello("Foo");
         assertEquals("Hello, Foo", hello);
@@ -86,7 +78,7 @@ public class IT02_BeanTest {
     @DisplayName("测试 Scope")
     void testBeanScope() {
         // 获取 IOC 容器
-        ApplicationContext context = new ClassPathXmlApplicationContext("bean-scope.xml");
+        ApplicationContext context = new ClassPathXmlApplicationContext("2.6-bean-scope.xml");
         HelloDao dao1 = context.getBean(HelloDao.class);
         HelloDao dao2 = context.getBean(HelloDao.class);
         assertEquals(dao1, dao2);
@@ -96,33 +88,4 @@ public class IT02_BeanTest {
         assertNotEquals(service1, service2);
     }
 
-    @Test
-    @DisplayName("测试 bean 生命周期")
-    void testBeanLifeCycle() {
-        // 获取 IOC 容器
-        ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("bean-life-cycle.xml");
-        context.getBean(HelloDao.class);
-        // 容器关闭时 destory
-        context.close();
-    }
-
-    @Test
-    @DisplayName("测试 bean 生命周期")
-    void testBeanLifeCycleByHook() {
-        // 获取 IOC 容器
-        ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("bean-life-cycle-hook.xml");
-        context.getBean(WorldDao.class);
-        context.registerShutdownHook();
-    }
-
-    @Test
-    @DisplayName("测试构造器注入")
-    void testConstrctorArg() {
-        // 获取 IOC 容器
-        ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("bean-constructor-arg.xml");
-        HelloService bean = context.getBean(HelloService.class);
-        String hello = bean.hello("Bar");
-        ;
-        assertEquals("Hello, Bar", hello);
-    }
 }
