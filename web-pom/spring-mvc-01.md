@@ -10,15 +10,6 @@ description:
 
 ## SpringMVC day01
 
-主要内容
-
-> - 理解 SpringMVC 相关概念
-> - 完成 SpringMVC 的入门案例
-> - 学会使用 PostMan 工具发送请求和数据
-> - 掌握 SpringMVC 如何接收请求、数据和响应结果
-> - 掌握 RESTful 风格及其使用
-> - 完成基于 RESTful 的案例编写
-
 SpringMVC 是隶属于 Spring 框架的一部分，主要是用来进行 Web 开发，是对 Servlet 进行了封装。
 
 对于 SpringMVC 需要掌握的内容

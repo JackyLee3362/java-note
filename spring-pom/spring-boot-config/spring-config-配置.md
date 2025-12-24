@@ -8,21 +8,17 @@ tags:
 description: 微服务笔记
 ---
 
-# 工具 Springboot
-
-[课程](https://www.bilibili.com/video/BV1Lq4y1J77x)
-
-## 配置文件
+## 配置文件优先级
 
 application.properties > application.yml > application.yaml
 
-```conf
+```ini
 # properties的写法
 server.port=8081
 server.address=127.0.0.1
 ```
 
-## 读取配置内容
+## 代码中读取配置内容
 
 - `@Value`
 - `Environment`
@@ -79,33 +75,8 @@ age:18
 @Component
 @ConfigurationProperties(prefix = "person") // 重点在这
 public class Person {
-
     private String name;
     private int age;
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public int getAge() {
-        return age;
-    }
-
-    public void setAge(int age) {
-        this.age = age;
-    }
-
-    @Override
-    public String toString() {
-        return "Person{" +
-            "name='" + name + '\'' +
-            ", age=" + age +
-            '}';
-    }
 }
 
 // Controller中
@@ -227,12 +198,6 @@ public class UserServicesTest {
 
 ```
 
-## 整合 redis（跳过）
+## 参考资料
 
-## 整合 mybatis（跳过）
-
-## Springboot 原理
-
-## SpringBoot 监控
-
-## SpringBoot 部署
+- [黑马程序员 SpringBoot 教程，6 小时快速入门 Java 微服务架构 Spring Boot\_哔哩哔哩\_bilibili](https://www.bilibili.com/video/BV1Lq4y1J77x)

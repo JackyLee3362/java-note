@@ -21,6 +21,7 @@
     <module>spring-event</module>
     <module>spring-bean-anno</module>
     <module>spring-bean-xml</module>
+    <module>spring-boot-config</module>
   </modules>
 
   <properties>
