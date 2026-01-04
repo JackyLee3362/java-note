@@ -6,6 +6,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -36,6 +37,7 @@ public class StreamBasicTest {
         list.stream().filter(s -> s.startsWith("a")).forEach(System.out::println);
 
         list.stream()
+            .filter(Objects::nonNull)
             .filter(s -> s.startsWith("a"))
             .filter(s -> s.length() == 3)
             .forEach(System.out::println);

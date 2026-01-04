@@ -1,6 +1,9 @@
 package edu.note;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
+
+import java.util.Map;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -9,6 +12,7 @@ import com.google.gson.Gson;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.experimental.var;
 
 /**
  * @author jackylee
@@ -34,6 +38,22 @@ public class GsonObjToJsonTest {
 
         User userFromJson = gson.fromJson(json, User.class);
         assertEquals(user, userFromJson);
+    }
+
+    @Test
+    @DisplayName("测试")
+    void test02() {
+        // given:
+        Gson gson = new Gson();
+        String json = "{}";
+
+        // when:
+        Map<?, ?> fromJson = gson.fromJson(json, Map.class);
+        
+
+        // then:
+        assertNull(fromJson);
+
     }
 
 }

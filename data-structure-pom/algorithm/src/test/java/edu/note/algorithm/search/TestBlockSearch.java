@@ -1,4 +1,4 @@
-package edu.note.java.search;
+package edu.note.algorithm.search;
 
 public class TestBlockSearch {
     public static void main(String[] args) {

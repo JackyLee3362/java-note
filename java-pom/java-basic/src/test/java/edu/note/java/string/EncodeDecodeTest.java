@@ -1,4 +1,4 @@
-package edu.note.java.syntax;
+package edu.note.java.string;
 
 import java.io.UnsupportedEncodingException;
 import java.nio.charset.StandardCharsets;
