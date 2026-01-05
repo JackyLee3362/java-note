@@ -20,5 +20,7 @@ public class Junit4BasicTest {
     @Ignore("跳过测试")
     public void test02() {
         assertEquals(0, 0);
+        // 错误写法
+        // assertEquals(0, Integer.valueOf(2));
     }
 }
