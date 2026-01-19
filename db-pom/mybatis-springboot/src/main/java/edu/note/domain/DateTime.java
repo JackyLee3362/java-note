@@ -23,7 +23,7 @@ public class DateTime {
 
     private LocalDateTime localDateTime;
     
-    private ZonedDateTime zonedDateTime;
+    private Instant zonedDateTime;
     
     private Instant instant;
 

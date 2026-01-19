@@ -16,7 +16,7 @@
         <plugin type="org.mybatis.generator.plugins.SerializablePlugin"></plugin>
         <!--Lombok插件-->
         <plugin type="com.softwareloop.mybatis.generator.plugins.LombokPlugin">
-            <!-- enable annotations -->
+            <!-- 开启 builder -->
             <property name="builder" value="true" />
             <!-- annotation's option(boolean) -->
             <property name="builder.fluent" value="true" />
@@ -25,8 +25,9 @@
             <property name="accessors" value="true" />
             <!-- annotation's option(array of String) -->
             <property name="accessors.prefix" value="m_, _" />
-            <!-- disable annotations -->
+            <!-- 生成器 -->
             <property name="allArgsConstructor" value="false" />
+            <property name="noArgsConstructor" value="false" />
         </plugin>
 
 
@@ -39,20 +40,19 @@
 
         <!--数据库链接地址账号密码-->
         <jdbcConnection driverClass="com.mysql.cj.jdbc.Driver"
-            connectionURL="jdbc:mysql://127.0.0.1:3306/test_app?useUnicode=true
-                            &amp;characterEncoding=utf8&amp;zeroDateTimeBehavior=convertToNull
-                            &amp;useSSL=true&amp;serverTimezone=GMT%2B8"
+            connectionURL="jdbc:mysql://localhost/test_db"
             userId="${jdbc.username}"
             password="${jdbc.password}">
             <property name="nullCatalogMeansCurrent" value="true" />
             <property name="useInformationSchema" value="true" />
         </jdbcConnection>
 
-        <!--非必需，类型处理器，数据库类型和java类型之间的转换控制，大部分类型都有默认对应关系，除非想自定义控制-->
-        <!--默认的映射类型见，org.mybatis.generator.internal.types.JavaTypeResolverDefaultImpl-->
+        <!-- 非必需，类型处理器，数据库类型和java类型之间的转换控制，大部分类型都有默认对应关系，除非想自定义控制-->
+        <!-- 默认的映射类型见，org.mybatis.generator.internal.types.JavaTypeResolverDefaultImpl-->
         <!-- 如果想自己实现 <javaTypeResolver type="自定义包路径"> -->
         <javaTypeResolver>
             <property name="forceBigDecimals" value="false" />
+            <property name="useJSR310Types" value="true" />
         </javaTypeResolver>
 
         <!--生成Model类存放位置-->

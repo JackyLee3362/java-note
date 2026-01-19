@@ -38,7 +38,8 @@ public class DateTimeAnnoMapperTest {
 
         datetime.setTimestamp(instant.toEpochMilli());
         datetime.setLocalDateTime(localDateTime);
-        datetime.setZonedDateTime(zonedDateTime);
+        // datetime.setZonedDateTime(zonedDateTime);
+        datetime.setZonedDateTime(instant);
         datetime.setInstant(instant);
         dateTimeAnnoMapper.insert(datetime);
         

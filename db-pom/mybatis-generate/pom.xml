@@ -16,8 +16,8 @@
     <properties>
         <maven.compiler.source>8</maven.compiler.source>
         <maven.compiler.target>8</maven.compiler.target>
-        <jdbc.username>${env.MYSQL_USER}</jdbc.username>
-        <jdbc.password>${env.MYSQL_PWD}</jdbc.password>
+        <jdbc.username>${env.MYSQL_USERNAME}</jdbc.username>
+        <jdbc.password>${env.MYSQL_PASSWORD}</jdbc.password>
         <target.base>${basedir}</target.base>
     </properties>
 
@@ -69,7 +69,7 @@
                     <!-- 覆盖生成文件 -->
                     <overwrite>true</overwrite>
                     <!-- 定义配置文件 -->
-                    <configurationFile>${basedir}/src/main/resources/generator-configuration.xml</configurationFile>
+                    <configurationFile>${basedir}/src/main/resources/generatorConfig.xml</configurationFile>
                 </configuration>
             </plugin>
         </plugins>
