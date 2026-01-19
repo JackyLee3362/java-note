@@ -1,14 +1,12 @@
 ---
 type: basic-note
-title: spring-02
+title: spring-aop
 author: JackyLee
 create_time: 2023-05-20
 update_time:
 tags:
 description: 黑马程序员
 ---
-
-## Spring_day03
 
 ### 1.1 什么是 AOP?
 
