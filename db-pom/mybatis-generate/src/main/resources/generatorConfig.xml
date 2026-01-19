@@ -73,6 +73,8 @@
         </sqlMapGenerator>
 
         <!--生成Dao类存放位置-->
+        <!-- 1. XMLMAPPER -->
+        <!-- 2. ANNOTATEDMAPPER -->
         <javaClientGenerator type="XMLMAPPER" targetPackage="edu.note.generate.mapper"
             targetProject="${target.base}/src/main/java">
             <property name="enableSubPackages" value="true" />

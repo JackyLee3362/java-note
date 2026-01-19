@@ -25,6 +25,7 @@
     <module>camel3</module>
     <module>jwt</module>
     <module>rest-template</module>
+    <module>crypt</module>
   </modules>
 
 </project>

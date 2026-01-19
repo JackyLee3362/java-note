@@ -1,4 +1,4 @@
-package edu.note.spring.jwt;
+package edu.note.jwt;
 
 import io.jsonwebtoken.Claims;
 import org.junit.jupiter.api.Test;

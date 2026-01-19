@@ -69,7 +69,7 @@
                     <!-- 覆盖生成文件 -->
                     <overwrite>true</overwrite>
                     <!-- 定义配置文件 -->
-                    <configurationFile>${basedir}/src/main/resources/generatorConfig.xml</configurationFile>
+                    <!-- <configurationFile>${basedir}/src/main/resources/generatorConfig.xml</configurationFile> -->
                 </configuration>
             </plugin>
         </plugins>

@@ -32,6 +32,7 @@
     <module>bak-pom</module>
     <module>mq-pom</module>
     <module>task-pom</module>
+    <module>crypt-pom</module>
   </modules>
 
 </project>
