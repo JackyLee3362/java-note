@@ -17,8 +17,8 @@ import lombok.extern.slf4j.Slf4j;
  * @date 2025-12-19 17:50
  */
 @Slf4j
-@SpringBootTest(classes = TestSpringEvent.class)
-public class TestSpringEvent {
+@SpringBootTest(classes = SpringEventTest.class)
+public class SpringEventTest {
 
     @Resource
     ApplicationEventPublisher applicationEventPublisher;

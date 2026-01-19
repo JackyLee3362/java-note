@@ -1,10 +1,15 @@
 package edu.note.mapper;
 
-import org.apache.ibatis.annotations.*;
+import java.util.List;
+
+import org.apache.ibatis.annotations.Delete;
+import org.apache.ibatis.annotations.Insert;
+import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Options;
+import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.Update;
 
 import edu.note.domain.User;
-
-import java.util.List;
 
 @Mapper
 public interface UserAnnoMapper {
@@ -15,7 +20,7 @@ public interface UserAnnoMapper {
     // 2. 添加注解手动映射 @Results({@Result(column = "user_name", property = "userName")})
     // 3. 配置文件开启 mybatis 的自动驼峰命名开关(推荐):
     // mybatis.configuration.map-underscore-to-camel-case=true
-    @Select("SELECT id, name, age FROM user WHERE id = #{id}")
+    @Select("SELECT id, name, age, create_time, is_delete FROM user WHERE id = #{id}")
     User selectById(Integer id);
 
     @Select("SELECT * FROM user LIMIT 10")
@@ -26,7 +31,7 @@ public interface UserAnnoMapper {
 
     // 会自动生成主键值，然后赋给user对象的id属性
     @Options(keyProperty = "id", useGeneratedKeys = true)
-    @Insert("INSERT INTO user(name, age) VALUES (#{name}, #{age})")
+    @Insert("INSERT INTO user(name, age, create_time, is_delete) VALUES (#{name}, #{age}, #{createTime}, #{isDelete})")
     void insertUser(User user);
 
     @Update("UPDATE user SET name=#{name}, age=#{age} WHERE id = #{id}")

@@ -17,8 +17,8 @@
     <properties>
         <maven.compiler.source>8</maven.compiler.source>
         <maven.compiler.target>8</maven.compiler.target>
-        <jdbc.username>${env.MYSQL_USER}</jdbc.username>
-        <jdbc.password>${env.MYSQL_PWD}</jdbc.password>
+        <jdbc.username>${env.MYSQL_USERNAME}</jdbc.username>
+        <jdbc.password>${env.MYSQL_PASSWORD}</jdbc.password>
         <target.base>${basedir}</target.base>
     </properties>
 
@@ -62,42 +62,42 @@
                     </excludes>
                 </configuration>
             </plugin>
-            <plugin>
-                <groupId>org.mybatis.generator</groupId>
-                <artifactId>mybatis-generator-maven-plugin</artifactId>
-                <version>1.4.0</version>
-                <dependencies>
-                    <!-- 数据库插件 -->
-                    <dependency>
-                        <groupId>com.mysql</groupId>
-                        <artifactId>mysql-connector-j</artifactId>
-                        <version>8.0.33</version>
-                        <scope>runtime</scope>
-                    </dependency>
-                    <!-- lombok 插件 -->
-                    <dependency>
-                        <groupId>com.softwareloop</groupId>
-                        <artifactId>mybatis-generator-lombok-plugin</artifactId>
-                        <version>1.0</version>
-                    </dependency>
-                </dependencies>
-                <executions>
-                    <execution>
-                        <id>Generate MyBatis Artifacts</id>
-                        <goals>
-                            <goal>generate</goal>
-                        </goals>
-                    </execution>
-                </executions>
-                <configuration>
-                    <!-- 输出详细信息 -->
-                    <verbose>true</verbose>
-                    <!-- 覆盖生成文件 -->
-                    <overwrite>true</overwrite>
-                    <!-- 定义配置文件 -->
-                    <configurationFile>${basedir}/src/main/resources/generator-configuration.xml</configurationFile>
-                </configuration>
-            </plugin>
+            <!--<plugin>-->
+            <!--    <groupId>org.mybatis.generator</groupId>-->
+            <!--    <artifactId>mybatis-generator-maven-plugin</artifactId>-->
+            <!--    <version>1.4.0</version>-->
+            <!--    <dependencies>-->
+            <!--        &lt;!&ndash; 数据库插件 &ndash;&gt;-->
+            <!--        <dependency>-->
+            <!--            <groupId>com.mysql</groupId>-->
+            <!--            <artifactId>mysql-connector-j</artifactId>-->
+            <!--            <version>8.0.33</version>-->
+            <!--            <scope>runtime</scope>-->
+            <!--        </dependency>-->
+            <!--        &lt;!&ndash; lombok 插件 &ndash;&gt;-->
+            <!--        <dependency>-->
+            <!--            <groupId>com.softwareloop</groupId>-->
+            <!--            <artifactId>mybatis-generator-lombok-plugin</artifactId>-->
+            <!--            <version>1.0</version>-->
+            <!--        </dependency>-->
+            <!--    </dependencies>-->
+            <!--    <executions>-->
+            <!--        <execution>-->
+            <!--            <id>Generate MyBatis Artifacts</id>-->
+            <!--            <goals>-->
+            <!--                <goal>generate</goal>-->
+            <!--            </goals>-->
+            <!--        </execution>-->
+            <!--    </executions>-->
+            <!--    <configuration>-->
+            <!--        &lt;!&ndash; 输出详细信息 &ndash;&gt;-->
+            <!--        <verbose>true</verbose>-->
+            <!--        &lt;!&ndash; 覆盖生成文件 &ndash;&gt;-->
+            <!--        <overwrite>true</overwrite>-->
+            <!--        &lt;!&ndash; 定义配置文件 &ndash;&gt;-->
+            <!--        <configurationFile>${basedir}/src/main/resources/generator-configuration.xml</configurationFile>-->
+            <!--    </configuration>-->
+            <!--</plugin>-->
         </plugins>
     </build>
 </project>
