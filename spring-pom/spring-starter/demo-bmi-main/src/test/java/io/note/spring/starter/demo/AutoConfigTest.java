@@ -1,7 +1,7 @@
 package io.note.spring.starter.demo;
 
 import javax.annotation.Resource;
-import edu.note.spring.starter.autoconfig.UserBMI;
+import edu.note.spring.starter.autoconfig.UserBmiService;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
@@ -9,7 +9,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 class AutoConfigTest {
 
     @Resource
-    UserBMI userBMI;
+    UserBmiService userBMI;
 
     @Test
     void testMyBmi() {

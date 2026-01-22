@@ -1,8 +1,8 @@
 server:
   port: 8081
 demo:
-  user:
-    teacher:
+  bmi:
+    user:
       name: zhangsan
       age: 24
       height: 1.75

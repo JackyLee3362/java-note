@@ -1,0 +1,6 @@
+config-center:
+  config:
+    namespace: demo-service
+    group: DEFAULT_GROUP
+    address: localhost:8848
+    port: 8848

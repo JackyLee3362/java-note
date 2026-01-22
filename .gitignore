@@ -2,6 +2,7 @@
 **/demo-backend/src/main/resources/*
 **/tmp/*
 bak
+tmp
 data
 **/*.log
 **/.*

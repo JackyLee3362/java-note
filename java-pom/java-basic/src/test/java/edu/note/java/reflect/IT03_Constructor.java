@@ -26,7 +26,7 @@ import org.junit.jupiter.api.Test;
  * @author JackyLee
  * @date 2024/11/28 10:53
  **/
-public class IT03_GetConstructor {
+public class IT03_Constructor {
 
     // 获取class字节码文件对象
     Class<Student> clazz = Student.class;

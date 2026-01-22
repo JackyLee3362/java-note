@@ -16,9 +16,12 @@
   </properties>
 
   <modules>
+    <module>config-center-autoconfig</module>
+    <module>config-center-starter</module>
     <module>demo-bmi-autoconfig</module>
     <module>demo-bmi-main</module>
     <module>demo-bmi-starter</module>
+    <module>demo-service</module>
   </modules>
 
 </project>

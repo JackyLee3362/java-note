@@ -1,3 +1,4 @@
+
 package edu.note;
 
 import javax.annotation.Resource;
@@ -11,24 +12,18 @@ import lombok.extern.slf4j.Slf4j;
 
 /**
  * @author jackylee
- * @date 2025/7/7 09:19
+ * @date 2026-01-14 17:04
  */
 @Slf4j
 @SpringBootApplication
-public class StartApp implements ApplicationRunner {
+public class StartAppV2 {
 
     @Resource
     private MyDataBaseConfig myDataBaseConfig;
 
     public static void main(String[] args) {
-        SpringApplication.run(StartApp.class, args);
+        SpringApplication.run(StartAppV2.class, args);
         log.info("服务启动成功！");
-    }
-
-    @Override
-    public void run(ApplicationArguments args) throws Exception {
-        log.info("开始执行命令...");
-        log.info("结束执行命令...");
     }
 
 }

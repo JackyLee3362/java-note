@@ -22,23 +22,18 @@ import org.junit.jupiter.api.Test;
  * @author JackyLee
  * @date 2024/11/28 10:56
  **/
-public class IT04_GetParams {
+public class IT04_Field {
 
     // 1.获取class字节码文件的对象
     Class<Student> clazz = Student.class;
 
     @Test
-    @DisplayName("获取成员变量")
-    void test01() {
+    @DisplayName("获取字段")
+    void test01() throws IllegalArgumentException, IllegalAccessException, NoSuchFieldException, SecurityException {
+        // 获取所有 public 成员变量
         Field[] fields = clazz.getDeclaredFields();
         assertEquals(4, fields.length);
-    }
-
-    @Test
-    @DisplayName("获取单个成员变量")
-    void test02() throws NoSuchFieldException, IllegalAccessException {
-
-        // 获取单个的成员变量
+        // 获取单个字段
         Field name = clazz.getDeclaredField("name");
         assertEquals(name.getName(), "name");
         // 获取权限修饰符
@@ -49,6 +44,25 @@ public class IT04_GetParams {
         // 获取成员变量的数据类型
         Class<?> type = name.getType();
         assertEquals(type, String.class);
+
+        // 获取成员变量记录的值
+        Student s = new Student("Foo");
+        name.setAccessible(true);
+        String value = (String) name.get(s);
+        assertEquals(value, "Foo");
+
+        // 修改对象里面记录的值
+        name.set(s, "Bar");
+        assertEquals(s.getName(), "Bar");
+    }
+
+    @Test
+    @DisplayName("修改字段")
+    void test03() throws NoSuchFieldException, IllegalAccessException {
+
+        // 获取单个的成员变量
+        Field name = clazz.getDeclaredField("name");
+        assertEquals(name.getName(), "name");
 
         // 获取成员变量记录的值
         Student s = new Student("Foo");

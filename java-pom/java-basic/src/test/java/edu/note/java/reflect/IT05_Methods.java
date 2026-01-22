@@ -31,7 +31,7 @@ import org.junit.jupiter.api.Test;
  * @author JackyLee
  * @date 2024/11/28 10:56
  **/
-public class IT05_GetMethods {
+public class IT05_Methods {
 
     // 1. 获取class字节码文件对象
     Class<Student> clazz = Student.class;
