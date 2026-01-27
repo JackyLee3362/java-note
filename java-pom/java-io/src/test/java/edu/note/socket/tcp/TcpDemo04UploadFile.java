@@ -65,10 +65,10 @@ public class TcpDemo04UploadFile {
 
             // 4.释放资源
             socket.close();
+            bis.close();
         } catch (Exception e) {
             log.error("错误: {}", e);
         }
-
     };
     private static Runnable server = () -> {
 

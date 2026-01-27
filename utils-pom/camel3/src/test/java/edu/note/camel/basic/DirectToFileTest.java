@@ -2,8 +2,6 @@ package edu.note.camel.basic;
 
 import org.apache.camel.RoutesBuilder;
 import org.apache.camel.builder.RouteBuilder;
-import org.apache.camel.component.direct.DirectComponent;
-import org.apache.camel.component.direct.DirectEndpoint;
 import org.apache.camel.test.junit5.CamelTestSupport;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
