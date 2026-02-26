@@ -6,6 +6,7 @@ import java.io.IOException;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -87,7 +88,7 @@ public class IT01_Basic_UnserializeTest {
 
     // 类型转换接口 API convertValue: 将 Map 转换为实体类
     @Test
-    @DisplayName("测试 convertValue")
+    @DisplayName("Map -> 对象")
     void test02() {
         // given: 准备数据
         Map<String, Object> map = new HashMap<>();
@@ -100,6 +101,26 @@ public class IT01_Basic_UnserializeTest {
         // then: 断言
         assertEquals("alice", user.getName());
         assertEquals(12, user.getAge());
+    }
+
+    // 类型转换接口 API convertValue: 将 Map 转换为实体类
+    @Test
+    @DisplayName("List -> 对象")
+    void test03() {
+        // given: 准备数据
+        Map<String, Object> map = new HashMap<>();
+        map.put("name", "alice");
+        map.put("age", 12);
+        ArrayList<String> list = new ArrayList<>();
+        list.add("foo");
+        list.add("bar");
+        map.put("info", list);
+
+        // when: 调用
+        List<String> list2 = objectMapper.convertValue(map.get("info"), new TypeReference<List<String>>() {
+        });
+        assertEquals("foo", list2.get(0));
+        assertEquals("bar", list2.get(1));
     }
 
     @AllArgsConstructor
