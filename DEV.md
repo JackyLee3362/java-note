@@ -46,7 +46,7 @@ description:
     <scope>test</scope>
   </dependency>
 
-  <!--常用工具-->
+  <!--Lombok-->
   <dependency>
     <groupId>org.projectlombok</groupId>
     <artifactId>lombok</artifactId>
