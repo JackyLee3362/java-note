@@ -51,7 +51,6 @@ public class StreamConstructorTest {
 
         // then:
         // ...
-
     }
 
     @Test
