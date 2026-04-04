@@ -19,18 +19,24 @@
     </properties>
 
     <dependencies>
-
+        <!-- Bean Validation API 和 Hibernate Validator 实现 -->
         <dependency>
             <groupId>org.hibernate.validator</groupId>
             <artifactId>hibernate-validator</artifactId>
-            <version>6.0.16.Final</version>
+            <version>6.0.13.Final</version>
             <scope>compile</scope>
         </dependency>
 
+        <!-- 表达式解析器(Hibernate Validator 依赖) -->
         <dependency>
-            <groupId>javax.validation</groupId>
-            <artifactId>validation-api</artifactId>
-            <version>2.0.1.Final</version>
+            <groupId>org.glassfish.web</groupId>
+            <artifactId>javax.el</artifactId>
+            <version>2.2.4</version>
+        </dependency>
+        <dependency>
+            <groupId>javax.el</groupId>
+            <artifactId>javax.el-api</artifactId>
+            <version>3.0.0</version>
         </dependency>
 
         <!--常用测试-->

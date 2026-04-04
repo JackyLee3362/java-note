@@ -79,7 +79,7 @@ class StaticMethodSpec extends Specification {
 
         then: "比较"
         res != exp
-        // 或者 
+        // 或者
         with(res){
             name == v_name
             age == v_age
