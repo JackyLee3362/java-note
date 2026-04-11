@@ -23,7 +23,6 @@
     <module>utils-pom</module>
     <module>java-pom</module>
     <module>data-structure-pom</module>
-    <module>groovy-pom</module>
     <module>json-pom</module>
     <module>logging-pom</module>
     <module>db-pom</module>
@@ -32,7 +31,6 @@
     <module>bak-pom</module>
     <module>mq-pom</module>
     <module>task-pom</module>
-    <module>crypt-pom</module>
   </modules>
 
 </project>

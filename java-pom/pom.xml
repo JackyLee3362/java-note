@@ -17,7 +17,6 @@
 
   <modules>
     <module>java-basic</module>
-    <module>java-collection</module>
     <module>java-io</module>
     <module>java-spi</module>
     <module>juc</module>

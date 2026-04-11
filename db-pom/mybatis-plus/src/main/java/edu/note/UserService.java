@@ -1,12 +1,13 @@
 package edu.note;
 
-import org.apache.ibatis.annotations.Mapper;
+import edu.note.entity.UserPO;
 
 /**
  * @author jackylee
  * @date 2025-12-08 19:32
  */
-@Mapper
 public interface UserService {
+
+    UserPO getUserById(Long id);
 
 }

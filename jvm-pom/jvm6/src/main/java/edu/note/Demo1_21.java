@@ -10,7 +10,7 @@ public class Demo1_21 {
         String s5 = "ab";
         String s6 = s4.intern();
 
-// 问
+        // 问
         System.out.println(s3 == s4);
         System.out.println(s3 == s5);
         System.out.println(s3 == s6);
@@ -19,7 +19,7 @@ public class Demo1_21 {
         x2.intern(); // "cd"
         String x1 = "cd";
 
-// 问，如果调换了【最后两行代码】的位置呢，如果是jdk1.6呢
+        // 问，如果调换了【最后两行代码】的位置呢，如果是jdk1.6呢
         System.out.println(x1 == x2);
     }
 }

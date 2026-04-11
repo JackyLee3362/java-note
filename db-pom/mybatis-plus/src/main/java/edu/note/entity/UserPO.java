@@ -16,7 +16,9 @@ import lombok.NoArgsConstructor;
 public class UserPO {
 
     private Long id;
+
     private String name;
+
     private Integer age;
 
 }

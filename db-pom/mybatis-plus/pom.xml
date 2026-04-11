@@ -25,6 +25,13 @@
             <artifactId>spring-boot-starter</artifactId>
         </dependency>
 
+        <!-- 核心：MyBatis-Plus Starter（自动管理MyBatis、MyBatis-Spring依赖） -->
+        <dependency>
+            <groupId>com.baomidou</groupId>
+            <artifactId>mybatis-plus-boot-starter</artifactId>
+            <version>3.5.5</version> <!-- 稳定版，适配Spring Boot 3.x -->
+        </dependency>
+
         <!--mybatis起步依赖-->
         <dependency>
             <groupId>org.mybatis.spring.boot</groupId>

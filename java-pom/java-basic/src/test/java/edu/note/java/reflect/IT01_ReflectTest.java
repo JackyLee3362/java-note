@@ -3,6 +3,7 @@ package edu.note.java.reflect;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.lang.reflect.Method;
+import java.util.stream.Stream;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -11,7 +12,7 @@ import org.junit.jupiter.api.Test;
  * @author jackylee
  * @date 2024/11/27 下午10:06
  */
-public class IT01_Reflect {
+public class IT01_ReflectTest {
 
     @Test
     @DisplayName("反射基础")
@@ -23,6 +24,7 @@ public class IT01_Reflect {
         // 3. 获取方法
         // 3.1 获取所有方法
         Method[] methods = clazz.getMethods();
+        Stream.of(methods).forEach(System.out::println);
         // 3.2 获取指定方法
         Method method = clazz.getMethod("setName", String.class);
         // 4. 执行方法

@@ -11,23 +11,23 @@
 
         <!--相关插件，自定义插件也可以放在这里-->
         <!--生成mapper.xml时覆盖原文件-->
-        <plugin type="org.mybatis.generator.plugins.UnmergeableXmlMappersPlugin"></plugin>
+        <plugin type="org.mybatis.generator.plugins.UnmergeableXmlMappersPlugin" />
         <!--为entity生成序列化方法-->
-        <plugin type="org.mybatis.generator.plugins.SerializablePlugin"></plugin>
+        <plugin type="org.mybatis.generator.plugins.SerializablePlugin" />
         <!--Lombok插件-->
         <plugin type="com.softwareloop.mybatis.generator.plugins.LombokPlugin">
             <!-- 开启 builder -->
-            <property name="builder" value="true" />
+            <!-- <property name="builder" value="true" /> -->
             <!-- annotation's option(boolean) -->
-            <property name="builder.fluent" value="true" />
+            <!-- <property name="builder.fluent" value="true" /> -->
             <!-- annotation's option(String) -->
-            <property name="builder.builderMethodName" value="myBuilder" />
-            <property name="accessors" value="true" />
+            <!-- <property name="builder.builderMethodName" value="myBuilder" /> -->
+            <!-- <property name="accessors" value="true" /> -->
             <!-- annotation's option(array of String) -->
-            <property name="accessors.prefix" value="m_, _" />
+            <!-- <property name="accessors.prefix" value="m_, _" /> -->
             <!-- 生成器 -->
-            <property name="allArgsConstructor" value="false" />
-            <property name="noArgsConstructor" value="false" />
+            <!-- <property name="allArgsConstructor" value="false" /> -->
+            <!-- <property name="noArgsConstructor" value="false" /> -->
         </plugin>
 
 
