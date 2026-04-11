@@ -1,12 +1,12 @@
-package com.jacky.boot;
+package edu.note.spring.controller;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class MainApplication {
+public class Application {
     public static void main(String[] args) {
-        SpringApplication.run(MainApplication.class);
+        SpringApplication.run(Application.class);
     }
 
 }

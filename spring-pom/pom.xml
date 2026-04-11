@@ -23,6 +23,7 @@
     <module>spring-bean-xml</module>
     <module>spring-boot-config</module>
     <module>spring-event</module>
+    <module>spring-controller</module>
   </modules>
 
   <properties>
