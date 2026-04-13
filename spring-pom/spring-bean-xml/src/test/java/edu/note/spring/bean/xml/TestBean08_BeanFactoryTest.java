@@ -11,11 +11,12 @@ import org.springframework.core.io.Resource;
  * @author jackylee
  * @date 2025-09-30 14:49
  */
-public class BeanFactoryTest {
+public class TestBean08_BeanFactoryTest {
 
     @Test
     @DisplayName("测试层次结构")
     void testStructor() {
+        assert BeanFactory.class.isAssignableFrom(XmlBeanFactory.class);
         // ApplicationContext 继承 BeanFactory
         // BeanFactory是IoC容器的顶层接口，初始化BeanFactory对象时，加载的bean延迟加载
     }
@@ -25,7 +26,7 @@ public class BeanFactoryTest {
     void testIOC01() {
         // - BeanFactory是延迟加载:只有在获取bean对象的时候才会去创建
         // - ApplicationContext是立即加载:容器加载的时候就会创建bean对象
-        Resource resources = new ClassPathResource("bean-ioc.xml");
+        Resource resources = new ClassPathResource("bean/Bean-注入.xml");
         BeanFactory bf = new XmlBeanFactory(resources);
         HelloDao dao = bf.getBean(HelloDao.class);
         dao.save("foo");

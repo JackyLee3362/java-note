@@ -13,12 +13,13 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
  * @author jackylee
  * @date 2025-10-05 12:02
  */
-public class ThirdPackageInjectTest {
+@SuppressWarnings("resource")
+public class TestBean07_ThirdPackageInject {
     @Test
     @DisplayName("测试 Druid 连接池")
     void testDruid() {
         // 获取 IOC 容器
-        ApplicationContext ctx = new ClassPathXmlApplicationContext("bean-druid.xml");
+        ApplicationContext ctx = new ClassPathXmlApplicationContext("bean/Bean-Druid.xml");
         DataSource bean = ctx.getBean(DataSource.class);
         assertNotNull(bean);
     }
@@ -26,7 +27,7 @@ public class ThirdPackageInjectTest {
     @Test
     @DisplayName("测试 c3p0 连接池")
     void testC3p0() {
-        ApplicationContext ctx = new ClassPathXmlApplicationContext("bean-c3p0.xml");
+        ApplicationContext ctx = new ClassPathXmlApplicationContext("bean/Bean-c3p0.xml");
         DataSource bean = ctx.getBean(DataSource.class);
         assertNotNull(bean);
     }

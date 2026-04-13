@@ -1,3 +1,13 @@
-## 请求错误
+### 测试 path
+GET /rest/path/1/alice HTTP/1.1
+Host: localhost:8888
+
+### 测试 param
+GET /rest/param?id=1&names=alice HTTP/1.1
+Host: localhost:8888
+
+### 
+
+### 请求错误
 GET /cars/sell;price=999;brand=audi;brand=bmw HTTP/1.1
 Host: localhost:8888

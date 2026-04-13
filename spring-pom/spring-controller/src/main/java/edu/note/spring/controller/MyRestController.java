@@ -22,26 +22,23 @@ public class MyRestController {
     @GetMapping("/path/{id}/{name}")
     public Map<String, Object> testPathVariable(
             @PathVariable("id") Integer userId,
-            @PathVariable("name") String carName,
-            @PathVariable Map<String, String> pv) {
+            @PathVariable("name") String userName,
+            @PathVariable Map<String, String> info) {
         Map<String, Object> map = new HashMap<>();
         map.put("id", userId);
-        map.put("name", carName);
-        map.put("pv", pv);
-        map.put("msg", "hello world");
+        map.put("name", userName);
+        map.put("info", info);
         return map;
     }
 
     @GetMapping("/param")
     public Map<String, Object> testRequestParam(
-            @RequestParam Integer age,
-            @RequestParam List<String> interest,
-            @RequestParam("extend") Map<String, String> info) {
+            @RequestParam("id") Integer userId, @RequestParam("names") List<String> userNames,
+            @RequestParam(name = "extend", required = false) Map<String, String> info) {
         Map<String, Object> map = new HashMap<>();
-        map.put("msg", "hello world");
-        map.put("age", age);
-        map.put("interest", interest);
-        map.put("param of all", info);
+        map.put("id", userId);
+        map.put("names", userNames);
+        map.put("extend", info);
         return map;
     }
 
@@ -57,14 +54,14 @@ public class MyRestController {
             @RequestHeader Map<String, String> header) {
         Map<String, Object> map = new HashMap<>();
         map.put("user-Agent", userAgent);
-        map.put("head",header);
+        map.put("head", header);
         return map;
     }
 
     @GetMapping("/cookie")
     public Map<String, Object> testCookie(@CookieValue("_ga") String ga) {
         Map<String, Object> map = new HashMap<>();
-        map.put("cookie_ga",ga);
+        map.put("cookie_ga", ga);
         return map;
     }
 

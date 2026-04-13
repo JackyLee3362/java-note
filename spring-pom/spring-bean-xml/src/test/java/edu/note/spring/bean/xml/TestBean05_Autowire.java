@@ -12,12 +12,12 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
  * @date 2025-10-05 11:48
  */
 @SuppressWarnings("resource")
-public class AutoWireTest {
+public class TestBean05_Autowire {
 
     @Test
     @DisplayName("测试自动装配 - byType")
     void testAutowireByType() {
-        ApplicationContext ctx = new ClassPathXmlApplicationContext("bean-autowire-by-type.xml");
+        ApplicationContext ctx = new ClassPathXmlApplicationContext("bean/Bean-自动装配-byType.xml");
         HelloService bean = ctx.getBean(HelloService.class);
         String res = bean.hello("Bar");
         assertEquals("Hello, Bar", res);
@@ -26,7 +26,7 @@ public class AutoWireTest {
     @Test
     @DisplayName("测试自动装配 - byName")
     void testAutowireByName() {
-        ApplicationContext ctx = new ClassPathXmlApplicationContext("bean-autowire-by-name.xml");
+        ApplicationContext ctx = new ClassPathXmlApplicationContext("bean/Bean-自动装配-byName.xml");
         HelloService bean = ctx.getBean(HelloService.class);
         String res = bean.hello("Bar");
         assertEquals("Hello, Bar", res);
@@ -35,7 +35,7 @@ public class AutoWireTest {
     @Test
     @DisplayName("测试自动装配 - 集合")
     void testAutowireCollection() {
-        ApplicationContext ctx = new ClassPathXmlApplicationContext("bean-autowire-collection.xml");
+        ApplicationContext ctx = new ClassPathXmlApplicationContext("bean/Bean-自动装配-集合.xml");
         HelloService res = ctx.getBean(HelloService.class);
         res.hello("Bar");
     }

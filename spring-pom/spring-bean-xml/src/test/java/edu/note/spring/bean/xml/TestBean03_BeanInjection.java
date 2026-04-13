@@ -12,13 +12,13 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
  * @date 2025-12-24 13:24
  */
 @SuppressWarnings("resource")
-public class IT03_BeanInjectionTest {
+public class TestBean03_BeanInjection {
 
     @Test
     @DisplayName("测试 DI")
     void testDI01() {
         // 获取 IOC 容器
-        ApplicationContext context = new ClassPathXmlApplicationContext("3.1-bean-di.xml");
+        ApplicationContext context = new ClassPathXmlApplicationContext("bean/Bean-注入.xml");
         HelloService service = context.getBean(HelloService.class);
         String hello = service.hello("Foo");
         assertEquals("Hello, Foo", hello);
@@ -28,7 +28,7 @@ public class IT03_BeanInjectionTest {
     @DisplayName("测试构造器注入")
     void testConstrctorArg() {
         // 获取 IOC 容器
-        ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("3.2-bean-constructor-arg.xml");
+        ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("bean/Bean-构造器注入.xml");
         HelloService bean = context.getBean(HelloService.class);
         String hello = bean.hello("Bar");
         assertEquals("Hello, Bar", hello);

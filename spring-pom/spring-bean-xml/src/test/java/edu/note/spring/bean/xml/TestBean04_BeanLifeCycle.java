@@ -9,13 +9,13 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
  * @date 2025-12-24 13:22
  */
 @SuppressWarnings("resource")
-public class IT04_BeanLifeCycleTest {
+public class TestBean04_BeanLifeCycle {
 
     @Test
     @DisplayName("测试 bean 生命周期")
     void testBeanLifeCycle() {
         // 获取 IOC 容器
-        ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("4.1-bean-life-cycle.xml");
+        ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("bean/Bean-生命周期.xml");
         context.getBean(HelloDao.class);
         // 容器关闭时 destory
         context.close();
@@ -25,7 +25,7 @@ public class IT04_BeanLifeCycleTest {
     @DisplayName("测试 bean 生命周期")
     void testBeanLifeCycleByHook() {
         // 获取 IOC 容器
-        ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("4.2-bean-life-cycle-hook.xml");
+        ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("bean/Bean-生命周期-hook.xml");
         context.getBean(WorldDao.class);
         context.registerShutdownHook();
     }
