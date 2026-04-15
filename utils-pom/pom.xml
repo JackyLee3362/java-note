@@ -26,7 +26,7 @@
     <module>jwt</module>
     <module>rest-template</module>
     <module>crypt</module>
-    <module>java-validation</module>
+    <module>csv</module>
   </modules>
 
 </project>
