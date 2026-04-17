@@ -101,4 +101,26 @@ public class TestCommonCsvParse {
             System.out.println(user);
         });
     }
+
+    @Test
+    @DisplayName("测试 bom")
+    void test_basic_0() throws IOException {
+        // given:
+        CSVFormat format = CSVFormat.DEFAULT.builder()
+                // 需要配合 setHeader 使用，表示第一行是 header，不需要解析
+                .setTrim(true)
+                .get();
+        String csv = "1  ,  Alice  ,18\n2,   Bob  ,20\n";
+        StringReader reader = new StringReader(csv);
+        // when:
+        CSVParser csvParser = format.parse(reader);
+        // then:
+        csvParser.forEach(record -> {
+            User user = new User();
+            user.setId(record.get(0));
+            user.setName(record.get(1));
+            user.setAge(Integer.parseInt(record.get(2)));
+            System.out.println(user);
+        });
+    }
 }

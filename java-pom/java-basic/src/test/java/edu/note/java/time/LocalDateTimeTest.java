@@ -16,6 +16,37 @@ import org.junit.jupiter.api.Test;
 public class LocalDateTimeTest {
 
     @Test
+    @DisplayName("测试格式")
+    void test_basic_01() {
+        // given:
+        LocalDateTime localDateTime = LocalDateTime.of(2025, 2, 3, 4, 5, 6);
+
+        // when:
+        String format1 = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss").format(localDateTime);
+        String format2 = DateTimeFormatter.ofPattern("YYYY-MM-dd HH:mm:ss").format(localDateTime);
+
+        // then:
+        assertEquals("2025-02-03 04:05:06", format1);
+        assertEquals("2025-02-03 04:05:06", format2);
+
+    }
+
+    @Test
+    @DisplayName("测试")
+    void test_basic_02() {
+        // given:
+        LocalDateTime localDateTime = LocalDateTime.of(2025, 2, 3, 4, 5, 6);
+
+        // when:
+        LocalDateTime localDateTime2 = LocalDateTime.parse("2025-02-03 04:05:06",
+                DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")); // 这里使用 YYYY 会报错
+
+        // then:
+        assertEquals(localDateTime, localDateTime2);
+
+    }
+
+    @Test
     @DisplayName("LocalDateTime 构造器")
     void testLocalDateTime() {
 
@@ -49,7 +80,8 @@ public class LocalDateTimeTest {
         // 自定义格式
         LocalDateTime parsed2 = LocalDateTime.parse("2025-09-01 20:10:11",
                 DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
-        LocalDateTime parsed3 = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss").parse("2025-09-01 20:10:11", LocalDateTime::from);
+        LocalDateTime parsed3 = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss").parse("2025-09-01 20:10:11",
+                LocalDateTime::from);
 
         assertEquals(parsed0, dt);
         assertEquals(parsed1, dt);

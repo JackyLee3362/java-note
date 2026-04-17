@@ -20,6 +20,7 @@
 
     <modules>
         <module>hibernate-validation</module>
+        <module>commons-validator</module>
     </modules>
 
 </project>
