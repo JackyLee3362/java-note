@@ -16,14 +16,12 @@
     <module>spring-transaction</module>
     <module>spring-boot</module>
     <module>spring-test</module>
-    <module>spring-util</module>
     <module>spring-boot-db</module>
     <module>spring-event</module>
     <module>spring-bean-anno</module>
     <module>spring-bean-xml</module>
     <module>spring-boot-config</module>
     <module>spring-event</module>
-    <module>spring-controller</module>
   </modules>
 
   <properties>

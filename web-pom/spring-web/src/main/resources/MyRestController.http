@@ -1,0 +1,34 @@
+### 测试 path
+GET /rest/path/1/alice HTTP/1.1
+Host: localhost:8888
+
+### 测试 param
+GET /rest/param?id=1&names=alice HTTP/1.1
+Host: localhost:8888
+
+### 测试 ModelAttribute
+GET /rest/modelAttribute/alice/12
+Host: localhost:8888
+
+### 测试 RequestBody
+GET /rest/requestBody
+Host: localhost:8888
+Content-Type: application/json
+
+{
+    "name": "alice"
+}
+
+### 测试 RequestBody/list
+GET /rest/requestBody/list
+Host: localhost:8888
+Content-Type: application/json
+
+[
+    "alice", "bob"
+]
+
+
+### 请求错误
+GET /cars/sell;price=999;brand=audi;brand=bmw HTTP/1.1
+Host: localhost:8888

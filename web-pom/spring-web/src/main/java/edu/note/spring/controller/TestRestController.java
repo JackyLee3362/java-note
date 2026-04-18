@@ -1,0 +1,85 @@
+package edu.note.spring.controller;
+
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import org.springframework.web.bind.annotation.CookieValue;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.MatrixVariable;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestHeader;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+@RequestMapping("/rest")
+public class TestRestController {
+
+    @GetMapping("/path/{id}/{name}")
+    public Map<String, Object> testPathVariable(
+            @PathVariable("id") Integer userId,
+            @PathVariable("name") String userName,
+            @PathVariable Map<String, String> info) {
+        Map<String, Object> map = new HashMap<>();
+        map.put("id", userId);
+        map.put("name", userName);
+        map.put("info", info);
+        return map;
+    }
+
+    @GetMapping("/param")
+    public Map<String, Object> testRequestParam(
+            @RequestParam("id") Integer userId, @RequestParam("names") List<String> userNames,
+            @RequestParam(name = "extend", required = false) Map<String, String> info) {
+        Map<String, Object> map = new HashMap<>();
+        map.put("id", userId);
+        map.put("names", userNames);
+        map.put("extend", info);
+        return map;
+    }
+
+    @GetMapping("/requestBody")
+    public Map<String, Object> testRequestBody(@RequestBody String content) {
+        Map<String, Object> map = new HashMap<>();
+        map.put("content", content);
+        return map;
+    }
+
+    @GetMapping("/requestHeader")
+    public Map<String, Object> testRequestHeader(
+            @RequestHeader("User-Agent") String userAgent,
+            @RequestHeader Map<String, String> header) {
+        Map<String, Object> map = new HashMap<>();
+        map.put("user-Agent", userAgent);
+        map.put("head", header);
+        return map;
+    }
+
+    @GetMapping("/cookie")
+    public Map<String, Object> testCookie(@CookieValue("_ga") String ga) {
+        Map<String, Object> map = new HashMap<>();
+        map.put("cookie_ga", ga);
+        return map;
+    }
+
+    @PostMapping("/post")
+    public Map<String, Object> testPost(@RequestBody String content) {
+        Map<String, Object> map = new HashMap<>();
+        map.put("content", content);
+        return map;
+    }
+
+    @GetMapping("/matrix")
+    public Map<String, Object> testMatrixVariable(@MatrixVariable("price") Integer price,
+            @MatrixVariable("brand") List<String> brand) {
+        Map<String, Object> map = new HashMap<>();
+        map.put("price", price);
+        map.put("brand", brand);
+        return map;
+    }
+
+}
