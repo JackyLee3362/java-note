@@ -5,6 +5,8 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import io.note.spring.Student;
+
 /**
  * @description: 测试下自动装配
  * @author: Jacky Lee

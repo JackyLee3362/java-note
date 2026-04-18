@@ -16,6 +16,7 @@ import edu.note.spring.aop.config.SpringConfigBefore;
  * @author jackylee
  * @date 2025-10-05 16:04
  */
+@SuppressWarnings("resource")
 public class MyAdviceTest {
     @Test
     @DisplayName("测试 AOP after")

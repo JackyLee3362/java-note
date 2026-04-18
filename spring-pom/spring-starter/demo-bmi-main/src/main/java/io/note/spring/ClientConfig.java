@@ -1,4 +1,4 @@
-package io.note.spring.starter.demo;
+package io.note.spring;
 
 import edu.note.spring.starter.autoconfig.User;
 import edu.note.spring.starter.autoconfig.UserBmiService;
@@ -10,7 +10,7 @@ import org.springframework.context.annotation.Configuration;
  * @date 2025/7/26 12:06
  */
 @Configuration
-public class Config {
+public class ClientConfig {
 
     @Bean
     UserBmiService userBmiService() {

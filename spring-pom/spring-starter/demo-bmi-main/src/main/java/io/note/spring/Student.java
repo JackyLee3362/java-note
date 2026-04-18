@@ -1,4 +1,4 @@
-package io.note.spring.starter.demo;
+package io.note.spring;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;
