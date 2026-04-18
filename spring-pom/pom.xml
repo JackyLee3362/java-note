@@ -13,7 +13,6 @@
     <module>spring-aop</module>
     <module>spring-context</module>
     <module>spring-starter</module>
-    <module>spring-transaction</module>
     <module>spring-boot</module>
     <module>spring-test</module>
     <module>spring-boot-db</module>
@@ -21,7 +20,6 @@
     <module>spring-bean-anno</module>
     <module>spring-bean-xml</module>
     <module>spring-boot-config</module>
-    <module>spring-event</module>
   </modules>
 
   <properties>

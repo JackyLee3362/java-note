@@ -16,7 +16,6 @@
     </properties>
 
     <dependencies>
-
         <dependency>
             <groupId>com.example.remote</groupId>
             <artifactId>config-center-starter</artifactId>

@@ -1,4 +1,4 @@
-package edu.note.config;
+package edu.note.spring.config;
 
 import org.springframework.context.annotation.Configuration;
 
