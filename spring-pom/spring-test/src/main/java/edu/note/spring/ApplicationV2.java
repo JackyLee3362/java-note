@@ -1,28 +1,22 @@
-package edu.note;
-
-import javax.annotation.Resource;
+package edu.note.spring;
 
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
-import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import lombok.extern.slf4j.Slf4j;
 
 /**
  * @author jackylee
- * @date 2025/7/7 09:19
+ * @date 2026-04-18 20:00
  */
 @Slf4j
 @SpringBootApplication
-public class StartApp implements ApplicationRunner {
-
-    @Resource
-    private MyDataBaseConfig myDataBaseConfig;
+public class ApplicationV2 implements ApplicationRunner {
 
     public static void main(String[] args) {
-        SpringApplication.run(StartApp.class, args);
-        log.info("服务启动成功！");
+        System.out.println();
+
     }
 
     @Override

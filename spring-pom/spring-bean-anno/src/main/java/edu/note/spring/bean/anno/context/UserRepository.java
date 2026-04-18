@@ -1,4 +1,4 @@
-package edu.note.spring.context;
+package edu.note.spring.bean.anno.context;
 
 import org.springframework.stereotype.Repository;
 

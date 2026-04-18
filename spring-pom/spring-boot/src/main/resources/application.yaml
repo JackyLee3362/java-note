@@ -1,6 +1,0 @@
-logging:
-  level:
-    root: debug
-db:
-  user: ${MYSQL_USER:admin}
-  password: ${MYSQL_PASSWORD:password}

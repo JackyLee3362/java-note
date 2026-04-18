@@ -1,19 +1,20 @@
-package edu.note.impl;
+package edu.note.spring.flow.impl;
 
 import org.springframework.stereotype.Component;
 
-import edu.note.Flow;
+import edu.note.spring.flow.Flow;
+
 
 /**
  * @author jackylee
  * @date 2026-01-14 10:50
  */
 @Component
-public class LogoutFlowImpl implements Flow {
+public class LoginFlowImpl implements Flow {
 
     @Override
     public void process() {
-        System.out.println("执行登出流程");
+        System.out.println("执行登录流程");
     }
 
 }

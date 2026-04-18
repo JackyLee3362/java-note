@@ -1,4 +1,4 @@
-package edu.note;
+package edu.note.spring.flow;
 
 import java.util.List;
 
