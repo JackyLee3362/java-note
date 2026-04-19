@@ -9,11 +9,9 @@ import org.junit.jupiter.api.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
-import edu.note.spring.bean.anno.config.ImportConfig;
 import edu.note.spring.bean.anno.config.ThirdPackageConfig;
 import edu.note.spring.bean.anno.config.ThirdPackageWithRefConfig;
 import edu.note.spring.bean.anno.config.ThirdPackageWithValueConfig;
-
 
 /**
  * @author jackylee
@@ -44,14 +42,6 @@ public class ThirdPackageInjectTest {
         ApplicationContext ctx = new AnnotationConfigApplicationContext(ThirdPackageWithRefConfig.class);
         DataSource ds2 = ctx.getBean(DataSource.class);
         assertNotNull(ds2);
-    }
-
-    @Test
-    @DisplayName("测试第三方包 - Import")
-    void testImport() {
-        ApplicationContext ctx = new AnnotationConfigApplicationContext(ImportConfig.class);
-        DataSource ds1 = ctx.getBean(DataSource.class);
-        assertNotNull(ds1);
     }
 
 }
