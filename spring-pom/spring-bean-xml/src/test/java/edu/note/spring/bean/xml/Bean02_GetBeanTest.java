@@ -14,7 +14,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
  * @date 2025-10-05 12:15
  */
 @SuppressWarnings("resource")
-public class Bean02_CreateBeanTest {
+public class Bean02_GetBeanTest {
 
     @Test
     @DisplayName("测试获取 bean 的三种方式")

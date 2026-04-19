@@ -4,6 +4,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.web.bind.annotation.CookieValue;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.MatrixVariable;
@@ -13,11 +15,30 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RequestPart;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.multipart.MultipartFile;
 
 @RestController
 @RequestMapping("/rest")
 public class TestRestController {
+    
+    //原始方式(了解即可，实际不会使用)
+    @RequestMapping("/httpServletRequest")
+    public String simpleParam(HttpServletRequest request) {
+        // http://localhost:8080/httpServletRequest?name=Tom&age=10
+        // 请求参数： name=Tom&age=10   （有2个请求参数）
+        // 第1个请求参数： name=Tom   参数名:name，参数值:Tom
+        // 第2个请求参数： age=10     参数名:age , 参数值:10
+
+        String name = request.getParameter("name");//name就是请求参数名
+        String ageStr = request.getParameter("age");//age就是请求参数名
+
+        int age = Integer.parseInt(ageStr);//需要手动进行类型转换
+        System.out.println(name + "  :  " + age);
+        return "OK";
+    }
+    
 
     @GetMapping("/path/{id}/{name}")
     public Map<String, Object> testPathVariable(
@@ -80,6 +101,28 @@ public class TestRestController {
         map.put("price", price);
         map.put("brand", brand);
         return map;
+    }
+
+    @PostMapping("/requestPart")
+    public String postMethodName(@RequestPart("single-image") MultipartFile headerimg,
+            @RequestPart("photos") MultipartFile[] photos) {
+        // 先判断是否为空
+        if (!headerimg.isEmpty()) {
+            // 存到目标服务器
+            String originalFilename = headerimg.getOriginalFilename();
+            // headerimg.transferTo(new File("D:\\" + originalFilename));
+        }
+        if (photos.length > 0) {
+            for (MultipartFile photo : photos) {
+                if (!photo.isEmpty()) {
+                    // photo.transferTo(new File("D:\\" + photo.getOriginalFilename()));
+                }
+                // 在配置文件中加入下面的配置可以限制文件大小
+                // spring.servlet.multipart.max-file-size = 10MB
+                // spring.servlet.multipart.max-request-size = 100MB
+            }
+        }
+        return "done";
     }
 
 }

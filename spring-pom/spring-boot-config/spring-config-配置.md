@@ -8,6 +8,14 @@ tags:
 description: 微服务笔记
 ---
 
+## 配置优先级
+
+1. 命令行(--xxx=xxx)
+2. java 属性 (-Dxxx=xxx)
+3. properties
+4. yml
+5. yaml
+
 ## 配置文件优先级
 
 application.properties > application.yml > application.yaml

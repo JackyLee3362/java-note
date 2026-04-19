@@ -1,5 +1,6 @@
 package edu.note.spring.controller;
 
+import java.time.LocalDate;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
@@ -59,10 +60,12 @@ public class UserController {
         return user;
     }
 
+    // @DateTimeFormat注解的pattern属性中指定了哪种日期格式，前端的日期参数就必须按照指定的格式传递。
+    // 后端controller方法中，需要使用Date类型或LocalDateTime类型，来封装传递的参数。
     @PostMapping("/date")
     // 默认使用 yyyy-MM-dd 的格式，但是是在哪里转换的呢? 使用 Converter 转换
     public String date(Date startDate,
-            @DateTimeFormat(pattern = "yyyy-MM-dd") Date endDate) {
+            @DateTimeFormat(pattern = "yyyy-MM-dd") LocalDate endDate) {
         return startDate.toString() + "," + endDate.toString();
     }
 

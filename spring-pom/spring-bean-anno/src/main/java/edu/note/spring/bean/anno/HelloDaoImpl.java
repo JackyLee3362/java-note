@@ -6,7 +6,6 @@ import org.springframework.stereotype.Repository;
  * @author jackylee
  * @date 2025-09-30 13:55
  */
-// @Component
 @Repository
 public class HelloDaoImpl implements HelloDao {
 
