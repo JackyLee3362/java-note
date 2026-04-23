@@ -1,4 +1,4 @@
-package edu.note.jackson.serialize;
+package edu.note.json.jackson.serialize;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 

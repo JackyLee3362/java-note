@@ -1,4 +1,4 @@
-package edu.note.jsonutil;
+package edu.note.json.jsonunit;
 
 import static org.junit.jupiter.api.Assertions.assertFalse;
 

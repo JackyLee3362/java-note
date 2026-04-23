@@ -1,4 +1,4 @@
-package edu.note.jackson.unserialize;
+package edu.note.json.jackson.unserialize;
 
 import java.nio.ByteBuffer;
 import java.util.HashMap;

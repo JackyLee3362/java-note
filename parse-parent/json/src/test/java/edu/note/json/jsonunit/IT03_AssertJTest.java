@@ -1,4 +1,4 @@
-package edu.note.jsonutil;
+package edu.note.json.jsonunit;
 
 import static net.javacrumbs.jsonunit.assertj.JsonAssertions.assertThatJson;
 

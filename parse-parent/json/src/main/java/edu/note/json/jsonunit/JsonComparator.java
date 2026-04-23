@@ -1,4 +1,4 @@
-package edu.note.jsonunit;
+package edu.note.json.jsonunit;
 
 /**
  * @author jackylee

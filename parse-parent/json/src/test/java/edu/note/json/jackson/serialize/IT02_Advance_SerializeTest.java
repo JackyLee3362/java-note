@@ -1,4 +1,4 @@
-package edu.note.jackson.serialize;
+package edu.note.json.jackson.serialize;
 
 import java.io.IOException;
 import java.util.List;

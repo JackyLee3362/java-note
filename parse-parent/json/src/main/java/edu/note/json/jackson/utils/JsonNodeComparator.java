@@ -1,4 +1,4 @@
-package edu.note.jackson.utils;
+package edu.note.json.jackson.utils;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;

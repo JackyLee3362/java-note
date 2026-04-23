@@ -1,4 +1,4 @@
-package edu.note.jsonutil;
+package edu.note.json.jsonunit;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
