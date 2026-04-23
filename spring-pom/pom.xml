@@ -12,7 +12,6 @@
   <modules>
     <module>spring-aop</module>
     <module>spring-starter</module>
-    <module>spring-boot</module>
     <module>spring-test</module>
     <module>spring-boot-db</module>
     <module>spring-bean-anno</module>

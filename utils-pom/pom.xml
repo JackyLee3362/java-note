@@ -26,7 +26,6 @@
     <module>jwt</module>
     <module>rest-template</module>
     <module>crypt</module>
-    <module>csv</module>
     <module>state-machine</module>
     <module>validate</module>
   </modules>
