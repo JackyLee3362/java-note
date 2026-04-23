@@ -1,4 +1,4 @@
-package edu.note.validation;
+package edu.note.validator.hibernate;
 
 import java.util.Set;
 

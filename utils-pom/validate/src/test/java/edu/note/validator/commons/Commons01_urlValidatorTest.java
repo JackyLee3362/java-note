@@ -1,4 +1,4 @@
-package edu.note.validator;
+package edu.note.validator.commons;
 
 import org.apache.commons.validator.routines.UrlValidator;
 import org.junit.jupiter.api.DisplayName;

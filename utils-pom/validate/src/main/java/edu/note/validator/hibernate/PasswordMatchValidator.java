@@ -1,4 +1,4 @@
-package edu.note.validation;
+package edu.note.validator.hibernate;
 
 import javax.validation.ConstraintValidator;
 
