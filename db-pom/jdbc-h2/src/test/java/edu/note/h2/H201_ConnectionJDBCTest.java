@@ -13,7 +13,9 @@ import org.junit.jupiter.api.Test;
 import lombok.extern.slf4j.Slf4j;
 
 /**
- * h2 默认用户名是 sa(System Administrator)，密码为空
+ * h2 数据库
+ * 默认用户名是 "sa", System Administrator
+ * 默认密码是 ""
  * 
  * @author jackylee
  * @date 2025-09-30 08:38

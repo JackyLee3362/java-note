@@ -26,10 +26,12 @@
     <module>json-pom</module>
     <module>logging-pom</module>
     <module>db-pom</module>
+    <module>db-pool-parent</module>
     <module>web-pom</module>
     <module>parse-parent</module>
     <module>mq-pom</module>
     <module>task-pom</module>
+    <module>db-orm-parent</module>
   </modules>
 
 </project>

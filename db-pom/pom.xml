@@ -16,14 +16,10 @@
   </properties>
 
   <modules>
-    <module>mybatis</module>
-    <module>mybatis-plus</module>
-    <module>mybatis-springboot</module>
     <module>jdbc-h2</module>
     <module>druid</module>
     <module>c3p0</module>
     <module>redis</module>
-    <module>mybatis-generate</module>
   </modules>
 
 </project>
