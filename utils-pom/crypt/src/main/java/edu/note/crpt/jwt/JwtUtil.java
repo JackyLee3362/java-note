@@ -1,4 +1,4 @@
-package edu.note.jwt;
+package edu.note.crpt.jwt;
 
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.JwtBuilder;

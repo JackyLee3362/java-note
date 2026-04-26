@@ -1,10 +1,12 @@
-package edu.note.jwt;
-
-import io.jsonwebtoken.Claims;
-import org.junit.jupiter.api.Test;
+package edu.note.crypt.jwt;
 
 import java.util.HashMap;
 import java.util.Map;
+
+import org.junit.jupiter.api.Test;
+
+import edu.note.crpt.jwt.JwtUtil;
+import io.jsonwebtoken.Claims;
 
 class JwtUtilTest {
     static String token;
