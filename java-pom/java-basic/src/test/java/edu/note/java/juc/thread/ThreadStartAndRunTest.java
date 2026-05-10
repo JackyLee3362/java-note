@@ -8,7 +8,7 @@ import lombok.extern.slf4j.Slf4j;
 //  run 方法是 main 线程执行
 //  start 是在线程中执行的
 @Slf4j
-public class StartAndRunTest {
+public class ThreadStartAndRunTest {
 
     Thread t = new Thread(() -> {
         log.debug("running...");

@@ -5,7 +5,7 @@ import org.junit.jupiter.api.Test;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
-public class YieldTest {
+public class ThreadYieldTest {
     static final int MAX_COUNT = 2000;
 
     Runnable r1 = () -> {

@@ -18,7 +18,7 @@ import lombok.extern.slf4j.Slf4j;
  * @date: 2024/3/30 11:22
  */
 @Slf4j
-public class ThreadCreateTest {
+public class ThreadCreationTest {
 
     @Test
     @DisplayName("Thread 类创建")
