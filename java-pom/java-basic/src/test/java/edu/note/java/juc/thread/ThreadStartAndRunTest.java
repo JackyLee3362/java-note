@@ -1,29 +1,29 @@
 package edu.note.java.juc.thread;
 
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import lombok.extern.slf4j.Slf4j;
 
-// run 方法 和 start 方法区别
-//  run 方法是 main 线程执行
-//  start 是在线程中执行的
 @Slf4j
 public class ThreadStartAndRunTest {
 
     Thread t = new Thread(() -> {
-        log.debug("running...");
+        log.info("running...");
     });
 
     @Test
-    void testStart() {
-        t.start();
-        log.debug("主线程");
+    @DisplayName("run() 在主线程中执行")
+    void testRun() {
+        log.info("主线程运行");
+        t.run();
     }
 
     @Test
-    void testRun() {
-        log.debug("主线程");
-        t.run();
-        log.debug("主线程 在做其他事情 ... ");
+    @DisplayName("start() 在线程中执行")
+    void testStart() {
+        log.info("主线程运行");
+        t.start();
     }
+
 }
