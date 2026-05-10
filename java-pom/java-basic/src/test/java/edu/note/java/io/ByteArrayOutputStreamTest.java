@@ -1,5 +1,6 @@
 package edu.note.java.io;
 
+import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.io.ByteArrayOutputStream;
@@ -20,7 +21,7 @@ public class ByteArrayOutputStreamTest {
         // 默认长度是 1024
         ByteArrayOutputStream bos = new ByteArrayOutputStream();
         bos.write(bytes);
-        // assertEquals(1024, ...);
+        assertArrayEquals(bytes, bos.toByteArray());
         bos.close();
     }
 }

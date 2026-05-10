@@ -27,7 +27,7 @@ import org.junit.jupiter.api.Test;
  *       public BufferedWriter(Writer r)
  */
 // IO 缓冲流
-public class BufferStreamTest extends BaseIOTest {
+public class BufferStreamTest {
 
     File read = IOUtil.createTempFile("buffer read");
     File write = IOUtil.createWritableFile("buffer.write.txt");

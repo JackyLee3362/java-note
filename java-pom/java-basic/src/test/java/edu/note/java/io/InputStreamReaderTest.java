@@ -8,23 +8,21 @@ import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.nio.charset.Charset;
 import java.nio.file.Files;
+
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 /**
  * @author jackylee
- * @date 2024/12/1 上午12:01
+ * @date 2026-05-10 15:26
  */
-// 转换流
-public class TransStreamTest extends BaseIOTest {
-
-    File read = new File(ioDir, "trans.read.gbk.txt");
-    File write = new File(resource, "trans.write.txt");
+public class InputStreamReaderTest {
 
     // 利用转换流按照指定字符编码读取
     @Test
-    @DisplayName("字节流to字符流（jdk11前）")
+    @DisplayName("字节流to字符流(jdk4+)")
     void test_01_before_jdk11() throws IOException {
+        File read = IOUtil.createTempFile("你好");
         // JDK11 之前的方案
         // 1.创建对象并指定字符编码
         InputStreamReader isr = new InputStreamReader(Files.newInputStream(read.toPath()), Charset.forName("GBK"));
@@ -37,9 +35,11 @@ public class TransStreamTest extends BaseIOTest {
         isr.close();
     }
 
+    // 利用转换流按照指定字符编码读取
     @Test
-    @DisplayName("字节流to字符流（jdk11后）")
+    @DisplayName("字节流to字符流(jdk11+)")
     void test_01_after_jdk11() throws IOException {
+        File read = IOUtil.createTempFile("你好");
         // JDK11 之后才有这个构造方法
         FileReader fr = new FileReader(read);// , Charset.forName("GBK"));
         // 2.读取数据
@@ -53,8 +53,9 @@ public class TransStreamTest extends BaseIOTest {
     }
 
     @Test
-    @DisplayName("字符流to字节流（jdk11前）")
+    @DisplayName("字符流to字节流(jdk11前)")
     void test_02_before_jdk11() throws IOException {
+        File write = IOUtil.createWritableFile("write.txt");
 
         // 1.创建转换流的对象
         // OutputStreamWriter osw = new OutputStreamWriter(new FileOutputStream(f2),
@@ -68,8 +69,9 @@ public class TransStreamTest extends BaseIOTest {
     }
 
     @Test
-    @DisplayName("字符流to字节流（jdk11后）")
+    @DisplayName("字符流to字节流(jdk11后)")
     void test_02_after_jdk11() throws IOException {
+        File write = IOUtil.createWritableFile("write.txt");
         // JDK11之后的构造方法
         // FileWriter fw = new FileWriter(f2, Charset.forName("GBK"));
         FileWriter fw = new FileWriter(write); // Charset.forName("GBK"));
@@ -78,8 +80,10 @@ public class TransStreamTest extends BaseIOTest {
     }
 
     @Test
-    @DisplayName("GBK转UTF8（jdk11前）")
+    @DisplayName("GBK转UTF8(jdk11前)")
     void test_03_before_jdk11() throws IOException {
+        File write = IOUtil.createWritableFile("write.txt");
+        File read = IOUtil.createTempFile("你好");
         // InputStreamReader isr = new InputStreamReader(new FileInputStream(f1),
         // "GBK");
         InputStreamReader isr = new InputStreamReader(Files.newInputStream(read.toPath()));
@@ -97,8 +101,10 @@ public class TransStreamTest extends BaseIOTest {
     }
 
     @Test
-    @DisplayName("GBK转UTF8（jdk11后）")
+    @DisplayName("GBK转UTF8(jdk11后)")
     void test03() throws IOException {
+        File read = IOUtil.createTempFile("你好");
+        File write = IOUtil.createWritableFile("write.txt");
 
         // 2.替代方案
         FileReader fr = new FileReader(read); // , Charset.forName("GBK"));
@@ -112,5 +118,4 @@ public class TransStreamTest extends BaseIOTest {
         fr.close();
 
     }
-
 }

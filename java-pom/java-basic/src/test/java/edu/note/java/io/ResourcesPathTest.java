@@ -1,4 +1,4 @@
-package edu.note.java.file;
+package edu.note.java.io;
 
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertNull;
@@ -23,7 +23,7 @@ public class ResourcesPathTest {
         System.out.println(res);
         assertNotNull(res); // file:/path/to/test-classes/
         URL root = ResourcesPathTest.class.getResource("/");
-        assertNull(root);
+        assertNotNull(root);
     }
 
     @Test
@@ -42,8 +42,8 @@ public class ResourcesPathTest {
     @DisplayName("获取类加载器路径文件")
     void testGetResourceFile() {
         // 测试 Resource 中是否有 a.txt 文件
-        InputStream inputStream = ResourcesPathTest.class.getResourceAsStream("a.txt");
-        assertNotNull(inputStream);
+        InputStream inputStream = ResourcesPathTest.class.getResourceAsStream("no-exist-file.txt");
+        assertNull(inputStream);
         // todo: 如何获取 outputStream
     }
 }

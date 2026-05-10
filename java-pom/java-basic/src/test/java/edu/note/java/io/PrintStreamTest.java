@@ -7,6 +7,7 @@ import java.io.PrintStream;
 import java.io.PrintWriter;
 import java.nio.file.Files;
 import java.util.Date;
+
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -28,15 +29,12 @@ import org.junit.jupiter.api.Test;
  * public void print(Xxx xx) 特有方法：打印任意数据，不换行
  * public void printf(String format, Object... args) 特有方法：带有占位符的打印语句，不换行
  */
-public class PrintStreamTest extends BaseIOTest {
-
-    File read = new File(ioDir, "print.read.txt");
-    File write = new File(ioDir, "print.write.txt");
+public class PrintStreamTest  {
 
     @Test
     @DisplayName("字节打印流 Demo")
     void test01() throws IOException {
-
+        File write = IOUtil.createWritableFile("write.txt");
         // 1.创建字节打印流的对象
         PrintStream ps = new PrintStream(Files.newOutputStream(write.toPath()));
         // 2.写出数据
@@ -198,6 +196,7 @@ public class PrintStreamTest extends BaseIOTest {
          * public void printf(String format, Object... args) 特有方法：带有占位符的打印语句，不换行
          */
 
+        File write = IOUtil.createWritableFile("write.txt");
         // 1.创建字符打印流的对象
         PrintWriter pw = new PrintWriter(new FileWriter(write), true);
 
