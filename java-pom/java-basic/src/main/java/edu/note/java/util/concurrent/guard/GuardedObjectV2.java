@@ -5,7 +5,7 @@ import lombok.extern.slf4j.Slf4j;
 /**
  * 添加超时处理
  */
-@Slf4j(topic = "c.GuardedObjectV2")
+@Slf4j
 public class GuardedObjectV2 {
 
     private Object response;

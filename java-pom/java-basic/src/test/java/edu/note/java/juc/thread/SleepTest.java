@@ -5,7 +5,7 @@ import org.junit.jupiter.api.Test;
 
 import edu.note.java.util.Sleeper;
 
-@Slf4j(topic = "c.Test6")
+@Slf4j
 public class SleepTest {
 
     @Test

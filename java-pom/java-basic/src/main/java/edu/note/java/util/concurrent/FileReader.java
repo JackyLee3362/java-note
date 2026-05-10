@@ -8,7 +8,7 @@ import java.util.Random;
 import edu.note.java.util.Sleeper;
 import lombok.extern.slf4j.Slf4j;
 
-@Slf4j(topic = "c.FileReader")
+@Slf4j
 public class FileReader {
 
     public static void pseudoRead(String filename) {

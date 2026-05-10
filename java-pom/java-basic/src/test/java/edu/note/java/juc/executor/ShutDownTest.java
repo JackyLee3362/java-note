@@ -14,7 +14,7 @@ import org.junit.jupiter.api.Test;
 import edu.note.java.util.Sleeper;
 import lombok.extern.slf4j.Slf4j;
 
-@Slf4j(topic = "c.ShutDownTest")
+@Slf4j
 public class ShutDownTest {
 
     Runnable task1 = () -> {

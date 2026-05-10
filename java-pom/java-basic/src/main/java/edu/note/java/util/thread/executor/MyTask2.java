@@ -7,7 +7,7 @@ import lombok.extern.slf4j.Slf4j;
  * @author jackylee
  * @date 2025/9/18 15:13
  */
-@Slf4j(topic = "c.MyTask2")
+@Slf4j
 public class MyTask2 extends RecursiveTask<Integer> {
 
     int begin;

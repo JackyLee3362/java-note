@@ -9,7 +9,7 @@ import lombok.Getter;
 import lombok.extern.slf4j.Slf4j;
 
 // Day4 55
-@Slf4j(topic = "c.Test20")
+@Slf4j
 public class TestMailboxDemo {
     public static void main(String[] args) throws InterruptedException {
         for (int i = 0; i < 3; i++) {
@@ -22,7 +22,7 @@ public class TestMailboxDemo {
     }
 }
 
-@Slf4j(topic = "c.People")
+@Slf4j
 class People extends Thread {
     @Override
     public void run() {
@@ -34,7 +34,7 @@ class People extends Thread {
     }
 }
 
-@Slf4j(topic = "c.Postman")
+@Slf4j
 class Postman extends Thread {
     private int id;
     private String mail;

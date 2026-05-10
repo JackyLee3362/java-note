@@ -13,7 +13,7 @@ import org.junit.jupiter.api.Test;
 import lombok.extern.slf4j.Slf4j;
 
 // public static ExecutorService newFixedThreadPool (int nThreads) 创建有上限的线程池
-@Slf4j(topic = "c.ThreadPool")
+@Slf4j
 public class ExecutorsV2Test {
 
     Runnable runnable = () -> {

@@ -8,7 +8,7 @@ import lombok.extern.slf4j.Slf4j;
  * JVM 会在所有非守护线程执行完后退出，
  * t1 设置为守护线程后，即使线程未执行完，也会退出
  */
-@Slf4j(topic = "c.Daemon01Demo")
+@Slf4j
 public class Daemon01Demo {
 
     public static void main(String[] args) {

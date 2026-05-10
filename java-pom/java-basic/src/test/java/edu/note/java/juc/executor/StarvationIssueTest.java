@@ -13,7 +13,7 @@ import edu.note.java.util.Sleeper;
 import lombok.extern.slf4j.Slf4j;
 
 // https://www.cnblogs.com/heliusKing/p/12288226.html
-@Slf4j(topic = "c.StarvationIssueTest")
+@Slf4j
 public class StarvationIssueTest {
 
     static Random RANDOM = new Random();

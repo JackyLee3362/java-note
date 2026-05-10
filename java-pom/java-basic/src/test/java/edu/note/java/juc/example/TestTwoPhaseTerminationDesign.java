@@ -15,7 +15,7 @@ public class TestTwoPhaseTerminationDesign {
         tpt.stop();
     }
 
-    @Slf4j(topic = "c.TwoPhaseTermination")
+    @Slf4j
     static class TwoPhaseTermination {
 
         // 监控线程

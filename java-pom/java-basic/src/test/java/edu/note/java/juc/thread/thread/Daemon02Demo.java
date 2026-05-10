@@ -3,7 +3,7 @@ package edu.note.java.juc.thread.thread;
 import edu.note.java.util.Sleeper;
 import lombok.extern.slf4j.Slf4j;
 
-@Slf4j(topic = "c.Daemon02Demo")
+@Slf4j
 public class Daemon02Demo {
     public static void main(String[] args) {
         Thread t1 = new Thread(() -> {

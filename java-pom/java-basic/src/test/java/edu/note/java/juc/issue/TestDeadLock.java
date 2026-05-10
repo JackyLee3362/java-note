@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Test;
 import edu.note.java.util.Sleeper;
 import lombok.extern.slf4j.Slf4j;
 
-@Slf4j(topic = "c.TestDeadLockV1")
+@Slf4j
 public class TestDeadLock {
 
     @Test

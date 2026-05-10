@@ -8,7 +8,7 @@ import edu.note.java.util.concurrent.guard.Features;
 import edu.note.java.util.concurrent.guard.GuardedObjectV3;
 import lombok.extern.slf4j.Slf4j;
 
-@Slf4j(topic = "c.TestGuardedObjectV3")
+@Slf4j
 public class TestGuardedObjectV3 {
     public static void main(String[] args) {
         for (int i = 0; i < 3; i++) {

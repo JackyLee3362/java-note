@@ -10,7 +10,7 @@ import lombok.extern.slf4j.Slf4j;
  * @author jackylee
  * @date 2024/12/18 00:03
  */
-@Slf4j(topic = "c.test-thread-pool")
+@Slf4j
 public class MyThreadPoolTest {
 
     public static void main(String[] args) {

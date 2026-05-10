@@ -14,7 +14,7 @@ public class TestTwoPhaseTermination {
     }
 }
 
-@Slf4j(topic = "c.TPTInterrupt")
+@Slf4j
 class TPTInterrupt {
     private Thread thread;
 
@@ -43,7 +43,7 @@ class TPTInterrupt {
     }
 }
 
-@Slf4j(topic = "c.TPTVolatile")
+@Slf4j
 class TPTVolatile {
     private Thread thread;
     private volatile boolean stop = false;

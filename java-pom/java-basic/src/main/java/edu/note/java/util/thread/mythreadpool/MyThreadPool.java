@@ -9,7 +9,7 @@ import lombok.extern.slf4j.Slf4j;
  * @date 2024/12/17 23:20
  */
 
-@Slf4j(topic = "c.thread-poll")
+@Slf4j
 public class MyThreadPool {
 
     private final MyBlockingQueue<Runnable> taskQueue;

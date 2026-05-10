@@ -6,7 +6,7 @@ import lombok.extern.slf4j.Slf4j;
  * @author jackylee
  * @date 2024/11/29 下午2:58
  */
-@Slf4j(topic = "c.thread.local")
+@Slf4j
 public class ThreadLocalDemo {
 
     public static ThreadLocal<String> userName = new ThreadLocal<>();

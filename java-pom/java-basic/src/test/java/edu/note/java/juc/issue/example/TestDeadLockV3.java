@@ -6,7 +6,7 @@ import edu.note.java.util.Sleeper;
 import edu.note.java.util.concurrent.model.Chopstick;
 import lombok.extern.slf4j.Slf4j;
 
-@Slf4j(topic = "c.TestDeadLockV1")
+@Slf4j
 public class TestDeadLockV3 {
     public static AtomicInteger STATE = new AtomicInteger(0b00000);
 
@@ -24,7 +24,7 @@ public class TestDeadLockV3 {
     }
 }
 
-@Slf4j(topic = "c.PhilosopherV3")
+@Slf4j
 class PhilosopherV3 extends Thread {
     Chopstick left;
     Chopstick right;

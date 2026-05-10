@@ -14,7 +14,7 @@ import lombok.extern.slf4j.Slf4j;
  * @author jackylee
  * @date 2024/12/2 17:04
  */
-@Slf4j(topic = "c.TestState")
+@Slf4j
 public class ThreadStatusTest {
 
     @Test

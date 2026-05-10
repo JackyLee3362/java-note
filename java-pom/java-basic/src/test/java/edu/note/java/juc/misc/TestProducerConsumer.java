@@ -7,7 +7,7 @@ import java.util.List;
 import edu.note.java.util.concurrent.Downloader;
 import lombok.extern.slf4j.Slf4j;
 
-@Slf4j(topic = "c.TestProducerConsumer")
+@Slf4j
 public class TestProducerConsumer {
     public static void main(String[] args) {
         MessageQueue messageQueue = new MessageQueue(2);
@@ -54,7 +54,7 @@ class Message {
     }
 }
 
-@Slf4j(topic = "c.MessageQueue")
+@Slf4j
 class MessageQueue {
     private LinkedList<Message> queue;
     private int capacity;

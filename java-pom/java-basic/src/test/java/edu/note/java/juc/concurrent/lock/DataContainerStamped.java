@@ -11,7 +11,7 @@ import lombok.extern.slf4j.Slf4j;
  * @author jackylee
  * @date 2025/8/26 20:31
  */
-@Slf4j(topic = "c.DataContainerStamped")
+@Slf4j
 public class DataContainerStamped {
 
     @Getter

@@ -9,7 +9,7 @@ import lombok.extern.slf4j.Slf4j;
  * @author jackylee
  * @date 2025/9/18 09:33
  */
-@Slf4j(topic = "c.printer")
+@Slf4j
 public class Printer {
 
     /**

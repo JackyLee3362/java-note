@@ -15,7 +15,7 @@ import lombok.extern.slf4j.Slf4j;
  * @author jackylee
  * @date 2025/9/18 15:44
  */
-@Slf4j(topic = "c.TestSchedule")
+@Slf4j
 public class TestSchedule {
 
     @Test

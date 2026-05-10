@@ -16,7 +16,7 @@ import lombok.extern.slf4j.Slf4j;
  * @author jackylee
  * @date 2025/9/18 13:03
  */
-@Slf4j(topic = "c.CompletableFuture")
+@Slf4j
 public class CompletableFutureTest {
 
     @Test

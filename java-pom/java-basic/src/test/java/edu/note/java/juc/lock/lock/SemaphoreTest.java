@@ -1,0 +1,42 @@
+package edu.note.java.juc.lock.lock;
+
+import java.util.concurrent.Semaphore;
+
+import org.junit.jupiter.api.Test;
+
+import edu.note.java.util.Sleeper;
+import lombok.extern.slf4j.Slf4j;
+
+@Slf4j
+public class SemaphoreTest {
+
+
+    @Test
+    void test01() {
+
+        // 1. 创建 semaphore 对象
+        Semaphore semaphore = new Semaphore(3);
+
+        // 2. 10个线程同时运行
+        for (int i = 0; i < 9; i++) {
+            new Thread(() -> {
+                try {
+                    log.debug("enter...");
+                    semaphore.acquire();
+                    log.info("acquire...");
+                } catch (InterruptedException e) {
+                    throw new RuntimeException(e);
+                }
+                try {
+                    log.debug("running...");
+                    Sleeper.sleepRandom(1000);
+                    log.debug("end...");
+                } finally {
+                    log.info("release...");
+                    semaphore.release();
+                }
+            }).start();
+        }
+        Sleeper.sleep(5);
+    }
+}

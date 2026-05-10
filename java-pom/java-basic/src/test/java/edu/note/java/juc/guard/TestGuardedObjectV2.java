@@ -8,7 +8,7 @@ import edu.note.java.util.Sleeper;
 import edu.note.java.util.concurrent.guard.GuardedObjectV2;
 import lombok.extern.slf4j.Slf4j;
 
-@Slf4j(topic = "c.TestGuardedObjectV2")
+@Slf4j
 public class TestGuardedObjectV2 {
     public static void main(String[] args) {
         GuardedObjectV2 v2 = new GuardedObjectV2();

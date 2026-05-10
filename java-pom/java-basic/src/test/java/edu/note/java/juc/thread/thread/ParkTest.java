@@ -13,7 +13,7 @@ import org.junit.jupiter.api.Test;
 import edu.note.java.util.Sleeper;
 import lombok.extern.slf4j.Slf4j;
 
-@Slf4j(topic = "c.ParkTest")
+@Slf4j
 public class ParkTest {
 
     public static void main(String[] args) {

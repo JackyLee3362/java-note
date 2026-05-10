@@ -9,7 +9,7 @@ import org.junit.jupiter.api.Test;
 import edu.note.java.util.Sleeper;
 import lombok.extern.slf4j.Slf4j;
 
-@Slf4j(topic = "c.JoinTest")
+@Slf4j
 public class JoinTest {
 
     static int r0 = 0;

@@ -8,7 +8,7 @@ import edu.note.java.util.concurrent.Downloader;
 import edu.note.java.util.concurrent.guard.GuardedObjectV1;
 import lombok.extern.slf4j.Slf4j;
 
-@Slf4j(topic = "c.TestGuardedObject")
+@Slf4j
 public class TestGuardedObjectV1 {
     public static void main(String[] args) {
         GuardedObjectV1 guardedObjectV1 = new GuardedObjectV1();

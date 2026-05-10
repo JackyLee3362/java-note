@@ -4,7 +4,7 @@ package edu.note.java.juc.issue;
 import edu.note.java.util.Sleeper;
 import lombok.extern.slf4j.Slf4j;
 
-@Slf4j(topic = "c.TestLiveLock")
+@Slf4j
 // 活锁
 public class TestLiveLock {
     static volatile int count = 10;

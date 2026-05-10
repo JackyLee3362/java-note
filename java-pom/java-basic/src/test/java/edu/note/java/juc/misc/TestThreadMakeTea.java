@@ -4,7 +4,7 @@ package edu.note.java.juc.misc;
 import edu.note.java.util.Sleeper;
 import lombok.extern.slf4j.Slf4j;
 
-@Slf4j(topic = "c.TestThreadMakeTea")
+@Slf4j
 public class TestThreadMakeTea {
 
     public static void main(String[] args) {
@@ -39,7 +39,7 @@ public class TestThreadMakeTea {
     }
 }
 
-@Slf4j(topic = "c.S2")
+@Slf4j
 class S2 {
     static String kettle = "冷水";
     static String tea = null;
@@ -95,7 +95,7 @@ class S2 {
     }
 }
 
-@Slf4j(topic = "c.S3")
+@Slf4j
 class S3 {
     static String kettle = "冷水";
     static String tea = null;

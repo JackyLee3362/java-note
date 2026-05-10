@@ -10,7 +10,7 @@ import lombok.extern.slf4j.Slf4j;
  * @author jackylee
  * @date 2025/9/1 13:13
  */
-@Slf4j(topic = "c.MyQueueV2")
+@Slf4j
 public class MyQueueV2<E> implements Queue<E> {
 
     @Override

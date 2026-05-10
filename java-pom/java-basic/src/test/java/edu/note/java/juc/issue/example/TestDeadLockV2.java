@@ -19,7 +19,7 @@ public class TestDeadLockV2 {
     }
 }
 
-@Slf4j(topic = "c.PhilosopherV2")
+@Slf4j
 class PhilosopherV2 extends Thread {
     Chopstick left;
     Chopstick right;
