@@ -9,13 +9,13 @@ import lombok.extern.slf4j.Slf4j;
  * @date 2025/9/18 15:03
  */
 @Slf4j
-public class ThreadPool {
+public class MyThreadPool {
 
     // 任务队列
     private final BlockingQueue<Runnable> taskQueue;
 
     // 线程集合
-    private final HashSet<Worker> workers = new HashSet<>();
+    private final HashSet<MyWorker> workers = new HashSet<>();
 
     // 核心线程数
     private final int coreSize;
@@ -25,7 +25,7 @@ public class ThreadPool {
 
     private final TimeUnit timeUnit;
 
-    private final RejectPolicy<Runnable> rejectPolicy;
+    private final MyRejectPolicy<Runnable> rejectPolicy;
 
     // 执行任务
     public void execute(Runnable task) {
@@ -33,7 +33,7 @@ public class ThreadPool {
         // 如果任务数超过 coreSize 时，加入任务队列暂存
         synchronized (workers) {
             if (workers.size() < coreSize) {
-                Worker worker = new Worker(task);
+                MyWorker worker = new MyWorker(task);
                 log.debug("新增 worker{}, {}", worker, task);
                 workers.add(worker);
                 worker.start();
@@ -49,8 +49,8 @@ public class ThreadPool {
         }
     }
 
-    public ThreadPool(int coreSize, long timeout, TimeUnit timeUnit, int queueCapcity,
-        RejectPolicy<Runnable> rejectPolicy) {
+    public MyThreadPool(int coreSize, long timeout, TimeUnit timeUnit, int queueCapcity,
+        MyRejectPolicy<Runnable> rejectPolicy) {
         this.coreSize = coreSize;
         this.timeout = timeout;
         this.timeUnit = timeUnit;
@@ -58,11 +58,11 @@ public class ThreadPool {
         this.rejectPolicy = rejectPolicy;
     }
 
-    public class Worker extends Thread {
+    public class MyWorker extends Thread {
 
         private Runnable task;
 
-        public Worker(Runnable task) {
+        public MyWorker(Runnable task) {
             this.task = task;
         }
 

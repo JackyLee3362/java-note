@@ -2,27 +2,28 @@ package edu.note.java.juc.executor;
 
 import java.util.concurrent.TimeUnit;
 
-import edu.note.java.util.thread.executor.ThreadPool;
+import edu.note.java.util.thread.executor.MyRejectPolicy;
+import edu.note.java.util.thread.executor.MyThreadPool;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 public class TestPool {
     public static void main(String[] args) {
         // 有个问题修复不了
-        
-        ThreadPool threadPool = new ThreadPool(1,
-                1000, TimeUnit.MILLISECONDS, 1, (queue, task) -> {
-                    // 1. 死等
-                    // queue.put(task);
-                    // 2) 带超时等待
-                    // queue.offer(task, 1500, TimeUnit.MILLISECONDS);
-                    // 3) 让调用者放弃任务执行
-                    // log.debug("放弃{}", task);
-                    // 4) 让调用者抛出异常
-                    // throw new RuntimeException("任务执行失败 " + task);
-                    // 5) 让调用者自己执行任务
-                    task.run();
-                });
+        MyRejectPolicy<Runnable> policy = (queue, task) -> {
+            // 1. 死等
+            // queue.put(task);
+            // 2) 带超时等待
+            // queue.offer(task, 1500, TimeUnit.MILLISECONDS);
+            // 3) 让调用者放弃任务执行
+            // log.debug("放弃{}", task);
+            // 4) 让调用者抛出异常
+            // throw new RuntimeException("任务执行失败 " + task);
+            // 5) 让调用者自己执行任务
+            task.run();
+        };
+
+        MyThreadPool threadPool = new MyThreadPool(1, 1000, TimeUnit.MILLISECONDS, 1, policy);
         for (int i = 0; i < 4; i++) {
             int j = i;
             threadPool.execute(() -> {
@@ -36,4 +37,3 @@ public class TestPool {
         }
     }
 }
-

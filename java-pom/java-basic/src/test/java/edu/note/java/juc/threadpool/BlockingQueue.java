@@ -1,36 +1,35 @@
-package edu.note.java.util.thread.executor;
+package edu.note.java.juc.threadpool;
+
+import lombok.extern.slf4j.Slf4j;
 
 import java.util.ArrayDeque;
 import java.util.Deque;
+import java.util.HashSet;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.ReentrantLock;
-import lombok.extern.slf4j.Slf4j;
 
-/**
- * @author jackylee
- * @date 2025/9/18 15:03
- */
+
+
 @Slf4j
 public class BlockingQueue<T> {
-
     // 1. 任务队列
-    private final Deque<T> queue = new ArrayDeque<>();
+    private Deque<T> queue = new ArrayDeque<>();
 
     // 2. 锁
-    private final ReentrantLock lock = new ReentrantLock();
+    private ReentrantLock lock = new ReentrantLock();
 
     // 3. 生产者条件变量
-    private final Condition fullWaitSet = lock.newCondition();
+    private Condition fullWaitSet = lock.newCondition();
 
     // 4. 消费者条件变量
-    private final Condition emptyWaitSet = lock.newCondition();
+    private Condition emptyWaitSet = lock.newCondition();
 
-    // 5. 容量(最大任务数)
-    private final int capacity;
+    // 5. 容量
+    private int capcity;
 
-    public BlockingQueue(int capacity) {
-        this.capacity = capacity;
+    public BlockingQueue(int capcity) {
+        this.capcity = capcity;
     }
 
     // 带超时阻塞获取
@@ -81,7 +80,7 @@ public class BlockingQueue<T> {
     public void put(T task) {
         lock.lock();
         try {
-            while (queue.size() == capacity) {
+            while (queue.size() == capcity) {
                 try {
                     log.debug("等待加入任务队列 {} ...", task);
                     fullWaitSet.await();
@@ -102,7 +101,7 @@ public class BlockingQueue<T> {
         lock.lock();
         try {
             long nanos = timeUnit.toNanos(timeout);
-            while (queue.size() == capacity) {
+            while (queue.size() == capcity) {
                 try {
                     if (nanos <= 0) {
                         return false;
@@ -131,13 +130,12 @@ public class BlockingQueue<T> {
         }
     }
 
-    public void tryPut(MyRejectPolicy<T> rejectPolicy, T task) {
+    public void tryPut(T task, RejectPolicy rejectPolicy) {
         lock.lock();
         try {
-            // 判断队列是否满
-            if (queue.size() == capacity) {
+            if (queue.size() == capcity) {
                 rejectPolicy.reject(this, task);
-            } else { // 有空闲
+            } else {
                 log.debug("加入任务队列 {}", task);
                 queue.addLast(task);
                 emptyWaitSet.signal();

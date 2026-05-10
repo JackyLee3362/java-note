@@ -4,7 +4,7 @@ import java.util.concurrent.TimeUnit;
 
 import lombok.extern.slf4j.Slf4j;
 
-@Slf4j(topic = "c.TestThreadPool")
+@Slf4j
 public class TestThreadPool {
     public static void main(String[] args) throws InterruptedException {
 
