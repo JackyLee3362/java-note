@@ -16,6 +16,18 @@ public class BigDecimalTest {
 
     @Test
     @DisplayName("测试 BigDecimal 构造器")
+    void test_() {
+        // given:
+        Long num = Long.parseLong("100,000.1");
+        System.out.println(num);
+        // when:
+
+        // then:
+
+    }
+
+    @Test
+    @DisplayName("测试 BigDecimal 构造器")
     public void test01() {
         BigDecimal b1 = new BigDecimal(1);
         BigDecimal b2 = new BigDecimal("1.0");

@@ -14,24 +14,21 @@ public class BufferedReaderStatTimeTest extends BaseIOTest {
     private static final File src = new File(ioDir, "buffer.copy.src.txt");
     private static final File dst = new File(ioDir, "buffer.copy.dst.txt");
 
+    /*
+     * 四种方式拷贝文件，并统计各自用时
+     * 用method2 (FileOutputStream/FileInputStream)
+     * 或者method4 (BufferedOutputStream/BufferedInputStream)
+     */
     public static void main(String[] args) throws IOException {
-           /*
-                四种方式拷贝文件，并统计各自用时
-                用method2 (FileOutputStream/FileInputStream)
-                或者method4 (BufferedOutputStream/BufferedInputStream)
-           */
-
         long start = System.currentTimeMillis();
         // method1();
-        // method2();          //16.253秒
-        // method3();          //95.466秒  // 慢的原因：一个字节一个字节搬运
-        // method4();          //17.686秒
+        // method2(); //16.253秒
+        // method3(); //95.466秒 // 慢的原因：一个字节一个字节搬运
+        // method4(); //17.686秒
         long end = System.currentTimeMillis();
         System.out.println((end - start) / 1000.0 + "秒");
 
-
     }
-
 
     // 课程中文件大小：4,588,568,576 字节
     // 字节流的基本流：一次读写一个字节

@@ -43,10 +43,9 @@ public class FileInputStreamTest extends BaseIOTest {
     void test02() throws IOException {
         FileInputStream inputStream = new FileInputStream(f1);
 
-        // 2.读取数据
+        // 2.读取数据，每次4字节
         byte[] bytes = new byte[4];
-        // 一次读取多个字节数据，具体读多少，跟数组的长度有关
-        // 返回值：本次读取到了多少个字节数据
+
         int len;
         String str;
         while ((len = inputStream.read(bytes)) != -1) {

@@ -1,5 +1,8 @@
 package edu.note.validator.commons;
 
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
 import org.apache.commons.validator.routines.UrlValidator;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -27,8 +30,9 @@ public class Commons01_urlValidatorTest {
         // given:
         UrlValidator urlValidator = new UrlValidator(new String[] { "http", "https" });
         // expect:
-        assert urlValidator.isValid("http://www.baidu.com");
-        assert !urlValidator.isValid("ftp://www.baidu.com");
+        assertTrue(urlValidator.isValid("http://www.baidu.com"));
+        assertFalse(urlValidator.isValid("http://www.baidu.comdd"));
+        assertFalse(urlValidator.isValid("ftp://www.baidu.com"));
     }
 
 }
