@@ -1,4 +1,4 @@
-package edu.note.java.socket.tcp.thread;
+package edu.note.java.net.server;
 
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;

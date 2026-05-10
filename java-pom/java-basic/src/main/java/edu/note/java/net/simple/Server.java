@@ -1,4 +1,4 @@
-package edu.note.java.socket.tcp.simple;
+package edu.note.java.net.simple;
 
 import java.io.IOException;
 import java.net.ServerSocket;

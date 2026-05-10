@@ -1,4 +1,4 @@
-package edu.note.socket.tcp;
+package edu.note.java.net.tcp;
 
 import java.io.IOException;
 import java.io.OutputStream;

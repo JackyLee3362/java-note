@@ -1,4 +1,4 @@
-package edu.note.socket.tcp;
+package edu.note.java.net.tcp;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
