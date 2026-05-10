@@ -2,9 +2,9 @@ package edu.note.java.juc.lock.synchronize;
 
 import org.junit.jupiter.api.Test;
 
-import edu.note.java.juc.concurrent.compare.SyncLock;
-import edu.note.java.juc.concurrent.compare.SyncPark;
-import edu.note.java.juc.concurrent.compare.SyncWaitNotify;
+import edu.note.java.juc.lock.compare.SyncLock;
+import edu.note.java.juc.lock.compare.SyncPark;
+import edu.note.java.juc.lock.compare.SyncWaitNotify;
 
 public class TestOrder {
 

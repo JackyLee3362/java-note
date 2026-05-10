@@ -1,6 +1,6 @@
 package edu.note.java.juc.lock.lock;
 
-import edu.note.java.juc.concurrent.mylock.MyLock;
+import edu.note.java.juc.lock.lock.demo.MyLock;
 import edu.note.java.util.Sleeper;
 import lombok.extern.slf4j.Slf4j;
 
@@ -12,7 +12,7 @@ import lombok.extern.slf4j.Slf4j;
 public class TestMyLock {
 
     public static void main(String[] args) {
-        edu.note.java.juc.concurrent.mylock.MyLock lock = new MyLock();
+        edu.note.java.juc.lock.lock.demo.MyLock lock = new MyLock();
         new Thread(() -> {
             lock.lock();
             try {

@@ -12,7 +12,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-import edu.note.java.juc.concurrent.lock.DataContainerStamped;
+import edu.note.java.juc.lock.lock.demo.DataContainerStamped;
 import lombok.extern.slf4j.Slf4j;
 
 /**

@@ -1,6 +1,6 @@
 package edu.note.java.juc.lock.lock;
 
-import edu.note.java.juc.concurrent.lock.MyAqsLock;
+import edu.note.java.juc.lock.lock.demo.MyAqsLock;
 import edu.note.java.util.Sleeper;
 import lombok.extern.slf4j.Slf4j;
 
