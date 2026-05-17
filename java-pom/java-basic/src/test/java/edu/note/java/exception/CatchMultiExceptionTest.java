@@ -2,7 +2,7 @@ package edu.note.java.exception;
 
 import org.junit.jupiter.api.Test;
 
-public class TestCatchMultiException {
+public class CatchMultiExceptionTest {
 
     @Test
     void test() {

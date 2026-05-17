@@ -5,7 +5,7 @@ import lombok.extern.slf4j.Slf4j;
 import java.util.function.BiFunction;
 
 @Slf4j
-public class TestBiFunction {
+public class BiFunctionTest {
     public static void main(String[] args) {
         for (int i = 0; i < 10; i++) {
             new Thread(() -> {

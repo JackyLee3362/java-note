@@ -37,7 +37,7 @@ import edu.note.java.model.User;
  * 
  * Rentention: 生命周期
  * SOURCE ：源码
- * CLASS  ：源码+字节码，默认
+ * CLASS ：源码+字节码，默认
  * RUNTIME：源码+字节码+运行
  *
  */

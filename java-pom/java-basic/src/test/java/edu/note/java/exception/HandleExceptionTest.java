@@ -4,7 +4,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import org.junit.jupiter.api.Test;
 
-public class TestHandleException {
+public class HandleExceptionTest {
 
     @Test
     void test01() {
@@ -33,13 +33,6 @@ public class TestHandleException {
             e.printStackTrace();
 
         }
-        System.out.println("看看我执行了吗？");
-
-        // 正常输出语句
-        System.out.println(123);
-
-        // 错误输出语句（而是用来打印错误信息）
-        System.err.println(123);
 
     }
 }

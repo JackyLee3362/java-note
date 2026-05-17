@@ -13,7 +13,7 @@ import org.junit.jupiter.api.Test;
  * @author jackylee
  * @date 2025-12-02 10:11
  */
-public class IntegerLong {
+public class IntegerCastToLongTest {
     @Test
     @DisplayName("测试包装类 Integer 与 Long 比较")
     void test01() {
