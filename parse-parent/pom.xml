@@ -10,6 +10,7 @@
     <modules>
         <module>json</module>
         <module>csv</module>
+        <module>excel</module>
     </modules>
 
     <properties>

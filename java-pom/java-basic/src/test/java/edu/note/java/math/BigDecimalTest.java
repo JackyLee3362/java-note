@@ -33,6 +33,17 @@ public class BigDecimalTest {
         BigDecimal b2 = new BigDecimal("1.0");
         assertEquals(b1, b2);
     }
+    
+    @Test
+    @DisplayName("测试 BigDecimal 构造器")
+    public void test_toString() {
+        BigDecimal b1 = new BigDecimal(1);
+        BigDecimal b2 = new BigDecimal("1.0");
+        assertEquals(b1.toPlainString(), "1");
+        assertEquals(b2.toPlainString(), "1.0");
+        assertEquals(b2.stripTrailingZeros().toPlainString(), "1");
+    }
+    
 
     @Test
     @DisplayName("测试 BigDecimal 加减")
